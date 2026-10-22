@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="true" name="SparkScriptHost (HelloCsGame Debug)" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="$PROJECT_DIR$/scripting/samples/HelloCsGame/bin/Debug/net8.0/HelloCsGame.runtimeconfig.json $PROJECT_DIR$/scripting/samples/HelloCsGame/bin/Debug/net8.0/HelloCsGame.dll" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SparkSharp" TARGET_NAME="SparkScriptHost" CONFIG_NAME="debug" RUN_TARGET_PROJECT_NAME="SparkSharp" RUN_TARGET_NAME="SparkScriptHost">
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../spark" />
+    <envs>
+      <env name="SPARK_ENGINE_ROOT" value="$PROJECT_DIR$/../spark" />
+      <env name="DYLD_LIBRARY_PATH" value="$PROJECT_DIR$/build/native" />
+      <env name="LD_LIBRARY_PATH" value="$PROJECT_DIR$/build/native" />
+    </envs>
+    <method v="2">
+      <option name="CMake.Build.Before.Run" value="true" />
+    </method>
+  </configuration>
+</component>

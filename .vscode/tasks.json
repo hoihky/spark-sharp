@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "spark-sharp: cmake configure (debug preset)",
+      "type": "shell",
+      "command": "cmake --preset debug -DSPARK_ENGINE_ROOT=\"${input:sparkEngineRoot}\"",
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "SPARK_ENGINE_ROOT": "${input:sparkEngineRoot}"
+        }
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "spark-sharp: build SparkScriptHost",
+      "type": "shell",
+      "command": "cmake --build ${workspaceFolder}/build --target SparkScriptHost -j",
+      "dependsOn": ["spark-sharp: cmake configure (debug preset)"],
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "spark-sharp: build HelloCsGame (Debug)",
+      "type": "shell",
+      "command": "cmake --build ${workspaceFolder}/build --target SparkHelloCsGameDebug",
+      "dependsOn": ["spark-sharp: cmake configure (debug preset)"],
+      "problemMatcher": ["$msCompile"]
+    },
+    {
+      "label": "spark-sharp: build host + HelloCsGame (Debug)",
+      "dependsOn": [
+        "spark-sharp: build SparkScriptHost",
+        "spark-sharp: build HelloCsGame (Debug)"
+      ],
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "sparkEngineRoot",
+      "type": "promptString",
+      "description": "Spark C++ engine root (assets/)",
+      "default": "${workspaceFolder}/../spark"
+    }
+  ]
+}

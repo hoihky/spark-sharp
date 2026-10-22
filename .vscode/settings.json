@@ -1,0 +1,8 @@
+{
+  "dotnet.defaultSolution": "disable",
+  "dotnet.server.useOmnisharp": false,
+  "files.exclude": {
+    "**/cmake-build-*/_deps": true,
+    "**/build/_deps": true
+  }
+}

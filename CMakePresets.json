@@ -1,0 +1,48 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 28,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "debug",
+      "displayName": "Debug (SparkInterop + SparkScriptHost)",
+      "description": "Native Debug build with CoreCLR host; SPARK_ENGINE_ROOT defaults to ../spark",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "SPARK_SHARP_BUILD_SCRIPT_HOST": "ON",
+        "SPARK_ENGINE_ROOT": {
+          "type": "PATH",
+          "value": "${sourceDir}/../spark"
+        }
+      }
+    },
+    {
+      "name": "interop-only",
+      "displayName": "Debug (SparkInterop only)",
+      "description": "Shared interop library without SparkScriptHost",
+      "binaryDir": "${sourceDir}/build-interop",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "SPARK_SHARP_BUILD_SCRIPT_HOST": "OFF",
+        "SPARK_ENGINE_ROOT": {
+          "type": "PATH",
+          "value": "${sourceDir}/../spark"
+        }
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "debug",
+      "configurePreset": "debug"
+    },
+    {
+      "name": "interop-only",
+      "configurePreset": "interop-only"
+    }
+  ]
+}

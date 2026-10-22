@@ -1,0 +1,38 @@
+# Build trees (never commit — contain machine-specific absolute paths)
+/build/
+/build-*/
+/build-interop/
+/cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+_deps/
+compile_commands.json
+
+# .NET (obj/bin embed NuGet paths and usernames)
+**/bin/
+**/obj/
+.nuget/
+**/*.nuget.g.props
+**/*.nuget.g.targets
+**/*.nuget.dgspec.json
+**/project.assets.json
+**/project.nuget.cache
+**/*FileListAbsolute.txt
+
+# IDE (keep shared run configurations only)
+.idea/*
+!.idea/runConfigurations/
+.vs/
+*.user
+*.suo
+
+# OS / secrets
+.DS_Store
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets.json

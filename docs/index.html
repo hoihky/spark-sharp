@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SparkSharp — C# bindings &amp; scripting for Spark</title>
+  <meta name="description" content="SparkSharp provides SparkInterop, generated Spark.Bindings, Spark.Scripting, and SparkScriptHost for managed games on the Spark C++ engine (.NET 8, CoreCLR, stable C ABI).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.8/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'dark', securityLevel: 'loose' });</script>
+  <style id="spark-inline-theme">
+:root {
+  --bg: #f8fafc;
+  --bg-elevated: #ffffff;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --accent: #6366f1;
+  --accent-soft: #eef2ff;
+  --accent-hover: #4f46e5;
+  --code-bg: #1e293b;
+  --code-text: #e2e8f0;
+  --topbar-height: 56px;
+  --toc-width: 220px;
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 4px 16px rgba(15, 23, 42, 0.04);
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); text-decoration: underline; }
+.site { min-height: 100vh; }
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: var(--topbar-height);
+  padding: 0 1.25rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.brand {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.brand:hover { color: var(--accent); text-decoration: none; }
+.topbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-left: auto;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+.topbar-nav a { color: var(--text-muted); text-decoration: none; }
+.topbar-nav a:hover { color: var(--accent); text-decoration: none; }
+.portfolio-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--toc-width);
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+}
+.portfolio-main { min-width: 0; }
+.hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+.hero-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.hero-badge {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: #fff;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+}
+.hero-text h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.hero-tagline {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.92rem;
+}
+.hero-links a { display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 500; }
+.section-title {
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  scroll-margin-top: calc(var(--topbar-height) + 1rem);
+}
+.section-lead { margin: 0 0 1.25rem; color: var(--text-muted); }
+.subsection-title {
+  margin: 1.75rem 0 0.75rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  scroll-margin-top: calc(var(--topbar-height) + 1rem);
+}
+.doc-body p, .doc-body ul, .doc-body ol { margin: 1rem 0; }
+.doc-body blockquote {
+  margin: 1.25rem 0;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+.doc-body code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: #f1f5f9;
+  padding: 0.15em 0.4em;
+  border-radius: 5px;
+  color: #be185d;
+}
+.doc-body pre {
+  margin: 1rem 0;
+  padding: 1rem 1.15rem;
+  background: var(--code-bg);
+  color: var(--code-text);
+  border-radius: var(--radius);
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  box-shadow: var(--shadow);
+}
+.doc-body pre code { background: none; padding: 0; color: inherit; }
+.doc-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.95rem;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.doc-body th, .doc-body td {
+  border: 1px solid var(--border);
+  padding: 0.65rem 0.85rem;
+  text-align: left;
+}
+.doc-body th { background: #f1f5f9; font-weight: 600; }
+.doc-body tr:nth-child(even) td { background: #fafbfc; }
+.pillar-grid, .feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+.pillar-card, .feature-card {
+  padding: 1.15rem 1.25rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.pillar-card h3, .feature-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+.pillar-card p, .feature-card p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.skill-list li {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+.mermaid-wrap {
+  margin: 1.25rem 0;
+  padding: 1.25rem;
+  background: #1e293b;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+}
+.toc {
+  position: sticky;
+  top: calc(var(--topbar-height) + 1.5rem);
+  align-self: start;
+  max-height: calc(100vh - var(--topbar-height) - 3rem);
+  overflow-y: auto;
+  padding-left: 0.5rem;
+}
+.toc-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin: 0 0 0.75rem;
+}
+.toc ul { list-style: none; margin: 0; padding: 0; }
+.toc li { margin: 0.35rem 0; }
+.toc a { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; display: block; }
+.toc a:hover { color: var(--accent); }
+.toc-h3 { padding-left: 0.75rem; }
+.site-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+@media (max-width: 1100px) {
+  .portfolio-layout { grid-template-columns: 1fr; }
+  .toc { display: none; }
+}
+@media (max-width: 600px) {
+  .hero { flex-direction: column; align-items: center; text-align: center; }
+  .hero-links { justify-content: center; }
+  .portfolio-layout { padding: 1.5rem 1rem 3rem; }
+  .hero-text h1 { font-size: 1.75rem; }
+  .topbar-nav { display: none; }
+}
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header class="topbar">
+      <a href="index.html" class="brand">SparkSharp</a>
+      <nav class="topbar-nav" aria-label="Primary">
+        <a href="#overview">Overview</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#quick-start">Quick start</a>
+        <a href="#debugging">Debugging</a>
+        <a href="https://github.com/hoihky/spark" target="_blank" rel="noopener">Spark engine ↗</a>
+        <a href="https://github.com/hoihky/spark-sharp" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </header>
+
+    <main class="portfolio-layout">
+      <div class="portfolio-main doc-body">
+        <section class="hero" id="top">
+          <div class="hero-badge" aria-hidden="true">C#</div>
+          <div class="hero-text">
+            <h1>SparkSharp</h1>
+            <p class="hero-tagline">
+              <strong>SparkSharp</strong> is the companion repository for
+              <a href="https://github.com/hoihky/spark" target="_blank" rel="noopener">Spark</a>:
+              a stable <strong>C interop</strong> layer (<code>SparkInterop</code>), generated
+              <strong>Spark.Bindings</strong>, the <strong>Spark.Scripting</strong> bootstrap, and an optional
+              <strong>CoreCLR</strong> host (<code>SparkScriptHost</code>) that loads your game as a .NET 8 class library.
+              The C++ engine keeps only <code>SparkScriptBind.hpp</code> annotation macros; everything else lives here.
+            </p>
+            <div class="hero-links">
+              <a href="https://github.com/hoihky/spark-sharp" target="_blank" rel="noopener">GitHub repository ↗</a>
+              <a href="#quick-start">Quick start</a>
+              <a href="https://github.com/hoihky/spark/tree/main/docs/index.html" target="_blank" rel="noopener">Spark engine docs ↗</a>
+              <a href="../README.md">README</a>
+              <a href="PATHS_AND_PRIVACY.md">Paths &amp; privacy</a>
+            </div>
+          </div>
+        </section>
+
+        <blockquote>
+          <strong>Disclaimer:</strong> This project is an experimental, work-in-progress prototype built with the help of
+          &ldquo;vibe coding&rdquo;. Things will break. Features are currently missing, and the build scripts might not work at all.
+          It is shared purely for educational or entertainment purposes.
+        </blockquote>
+
+        <section id="overview">
+          <h2 class="section-title">Overview</h2>
+          <p>
+            Managed games are <strong>not</strong> standalone executables in this stack: you ship a
+            <code>YourGame.dll</code> plus <code>runtimeconfig.json</code>, and the native
+            <code>SparkScriptHost</code> loads CoreCLR via <strong>hostfxr</strong>, calls your
+            <code>GameEntry.Initialize</code>, and registers <code>Spark.Scripting</code> callbacks that drive the same
+            <code>IGame</code> loop as C++ titles. Component APIs are mirrored from engine headers using
+            <code>SPARK_SCRIPT_BIND</code> and ClangSharp codegen.
+          </p>
+
+          <div class="pillar-grid">
+            <article class="pillar-card">
+              <h3>Stable C ABI</h3>
+              <p><code>SparkInterop</code> exports <code>spark_*</code> functions backed by SparkEngine + SparkGameplay types.</p>
+            </article>
+            <article class="pillar-card">
+              <h3>Generated bindings</h3>
+              <p><code>Spark.Bindings</code> — P/Invoke, <code>FromInterop</code> component mirrors, <code>GameObject</code> accessors.</p>
+            </article>
+            <article class="pillar-card">
+              <h3>Thin SDK</h3>
+              <p><code>Spark.Scripting</code> — <code>ScriptHostEntry</code>, <code>GameBootstrap</code>, <code>SparkGame</code> base class.</p>
+            </article>
+            <article class="pillar-card">
+              <h3>Sibling engine</h3>
+              <p>Configure with <code>SPARK_ENGINE_ROOT</code> pointing at the Spark C++ checkout (assets, headers, CMake target).</p>
+            </article>
+          </div>
+
+          <ul class="skill-list" aria-label="Technologies">
+            <li>.NET 8</li>
+            <li>CoreCLR / hostfxr</li>
+            <li>ClangSharp</li>
+            <li>CMake</li>
+            <li>P/Invoke</li>
+            <li>C++23 interop</li>
+          </ul>
+        </section>
+
+        <section id="architecture">
+          <h2 class="section-title">Architecture</h2>
+          <p class="section-lead">Native host owns the window, Vulkan renderer, and simulation loop; managed code implements gameplay through bindings.</p>
+
+          <div class="mermaid-wrap">
+            <pre class="mermaid">
+flowchart LR
+  subgraph native [Native C++]
+    Host[SparkScriptHost]
+    Engine[SparkEngine]
+    Interop[SparkInterop]
+    Host --> Engine
+    Host --> Interop
+    Engine --> Interop
+  end
+  subgraph managed [.NET 8]
+    Entry[GameEntry.Initialize]
+    Game[YourGame : SparkGame]
+    Bindings[Spark.Bindings]
+    Entry --> Game
+    Game --> Bindings
+  end
+  Host -->|hostfxr| Entry
+  Bindings -->|DllImport| Interop
+            </pre>
+          </div>
+
+          <h3 class="subsection-title">Repository layout</h3>
+          <table>
+            <thead>
+              <tr><th>Path</th><th>Role</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>native/</code></td><td><code>SparkInterop</code> sources and public C ABI headers.</td></tr>
+              <tr><td><code>scripting/bindings/</code></td><td>Generator, config, generated <code>Spark.Bindings</code>.</td></tr>
+              <tr><td><code>scripting/Spark.Scripting/</code></td><td>Managed bootstrap and <code>SparkGame</code> helpers.</td></tr>
+              <tr><td><code>scripting/samples/HelloCsGame/</code></td><td>Reference game DLL for <code>SparkScriptHost</code>.</td></tr>
+              <tr><td><code>tools/</code></td><td>Bindgen, C# registry, <code>run-spark-script-host.sh</code>, CLion launcher.</td></tr>
+              <tr><td><code>CMakePresets.json</code></td><td><code>debug</code> (host + interop) and <code>interop-only</code>.</td></tr>
+            </tbody>
+          </table>
+
+          <h3 class="subsection-title">CMake targets</h3>
+          <table>
+            <thead>
+              <tr><th>Target</th><th>Purpose</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>SparkInterop</code></td><td>Shared library — C ABI for C#.</td></tr>
+              <tr><td><code>SparkBindingsBuild</code></td><td>Build <code>Spark.Bindings</code> + <code>Spark.Scripting</code> (Release).</td></tr>
+              <tr><td><code>SparkHelloCsGameDebug</code></td><td>Build sample game (Debug) for debugging.</td></tr>
+              <tr><td><code>SparkScriptHost</code></td><td>Native executable + CoreCLR bridge.</td></tr>
+              <tr><td><code>SparkRunHelloCsGameDebug</code></td><td>Build and run HelloCsGame via launcher script.</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="codegen">
+          <h2 class="section-title">Bindings pipeline</h2>
+          <p>Regenerate after changing <code>SPARK_SCRIPT_BIND</code> in engine headers or <code>SparkInterop.h</code> in this repo:</p>
+          <pre><code>export SPARK_ENGINE_ROOT=/path/to/spark
+./tools/generate-csharp-bindings.sh</code></pre>
+          <p>
+            Python bindgen reads component headers from <code>SPARK_ENGINE_ROOT</code>; ClangSharp emits
+            <code>Native.g.cs</code>; mirror codegen produces <code>Components/FromInterop/*.g.cs</code>.
+            See the Spark engine doc
+            <a href="https://github.com/hoihky/spark/blob/main/docs/COMPONENT_SCRIPT_CODEGEN.md" target="_blank" rel="noopener">Component script codegen</a>
+            for the full pipeline (paths refer to <strong>spark-sharp</strong> for tools and outputs).
+          </p>
+        </section>
+
+        <section id="quick-start">
+          <h2 class="section-title">Quick start</h2>
+          <p><strong>Requirements:</strong> CMake ≥ 3.28, C++23, Vulkan SDK (same as Spark), <a href="https://dotnet.microsoft.com/download">.NET 8 SDK</a>, sibling <strong>spark</strong> checkout or <code>SPARK_ENGINE_ROOT</code>.</p>
+          <pre><code>cmake --preset debug
+cmake --build build --target SparkInterop SparkScriptHost SparkHelloCsGameDebug
+cmake --build build --target SparkRunHelloCsGameDebug</code></pre>
+          <p>
+            <code>SparkRunHelloCsGameDebug</code> sets working directory to the <strong>engine</strong> repo so
+            <code>assets/</code> resolve. Override with <code>SPARK_ENGINE_ROOT</code>.
+          </p>
+        </section>
+
+        <section id="debugging">
+          <h2 class="section-title">Debugging C#</h2>
+          <p>
+            Use <strong>SparkScriptHost (HelloCsGame Debug)</strong> in CLion or VS Code (<code>.vscode/launch.json</code>):
+            native LLDB on the host, then attach a .NET debugger for breakpoints in <code>HelloGame.cs</code>.
+            Shell shortcut: <code>tools/clion-run-hello-cs-game-debug.sh</code>.
+          </p>
+          <p>Details: <a href="../README.md">README</a> · <a href="../.run/README.md">CLion run configs</a>.</p>
+        </section>
+
+        <section id="license">
+          <h2 class="section-title">License</h2>
+          <p>
+            SparkSharp is licensed under the
+            <a href="../LICENSE">MIT License</a> with the
+            <a href="https://commonsclause.com" target="_blank" rel="noopener">Commons Clause</a>
+            restriction (same terms as the Spark C++ engine).
+          </p>
+        </section>
+
+        <footer class="site-footer">
+          <p>
+            <a href="https://github.com/hoihky/spark-sharp" target="_blank" rel="noopener">SparkSharp on GitHub</a>
+            · <a href="https://github.com/hoihky/spark" target="_blank" rel="noopener">Spark engine</a>
+            · <a href="https://hoihky.github.io/" target="_blank" rel="noopener">Hoi Kwan Yeung</a>
+          </p>
+        </footer>
+      </div>
+
+      <aside class="toc" aria-label="On this page">
+        <p class="toc-title">On this page</p>
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#architecture">Architecture</a></li>
+          <li><a href="#codegen">Bindings pipeline</a></li>
+          <li><a href="#quick-start">Quick start</a></li>
+          <li><a href="#debugging">Debugging</a></li>
+          <li><a href="#license">License</a></li>
+        </ul>
+      </aside>
+    </main>
+  </div>
+</body>
+</html>

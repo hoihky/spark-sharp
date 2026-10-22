@@ -1,0 +1,28 @@
+{
+  "outputPath": "generated/Spark.Bindings",
+  "namespace": "Spark.Bindings",
+  "libraryName": "SparkInterop",
+  "headers": [
+    "../../native/include/spark/scripting/SparkInteropTypes.h",
+    "../../native/include/spark/scripting/SparkInterop.h"
+  ],
+  "includeDirectories": [
+    "../../native/include",
+    "../../../spark/include"
+  ],
+  "clangArgs": [
+    "-DSPARK_BINDINGS_GENERATION",
+    "-DSPARK_INTEROP_EXPORTS"
+  ],
+  "exclusions": [
+    "spark_script_host_run",
+    "SparkHostApi",
+    "SparkManagedGameCallbacks",
+    "SparkScriptEntryInitializeFn",
+    "SparkGameOnAttachFn",
+    "SparkGameOnDetachFn",
+    "SparkGameOnUpdateFn",
+    "SparkGameOnRenderFn"
+  ],
+  "compileCommands": null
+}
