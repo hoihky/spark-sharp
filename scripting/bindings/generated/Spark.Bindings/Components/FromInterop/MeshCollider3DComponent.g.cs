@@ -30,19 +30,37 @@ public sealed partial class MeshCollider3DComponent : GameComponentHandle
         }
     }
 
-    public int IsTrigger()
+    public bool IsTrigger
     {
-        unsafe
+        get
         {
-                return Native.spark_mesh_collider3_d_is_trigger(InteropPtr.Component(Handle));
+            unsafe
+            {
+                return Native.spark_mesh_collider3_d_get_is_trigger(InteropPtr.Component(Handle)) != 0;
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_mesh_collider3_d_set_is_trigger(InteropPtr.Component(Handle), value ? 1 : 0);
+            }
         }
     }
 
-    public void SetIsTrigger(int t)
+    public void SetCategoryBits(int bits)
     {
         unsafe
         {
-                Native.spark_mesh_collider3_d_set_is_trigger(InteropPtr.Component(Handle), t);
+                Native.spark_mesh_collider3_d_set_category_bits(InteropPtr.Component(Handle), bits);
+        }
+    }
+
+    public void SetMaskBits(int bits)
+    {
+        unsafe
+        {
+                Native.spark_mesh_collider3_d_set_mask_bits(InteropPtr.Component(Handle), bits);
         }
     }
 }

@@ -6,12 +6,21 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-COMPONENT_ROOT = ROOT / "include/spark/ecs/components"
-INTEROP = ROOT / "include/spark/scripting/SparkInterop.h"
-INTEROP_GEN = ROOT / "include/spark/scripting/SparkInteropComponentBindings.generated.h"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from spark_sharp_paths import (  # noqa: E402
+    BINDINGS_MANIFEST,
+    ENGINE_COMPONENTS,
+    INTEROP_GEN_H,
+    INTEROP_H,
+    ENGINE_ROOT,
+)
+
+COMPONENT_ROOT = ENGINE_COMPONENTS
+INTEROP = INTEROP_H
+INTEROP_GEN = INTEROP_GEN_H
 BIND_INCLUDE = '#include "spark/scripting/SparkScriptBind.hpp"'
-MANIFEST = ROOT / "scripting/bindings/spark-interop-bindings.json"
+MANIFEST = BINDINGS_MANIFEST
 
 
 def load_prefix_overrides() -> dict[str, str]:
@@ -28,6 +37,13 @@ def load_prefix_overrides() -> dict[str, str]:
         "GrassFieldComponent": "grass_field",
         "InputActionMapComponent": "input_action_map",
         "PlayerInputComponent": "player_input",
+        "AnimationLayerStackComponent": "animation_layer_stack",
+        "CombatHurtFlash3DComponent": "combat_hurt_flash_3d",
+        "Character3DBodyComponent": "character_3d_body",
+        "Character3DVisualComponent": "character_3d_visual",
+        "PhysicsAttachedBody3DComponent": "physics_attached_body_3d",
+        "GameplayInventoryCollectorComponent": "gameplay_inventory_collector",
+        "PhysicsContactListener3DComponent": "physics_contact_listener_3d",
     }
     if MANIFEST.is_file():
         import json
@@ -124,18 +140,11 @@ def extract_prefix(fn: str) -> str | None:
     return None
 
 
-def existing_prefixes() -> set[str]:
+def existing_spark_functions() -> set[str]:
     text = INTEROP.read_text(encoding="utf-8")
     if INTEROP_GEN.is_file():
         text += INTEROP_GEN.read_text(encoding="utf-8")
-    out: set[str] = set()
-    for name in re.findall(r"spark_[a-z0-9_]+", text):
-        if name.startswith(("spark_object_", "spark_component_", "spark_world_", "spark_scene_")):
-            continue
-        p = extract_prefix(name)
-        if p:
-            out.add(p)
-    return out
+    return set(re.findall(r"\b(spark_[a-z0-9_]+)\s*\(", text))
 
 
 def pascal_to_prefix(class_name: str) -> str:
@@ -175,6 +184,9 @@ def method_to_suffix(name: str, ret: str) -> str | None:
         return "get_" + camel_to_snake(name[3:])
     if name.startswith("Set") and len(name) > 3:
         return "set_" + camel_to_snake(name[3:])
+    if name.startswith("Is") and len(name) > 2 and ret_norm == "bool":
+        # Pair with set_is_* (e.g. IsTrigger + SetIsTrigger → get_is_trigger / set_is_trigger).
+        return "get_is_" + camel_to_snake(name[2:])
     if name.startswith("Is") and len(name) > 2:
         return "is_" + camel_to_snake(name[2:])
     if name.startswith("Has") and len(name) > 3:
@@ -196,6 +208,22 @@ def is_bindable(ret: str, name: str, args: str) -> bool:
     blob = f"{ret} {args}"
     if any(frag in blob for frag in SKIP_TYPE_FRAGMENTS):
         return False
+    if "GameObject&" in args or "const GameObject&" in args:
+        return False
+    if "ColliderFilter" in args:
+        return False
+    if "ContactHandler" in args or "Function<" in ret:
+        return False
+    if "GameplayTeamId" in ret and "Get" in name:
+        return False
+    if "GameplayTeamId" in args and "SetGameplayTeam" in name:
+        return False
+    if "Skeleton&" in args or "AnimationJointMask" in ret:
+        return False
+    if "UiTheme" in ret or "UiTheme" in args or "IUiElement" in ret or "IUiRenderer" in args:
+        return False
+    if "UiFrameInput" in ret or "UiFrameInput" in args or "IInput&" in args:
+        return False
     if "operator" in name:
         return False
     return method_to_suffix(name, ret) is not None
@@ -213,15 +241,13 @@ def ensure_include(text: str) -> str:
     return "".join(lines)
 
 
-def inject_file(path: Path, covered_prefixes: set[str]) -> int:
+def inject_file(path: Path, existing_fns: set[str]) -> int:
     text = path.read_text(encoding="utf-8")
     cm = CLASS_RE.search(text)
     if not cm:
         return 0
     class_name = cm.group("name")
     prefix = PREFIX_OVERRIDES.get(class_name, pascal_to_prefix(class_name))
-    if prefix in covered_prefixes:
-        return 0
 
     lines = text.splitlines(keepends=True)
     out: list[str] = []
@@ -255,7 +281,8 @@ def inject_file(path: Path, covered_prefixes: set[str]) -> int:
             m = METHOD_RE.match(line.rstrip("\n"))
             if m and is_bindable(m.group("ret"), m.group("name"), m.group("args")):
                 suffix = method_to_suffix(m.group("name"), m.group("ret"))
-                if suffix and f"SPARK_SCRIPT_BIND({suffix})" not in text:
+                fn = f"spark_{prefix}_{suffix}"
+                if suffix and fn not in existing_fns and f"SPARK_SCRIPT_BIND({suffix})" not in text:
                     indent = m.group(1)
                     out.append(f'{indent}SPARK_SCRIPT_BIND({suffix})\n')
                     added += 1
@@ -269,15 +296,18 @@ def inject_file(path: Path, covered_prefixes: set[str]) -> int:
 
 
 def main() -> int:
-    covered = existing_prefixes()
+    if not COMPONENT_ROOT.is_dir():
+        print(f"error: engine components not found at {COMPONENT_ROOT}", file=sys.stderr)
+        return 1
+    existing_fns = existing_spark_functions()
     total = 0
     files = 0
     for path in sorted(COMPONENT_ROOT.rglob("*Component.hpp")):
-        n = inject_file(path, covered)
+        n = inject_file(path, existing_fns)
         if n:
             files += 1
             total += n
-            print(f"{path.relative_to(ROOT)}: +{n} bindings")
+            print(f"{path.relative_to(COMPONENT_ROOT.parent.parent.parent)}: +{n} bindings")
     print(f"inject_spark_script_bind: {total} markers in {files} headers")
     return 0
 

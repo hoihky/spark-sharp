@@ -15,7 +15,7 @@ public sealed partial class TimeOfDayDriverComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_time_of_day_driver_get_day_length_seconds(InteropPtr.Component(Handle));
+return Native.spark_time_of_day_driver_get_day_length_seconds(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class TimeOfDayDriverComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_time_of_day_driver_get_time_of_day(InteropPtr.Component(Handle));
+return Native.spark_time_of_day_driver_get_time_of_day(InteropPtr.Component(Handle));
             }
         }
         set

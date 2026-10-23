@@ -36,7 +36,7 @@ public sealed partial class DecalProjectorComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_decal_projector_get_opacity(InteropPtr.Component(Handle));
+return Native.spark_decal_projector_get_opacity(InteropPtr.Component(Handle));
             }
         }
         set

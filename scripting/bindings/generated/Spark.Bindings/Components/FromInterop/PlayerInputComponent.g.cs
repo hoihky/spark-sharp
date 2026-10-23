@@ -30,27 +30,14 @@ public sealed partial class PlayerInputComponent : GameComponentHandle
         }
     }
 
-    public int WasActionPressedThisFrame(string actionName)
+    public int IsWasActionReleasedThisFrame(string actionName)
     {
         unsafe
         {
             int result = default;
             InteropUtf8.WithUtf8(actionName, ptr =>
             {
-                result = Native.spark_player_input_was_action_pressed_this_frame(InteropPtr.Component(Handle), (sbyte*)ptr);
-            });
-            return result;
-        }
-    }
-
-    public float GetActionAxis1d(string actionName)
-    {
-        unsafe
-        {
-            float result = default;
-            InteropUtf8.WithUtf8(actionName, ptr =>
-            {
-                result = Native.spark_player_input_get_action_axis1d(InteropPtr.Component(Handle), (sbyte*)ptr);
+                result = Native.spark_player_input_is_was_action_released_this_frame(InteropPtr.Component(Handle), (sbyte*)ptr);
             });
             return result;
         }

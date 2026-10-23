@@ -15,7 +15,7 @@ public sealed partial class Projectile2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_projectile2_d_get_shape(InteropPtr.Component(Handle));
+return Native.spark_projectile2_d_get_shape(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class Projectile2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_projectile2_d_get_damage(InteropPtr.Component(Handle));
+return Native.spark_projectile2_d_get_damage(InteropPtr.Component(Handle));
             }
         }
         set
@@ -51,7 +51,7 @@ public sealed partial class Projectile2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_projectile2_d_get_lifetime_seconds(InteropPtr.Component(Handle));
+return Native.spark_projectile2_d_get_lifetime_seconds(InteropPtr.Component(Handle));
             }
         }
         set
@@ -69,7 +69,7 @@ public sealed partial class Projectile2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_projectile2_d_get_block_on_solid_hit(InteropPtr.Component(Handle));
+return Native.spark_projectile2_d_get_block_on_solid_hit(InteropPtr.Component(Handle));
             }
         }
         set
@@ -87,7 +87,7 @@ public sealed partial class Projectile2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_projectile2_d_get_destroy_owner_on_deactivate(InteropPtr.Component(Handle));
+return Native.spark_projectile2_d_get_destroy_owner_on_deactivate(InteropPtr.Component(Handle));
             }
         }
         set
@@ -105,7 +105,7 @@ public sealed partial class Projectile2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_projectile2_d_get_deactivate_on_first_hit(InteropPtr.Component(Handle));
+return Native.spark_projectile2_d_get_deactivate_on_first_hit(InteropPtr.Component(Handle));
             }
         }
         set
@@ -184,6 +184,15 @@ public sealed partial class Projectile2DComponent : GameComponentHandle
         unsafe
         {
                 Native.spark_projectile2_d_set_instigator(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
+        }
+    }
+
+    public GameObject GetInstigator()
+    {
+        unsafe
+        {
+                var raw = Native.spark_projectile2_d_get_instigator(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 }

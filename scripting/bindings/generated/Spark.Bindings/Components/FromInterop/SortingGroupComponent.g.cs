@@ -32,4 +32,28 @@ public sealed partial class SortingGroupComponent : GameComponentHandle
                 Native.spark_sorting_group_set_sort_at_root_world_y(InteropPtr.Component(Handle), enabled);
         }
     }
+
+    public int IsEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_sorting_group_is_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetSortingOrder()
+    {
+        unsafe
+        {
+                return Native.spark_sorting_group_get_sorting_order(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int IsUsesRootWorldY()
+    {
+        unsafe
+        {
+                return Native.spark_sorting_group_is_uses_root_world_y(InteropPtr.Component(Handle));
+        }
+    }
 }

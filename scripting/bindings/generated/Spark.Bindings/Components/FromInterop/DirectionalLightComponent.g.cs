@@ -36,7 +36,7 @@ public sealed partial class DirectionalLightComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_directional_light_get_intensity(InteropPtr.Component(Handle));
+return Native.spark_directional_light_get_intensity(InteropPtr.Component(Handle));
             }
         }
         set

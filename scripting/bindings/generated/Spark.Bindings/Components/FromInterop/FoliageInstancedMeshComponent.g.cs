@@ -54,7 +54,7 @@ public sealed partial class FoliageInstancedMeshComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_foliage_instanced_get_alpha_cutoff(InteropPtr.Component(Handle));
+return Native.spark_foliage_instanced_get_alpha_cutoff(InteropPtr.Component(Handle));
             }
         }
         set
@@ -72,7 +72,7 @@ public sealed partial class FoliageInstancedMeshComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_foliage_instanced_get_wind_bend_scale(InteropPtr.Component(Handle));
+return Native.spark_foliage_instanced_get_wind_bend_scale(InteropPtr.Component(Handle));
             }
         }
         set

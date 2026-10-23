@@ -57,7 +57,7 @@ public sealed partial class Rigidbody3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_rigidbody_3d_get_linear_damping(InteropPtr.Component(Handle));
+return Native.spark_rigidbody_3d_get_linear_damping(InteropPtr.Component(Handle));
             }
         }
         set
@@ -75,7 +75,7 @@ public sealed partial class Rigidbody3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_rigidbody_3d_get_angular_damping(InteropPtr.Component(Handle));
+return Native.spark_rigidbody_3d_get_angular_damping(InteropPtr.Component(Handle));
             }
         }
         set
@@ -93,7 +93,7 @@ public sealed partial class Rigidbody3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_rigidbody_3d_get_restitution(InteropPtr.Component(Handle));
+return Native.spark_rigidbody_3d_get_restitution(InteropPtr.Component(Handle));
             }
         }
         set
@@ -111,7 +111,7 @@ public sealed partial class Rigidbody3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_rigidbody_3d_get_inverse_mass(InteropPtr.Component(Handle));
+return Native.spark_rigidbody_3d_get_inverse_mass(InteropPtr.Component(Handle));
             }
         }
         set
@@ -129,7 +129,7 @@ public sealed partial class Rigidbody3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_rigidbody_3d_get_inverse_inertia_tensor_scale(InteropPtr.Component(Handle));
+return Native.spark_rigidbody_3d_get_inverse_inertia_tensor_scale(InteropPtr.Component(Handle));
             }
         }
         set
@@ -147,7 +147,7 @@ public sealed partial class Rigidbody3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_rigidbody_3d_get_body_type(InteropPtr.Component(Handle));
+return Native.spark_rigidbody_3d_get_body_type(InteropPtr.Component(Handle));
             }
         }
         set
@@ -165,7 +165,7 @@ public sealed partial class Rigidbody3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_rigidbody_3d_get_gravity_scale(InteropPtr.Component(Handle));
+return Native.spark_rigidbody_3d_get_gravity_scale(InteropPtr.Component(Handle));
             }
         }
         set

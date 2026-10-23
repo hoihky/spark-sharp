@@ -9,6 +9,63 @@ public sealed partial class TextOverlayComponent : GameComponentHandle
     internal TextOverlayComponent(nint handle)
         : base(handle) { }
 
+    public float FontSizePixels
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_text_overlay_get_font_size_pixels(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_text_overlay_set_font_size_pixels(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public Vector3 Color
+    {
+        get
+        {
+            unsafe
+            {
+                SparkVector3 v;
+                Native.spark_text_overlay_get_color(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                var v = value.ToNative();
+                Native.spark_text_overlay_set_color(InteropPtr.Component(Handle), &v);
+            }
+        }
+    }
+
+    public float Alpha
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_text_overlay_get_alpha(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_text_overlay_set_alpha(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
     public void SetText(string utf8)
     {
         unsafe
@@ -28,36 +85,35 @@ public sealed partial class TextOverlayComponent : GameComponentHandle
         }
     }
 
-    public void SetFontSizePixels(float px)
-    {
-        unsafe
-        {
-                Native.spark_text_overlay_set_font_size_pixels(InteropPtr.Component(Handle), px);
-        }
-    }
-
-    public void SetColor(in Vector3 rgb)
-    {
-        unsafe
-        {
-            var rgbNative = rgb.ToNative();
-                Native.spark_text_overlay_set_color(InteropPtr.Component(Handle), &rgbNative);
-        }
-    }
-
-    public void SetAlpha(float alpha)
-    {
-        unsafe
-        {
-                Native.spark_text_overlay_set_alpha(InteropPtr.Component(Handle), alpha);
-        }
-    }
-
     public void SetVisible(int visible)
     {
         unsafe
         {
                 Native.spark_text_overlay_set_visible(InteropPtr.Component(Handle), visible);
+        }
+    }
+
+    public float GetScreenX()
+    {
+        unsafe
+        {
+                return Native.spark_text_overlay_get_screen_x(InteropPtr.Component(Handle));
+        }
+    }
+
+    public float GetScreenY()
+    {
+        unsafe
+        {
+                return Native.spark_text_overlay_get_screen_y(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int IsVisible()
+    {
+        unsafe
+        {
+                return Native.spark_text_overlay_is_visible(InteropPtr.Component(Handle));
         }
     }
 }

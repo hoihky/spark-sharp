@@ -12,6 +12,13 @@
     "grass_field_bounds": "GrassFieldComponent",
     "input_action_map": "InputActionMapComponent",
     "player_input": "PlayerInputComponent",
+    "animation_layer_stack": "AnimationLayerStackComponent",
+    "combat_hurt_flash_3d": "CombatHurtFlash3DComponent",
+    "character_3d_body": "Character3DBodyComponent",
+    "character_3d_visual": "Character3DVisualComponent",
+    "physics_attached_body_3d": "PhysicsAttachedBody3DComponent",
+    "gameplay_inventory_collector": "GameplayInventoryCollectorComponent",
+    "physics_contact_listener_3d": "PhysicsContactListener3DComponent",
     "screen_shake": "ScreenShakeComponent",
     "game_state": "GameStateComponent",
     "game_flow_trigger": "GameFlowTriggerComponent",
@@ -56,6 +63,11 @@
     },
     "animation_hitbox2_d": {
       "class": "AnimationHitbox2DComponent",
+      "namespace": "Spark.Bindings.Components",
+      "base": "GameComponentHandle"
+    },
+    "animation_layer_stack": {
+      "class": "AnimationLayerStackComponent",
       "namespace": "Spark.Bindings.Components",
       "base": "GameComponentHandle"
     },
@@ -134,6 +146,16 @@
       "namespace": "Spark.Bindings.Components",
       "base": "GameComponentHandle"
     },
+    "character_3d_body": {
+      "class": "Character3DBodyComponent",
+      "namespace": "Spark.Bindings.Components",
+      "base": "GameComponentHandle"
+    },
+    "character_3d_visual": {
+      "class": "Character3DVisualComponent",
+      "namespace": "Spark.Bindings.Components",
+      "base": "GameComponentHandle"
+    },
     "character_controller2_d": {
       "class": "CharacterController2DComponent",
       "namespace": "Spark.Bindings.Components",
@@ -151,6 +173,11 @@
     },
     "collision": {
       "class": "CollisionComponent",
+      "namespace": "Spark.Bindings.Components",
+      "base": "GameComponentHandle"
+    },
+    "combat_hurt_flash_3d": {
+      "class": "CombatHurtFlash3DComponent",
       "namespace": "Spark.Bindings.Components",
       "base": "GameComponentHandle"
     },
@@ -224,6 +251,11 @@
       "namespace": "Spark.Bindings.Components",
       "base": "GameComponentHandle"
     },
+    "gameplay_team": {
+      "class": "GameplayTeamComponent",
+      "namespace": "Spark.Bindings.Components",
+      "base": "GameComponentHandle"
+    },
     "gltf_instance_node": {
       "class": "GltfInstanceNodeComponent",
       "namespace": "Spark.Bindings.Components",
@@ -281,6 +313,11 @@
     },
     "hurtbox2_d": {
       "class": "Hurtbox2DComponent",
+      "namespace": "Spark.Bindings.Components",
+      "base": "GameComponentHandle"
+    },
+    "hurtbox3_d": {
+      "class": "Hurtbox3DComponent",
       "namespace": "Spark.Bindings.Components",
       "base": "GameComponentHandle"
     },
@@ -346,6 +383,16 @@
     },
     "perception_sensor": {
       "class": "PerceptionSensorComponent",
+      "namespace": "Spark.Bindings.Components",
+      "base": "GameComponentHandle"
+    },
+    "physics_attached_body_3d": {
+      "class": "PhysicsAttachedBody3DComponent",
+      "namespace": "Spark.Bindings.Components",
+      "base": "GameComponentHandle"
+    },
+    "physics_layer3_d": {
+      "class": "PhysicsLayer3DComponent",
       "namespace": "Spark.Bindings.Components",
       "base": "GameComponentHandle"
     },
@@ -616,6 +663,16 @@
     },
     "wind_environment": {
       "class": "WindEnvironmentComponent",
+      "namespace": "Spark.Bindings.Components",
+      "base": "GameComponentHandle"
+    },
+    "world": {
+      "class": "WorldComponent",
+      "namespace": "Spark.Bindings.Components",
+      "base": "GameComponentHandle"
+    },
+    "world_try": {
+      "class": "WorldTryComponent",
       "namespace": "Spark.Bindings.Components",
       "base": "GameComponentHandle"
     }

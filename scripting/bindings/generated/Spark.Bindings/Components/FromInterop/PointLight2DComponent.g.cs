@@ -36,7 +36,7 @@ public sealed partial class PointLight2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_point_light2_d_get_world_z(InteropPtr.Component(Handle));
+return Native.spark_point_light2_d_get_world_z(InteropPtr.Component(Handle));
             }
         }
         set
@@ -75,7 +75,7 @@ public sealed partial class PointLight2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_point_light2_d_get_intensity(InteropPtr.Component(Handle));
+return Native.spark_point_light2_d_get_intensity(InteropPtr.Component(Handle));
             }
         }
         set
@@ -93,7 +93,7 @@ public sealed partial class PointLight2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_point_light2_d_get_range(InteropPtr.Component(Handle));
+return Native.spark_point_light2_d_get_range(InteropPtr.Component(Handle));
             }
         }
         set

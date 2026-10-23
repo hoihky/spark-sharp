@@ -15,7 +15,7 @@ public sealed partial class PickupComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_pickup_get_quantity(InteropPtr.Component(Handle));
+return Native.spark_pickup_get_quantity(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class PickupComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_pickup_get_auto_collect_on_trigger_enter(InteropPtr.Component(Handle));
+return Native.spark_pickup_get_auto_collect_on_trigger_enter(InteropPtr.Component(Handle));
             }
         }
         set
@@ -51,7 +51,7 @@ public sealed partial class PickupComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_pickup_get_destroy_owner_on_collect(InteropPtr.Component(Handle));
+return Native.spark_pickup_get_destroy_owner_on_collect(InteropPtr.Component(Handle));
             }
         }
         set

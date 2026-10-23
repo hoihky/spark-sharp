@@ -36,7 +36,7 @@ public sealed partial class Rigidbody2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_rigidbody_2d_get_body_type(InteropPtr.Component(Handle));
+return Native.spark_rigidbody_2d_get_body_type(InteropPtr.Component(Handle));
             }
         }
         set
@@ -54,7 +54,7 @@ public sealed partial class Rigidbody2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_rigidbody_2d_get_gravity_scale(InteropPtr.Component(Handle));
+return Native.spark_rigidbody_2d_get_gravity_scale(InteropPtr.Component(Handle));
             }
         }
         set

@@ -15,7 +15,7 @@ public sealed partial class SpringJoint3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_spring_joint3_d_get_rest_length(InteropPtr.Component(Handle));
+return Native.spark_spring_joint3_d_get_rest_length(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class SpringJoint3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_spring_joint3_d_get_spring_stiffness(InteropPtr.Component(Handle));
+return Native.spark_spring_joint3_d_get_spring_stiffness(InteropPtr.Component(Handle));
             }
         }
         set
@@ -51,7 +51,7 @@ public sealed partial class SpringJoint3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_spring_joint3_d_get_damping(InteropPtr.Component(Handle));
+return Native.spark_spring_joint3_d_get_damping(InteropPtr.Component(Handle));
             }
         }
         set
@@ -60,6 +60,15 @@ public sealed partial class SpringJoint3DComponent : GameComponentHandle
             {
                 Native.spark_spring_joint3_d_set_damping(InteropPtr.Component(Handle), value);
             }
+        }
+    }
+
+    public GameObject GetConnectedBody()
+    {
+        unsafe
+        {
+                var raw = Native.spark_spring_joint3_d_get_connected_body(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 

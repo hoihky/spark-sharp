@@ -15,7 +15,7 @@ public sealed partial class DamageableComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_damageable_get_damage_multiplier(InteropPtr.Component(Handle));
+return Native.spark_damageable_get_damage_multiplier(InteropPtr.Component(Handle));
             }
         }
         set

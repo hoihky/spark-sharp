@@ -7,15 +7,6 @@ namespace Spark.Bindings;
 public static unsafe partial class Native
 {
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern SparkGameComponent* spark_object_add_terrain(SparkGameObject* @object, int subdivX, int subdivZ, float halfExtentX, float halfExtentZ, float heightScale, SparkVector3* meshAlbedoRgb);
-
-    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern SparkGameComponent* spark_object_add_directional_light(SparkGameObject* @object, SparkVector3* colorRgb, float intensity);
-
-    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern SparkGameComponent* spark_object_add_sound_cue(SparkGameObject* @object);
-
-    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int spark_ai_agent_is_enabled(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -79,6 +70,9 @@ public static unsafe partial class Native
     public static extern void spark_grid_nav_agent2_d_set_grid_source_object(SparkGameComponent* component, SparkGameObject* @object);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_grid_nav_agent2_d_get_grid_source_object(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_grid_nav_agent2_d_set_goal_mode(SparkGameComponent* component, int mode);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -86,6 +80,9 @@ public static unsafe partial class Native
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_grid_nav_agent2_d_set_goal_target(SparkGameComponent* component, SparkGameObject* @object);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_grid_nav_agent2_d_get_goal_target(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_grid_nav_agent2_d_set_goal_world_position(SparkGameComponent* component, SparkVector2* position);
@@ -175,6 +172,9 @@ public static unsafe partial class Native
     public static extern void spark_nav_mesh_agent_set_enabled(SparkGameComponent* component, int e);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_nav_mesh_agent_get_patrol_path_object(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_nav_mesh_agent_set_patrol_path_object(SparkGameComponent* component, SparkGameObject* o);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -259,6 +259,9 @@ public static unsafe partial class Native
     public static extern int spark_aim_ik_is_uses_main_camera(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_aim_ik_get_target_object(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_aim_ik_get_world_target(SparkGameComponent* component, SparkVector3* outWorldTarget);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -331,6 +334,27 @@ public static unsafe partial class Native
     public static extern int spark_animation_hitbox2_d_get_hits_this_swing(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_animation_layer_stack_play_overlay(SparkGameComponent* component, uint clipIndex, int loopMode);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_animation_layer_stack_clear_overlay(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_animation_layer_stack_is_overlay_active(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_animation_layer_stack_is_overlay_finished(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_animation_layer_stack_get_overlay_clip_index(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_animation_layer_stack_get_overlay_time_seconds(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_animation_layer_stack_get_overlay_loop_mode(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_animation_melee_hit_set_start_event_name(SparkGameComponent* component, sbyte* name);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -352,6 +376,18 @@ public static unsafe partial class Native
     public static extern void spark_animation_melee_hit_set_damage_per_hit(SparkGameComponent* component, float amount);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_animation_melee_hit_set_world_hurtbox_query_enabled(SparkGameComponent* component, int enabled);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_animation_melee_hit_is_world_hurtbox_query_enabled(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_animation_melee_hit_set_knockback_meters(SparkGameComponent* component, float meters);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_animation_melee_hit_set_apply_hurt_reaction(SparkGameComponent* component, int enabled);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_animation_melee_hit_clear_targets(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -365,6 +401,30 @@ public static unsafe partial class Native
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int spark_animation_melee_hit_get_total_hits(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_animator_get_crossfade_from_clip(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_animator_get_crossfade_from_time(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_animator_restart_current_clip(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_attachment_socket_get_source_object(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_attachment_socket_get_attached_object(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_attachment_socket_get_joint_index(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_attachment_socket_get_local_offset(SparkGameComponent* component, SparkVector3* outLocalOffset);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_attachment_socket_is_enabled(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int spark_char_3d_fsm_is_locomotion_blend_enabled(SparkGameComponent* component);
@@ -412,6 +472,21 @@ public static unsafe partial class Native
     public static extern int spark_char_3d_fsm_get_manual_clip_loop_mode(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_char_3d_fsm_set_use_upper_body_combat_overlay(SparkGameComponent* component, int enabled);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_char_3d_fsm_get_use_upper_body_combat_overlay(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_char_3d_fsm_set_use_upper_body_attack_overlay(SparkGameComponent* component, int enabled);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_char_3d_fsm_get_use_upper_body_attack_overlay(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_char_3d_fsm_set_wish_facing_yaw_radians(SparkGameComponent* component, float radians);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int spark_foot_ik_is_enabled(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -445,10 +520,19 @@ public static unsafe partial class Native
     public static extern void spark_root_motion_set_animator_object(SparkGameComponent* component, SparkGameObject* @object);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_root_motion_get_animator_object(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_root_motion_set_apply_target(SparkGameComponent* component, SparkGameObject* @object);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_root_motion_get_apply_target(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_root_motion_set_facing_object(SparkGameComponent* component, SparkGameObject* @object);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_root_motion_get_facing_object(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_root_motion_set_skeleton_space_scale(SparkGameComponent* component, float scale);
@@ -485,6 +569,9 @@ public static unsafe partial class Native
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_root_motion_get_last_delta_world_space(SparkGameComponent* component, SparkVector3* outLastDeltaWorldSpace);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_skeleton_debug_draw_get_source_object(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int spark_skeleton_debug_draw_is_enabled(SparkGameComponent* component);
@@ -560,6 +647,12 @@ public static unsafe partial class Native
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_sprite_animation_event_vfx_get_world_offset(SparkGameComponent* component, SparkVector3* outWorldOffset);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_sprite_animator_get_time_in_clip_seconds(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_sprite_animator_get_current_local_frame(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int spark_ambient_zone_is_enabled(SparkGameComponent* component);
@@ -647,6 +740,9 @@ public static unsafe partial class Native
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int spark_camera_2d_rig_get_mode(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_camera_2d_rig_get_target(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_camera_2d_rig_get_target_offset(SparkGameComponent* component, SparkVector3* outTargetOffset);
@@ -766,6 +862,9 @@ public static unsafe partial class Native
     public static extern void spark_camera_world_position(SparkGameComponent* component, SparkGameObject* owner, SparkVector3* outWorldPosition);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_camera_follow3_d_get_target(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_camera_follow3_d_get_target_offset(SparkGameComponent* component, SparkVector3* outTargetOffset);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -796,7 +895,16 @@ public static unsafe partial class Native
     public static extern void spark_screen_shake_get_offset(SparkGameComponent* component, SparkVector2* outOffset);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_screen_shake_get_trauma(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_screen_shake_clear(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_screen_shake_tick(SparkGameComponent* component, float deltaSeconds, SparkVector2* outTick);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_spring_arm3_d_get_pivot_target(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_spring_arm3_d_get_socket_offset(SparkGameComponent* component, SparkVector3* outSocketOffset);
@@ -838,19 +946,55 @@ public static unsafe partial class Native
     public static extern void spark_spring_arm3_d_set_min_arm_length(SparkGameComponent* component, float l);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_character_3d_body_set_visual_object(SparkGameComponent* component, SparkGameObject* @object);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_character_3d_body_get_visual_object(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_character_3d_body_set_arbitration_mode(SparkGameComponent* component, int mode);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_character_3d_body_get_arbitration_mode(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_character_3d_body_begin_simulation_frame(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_character_3d_body_begin_attack_root_motion_window(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_character_3d_body_end_attack_root_motion_window(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_character_3d_body_is_validate_hierarchy(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_character_3d_visual_set_body_object(SparkGameComponent* component, SparkGameObject* @object);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_character_3d_visual_get_body_object(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_character_3d_visual_is_validate_setup(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int spark_foliage_instanced_is_enabled(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_grass_field_set_enabled(SparkGameComponent* component, int value);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern int spark_grass_field_get_enabled(SparkGameComponent* component);
-
-    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_grass_field_set_terrain_object(SparkGameComponent* component, SparkGameObject* @object);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_grass_field_get_terrain_object(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_grass_field_set_view_target_object(SparkGameComponent* component, SparkGameObject* @object);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_grass_field_get_view_target_object(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_grass_field_set_streaming_view_world(SparkGameComponent* component, SparkVector3* worldPosition);
@@ -907,40 +1051,22 @@ public static unsafe partial class Native
     public static extern void spark_grass_field_scatter_set_albedo_tint(SparkGameComponent* component, SparkVector3* rgb);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void spark_wind_environment_set_enabled(SparkGameComponent* component, int value);
-
-    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern int spark_wind_environment_get_enabled(SparkGameComponent* component);
-
-    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void spark_wind_environment_set_direction(SparkGameComponent* component, SparkVector3* directionWorld);
-
-    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void spark_wind_environment_get_direction(SparkGameComponent* component, SparkVector3* outDirectionWorld);
-
-    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void spark_wind_environment_set_base_speed(SparkGameComponent* component, float metersPerSecond);
-
-    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern float spark_wind_environment_get_base_speed(SparkGameComponent* component);
-
-    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_wind_environment_set_gust_amplitude(SparkGameComponent* component, float value);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern float spark_wind_environment_get_gust_amplitude(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void spark_wind_environment_set_gust_frequency(SparkGameComponent* component, float hertz);
-
-    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern float spark_wind_environment_get_gust_frequency(SparkGameComponent* component);
-
-    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_wind_environment_set_turbulence(SparkGameComponent* component, float value);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern float spark_wind_environment_get_turbulence(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_combat_hurt_flash_3d_set_flash_duration(SparkGameComponent* component, float seconds);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_combat_hurt_flash_3d_set_hurt_tint(SparkGameComponent* component, SparkVector3* tint);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_damage_zone2_d_set_enabled(SparkGameComponent* component, int value);
@@ -988,6 +1114,9 @@ public static unsafe partial class Native
     public static extern void spark_damage_zone2_d_set_instigator(SparkGameComponent* component, SparkGameObject* @object);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_damage_zone2_d_get_instigator(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern float spark_damageable_get_damage_multiplier(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -1012,31 +1141,58 @@ public static unsafe partial class Native
     public static extern void spark_fog_of_war2_d_set_reveal_target(SparkGameComponent* component, SparkGameObject* target);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_fog_of_war2_d_get_reveal_target(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_fog_of_war2_d_rebuild_mask_texture(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_game_flow_trigger_set_source(SparkGameComponent* component, SparkGameFlowTriggerSource value);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameFlowTriggerSource spark_game_flow_trigger_get_source(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_game_flow_trigger_set_target_state(SparkGameComponent* component, SparkGameFlowState state);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameFlowState spark_game_flow_trigger_get_target_state(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_game_flow_trigger_set_instigator_name_filter(SparkGameComponent* component, sbyte* filter);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_game_flow_trigger_set_watch_state(SparkGameComponent* component, SparkGameFlowState state);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameFlowState spark_game_flow_trigger_get_watch_state(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_game_flow_trigger_set_state_owner(SparkGameComponent* component, SparkGameObject* owner);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_game_flow_trigger_get_state_owner(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern SparkGameFlowState spark_game_state_get_state(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern int spark_game_state_request_state(SparkGameComponent* component, SparkGameFlowState nextState);
+    public static extern SparkGameFlowState spark_game_state_get_previous_state(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_game_state_is_state(SparkGameComponent* component, SparkGameFlowState state);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_game_state_push_state(SparkGameComponent* component, SparkGameFlowState nextState);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern int spark_game_state_pop_state(SparkGameComponent* component);
+    public static extern void spark_gameplay_team_set_team_id(SparkGameComponent* component, int id);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_gameplay_team_get_team_id(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_gameplay_team_set_gameplay_team(SparkGameComponent* component, int id);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern float spark_health_get_maximum(SparkGameComponent* component);
@@ -1108,13 +1264,16 @@ public static unsafe partial class Native
     public static extern int spark_pickup_is_collected(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void spark_input_action_map_clear(SparkGameComponent* component);
-
-    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_input_action_map_bind_button(SparkGameComponent* component, sbyte* actionName, int primaryKey, int secondaryKey);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_input_action_map_bind_axis1d(SparkGameComponent* component, sbyte* actionName, int negativeKey, int positiveKey, int secondaryNegativeKey, int secondaryPositiveKey);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_input_action_map_bind_gamepad_button(SparkGameComponent* component, sbyte* actionName, int gamepadButton);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_input_action_map_bind_gamepad_axis1_d(SparkGameComponent* component, sbyte* actionName, int gamepadAxis, float axisScale);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_player_input_set_action_map(SparkGameComponent* component, SparkGameComponent* mapIn);
@@ -1123,10 +1282,7 @@ public static unsafe partial class Native
     public static extern int spark_player_input_is_action_pressed(SparkGameComponent* component, sbyte* actionName);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern int spark_player_input_was_action_pressed_this_frame(SparkGameComponent* component, sbyte* actionName);
-
-    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern float spark_player_input_get_action_axis1d(SparkGameComponent* component, sbyte* actionName);
+    public static extern int spark_player_input_is_was_action_released_this_frame(SparkGameComponent* component, sbyte* actionName);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_directional_light_get_color(SparkGameComponent* component, SparkVector3* outColor);
@@ -1202,6 +1358,54 @@ public static unsafe partial class Native
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern float spark_point_light2_d_get_flicker_hz(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_point_light_get_color(SparkGameComponent* component, SparkVector3* outColor);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_point_light_get_intensity(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_point_light_get_range(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_point_light_is_enabled(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_point_light_is_casts_shadow(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_point_light_set_casts_shadow(SparkGameComponent* component, int c);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_spot_light_get_color(SparkGameComponent* component, SparkVector3* outColor);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_spot_light_get_intensity(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_spot_light_get_range(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_spot_light_get_inner_cone_degrees(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_spot_light_get_outer_cone_degrees(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_spot_light_is_enabled(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_spot_light_is_casts_shadow(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_spot_light_set_inner_cone_degrees(SparkGameComponent* component, float deg);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_spot_light_set_outer_cone_degrees(SparkGameComponent* component, float deg);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_spot_light_set_casts_shadow(SparkGameComponent* component, int c);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_box_collider_2d_get_half_extents(SparkGameComponent* component, SparkVector2* outHalfExtents);
@@ -1297,6 +1501,9 @@ public static unsafe partial class Native
     public static extern int spark_circle_collider_2d_get_is_trigger(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_distance_joint2_d_get_connected_body(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_distance_joint2_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -1322,6 +1529,9 @@ public static unsafe partial class Native
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_distance_joint2_d_set_stiffness(SparkGameComponent* component, float s);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_hinge_joint2_d_get_connected_body(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_hinge_joint2_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o);
@@ -1459,6 +1669,9 @@ public static unsafe partial class Native
     public static extern void spark_projectile2_d_set_instigator(SparkGameComponent* component, SparkGameObject* @object);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_projectile2_d_get_instigator(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_projectile2_d_set_block_on_solid_hit(SparkGameComponent* component, int value);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -1558,6 +1771,18 @@ public static unsafe partial class Native
     public static extern void spark_box_collider3_d_set_offset(SparkGameComponent* component, SparkVector3* o);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_box_collider3_d_set_category_bits(SparkGameComponent* component, int bits);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_box_collider3_d_set_mask_bits(SparkGameComponent* component, int bits);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_box_collider3_d_get_is_trigger(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_box_collider3_d_set_is_trigger(SparkGameComponent* component, int value);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern float spark_capsule_collider3_d_get_radius(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -1580,6 +1805,18 @@ public static unsafe partial class Native
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_capsule_collider3_d_set_offset(SparkGameComponent* component, SparkVector3* o);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_capsule_collider3_d_set_category_bits(SparkGameComponent* component, int bits);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_capsule_collider3_d_set_mask_bits(SparkGameComponent* component, int bits);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_capsule_collider3_d_get_is_trigger(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_capsule_collider3_d_set_is_trigger(SparkGameComponent* component, int value);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern float spark_character_controller3_d_get_radius(SparkGameComponent* component);
@@ -1624,6 +1861,15 @@ public static unsafe partial class Native
     public static extern int spark_character_controller3_d_is_grounded(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_character_controller3_d_set_category_bits(SparkGameComponent* component, int bits);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_character_controller3_d_set_mask_bits(SparkGameComponent* component, int bits);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_distance_joint3_d_get_connected_body(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_distance_joint3_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -1637,6 +1883,9 @@ public static unsafe partial class Native
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_distance_joint3_d_set_stiffness(SparkGameComponent* component, float s);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_hinge_joint3_d_get_connected_body(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_hinge_joint3_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o);
@@ -1660,16 +1909,79 @@ public static unsafe partial class Native
     public static extern void spark_hinge_joint3_d_set_stiffness(SparkGameComponent* component, float s);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_hurtbox3_d_set_enabled(SparkGameComponent* component, int value);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_hurtbox3_d_is_enabled(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_hurtbox3_d_set_local_offset(SparkGameComponent* component, SparkVector3* offset);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_hurtbox3_d_get_local_offset(SparkGameComponent* component, SparkVector3* outLocalOffset);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_hurtbox3_d_set_radius(SparkGameComponent* component, float value);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_hurtbox3_d_get_radius(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_hurtbox3_d_set_category_bits(SparkGameComponent* component, int bits);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_hurtbox3_d_set_mask_bits(SparkGameComponent* component, int bits);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_hurtbox3_d_set_invulnerability_seconds(SparkGameComponent* component, float seconds);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_hurtbox3_d_get_invulnerability_seconds(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_hurtbox3_d_is_invulnerable(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_hurtbox3_d_notify_damage_received(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_mesh_collider3_d_get_local_offset(SparkGameComponent* component, SparkVector3* outLocalOffset);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_mesh_collider3_d_set_local_offset(SparkGameComponent* component, SparkVector3* o);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern int spark_mesh_collider3_d_is_trigger(SparkGameComponent* component);
+    public static extern int spark_mesh_collider3_d_get_is_trigger(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_mesh_collider3_d_set_is_trigger(SparkGameComponent* component, int t);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_mesh_collider3_d_set_category_bits(SparkGameComponent* component, int bits);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_mesh_collider3_d_set_mask_bits(SparkGameComponent* component, int bits);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_physics_attached_body_3d_get_carrier(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_physics_attached_body_3d_get_local_offset(SparkGameComponent* component, SparkVector3* outLocalOffset);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_physics_attached_body_3d_is_attached(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_physics_layer3_d_set_category_bits(SparkGameComponent* component, int bits);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_physics_layer3_d_set_mask_bits(SparkGameComponent* component, int bits);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_physics_layer3_d_get_is_trigger(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_physics_layer3_d_set_is_trigger(SparkGameComponent* component, int value);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern float spark_physics_material3_d_get_static_friction(SparkGameComponent* component);
@@ -1732,6 +2044,21 @@ public static unsafe partial class Native
     public static extern void spark_sphere_collider3_d_set_offset(SparkGameComponent* component, SparkVector3* o);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_sphere_collider3_d_set_category_bits(SparkGameComponent* component, int bits);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_sphere_collider3_d_set_mask_bits(SparkGameComponent* component, int bits);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_sphere_collider3_d_get_is_trigger(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_sphere_collider3_d_set_is_trigger(SparkGameComponent* component, int value);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_spring_joint3_d_get_connected_body(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_spring_joint3_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -1790,6 +2117,12 @@ public static unsafe partial class Native
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_trigger_volume3_d_set_filter_tag(SparkGameComponent* component, sbyte* tag);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_trigger_volume3_d_set_category_bits(SparkGameComponent* component, int bits);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_trigger_volume3_d_set_mask_bits(SparkGameComponent* component, int bits);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int spark_trigger_volume3_d_is_overlapping(SparkGameComponent* component, SparkGameObject* other);
@@ -1903,6 +2236,111 @@ public static unsafe partial class Native
     public static extern void spark_gltf_scene_source_set_gltf_asset_rel(SparkGameComponent* component, sbyte* path);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_get_tint(SparkGameComponent* component, SparkVector3* outTint);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_material_get_metallic(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_material_get_roughness(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_material_get_metallic_factor(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_material_get_roughness_factor(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_material_get_occlusion_strength(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_get_emissive_color(SparkGameComponent* component, SparkVector3* outEmissiveColor);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_material_get_emissive_intensity(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_get_emissive_factor(SparkGameComponent* component, SparkVector3* outEmissiveFactor);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_set_metallic_factor(SparkGameComponent* component, float f);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_set_roughness_factor(SparkGameComponent* component, float f);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_set_occlusion_strength(SparkGameComponent* component, float s);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_set_emissive_factor(SparkGameComponent* component, SparkVector3* f);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_set_shading_model(SparkGameComponent* component, int s);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_material_get_toon_diffuse_bands(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_set_toon_diffuse_bands(SparkGameComponent* component, int bands);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_material_get_toon_rim_intensity(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_set_toon_rim_intensity(SparkGameComponent* component, float v);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_material_get_toon_rim_power(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_set_toon_rim_power(SparkGameComponent* component, float v);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_material_is_double_sided(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_set_double_sided(SparkGameComponent* component, int v);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_material_get_opacity(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_set_opacity(SparkGameComponent* component, float a);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_material_get_alpha_cutoff(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_set_alpha_cutoff(SparkGameComponent* component, float cutoff);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_material_is_alpha_blend(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_set_alpha_blend(SparkGameComponent* component, int blend);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_material_get_normal_scale(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_set_normal_scale(SparkGameComponent* component, float scale);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_material_has_s_material_asset(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_set_shadow_cast_override(SparkGameComponent* component, int casts);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_clear_shadow_cast_override(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_set_shadow_receive_override(SparkGameComponent* component, int receives);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_material_clear_shadow_receive_override(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_multi_material_clear(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -1925,6 +2363,9 @@ public static unsafe partial class Native
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_parallax_set_camera_reference(SparkGameComponent* component, SparkGameObject* camera);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern SparkGameObject* spark_parallax_get_camera_reference(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_parallax_set_anchor_world(SparkGameComponent* component, SparkVector3* anchor);
@@ -1972,6 +2413,102 @@ public static unsafe partial class Native
     public static extern void spark_parallax_set_drift_phase(SparkGameComponent* component, float value);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_particle_emitter_is_emitter_enabled(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_particle_emitter_set_emitter_enabled(SparkGameComponent* component, int e);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_particle_emitter_get_max_particles(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_particle_emitter_set_emission_rate(SparkGameComponent* component, float rate);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_particle_emitter_get_emission_rate(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_particle_emitter_set_lifetime(SparkGameComponent* component, float minSec, float maxSec);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_particle_emitter_set_start_end_size(SparkGameComponent* component, float start, float end);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_particle_emitter_set_gravity(SparkGameComponent* component, SparkVector3* g);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_particle_emitter_set_emission_direction(SparkGameComponent* component, SparkVector3* dir);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_particle_emitter_get_emission_direction(SparkGameComponent* component, SparkVector3* outEmissionDirection);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_particle_emitter_set_use_local_emission(SparkGameComponent* component, int local);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_particle_emitter_get_use_local_emission(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_particle_emitter_set_spread_angle_radians(SparkGameComponent* component, float rad);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_particle_emitter_set_speed_range(SparkGameComponent* component, float minS, float maxS);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_particle_emitter_get_lifetime_min(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_particle_emitter_get_lifetime_max(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_particle_emitter_get_start_size(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_particle_emitter_get_end_size(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_particle_emitter_get_gravity(SparkGameComponent* component, SparkVector3* outGravity);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_particle_emitter_get_spread_angle_radians(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_particle_emitter_get_speed_min(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_particle_emitter_get_speed_max(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_particle_emitter_set_emission_module_id(SparkGameComponent* component, sbyte* moduleId);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_particle_emitter_set_ring_radius(SparkGameComponent* component, float radius);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_particle_emitter_get_ring_radius(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_particle_emitter_set_render_space(SparkGameComponent* component, int space);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_particle_emitter_set_sprite_layer_sort_order(SparkGameComponent* component, int order);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_particle_emitter_get_sprite_layer_sort_order(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_particle_emitter_clear_particles(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_particle_emitter_get_alive_particle_count(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_particle_emitter_emit_continuous(SparkGameComponent* component, SparkVector3* origin, SparkVector3* worldEmissionDir, float deltaTimeSeconds);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_particle_emitter_emit_ring(SparkGameComponent* component, SparkVector3* origin, SparkVector3* worldEmissionDir, float deltaTimeSeconds);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int spark_post_process_volume_is_enabled(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -2014,6 +2551,18 @@ public static unsafe partial class Native
     public static extern float spark_post_process_volume_get_ambient_scale(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_render_layer_get_order_in_layer(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_render_layer_has_s_explicit_order_in_layer(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_render_layer_set_layer_id(SparkGameComponent* component, int id);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_render_layer_clear_explicit_order_in_layer(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_scene2_d_composite_view_set_feature(SparkGameComponent* component, int value);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -2030,6 +2579,33 @@ public static unsafe partial class Native
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int spark_skinned_mesh_is_skeleton_loaded(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_sky_get_sky_mode(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_sky_set_sky_mode(SparkGameComponent* component, int m);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_sky_is_sky_enabled(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_sky_set_sky_enabled(SparkGameComponent* component, int e);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_sky_get_tint(SparkGameComponent* component, SparkVector3* outTint);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_sorting_group_is_enabled(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_sorting_group_get_sorting_order(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_sorting_group_is_uses_root_world_y(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_sprite_get_sort_order(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int spark_sprite_lighting2_d_get_mode(SparkGameComponent* component);
@@ -2077,9 +2653,6 @@ public static unsafe partial class Native
     public static extern float spark_terrain_get_world_units_per_texture_repeat(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void spark_terrain_get_mesh_albedo(SparkGameComponent* component, SparkVector3* outMeshAlbedo);
-
-    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_terrain_set_height_scale(SparkGameComponent* component, float v);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -2089,16 +2662,85 @@ public static unsafe partial class Native
     public static extern void spark_terrain_set_seed(SparkGameComponent* component, uint v);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void spark_terrain_reset_heights_to_procedural(SparkGameComponent* component, SparkGameObject* owner);
-
-    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void spark_terrain_regenerate_mesh(SparkGameComponent* component, SparkGameObject* owner);
-
-    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-    public static extern void spark_terrain_apply_height_brush_local(SparkGameComponent* component, SparkGameObject* owner, SparkVector2* centerXZ, float radiusXZ, float deltaY);
-
-    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_terrain_apply_height_brush_world(SparkGameComponent* component, SparkGameObject* owner, SparkVector3* centerWorld, float radiusWorld, float deltaY);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_text_overlay_get_screen_x(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_text_overlay_get_screen_y(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_text_overlay_get_font_size_pixels(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_text_overlay_get_color(SparkGameComponent* component, SparkVector3* outColor);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_text_overlay_get_alpha(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_text_overlay_is_visible(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_tilemap_get_map_width(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_tilemap_get_map_height(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_tilemap_get_atlas_tiles_u(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_tilemap_get_atlas_tiles_v(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern float spark_tilemap_get_tile_world_size(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_tilemap_set_tile_world_size(SparkGameComponent* component, float size);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_tilemap_get_sort_order_base(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_tilemap_set_sort_order_base(SparkGameComponent* component, int order);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_tilemap_resize(SparkGameComponent* component, uint mapW, uint mapH);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_tilemap_get_add_layer(SparkGameComponent* component, sbyte* name);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_tilemap_remove_layer(SparkGameComponent* component, uint layerIndex);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_tilemap_set_paint_tile(SparkGameComponent* component, uint x, uint y, int paintTileId);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_vfx_player_set_vfx_asset_key(SparkGameComponent* component, sbyte* key);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_vfx_player_set_play_on_start(SparkGameComponent* component, int enabled);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_vfx_player_get_play_on_start(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_vfx_player_set_play_on_start_once(SparkGameComponent* component, int enabled);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_vfx_player_get_play_on_start_once(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_vfx_player_set_pooled_playback(SparkGameComponent* component, int pooled);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_vfx_player_is_pooled_playback(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_vfx_player_get_playback_state(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int spark_tilemap_autotile_get_layer_index(SparkGameComponent* component);
@@ -2192,6 +2834,27 @@ public static unsafe partial class Native
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern void spark_tilemap_tile_animator_set_playing(SparkGameComponent* component, int play);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_ui_canvas_get_sort_order(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_ui_canvas_set_canvas_enabled(SparkGameComponent* component, int enabled);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_ui_canvas_is_canvas_enabled(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_ui_canvas_clear_transient_pointer_state(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_ui_canvas_clear_keyboard_focus(SparkGameComponent* component);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern void spark_ui_canvas_set_modal_input_capture(SparkGameComponent* component, int capture);
+
+    [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+    public static extern int spark_ui_canvas_get_modal_input_capture(SparkGameComponent* component);
 
     [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
     public static extern int spark_water_body_get_mode(SparkGameComponent* component);

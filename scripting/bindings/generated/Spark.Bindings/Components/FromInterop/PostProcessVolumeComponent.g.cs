@@ -15,7 +15,7 @@ public sealed partial class PostProcessVolumeComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_post_process_volume_get_shape(InteropPtr.Component(Handle));
+return Native.spark_post_process_volume_get_shape(InteropPtr.Component(Handle));
             }
         }
         set

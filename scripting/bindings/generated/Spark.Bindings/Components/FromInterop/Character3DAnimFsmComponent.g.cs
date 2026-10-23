@@ -15,7 +15,7 @@ public sealed partial class Character3DAnimFsmComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_char_3d_fsm_get_walk_speed_threshold(InteropPtr.Component(Handle));
+return Native.spark_char_3d_fsm_get_walk_speed_threshold(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class Character3DAnimFsmComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_char_3d_fsm_get_run_speed_threshold(InteropPtr.Component(Handle));
+return Native.spark_char_3d_fsm_get_run_speed_threshold(InteropPtr.Component(Handle));
             }
         }
         set
@@ -51,7 +51,7 @@ public sealed partial class Character3DAnimFsmComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_char_3d_fsm_get_crossfade_duration(InteropPtr.Component(Handle));
+return Native.spark_char_3d_fsm_get_crossfade_duration(InteropPtr.Component(Handle));
             }
         }
         set
@@ -59,6 +59,42 @@ public sealed partial class Character3DAnimFsmComponent : GameComponentHandle
             unsafe
             {
                 Native.spark_char_3d_fsm_set_crossfade_duration(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public int UseUpperBodyCombatOverlay
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_char_3d_fsm_get_use_upper_body_combat_overlay(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_char_3d_fsm_set_use_upper_body_combat_overlay(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public int UseUpperBodyAttackOverlay
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_char_3d_fsm_get_use_upper_body_attack_overlay(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_char_3d_fsm_set_use_upper_body_attack_overlay(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -308,6 +344,14 @@ public sealed partial class Character3DAnimFsmComponent : GameComponentHandle
         unsafe
         {
                 return Native.spark_char_3d_fsm_get_manual_clip_loop_mode(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetWishFacingYawRadians(float radians)
+    {
+        unsafe
+        {
+                Native.spark_char_3d_fsm_set_wish_facing_yaw_radians(InteropPtr.Component(Handle), radians);
         }
     }
 }

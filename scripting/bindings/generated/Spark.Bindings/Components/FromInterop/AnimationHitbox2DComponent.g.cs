@@ -15,7 +15,7 @@ public sealed partial class AnimationHitbox2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_animation_hitbox2_d_get_shape(InteropPtr.Component(Handle));
+return Native.spark_animation_hitbox2_d_get_shape(InteropPtr.Component(Handle));
             }
         }
         set

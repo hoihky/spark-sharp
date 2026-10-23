@@ -3,12 +3,16 @@
 from __future__ import annotations
 
 import re
+import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-HDR = ROOT / "include/spark/scripting/SparkInterop.h"
-HDR_GENERATED = ROOT / "include/spark/scripting/SparkInteropComponentBindings.generated.h"
-OUT = ROOT / "scripting/bindings/generated/Spark.Bindings/Native.Interop.g.cs"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from spark_sharp_paths import BINDINGS_OUT, INTEROP_GEN_H, INTEROP_H  # noqa: E402
+
+HDR = INTEROP_H
+HDR_GENERATED = INTEROP_GEN_H
+OUT = BINDINGS_OUT / "Native.Interop.g.cs"
 
 DECL_RE = re.compile(
     r"SPARK_SCRIPT_API\s+(?P<ret>[\w\s\*]+?)\s+(?P<name>spark_\w+)\s*\((?P<args>[^;]*)\)\s*;",
@@ -77,7 +81,7 @@ def parse_params(args: str) -> str:
 
 
 def existing_native_exports() -> set[str]:
-    native = ROOT / "scripting/bindings/generated/Spark.Bindings/Native.g.cs"
+    native = BINDINGS_OUT / "Native.g.cs"
     if not native.is_file():
         return set()
     body = native.read_text(encoding="utf-8")

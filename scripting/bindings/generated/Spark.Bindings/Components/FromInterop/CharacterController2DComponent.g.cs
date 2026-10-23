@@ -15,7 +15,7 @@ public sealed partial class CharacterController2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_character_controller2_d_get_move_speed(InteropPtr.Component(Handle));
+return Native.spark_character_controller2_d_get_move_speed(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class CharacterController2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_character_controller2_d_get_jump_speed(InteropPtr.Component(Handle));
+return Native.spark_character_controller2_d_get_jump_speed(InteropPtr.Component(Handle));
             }
         }
         set
@@ -51,7 +51,7 @@ public sealed partial class CharacterController2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_character_controller2_d_get_coyote_time_seconds(InteropPtr.Component(Handle));
+return Native.spark_character_controller2_d_get_coyote_time_seconds(InteropPtr.Component(Handle));
             }
         }
         set
@@ -69,7 +69,7 @@ public sealed partial class CharacterController2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_character_controller2_d_get_jump_buffer_seconds(InteropPtr.Component(Handle));
+return Native.spark_character_controller2_d_get_jump_buffer_seconds(InteropPtr.Component(Handle));
             }
         }
         set
@@ -87,7 +87,7 @@ public sealed partial class CharacterController2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_character_controller2_d_get_skin_width(InteropPtr.Component(Handle));
+return Native.spark_character_controller2_d_get_skin_width(InteropPtr.Component(Handle));
             }
         }
         set
@@ -105,7 +105,7 @@ public sealed partial class CharacterController2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_character_controller2_d_get_move_input_x(InteropPtr.Component(Handle));
+return Native.spark_character_controller2_d_get_move_input_x(InteropPtr.Component(Handle));
             }
         }
         set
@@ -123,7 +123,7 @@ public sealed partial class CharacterController2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_character_controller2_d_get_move_input_y(InteropPtr.Component(Handle));
+return Native.spark_character_controller2_d_get_move_input_y(InteropPtr.Component(Handle));
             }
         }
         set
@@ -141,7 +141,7 @@ public sealed partial class CharacterController2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_character_controller2_d_get_motor_mode(InteropPtr.Component(Handle));
+return Native.spark_character_controller2_d_get_motor_mode(InteropPtr.Component(Handle));
             }
         }
         set
@@ -159,7 +159,7 @@ public sealed partial class CharacterController2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_character_controller2_d_get_drop_through_one_way(InteropPtr.Component(Handle));
+return Native.spark_character_controller2_d_get_drop_through_one_way(InteropPtr.Component(Handle));
             }
         }
         set

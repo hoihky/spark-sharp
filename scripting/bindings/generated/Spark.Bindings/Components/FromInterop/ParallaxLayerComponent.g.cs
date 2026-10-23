@@ -57,7 +57,7 @@ public sealed partial class ParallaxLayerComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_parallax_get_factor_x(InteropPtr.Component(Handle));
+return Native.spark_parallax_get_factor_x(InteropPtr.Component(Handle));
             }
         }
         set
@@ -75,7 +75,7 @@ public sealed partial class ParallaxLayerComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_parallax_get_factor_y(InteropPtr.Component(Handle));
+return Native.spark_parallax_get_factor_y(InteropPtr.Component(Handle));
             }
         }
         set
@@ -93,7 +93,7 @@ public sealed partial class ParallaxLayerComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_parallax_get_axis_mode(InteropPtr.Component(Handle));
+return Native.spark_parallax_get_axis_mode(InteropPtr.Component(Handle));
             }
         }
         set
@@ -110,6 +110,15 @@ public sealed partial class ParallaxLayerComponent : GameComponentHandle
         unsafe
         {
                 Native.spark_parallax_set_camera_reference(InteropPtr.Component(Handle), InteropPtr.Object(camera.Handle));
+        }
+    }
+
+    public GameObject GetCameraReference()
+    {
+        unsafe
+        {
+                var raw = Native.spark_parallax_get_camera_reference(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 

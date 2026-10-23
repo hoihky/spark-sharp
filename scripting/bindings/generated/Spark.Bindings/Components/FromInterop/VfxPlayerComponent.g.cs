@@ -9,6 +9,42 @@ public sealed partial class VfxPlayerComponent : GameComponentHandle
     internal VfxPlayerComponent(nint handle)
         : base(handle) { }
 
+    public int PlayOnStart
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_vfx_player_get_play_on_start(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_vfx_player_set_play_on_start(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public int PlayOnStartOnce
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_vfx_player_get_play_on_start_once(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_vfx_player_set_play_on_start_once(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
     public void SetAssetKey(string assetKey)
     {
         unsafe
@@ -17,6 +53,41 @@ public sealed partial class VfxPlayerComponent : GameComponentHandle
             {
                 Native.spark_vfx_player_set_asset_key(InteropPtr.Component(Handle), (sbyte*)ptr);
             });
+        }
+    }
+
+    public void SetVfxAssetKey(string key)
+    {
+        unsafe
+        {
+            InteropUtf8.WithUtf8(key, ptr =>
+            {
+                Native.spark_vfx_player_set_vfx_asset_key(InteropPtr.Component(Handle), (sbyte*)ptr);
+            });
+        }
+    }
+
+    public void SetPooledPlayback(int pooled)
+    {
+        unsafe
+        {
+                Native.spark_vfx_player_set_pooled_playback(InteropPtr.Component(Handle), pooled);
+        }
+    }
+
+    public int IsPooledPlayback()
+    {
+        unsafe
+        {
+                return Native.spark_vfx_player_is_pooled_playback(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetPlaybackState()
+    {
+        unsafe
+        {
+                return Native.spark_vfx_player_get_playback_state(InteropPtr.Component(Handle));
         }
     }
 }

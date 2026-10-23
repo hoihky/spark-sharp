@@ -9,6 +9,45 @@ public sealed partial class SkyComponent : GameComponentHandle
     internal SkyComponent(nint handle)
         : base(handle) { }
 
+    public Vector3 Tint
+    {
+        get
+        {
+            unsafe
+            {
+                SparkVector3 v;
+                Native.spark_sky_get_tint(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                var v = value.ToNative();
+                Native.spark_sky_set_tint(InteropPtr.Component(Handle), &v);
+            }
+        }
+    }
+
+    public int SkyMode
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_sky_get_sky_mode(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_sky_set_sky_mode(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
     public void SetMode(SparkSceneSkyMode mode)
     {
         unsafe
@@ -17,20 +56,27 @@ public sealed partial class SkyComponent : GameComponentHandle
         }
     }
 
-    public void SetTint(in Vector3 tint)
-    {
-        unsafe
-        {
-            var tintNative = tint.ToNative();
-                Native.spark_sky_set_tint(InteropPtr.Component(Handle), &tintNative);
-        }
-    }
-
     public void SetEnabled(int enabled)
     {
         unsafe
         {
                 Native.spark_sky_set_enabled(InteropPtr.Component(Handle), enabled);
+        }
+    }
+
+    public int IsSkyEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_sky_is_sky_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetSkyEnabled(int e)
+    {
+        unsafe
+        {
+                Native.spark_sky_set_sky_enabled(InteropPtr.Component(Handle), e);
         }
     }
 }

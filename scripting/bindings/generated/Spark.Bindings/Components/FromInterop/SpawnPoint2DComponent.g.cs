@@ -15,7 +15,7 @@ public sealed partial class SpawnPoint2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_spawn_point2_d_get_facing_radians(InteropPtr.Component(Handle));
+return Native.spark_spawn_point2_d_get_facing_radians(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class SpawnPoint2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_spawn_point2_d_get_use_transform_facing(InteropPtr.Component(Handle));
+return Native.spark_spawn_point2_d_get_use_transform_facing(InteropPtr.Component(Handle));
             }
         }
         set
@@ -51,7 +51,7 @@ public sealed partial class SpawnPoint2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_spawn_point2_d_get_team_id(InteropPtr.Component(Handle));
+return Native.spark_spawn_point2_d_get_team_id(InteropPtr.Component(Handle));
             }
         }
         set

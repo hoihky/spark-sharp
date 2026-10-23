@@ -15,7 +15,7 @@ public sealed partial class SkinnedAnimationBudgetComponent : GameComponentHandl
         {
             unsafe
             {
-                return Native.spark_skinned_animation_budget_get_palette_quantization_hz(InteropPtr.Component(Handle));
+return Native.spark_skinned_animation_budget_get_palette_quantization_hz(InteropPtr.Component(Handle));
             }
         }
         set

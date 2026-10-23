@@ -9,28 +9,225 @@ public sealed partial class MaterialComponent : GameComponentHandle
     internal MaterialComponent(nint handle)
         : base(handle) { }
 
-    public void SetTint(in Vector3 tint)
+    public Vector3 Tint
     {
-        unsafe
+        get
         {
-            var tintNative = tint.ToNative();
-                Native.spark_material_set_tint(InteropPtr.Component(Handle), &tintNative);
+            unsafe
+            {
+                SparkVector3 v;
+                Native.spark_material_get_tint(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                var v = value.ToNative();
+                Native.spark_material_set_tint(InteropPtr.Component(Handle), &v);
+            }
         }
     }
 
-    public void SetMetallic(float metallic)
+    public float Metallic
     {
-        unsafe
+        get
         {
-                Native.spark_material_set_metallic(InteropPtr.Component(Handle), metallic);
+            unsafe
+            {
+return Native.spark_material_get_metallic(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_material_set_metallic(InteropPtr.Component(Handle), value);
+            }
         }
     }
 
-    public void SetRoughness(float roughness)
+    public float Roughness
     {
-        unsafe
+        get
         {
-                Native.spark_material_set_roughness(InteropPtr.Component(Handle), roughness);
+            unsafe
+            {
+return Native.spark_material_get_roughness(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_material_set_roughness(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float MetallicFactor
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_material_get_metallic_factor(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_material_set_metallic_factor(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float RoughnessFactor
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_material_get_roughness_factor(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_material_set_roughness_factor(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float OcclusionStrength
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_material_get_occlusion_strength(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_material_set_occlusion_strength(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public Vector3 EmissiveFactor
+    {
+        get
+        {
+            unsafe
+            {
+                SparkVector3 v;
+                Native.spark_material_get_emissive_factor(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                var v = value.ToNative();
+                Native.spark_material_set_emissive_factor(InteropPtr.Component(Handle), &v);
+            }
+        }
+    }
+
+    public float ToonRimIntensity
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_material_get_toon_rim_intensity(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_material_set_toon_rim_intensity(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float ToonRimPower
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_material_get_toon_rim_power(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_material_set_toon_rim_power(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float Opacity
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_material_get_opacity(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_material_set_opacity(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float AlphaCutoff
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_material_get_alpha_cutoff(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_material_set_alpha_cutoff(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float NormalScale
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_material_get_normal_scale(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_material_set_normal_scale(InteropPtr.Component(Handle), value);
+            }
         }
     }
 
@@ -53,6 +250,123 @@ public sealed partial class MaterialComponent : GameComponentHandle
                 result = Native.spark_material_set_base_color_texture(InteropPtr.Component(Handle), InteropPtr.World(world.Handle), (sbyte*)ptr);
             });
             return result != 0;
+        }
+    }
+
+    public Vector3 EmissiveColor
+    {
+        get
+        {
+            unsafe
+            {
+                SparkVector3 v;
+                Native.spark_material_get_emissive_color(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
+            }
+        }
+    }
+
+    public float GetEmissiveIntensity()
+    {
+        unsafe
+        {
+                return Native.spark_material_get_emissive_intensity(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetShadingModel(int s)
+    {
+        unsafe
+        {
+                Native.spark_material_set_shading_model(InteropPtr.Component(Handle), s);
+        }
+    }
+
+    public int GetToonDiffuseBands()
+    {
+        unsafe
+        {
+                return Native.spark_material_get_toon_diffuse_bands(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetToonDiffuseBands(int bands)
+    {
+        unsafe
+        {
+                Native.spark_material_set_toon_diffuse_bands(InteropPtr.Component(Handle), bands);
+        }
+    }
+
+    public int IsDoubleSided()
+    {
+        unsafe
+        {
+                return Native.spark_material_is_double_sided(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetDoubleSided(int v)
+    {
+        unsafe
+        {
+                Native.spark_material_set_double_sided(InteropPtr.Component(Handle), v);
+        }
+    }
+
+    public int IsAlphaBlend()
+    {
+        unsafe
+        {
+                return Native.spark_material_is_alpha_blend(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetAlphaBlend(int blend)
+    {
+        unsafe
+        {
+                Native.spark_material_set_alpha_blend(InteropPtr.Component(Handle), blend);
+        }
+    }
+
+    public int HasSMaterialAsset()
+    {
+        unsafe
+        {
+                return Native.spark_material_has_s_material_asset(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetShadowCastOverride(int casts)
+    {
+        unsafe
+        {
+                Native.spark_material_set_shadow_cast_override(InteropPtr.Component(Handle), casts);
+        }
+    }
+
+    public void ClearShadowCastOverride()
+    {
+        unsafe
+        {
+                Native.spark_material_clear_shadow_cast_override(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetShadowReceiveOverride(int receives)
+    {
+        unsafe
+        {
+                Native.spark_material_set_shadow_receive_override(InteropPtr.Component(Handle), receives);
+        }
+    }
+
+    public void ClearShadowReceiveOverride()
+    {
+        unsafe
+        {
+                Native.spark_material_clear_shadow_receive_override(InteropPtr.Component(Handle));
         }
     }
 }

@@ -106,22 +106,12 @@ SparkGameComponent* DispatchGetOrAddDefault(Spark::GameObject* object, SparkComp
             return GetOrAddComponent<Spark::CameraFollow3DComponent>(object);
         case SparkComponentKind_SpringArm3D:
             return GetOrAddComponent<Spark::SpringArm3DComponent>(object);
-        case SparkComponentKind_Health:
-            return GetOrAddComponent<Spark::HealthComponent>(object);
-        case SparkComponentKind_Damageable:
-            return GetOrAddComponent<Spark::DamageableComponent>(object);
-        case SparkComponentKind_Interactable:
-            return GetOrAddComponent<Spark::InteractableComponent>(object);
-        case SparkComponentKind_Pickup:
-            return GetOrAddComponent<Spark::PickupComponent>(object);
         case SparkComponentKind_AnimationHitbox2D:
             return GetOrAddComponent<Spark::AnimationHitbox2DComponent>(object);
         case SparkComponentKind_Hurtbox2D:
             return GetOrAddComponent<Spark::Hurtbox2DComponent>(object);
         case SparkComponentKind_Projectile2D:
             return GetOrAddComponent<Spark::Projectile2DComponent>(object);
-        case SparkComponentKind_DamageZone2D:
-            return GetOrAddComponent<Spark::DamageZone2DComponent>(object);
         case SparkComponentKind_SpawnPoint2D:
             return GetOrAddComponent<Spark::SpawnPoint2DComponent>(object);
         case SparkComponentKind_CameraBounds2D:
@@ -138,10 +128,6 @@ SparkGameComponent* DispatchGetOrAddDefault(Spark::GameObject* object, SparkComp
             return GetOrAddComponent<Spark::InputActionMapComponent>(object);
         case SparkComponentKind_PlayerInput:
             return GetOrAddComponent<Spark::PlayerInputComponent>(object);
-        case SparkComponentKind_GameState:
-            return GetOrAddComponent<Spark::GameStateComponent>(object);
-        case SparkComponentKind_GameFlowTrigger:
-            return GetOrAddComponent<Spark::GameFlowTriggerComponent>(object);
         case SparkComponentKind_PhysicsMaterial2D:
             return GetOrAddComponent<Spark::PhysicsMaterial2DComponent>(object);
         case SparkComponentKind_MeshCollider3D:
@@ -188,8 +174,6 @@ SparkGameComponent* DispatchGetOrAddDefault(Spark::GameObject* object, SparkComp
             return GetOrAddComponent<Spark::TilemapMapSourceComponent>(object);
         case SparkComponentKind_TimeOfDayDriver:
             return GetOrAddComponent<Spark::TimeOfDayDriverComponent>(object);
-        case SparkComponentKind_FogOfWar2D:
-            return GetOrAddComponent<Spark::FogOfWar2DComponent>(object);
         case SparkComponentKind_WindEnvironment:
             return GetOrAddComponent<Spark::WindEnvironmentComponent>(object);
         case SparkComponentKind_FoliageInstancedMesh:

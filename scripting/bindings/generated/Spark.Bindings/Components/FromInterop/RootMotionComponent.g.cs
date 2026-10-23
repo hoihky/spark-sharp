@@ -15,7 +15,7 @@ public sealed partial class RootMotionComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_root_motion_get_skeleton_space_scale(InteropPtr.Component(Handle));
+return Native.spark_root_motion_get_skeleton_space_scale(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class RootMotionComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_root_motion_get_translation_mask(InteropPtr.Component(Handle));
+return Native.spark_root_motion_get_translation_mask(InteropPtr.Component(Handle));
             }
         }
         set
@@ -53,6 +53,15 @@ public sealed partial class RootMotionComponent : GameComponentHandle
         }
     }
 
+    public GameObject GetAnimatorObject()
+    {
+        unsafe
+        {
+                var raw = Native.spark_root_motion_get_animator_object(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
+        }
+    }
+
     public void SetApplyTarget(GameObject gameObject)
     {
         unsafe
@@ -61,11 +70,29 @@ public sealed partial class RootMotionComponent : GameComponentHandle
         }
     }
 
+    public GameObject GetApplyTarget()
+    {
+        unsafe
+        {
+                var raw = Native.spark_root_motion_get_apply_target(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
+        }
+    }
+
     public void SetFacingObject(GameObject gameObject)
     {
         unsafe
         {
                 Native.spark_root_motion_set_facing_object(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
+        }
+    }
+
+    public GameObject GetFacingObject()
+    {
+        unsafe
+        {
+                var raw = Native.spark_root_motion_get_facing_object(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 

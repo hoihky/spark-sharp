@@ -391,7 +391,7 @@ internal static class ComponentMirrorCodegen
             sb.AppendLine("        {");
             sb.AppendLine("            unsafe");
             sb.AppendLine("            {");
-            sb.AppendLine($"                return Native.{_get.Name}({ptr});");
+            sb.AppendLine(EmitReturnStatement(_get.ReturnType, $"Native.{_get.Name}({ptr})"));
             sb.AppendLine("            }");
             sb.AppendLine("        }");
             sb.AppendLine("        set");
@@ -707,11 +707,26 @@ internal static class ComponentMirrorCodegen
             {
                 sb.AppendLine($"{indent}Native.{_fn.Name}({string.Join(", ", args)});");
             }
+            else if (_fn.ReturnType.Contains("SparkGameObject", StringComparison.Ordinal))
+            {
+                sb.AppendLine(
+                    $"{indent}{EmitReturnStatement(_fn.ReturnType, $"Native.{_fn.Name}({string.Join(", ", args)})")}");
+            }
             else
             {
                 sb.AppendLine($"{indent}return Native.{_fn.Name}({string.Join(", ", args)});");
             }
         }
+    }
+
+    private static string EmitReturnStatement(string returnType, string nativeExpression)
+    {
+        if (returnType.Contains("SparkGameObject", StringComparison.Ordinal))
+        {
+            return $"var raw = {nativeExpression};\n                return raw == null ? null! : new GameObject(InteropPtr.From(raw));";
+        }
+
+        return $"return {nativeExpression};";
     }
 
     private static bool NeedsNativeBlit(string type) =>
@@ -843,6 +858,11 @@ internal static class ComponentMirrorCodegen
 
     private static string MapReturnType(string ret)
     {
+        if (ret.Contains("SparkGameObject", StringComparison.Ordinal))
+        {
+            return "GameObject";
+        }
+
         if (IsSparkEnumType(ret))
         {
             return ret;

@@ -34,4 +34,12 @@ public sealed partial class SpriteComponent : GameComponentHandle
                 Native.spark_sprite_set_sort_order(InteropPtr.Component(Handle), sortOrder);
         }
     }
+
+    public int GetSortOrder()
+    {
+        unsafe
+        {
+                return Native.spark_sprite_get_sort_order(InteropPtr.Component(Handle));
+        }
+    }
 }

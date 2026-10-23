@@ -15,7 +15,7 @@ public sealed partial class AiAgentComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_ai_agent_get_max_speed(InteropPtr.Component(Handle));
+return Native.spark_ai_agent_get_max_speed(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class AiAgentComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_ai_agent_get_steering_plane(InteropPtr.Component(Handle));
+return Native.spark_ai_agent_get_steering_plane(InteropPtr.Component(Handle));
             }
         }
         set
@@ -51,7 +51,7 @@ public sealed partial class AiAgentComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_ai_agent_get_goap_world_bits(InteropPtr.Component(Handle));
+return Native.spark_ai_agent_get_goap_world_bits(InteropPtr.Component(Handle));
             }
         }
         set
@@ -69,7 +69,7 @@ public sealed partial class AiAgentComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_ai_agent_get_path_index(InteropPtr.Component(Handle));
+return Native.spark_ai_agent_get_path_index(InteropPtr.Component(Handle));
             }
         }
         set

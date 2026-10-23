@@ -15,7 +15,7 @@ public sealed partial class Camera2DRigComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_camera_2d_rig_get_mode(InteropPtr.Component(Handle));
+return Native.spark_camera_2d_rig_get_mode(InteropPtr.Component(Handle));
             }
         }
         set
@@ -54,7 +54,7 @@ public sealed partial class Camera2DRigComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_camera_2d_rig_get_follow_smooth_rate(InteropPtr.Component(Handle));
+return Native.spark_camera_2d_rig_get_follow_smooth_rate(InteropPtr.Component(Handle));
             }
         }
         set
@@ -72,7 +72,7 @@ public sealed partial class Camera2DRigComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_camera_2d_rig_get_look_ahead_scale(InteropPtr.Component(Handle));
+return Native.spark_camera_2d_rig_get_look_ahead_scale(InteropPtr.Component(Handle));
             }
         }
         set
@@ -90,7 +90,7 @@ public sealed partial class Camera2DRigComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_camera_2d_rig_get_use_bounds(InteropPtr.Component(Handle));
+return Native.spark_camera_2d_rig_get_use_bounds(InteropPtr.Component(Handle));
             }
         }
         set
@@ -150,7 +150,7 @@ public sealed partial class Camera2DRigComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_camera_2d_rig_get_use_zoom_limits(InteropPtr.Component(Handle));
+return Native.spark_camera_2d_rig_get_use_zoom_limits(InteropPtr.Component(Handle));
             }
         }
         set
@@ -168,7 +168,7 @@ public sealed partial class Camera2DRigComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_camera_2d_rig_get_zoom_min_half_extent_y(InteropPtr.Component(Handle));
+return Native.spark_camera_2d_rig_get_zoom_min_half_extent_y(InteropPtr.Component(Handle));
             }
         }
         set
@@ -186,7 +186,7 @@ public sealed partial class Camera2DRigComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_camera_2d_rig_get_zoom_max_half_extent_y(InteropPtr.Component(Handle));
+return Native.spark_camera_2d_rig_get_zoom_max_half_extent_y(InteropPtr.Component(Handle));
             }
         }
         set
@@ -221,6 +221,15 @@ public sealed partial class Camera2DRigComponent : GameComponentHandle
         unsafe
         {
                 Native.spark_camera_2d_rig_tick(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle), deltaSeconds, framebufferAspect);
+        }
+    }
+
+    public GameObject GetTarget()
+    {
+        unsafe
+        {
+                var raw = Native.spark_camera_2d_rig_get_target(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 }

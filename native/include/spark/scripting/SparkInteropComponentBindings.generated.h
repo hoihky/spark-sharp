@@ -24,9 +24,11 @@ SPARK_SCRIPT_API void spark_ai_agent_set_fuzzy_enabled(SparkGameComponent* compo
 SPARK_SCRIPT_API void spark_grid_nav_agent2_d_set_enabled(SparkGameComponent* component, int value);
 SPARK_SCRIPT_API int spark_grid_nav_agent2_d_is_enabled(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_grid_nav_agent2_d_set_grid_source_object(SparkGameComponent* component, SparkGameObject* object);
+SPARK_SCRIPT_API SparkGameObject* spark_grid_nav_agent2_d_get_grid_source_object(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_grid_nav_agent2_d_set_goal_mode(SparkGameComponent* component, int mode);
 SPARK_SCRIPT_API int spark_grid_nav_agent2_d_get_goal_mode(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_grid_nav_agent2_d_set_goal_target(SparkGameComponent* component, SparkGameObject* object);
+SPARK_SCRIPT_API SparkGameObject* spark_grid_nav_agent2_d_get_goal_target(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_grid_nav_agent2_d_set_goal_world_position(SparkGameComponent* component, const SparkVector2* position);
 SPARK_SCRIPT_API void spark_grid_nav_agent2_d_get_goal_world_position(const SparkGameComponent* component, SparkVector2* outGoalWorldPosition);
 SPARK_SCRIPT_API void spark_grid_nav_agent2_d_set_repath_every_frame(SparkGameComponent* component, int value);
@@ -59,6 +61,7 @@ SPARK_SCRIPT_API int spark_grid_path_follower2_d_get_stop_on_path_end(const Spar
 
 SPARK_SCRIPT_API int spark_nav_mesh_agent_is_enabled(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_nav_mesh_agent_set_enabled(SparkGameComponent* component, int e);
+SPARK_SCRIPT_API SparkGameObject* spark_nav_mesh_agent_get_patrol_path_object(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_nav_mesh_agent_set_patrol_path_object(SparkGameComponent* component, SparkGameObject* o);
 SPARK_SCRIPT_API int spark_nav_mesh_agent_is_use_grid_pathfinding(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_nav_mesh_agent_set_use_grid_pathfinding(SparkGameComponent* component, int u);
@@ -90,6 +93,7 @@ SPARK_SCRIPT_API void spark_perception_sensor_clear_detected(SparkGameComponent*
 SPARK_SCRIPT_API int spark_aim_ik_is_enabled(const SparkGameComponent* component);
 SPARK_SCRIPT_API float spark_aim_ik_get_weight(const SparkGameComponent* component);
 SPARK_SCRIPT_API int spark_aim_ik_is_uses_main_camera(const SparkGameComponent* component);
+SPARK_SCRIPT_API SparkGameObject* spark_aim_ik_get_target_object(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_aim_ik_get_world_target(const SparkGameComponent* component, SparkVector3* outWorldTarget);
 SPARK_SCRIPT_API void spark_aim_ik_set_enabled(SparkGameComponent* component, int value);
 SPARK_SCRIPT_API void spark_aim_ik_set_weight(SparkGameComponent* component, float value);
@@ -118,6 +122,14 @@ SPARK_SCRIPT_API void spark_animation_hitbox2_d_add_target(SparkGameComponent* c
 SPARK_SCRIPT_API int spark_animation_hitbox2_d_is_hit_window_active(const SparkGameComponent* component);
 SPARK_SCRIPT_API int32_t spark_animation_hitbox2_d_get_hits_this_swing(const SparkGameComponent* component);
 
+SPARK_SCRIPT_API void spark_animation_layer_stack_play_overlay(SparkGameComponent* component, uint32_t clipIndex, int loopMode);
+SPARK_SCRIPT_API void spark_animation_layer_stack_clear_overlay(SparkGameComponent* component);
+SPARK_SCRIPT_API int spark_animation_layer_stack_is_overlay_active(const SparkGameComponent* component);
+SPARK_SCRIPT_API int spark_animation_layer_stack_is_overlay_finished(const SparkGameComponent* component);
+SPARK_SCRIPT_API int32_t spark_animation_layer_stack_get_overlay_clip_index(const SparkGameComponent* component);
+SPARK_SCRIPT_API float spark_animation_layer_stack_get_overlay_time_seconds(const SparkGameComponent* component);
+SPARK_SCRIPT_API int spark_animation_layer_stack_get_overlay_loop_mode(const SparkGameComponent* component);
+
 SPARK_SCRIPT_API void spark_animation_melee_hit_set_start_event_name(SparkGameComponent* component, const char* name);
 SPARK_SCRIPT_API void spark_animation_melee_hit_set_end_event_name(SparkGameComponent* component, const char* name);
 SPARK_SCRIPT_API void spark_animation_melee_hit_set_facing_object(SparkGameComponent* component, SparkGameObject* object);
@@ -135,6 +147,16 @@ SPARK_SCRIPT_API int spark_animation_melee_hit_is_hit_window_active(const SparkG
 SPARK_SCRIPT_API int32_t spark_animation_melee_hit_get_hits_this_swing(const SparkGameComponent* component);
 SPARK_SCRIPT_API int32_t spark_animation_melee_hit_get_total_hits(const SparkGameComponent* component);
 
+SPARK_SCRIPT_API int32_t spark_animator_get_crossfade_from_clip(const SparkGameComponent* component);
+SPARK_SCRIPT_API float spark_animator_get_crossfade_from_time(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_animator_restart_current_clip(SparkGameComponent* component);
+
+SPARK_SCRIPT_API SparkGameObject* spark_attachment_socket_get_source_object(const SparkGameComponent* component);
+SPARK_SCRIPT_API SparkGameObject* spark_attachment_socket_get_attached_object(const SparkGameComponent* component);
+SPARK_SCRIPT_API int32_t spark_attachment_socket_get_joint_index(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_attachment_socket_get_local_offset(const SparkGameComponent* component, SparkVector3* outLocalOffset);
+SPARK_SCRIPT_API int spark_attachment_socket_is_enabled(const SparkGameComponent* component);
+
 SPARK_SCRIPT_API int spark_char_3d_fsm_is_locomotion_blend_enabled(const SparkGameComponent* component);
 SPARK_SCRIPT_API int spark_char_3d_fsm_is_locomotion_driving_enabled(const SparkGameComponent* component);
 SPARK_SCRIPT_API int spark_char_3d_fsm_is_manual_clip_active(const SparkGameComponent* component);
@@ -150,6 +172,11 @@ SPARK_SCRIPT_API float spark_char_3d_fsm_get_run_speed_threshold(const SparkGame
 SPARK_SCRIPT_API float spark_char_3d_fsm_get_crossfade_duration(const SparkGameComponent* component);
 SPARK_SCRIPT_API int32_t spark_char_3d_fsm_get_manual_clip_index(const SparkGameComponent* component);
 SPARK_SCRIPT_API int spark_char_3d_fsm_get_manual_clip_loop_mode(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_char_3d_fsm_set_use_upper_body_combat_overlay(SparkGameComponent* component, int enabled);
+SPARK_SCRIPT_API int spark_char_3d_fsm_get_use_upper_body_combat_overlay(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_char_3d_fsm_set_use_upper_body_attack_overlay(SparkGameComponent* component, int enabled);
+SPARK_SCRIPT_API int spark_char_3d_fsm_get_use_upper_body_attack_overlay(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_char_3d_fsm_set_wish_facing_yaw_radians(SparkGameComponent* component, float radians);
 
 SPARK_SCRIPT_API int spark_foot_ik_is_enabled(const SparkGameComponent* component);
 SPARK_SCRIPT_API float spark_foot_ik_get_weight(const SparkGameComponent* component);
@@ -163,8 +190,11 @@ SPARK_SCRIPT_API void spark_foot_ik_set_left_foot_patterns(SparkGameComponent* c
 SPARK_SCRIPT_API void spark_foot_ik_set_right_foot_patterns(SparkGameComponent* component, const char* rootPattern, const char* midPattern, const char* endPattern);
 
 SPARK_SCRIPT_API void spark_root_motion_set_animator_object(SparkGameComponent* component, SparkGameObject* object);
+SPARK_SCRIPT_API SparkGameObject* spark_root_motion_get_animator_object(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_root_motion_set_apply_target(SparkGameComponent* component, SparkGameObject* object);
+SPARK_SCRIPT_API SparkGameObject* spark_root_motion_get_apply_target(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_root_motion_set_facing_object(SparkGameComponent* component, SparkGameObject* object);
+SPARK_SCRIPT_API SparkGameObject* spark_root_motion_get_facing_object(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_root_motion_set_skeleton_space_scale(SparkGameComponent* component, float scale);
 SPARK_SCRIPT_API float spark_root_motion_get_skeleton_space_scale(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_root_motion_set_in_place(SparkGameComponent* component, int enabled);
@@ -178,6 +208,7 @@ SPARK_SCRIPT_API void spark_root_motion_use_pattern_motion_joint_resolver(SparkG
 SPARK_SCRIPT_API void spark_root_motion_get_last_delta_skeleton_space(const SparkGameComponent* component, SparkVector3* outLastDeltaSkeletonSpace);
 SPARK_SCRIPT_API void spark_root_motion_get_last_delta_world_space(const SparkGameComponent* component, SparkVector3* outLastDeltaWorldSpace);
 
+SPARK_SCRIPT_API SparkGameObject* spark_skeleton_debug_draw_get_source_object(const SparkGameComponent* component);
 SPARK_SCRIPT_API int spark_skeleton_debug_draw_is_enabled(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_skeleton_debug_draw_get_line_color(const SparkGameComponent* component, SparkVector3* outLineColor);
 SPARK_SCRIPT_API float spark_skeleton_debug_draw_get_bone_thickness(const SparkGameComponent* component);
@@ -207,6 +238,9 @@ SPARK_SCRIPT_API void spark_sprite_animation_event_vfx_clear_bindings(SparkGameC
 SPARK_SCRIPT_API void spark_sprite_animation_event_vfx_add_binding(SparkGameComponent* component, const char* eventName, const char* vfxAssetKey);
 SPARK_SCRIPT_API void spark_sprite_animation_event_vfx_set_world_offset(SparkGameComponent* component, const SparkVector3* offset);
 SPARK_SCRIPT_API void spark_sprite_animation_event_vfx_get_world_offset(const SparkGameComponent* component, SparkVector3* outWorldOffset);
+
+SPARK_SCRIPT_API float spark_sprite_animator_get_time_in_clip_seconds(const SparkGameComponent* component);
+SPARK_SCRIPT_API int32_t spark_sprite_animator_get_current_local_frame(const SparkGameComponent* component);
 
 SPARK_SCRIPT_API int spark_ambient_zone_is_enabled(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_ambient_zone_set_enabled(SparkGameComponent* component, int e);
@@ -241,6 +275,7 @@ SPARK_SCRIPT_API void spark_camera_2d_set_clip_far_z(SparkGameComponent* compone
 SPARK_SCRIPT_API void spark_camera_2d_world_position(const SparkGameComponent* component, SparkGameObject* owner, SparkVector3* outWorldPosition);
 
 SPARK_SCRIPT_API int spark_camera_2d_rig_get_mode(const SparkGameComponent* component);
+SPARK_SCRIPT_API SparkGameObject* spark_camera_2d_rig_get_target(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_camera_2d_rig_get_target_offset(const SparkGameComponent* component, SparkVector3* outTargetOffset);
 SPARK_SCRIPT_API float spark_camera_2d_rig_get_follow_smooth_rate(const SparkGameComponent* component);
 SPARK_SCRIPT_API float spark_camera_2d_rig_get_look_ahead_scale(const SparkGameComponent* component);
@@ -283,6 +318,7 @@ SPARK_SCRIPT_API void spark_camera_set_priority(SparkGameComponent* component, i
 SPARK_SCRIPT_API void spark_camera_set_enabled(SparkGameComponent* component, int e);
 SPARK_SCRIPT_API void spark_camera_world_position(const SparkGameComponent* component, SparkGameObject* owner, SparkVector3* outWorldPosition);
 
+SPARK_SCRIPT_API SparkGameObject* spark_camera_follow3_d_get_target(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_camera_follow3_d_get_target_offset(const SparkGameComponent* component, SparkVector3* outTargetOffset);
 SPARK_SCRIPT_API float spark_camera_follow3_d_get_follow_smooth_rate(const SparkGameComponent* component);
 SPARK_SCRIPT_API int spark_camera_follow3_d_get_look_at_target(const SparkGameComponent* component);
@@ -294,8 +330,11 @@ SPARK_SCRIPT_API void spark_camera_follow3_d_set_look_at_target(SparkGameCompone
 SPARK_SCRIPT_API void spark_screen_shake_add_impulse(SparkGameComponent* component, const SparkVector2* amplitude, float durationSeconds, float frequencyHz);
 SPARK_SCRIPT_API void spark_screen_shake_add_trauma(SparkGameComponent* component, float amount);
 SPARK_SCRIPT_API void spark_screen_shake_get_offset(const SparkGameComponent* component, SparkVector2* outOffset);
+SPARK_SCRIPT_API float spark_screen_shake_get_trauma(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_screen_shake_clear(SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_screen_shake_tick(SparkGameComponent* component, float deltaSeconds, SparkVector2* outTick);
 
+SPARK_SCRIPT_API SparkGameObject* spark_spring_arm3_d_get_pivot_target(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_spring_arm3_d_get_socket_offset(const SparkGameComponent* component, SparkVector3* outSocketOffset);
 SPARK_SCRIPT_API float spark_spring_arm3_d_get_arm_length(const SparkGameComponent* component);
 SPARK_SCRIPT_API float spark_spring_arm3_d_get_yaw_radians(const SparkGameComponent* component);
@@ -310,12 +349,26 @@ SPARK_SCRIPT_API void spark_spring_arm3_d_set_pitch_radians(SparkGameComponent* 
 SPARK_SCRIPT_API void spark_spring_arm3_d_set_probe_radius(SparkGameComponent* component, float r);
 SPARK_SCRIPT_API void spark_spring_arm3_d_set_min_arm_length(SparkGameComponent* component, float l);
 
+SPARK_SCRIPT_API void spark_character_3d_body_set_visual_object(SparkGameComponent* component, SparkGameObject* object);
+SPARK_SCRIPT_API SparkGameObject* spark_character_3d_body_get_visual_object(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_character_3d_body_set_arbitration_mode(SparkGameComponent* component, int mode);
+SPARK_SCRIPT_API int spark_character_3d_body_get_arbitration_mode(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_character_3d_body_begin_simulation_frame(SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_character_3d_body_begin_attack_root_motion_window(SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_character_3d_body_end_attack_root_motion_window(SparkGameComponent* component);
+SPARK_SCRIPT_API int spark_character_3d_body_is_validate_hierarchy(const SparkGameComponent* component);
+
+SPARK_SCRIPT_API void spark_character_3d_visual_set_body_object(SparkGameComponent* component, SparkGameObject* object);
+SPARK_SCRIPT_API SparkGameObject* spark_character_3d_visual_get_body_object(const SparkGameComponent* component);
+SPARK_SCRIPT_API int spark_character_3d_visual_is_validate_setup(const SparkGameComponent* component);
+
 SPARK_SCRIPT_API int spark_foliage_instanced_is_enabled(const SparkGameComponent* component);
 
 SPARK_SCRIPT_API void spark_grass_field_set_enabled(SparkGameComponent* component, int value);
-SPARK_SCRIPT_API int spark_grass_field_get_enabled(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_grass_field_set_terrain_object(SparkGameComponent* component, SparkGameObject* object);
+SPARK_SCRIPT_API SparkGameObject* spark_grass_field_get_terrain_object(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_grass_field_set_view_target_object(SparkGameComponent* component, SparkGameObject* object);
+SPARK_SCRIPT_API SparkGameObject* spark_grass_field_get_view_target_object(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_grass_field_set_streaming_view_world(SparkGameComponent* component, const SparkVector3* worldPosition);
 SPARK_SCRIPT_API void spark_grass_field_prepare_for_render(SparkGameComponent* component, SparkGameObject* owner, const SparkVector3* viewWorldPosition, uint32_t sceneMaxGrassInstancesPerFrame);
 SPARK_SCRIPT_API void spark_grass_field_set_neighborhood_ring_radius(SparkGameComponent* component, int radiusChunks);
@@ -335,18 +388,13 @@ SPARK_SCRIPT_API void spark_grass_field_scatter_set_placement_radius_meters(Spar
 SPARK_SCRIPT_API void spark_grass_field_scatter_set_distance_fade_outer_fraction(SparkGameComponent* component, float fraction);
 SPARK_SCRIPT_API void spark_grass_field_scatter_set_albedo_tint(SparkGameComponent* component, const SparkVector3* rgb);
 
-SPARK_SCRIPT_API void spark_wind_environment_set_enabled(SparkGameComponent* component, int value);
-SPARK_SCRIPT_API int spark_wind_environment_get_enabled(const SparkGameComponent* component);
-SPARK_SCRIPT_API void spark_wind_environment_set_direction(SparkGameComponent* component, const SparkVector3* directionWorld);
-SPARK_SCRIPT_API void spark_wind_environment_get_direction(const SparkGameComponent* component, SparkVector3* outDirectionWorld);
-SPARK_SCRIPT_API void spark_wind_environment_set_base_speed(SparkGameComponent* component, float metersPerSecond);
-SPARK_SCRIPT_API float spark_wind_environment_get_base_speed(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_wind_environment_set_gust_amplitude(SparkGameComponent* component, float value);
 SPARK_SCRIPT_API float spark_wind_environment_get_gust_amplitude(const SparkGameComponent* component);
-SPARK_SCRIPT_API void spark_wind_environment_set_gust_frequency(SparkGameComponent* component, float hertz);
-SPARK_SCRIPT_API float spark_wind_environment_get_gust_frequency(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_wind_environment_set_turbulence(SparkGameComponent* component, float value);
 SPARK_SCRIPT_API float spark_wind_environment_get_turbulence(const SparkGameComponent* component);
+
+SPARK_SCRIPT_API void spark_combat_hurt_flash_3d_set_flash_duration(SparkGameComponent* component, float seconds);
+SPARK_SCRIPT_API void spark_combat_hurt_flash_3d_set_hurt_tint(SparkGameComponent* component, const SparkVector3* tint);
 
 SPARK_SCRIPT_API void spark_damage_zone2_d_set_enabled(SparkGameComponent* component, int value);
 SPARK_SCRIPT_API int spark_damage_zone2_d_is_enabled(const SparkGameComponent* component);
@@ -363,6 +411,7 @@ SPARK_SCRIPT_API float spark_damage_zone2_d_get_damage_per_second(const SparkGam
 SPARK_SCRIPT_API void spark_damage_zone2_d_set_category_bits(SparkGameComponent* component, int bits);
 SPARK_SCRIPT_API void spark_damage_zone2_d_set_mask_bits(SparkGameComponent* component, int bits);
 SPARK_SCRIPT_API void spark_damage_zone2_d_set_instigator(SparkGameComponent* component, SparkGameObject* object);
+SPARK_SCRIPT_API SparkGameObject* spark_damage_zone2_d_get_instigator(const SparkGameComponent* component);
 
 SPARK_SCRIPT_API float spark_damageable_get_damage_multiplier(const SparkGameComponent* component);
 SPARK_SCRIPT_API int spark_damageable_is_invulnerable(const SparkGameComponent* component);
@@ -373,20 +422,27 @@ SPARK_SCRIPT_API float spark_damageable_get_apply_damage(SparkGameComponent* com
 SPARK_SCRIPT_API void spark_fog_of_war2_d_set_vision_radius_world(SparkGameComponent* component, float radius);
 SPARK_SCRIPT_API float spark_fog_of_war2_d_get_vision_radius_world(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_fog_of_war2_d_set_reveal_target(SparkGameComponent* component, SparkGameObject* target);
+SPARK_SCRIPT_API SparkGameObject* spark_fog_of_war2_d_get_reveal_target(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_fog_of_war2_d_rebuild_mask_texture(SparkGameComponent* component);
 
 SPARK_SCRIPT_API void spark_game_flow_trigger_set_source(SparkGameComponent* component, SparkGameFlowTriggerSource value);
+SPARK_SCRIPT_API SparkGameFlowTriggerSource spark_game_flow_trigger_get_source(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_game_flow_trigger_set_target_state(SparkGameComponent* component, SparkGameFlowState state);
+SPARK_SCRIPT_API SparkGameFlowState spark_game_flow_trigger_get_target_state(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_game_flow_trigger_set_instigator_name_filter(SparkGameComponent* component, const char* filter);
+SPARK_SCRIPT_API void spark_game_flow_trigger_set_watch_state(SparkGameComponent* component, SparkGameFlowState state);
+SPARK_SCRIPT_API SparkGameFlowState spark_game_flow_trigger_get_watch_state(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_game_flow_trigger_set_state_owner(SparkGameComponent* component, SparkGameObject* owner);
+SPARK_SCRIPT_API SparkGameObject* spark_game_flow_trigger_get_state_owner(const SparkGameComponent* component);
 
 SPARK_SCRIPT_API SparkGameFlowState spark_game_state_get_state(const SparkGameComponent* component);
-SPARK_SCRIPT_API int spark_game_state_request_state(SparkGameComponent* component, SparkGameFlowState nextState);
+SPARK_SCRIPT_API SparkGameFlowState spark_game_state_get_previous_state(const SparkGameComponent* component);
+SPARK_SCRIPT_API int spark_game_state_is_state(const SparkGameComponent* component, SparkGameFlowState state);
 SPARK_SCRIPT_API void spark_game_state_push_state(SparkGameComponent* component, SparkGameFlowState nextState);
-SPARK_SCRIPT_API int spark_game_state_pop_state(SparkGameComponent* component);
 
 SPARK_SCRIPT_API void spark_gameplay_team_set_team_id(SparkGameComponent* component, int32_t id);
 SPARK_SCRIPT_API int32_t spark_gameplay_team_get_team_id(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_gameplay_team_set_gameplay_team(SparkGameComponent* component, int32_t id);
 
 SPARK_SCRIPT_API float spark_health_get_maximum(const SparkGameComponent* component);
 SPARK_SCRIPT_API float spark_health_get_current(const SparkGameComponent* component);
@@ -414,14 +470,14 @@ SPARK_SCRIPT_API void spark_pickup_set_destroy_owner_on_collect(SparkGameCompone
 SPARK_SCRIPT_API int spark_pickup_get_destroy_owner_on_collect(const SparkGameComponent* component);
 SPARK_SCRIPT_API int spark_pickup_is_collected(const SparkGameComponent* component);
 
-SPARK_SCRIPT_API void spark_input_action_map_clear(SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_input_action_map_bind_button(SparkGameComponent* component, const char* actionName, int primaryKey, int secondaryKey);
 SPARK_SCRIPT_API void spark_input_action_map_bind_axis1d(SparkGameComponent* component, const char* actionName, int negativeKey, int positiveKey, int secondaryNegativeKey, int secondaryPositiveKey);
+SPARK_SCRIPT_API void spark_input_action_map_bind_gamepad_button(SparkGameComponent* component, const char* actionName, int gamepadButton);
+SPARK_SCRIPT_API void spark_input_action_map_bind_gamepad_axis1_d(SparkGameComponent* component, const char* actionName, int gamepadAxis, float axisScale);
 
 SPARK_SCRIPT_API void spark_player_input_set_action_map(SparkGameComponent* component, SparkGameComponent* mapIn);
 SPARK_SCRIPT_API int spark_player_input_is_action_pressed(const SparkGameComponent* component, const char* actionName);
-SPARK_SCRIPT_API int spark_player_input_was_action_pressed_this_frame(const SparkGameComponent* component, const char* actionName);
-SPARK_SCRIPT_API float spark_player_input_get_action_axis1d(const SparkGameComponent* component, const char* actionName);
+SPARK_SCRIPT_API int spark_player_input_is_was_action_released_this_frame(const SparkGameComponent* component, const char* actionName);
 
 SPARK_SCRIPT_API void spark_directional_light_get_color(const SparkGameComponent* component, SparkVector3* outColor);
 SPARK_SCRIPT_API float spark_directional_light_get_intensity(const SparkGameComponent* component);
@@ -449,6 +505,24 @@ SPARK_SCRIPT_API void spark_point_light2_d_set_flicker(SparkGameComponent* compo
 SPARK_SCRIPT_API int spark_point_light2_d_get_flicker_enabled(const SparkGameComponent* component);
 SPARK_SCRIPT_API float spark_point_light2_d_get_flicker_amount(const SparkGameComponent* component);
 SPARK_SCRIPT_API float spark_point_light2_d_get_flicker_hz(const SparkGameComponent* component);
+
+SPARK_SCRIPT_API void spark_point_light_get_color(const SparkGameComponent* component, SparkVector3* outColor);
+SPARK_SCRIPT_API float spark_point_light_get_intensity(const SparkGameComponent* component);
+SPARK_SCRIPT_API float spark_point_light_get_range(const SparkGameComponent* component);
+SPARK_SCRIPT_API int spark_point_light_is_enabled(const SparkGameComponent* component);
+SPARK_SCRIPT_API int spark_point_light_is_casts_shadow(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_point_light_set_casts_shadow(SparkGameComponent* component, int c);
+
+SPARK_SCRIPT_API void spark_spot_light_get_color(const SparkGameComponent* component, SparkVector3* outColor);
+SPARK_SCRIPT_API float spark_spot_light_get_intensity(const SparkGameComponent* component);
+SPARK_SCRIPT_API float spark_spot_light_get_range(const SparkGameComponent* component);
+SPARK_SCRIPT_API float spark_spot_light_get_inner_cone_degrees(const SparkGameComponent* component);
+SPARK_SCRIPT_API float spark_spot_light_get_outer_cone_degrees(const SparkGameComponent* component);
+SPARK_SCRIPT_API int spark_spot_light_is_enabled(const SparkGameComponent* component);
+SPARK_SCRIPT_API int spark_spot_light_is_casts_shadow(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_spot_light_set_inner_cone_degrees(SparkGameComponent* component, float deg);
+SPARK_SCRIPT_API void spark_spot_light_set_outer_cone_degrees(SparkGameComponent* component, float deg);
+SPARK_SCRIPT_API void spark_spot_light_set_casts_shadow(SparkGameComponent* component, int c);
 
 SPARK_SCRIPT_API void spark_box_collider_2d_get_half_extents(const SparkGameComponent* component, SparkVector2* outHalfExtents);
 SPARK_SCRIPT_API void spark_box_collider_2d_get_offset(const SparkGameComponent* component, SparkVector2* outOffset);
@@ -484,6 +558,7 @@ SPARK_SCRIPT_API void spark_circle_collider_2d_get_offset(const SparkGameCompone
 SPARK_SCRIPT_API void spark_circle_collider_2d_set_offset(SparkGameComponent* component, const SparkVector2* o);
 SPARK_SCRIPT_API int spark_circle_collider_2d_get_is_trigger(const SparkGameComponent* component);
 
+SPARK_SCRIPT_API SparkGameObject* spark_distance_joint2_d_get_connected_body(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_distance_joint2_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o);
 SPARK_SCRIPT_API float spark_distance_joint2_d_get_rest_length(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_distance_joint2_d_set_rest_length(SparkGameComponent* component, float r);
@@ -494,6 +569,7 @@ SPARK_SCRIPT_API void spark_distance_joint2_d_set_local_anchor_b(SparkGameCompon
 SPARK_SCRIPT_API float spark_distance_joint2_d_get_stiffness(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_distance_joint2_d_set_stiffness(SparkGameComponent* component, float s);
 
+SPARK_SCRIPT_API SparkGameObject* spark_hinge_joint2_d_get_connected_body(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_hinge_joint2_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o);
 SPARK_SCRIPT_API void spark_hinge_joint2_d_get_local_anchor_a(const SparkGameComponent* component, SparkVector2* outLocalAnchorA);
 SPARK_SCRIPT_API void spark_hinge_joint2_d_set_local_anchor_a(SparkGameComponent* component, const SparkVector2* a);
@@ -544,6 +620,7 @@ SPARK_SCRIPT_API float spark_projectile2_d_get_damage(const SparkGameComponent* 
 SPARK_SCRIPT_API void spark_projectile2_d_set_lifetime_seconds(SparkGameComponent* component, float seconds);
 SPARK_SCRIPT_API float spark_projectile2_d_get_lifetime_seconds(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_projectile2_d_set_instigator(SparkGameComponent* component, SparkGameObject* object);
+SPARK_SCRIPT_API SparkGameObject* spark_projectile2_d_get_instigator(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_projectile2_d_set_block_on_solid_hit(SparkGameComponent* component, int value);
 SPARK_SCRIPT_API int spark_projectile2_d_get_block_on_solid_hit(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_projectile2_d_set_destroy_owner_on_deactivate(SparkGameComponent* component, int value);
@@ -616,12 +693,14 @@ SPARK_SCRIPT_API int spark_character_controller3_d_is_grounded(const SparkGameCo
 SPARK_SCRIPT_API void spark_character_controller3_d_set_category_bits(SparkGameComponent* component, int bits);
 SPARK_SCRIPT_API void spark_character_controller3_d_set_mask_bits(SparkGameComponent* component, int bits);
 
+SPARK_SCRIPT_API SparkGameObject* spark_distance_joint3_d_get_connected_body(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_distance_joint3_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o);
 SPARK_SCRIPT_API float spark_distance_joint3_d_get_rest_length(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_distance_joint3_d_set_rest_length(SparkGameComponent* component, float r);
 SPARK_SCRIPT_API float spark_distance_joint3_d_get_stiffness(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_distance_joint3_d_set_stiffness(SparkGameComponent* component, float s);
 
+SPARK_SCRIPT_API SparkGameObject* spark_hinge_joint3_d_get_connected_body(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_hinge_joint3_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o);
 SPARK_SCRIPT_API void spark_hinge_joint3_d_get_local_anchor_a(const SparkGameComponent* component, SparkVector3* outLocalAnchorA);
 SPARK_SCRIPT_API void spark_hinge_joint3_d_set_local_anchor_a(SparkGameComponent* component, const SparkVector3* a);
@@ -645,10 +724,14 @@ SPARK_SCRIPT_API void spark_hurtbox3_d_notify_damage_received(SparkGameComponent
 
 SPARK_SCRIPT_API void spark_mesh_collider3_d_get_local_offset(const SparkGameComponent* component, SparkVector3* outLocalOffset);
 SPARK_SCRIPT_API void spark_mesh_collider3_d_set_local_offset(SparkGameComponent* component, const SparkVector3* o);
-SPARK_SCRIPT_API int spark_mesh_collider3_d_is_trigger(const SparkGameComponent* component);
+SPARK_SCRIPT_API int spark_mesh_collider3_d_get_is_trigger(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_mesh_collider3_d_set_is_trigger(SparkGameComponent* component, int t);
 SPARK_SCRIPT_API void spark_mesh_collider3_d_set_category_bits(SparkGameComponent* component, int bits);
 SPARK_SCRIPT_API void spark_mesh_collider3_d_set_mask_bits(SparkGameComponent* component, int bits);
+
+SPARK_SCRIPT_API SparkGameObject* spark_physics_attached_body_3d_get_carrier(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_physics_attached_body_3d_get_local_offset(const SparkGameComponent* component, SparkVector3* outLocalOffset);
+SPARK_SCRIPT_API int spark_physics_attached_body_3d_is_attached(const SparkGameComponent* component);
 
 SPARK_SCRIPT_API void spark_physics_layer3_d_set_category_bits(SparkGameComponent* component, int bits);
 SPARK_SCRIPT_API void spark_physics_layer3_d_set_mask_bits(SparkGameComponent* component, int bits);
@@ -682,6 +765,7 @@ SPARK_SCRIPT_API void spark_sphere_collider3_d_set_mask_bits(SparkGameComponent*
 SPARK_SCRIPT_API int spark_sphere_collider3_d_get_is_trigger(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_sphere_collider3_d_set_is_trigger(SparkGameComponent* component, int value);
 
+SPARK_SCRIPT_API SparkGameObject* spark_spring_joint3_d_get_connected_body(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_spring_joint3_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o);
 SPARK_SCRIPT_API float spark_spring_joint3_d_get_rest_length(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_spring_joint3_d_set_rest_length(SparkGameComponent* component, float r);
@@ -750,6 +834,42 @@ SPARK_SCRIPT_API void spark_gltf_instance_node_set_node_index(SparkGameComponent
 
 SPARK_SCRIPT_API void spark_gltf_scene_source_set_gltf_asset_rel(SparkGameComponent* component, const char* path);
 
+SPARK_SCRIPT_API void spark_material_get_tint(const SparkGameComponent* component, SparkVector3* outTint);
+SPARK_SCRIPT_API float spark_material_get_metallic(const SparkGameComponent* component);
+SPARK_SCRIPT_API float spark_material_get_roughness(const SparkGameComponent* component);
+SPARK_SCRIPT_API float spark_material_get_metallic_factor(const SparkGameComponent* component);
+SPARK_SCRIPT_API float spark_material_get_roughness_factor(const SparkGameComponent* component);
+SPARK_SCRIPT_API float spark_material_get_occlusion_strength(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_material_get_emissive_color(const SparkGameComponent* component, SparkVector3* outEmissiveColor);
+SPARK_SCRIPT_API float spark_material_get_emissive_intensity(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_material_get_emissive_factor(const SparkGameComponent* component, SparkVector3* outEmissiveFactor);
+SPARK_SCRIPT_API void spark_material_set_metallic_factor(SparkGameComponent* component, float f);
+SPARK_SCRIPT_API void spark_material_set_roughness_factor(SparkGameComponent* component, float f);
+SPARK_SCRIPT_API void spark_material_set_occlusion_strength(SparkGameComponent* component, float s);
+SPARK_SCRIPT_API void spark_material_set_emissive_factor(SparkGameComponent* component, const SparkVector3* f);
+SPARK_SCRIPT_API void spark_material_set_shading_model(SparkGameComponent* component, int s);
+SPARK_SCRIPT_API int32_t spark_material_get_toon_diffuse_bands(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_material_set_toon_diffuse_bands(SparkGameComponent* component, int32_t bands);
+SPARK_SCRIPT_API float spark_material_get_toon_rim_intensity(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_material_set_toon_rim_intensity(SparkGameComponent* component, float v);
+SPARK_SCRIPT_API float spark_material_get_toon_rim_power(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_material_set_toon_rim_power(SparkGameComponent* component, float v);
+SPARK_SCRIPT_API int spark_material_is_double_sided(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_material_set_double_sided(SparkGameComponent* component, int v);
+SPARK_SCRIPT_API float spark_material_get_opacity(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_material_set_opacity(SparkGameComponent* component, float a);
+SPARK_SCRIPT_API float spark_material_get_alpha_cutoff(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_material_set_alpha_cutoff(SparkGameComponent* component, float cutoff);
+SPARK_SCRIPT_API int spark_material_is_alpha_blend(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_material_set_alpha_blend(SparkGameComponent* component, int blend);
+SPARK_SCRIPT_API float spark_material_get_normal_scale(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_material_set_normal_scale(SparkGameComponent* component, float scale);
+SPARK_SCRIPT_API int spark_material_has_s_material_asset(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_material_set_shadow_cast_override(SparkGameComponent* component, int casts);
+SPARK_SCRIPT_API void spark_material_clear_shadow_cast_override(SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_material_set_shadow_receive_override(SparkGameComponent* component, int receives);
+SPARK_SCRIPT_API void spark_material_clear_shadow_receive_override(SparkGameComponent* component);
+
 SPARK_SCRIPT_API void spark_multi_material_clear(SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_multi_material_resize_slots(SparkGameComponent* component, int count);
 SPARK_SCRIPT_API int spark_multi_material_is_slot_has_material_asset(const SparkGameComponent* component, int index);
@@ -759,6 +879,7 @@ SPARK_SCRIPT_API void spark_multi_material_set_active_variant_index(SparkGameCom
 SPARK_SCRIPT_API void spark_multi_material_cycle_active_variant(SparkGameComponent* component);
 
 SPARK_SCRIPT_API void spark_parallax_set_camera_reference(SparkGameComponent* component, SparkGameObject* camera);
+SPARK_SCRIPT_API SparkGameObject* spark_parallax_get_camera_reference(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_parallax_set_anchor_world(SparkGameComponent* component, const SparkVector3* anchor);
 SPARK_SCRIPT_API void spark_parallax_get_anchor_world(const SparkGameComponent* component, SparkVector3* outAnchor);
 SPARK_SCRIPT_API void spark_parallax_set_rest_offset(SparkGameComponent* component, const SparkVector3* offset);
@@ -775,6 +896,39 @@ SPARK_SCRIPT_API void spark_parallax_set_drift_amplitude(SparkGameComponent* com
 SPARK_SCRIPT_API void spark_parallax_set_drift_frequency_hz(SparkGameComponent* component, float value);
 SPARK_SCRIPT_API void spark_parallax_set_drift_phase(SparkGameComponent* component, float value);
 
+SPARK_SCRIPT_API int spark_particle_emitter_is_emitter_enabled(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_particle_emitter_set_emitter_enabled(SparkGameComponent* component, int e);
+SPARK_SCRIPT_API int32_t spark_particle_emitter_get_max_particles(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_particle_emitter_set_emission_rate(SparkGameComponent* component, float rate);
+SPARK_SCRIPT_API float spark_particle_emitter_get_emission_rate(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_particle_emitter_set_lifetime(SparkGameComponent* component, float minSec, float maxSec);
+SPARK_SCRIPT_API void spark_particle_emitter_set_start_end_size(SparkGameComponent* component, float start, float end);
+SPARK_SCRIPT_API void spark_particle_emitter_set_gravity(SparkGameComponent* component, const SparkVector3* g);
+SPARK_SCRIPT_API void spark_particle_emitter_set_emission_direction(SparkGameComponent* component, const SparkVector3* dir);
+SPARK_SCRIPT_API void spark_particle_emitter_get_emission_direction(const SparkGameComponent* component, SparkVector3* outEmissionDirection);
+SPARK_SCRIPT_API void spark_particle_emitter_set_use_local_emission(SparkGameComponent* component, int local);
+SPARK_SCRIPT_API int spark_particle_emitter_get_use_local_emission(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_particle_emitter_set_spread_angle_radians(SparkGameComponent* component, float rad);
+SPARK_SCRIPT_API void spark_particle_emitter_set_speed_range(SparkGameComponent* component, float minS, float maxS);
+SPARK_SCRIPT_API float spark_particle_emitter_get_lifetime_min(const SparkGameComponent* component);
+SPARK_SCRIPT_API float spark_particle_emitter_get_lifetime_max(const SparkGameComponent* component);
+SPARK_SCRIPT_API float spark_particle_emitter_get_start_size(const SparkGameComponent* component);
+SPARK_SCRIPT_API float spark_particle_emitter_get_end_size(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_particle_emitter_get_gravity(const SparkGameComponent* component, SparkVector3* outGravity);
+SPARK_SCRIPT_API float spark_particle_emitter_get_spread_angle_radians(const SparkGameComponent* component);
+SPARK_SCRIPT_API float spark_particle_emitter_get_speed_min(const SparkGameComponent* component);
+SPARK_SCRIPT_API float spark_particle_emitter_get_speed_max(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_particle_emitter_set_emission_module_id(SparkGameComponent* component, const char* moduleId);
+SPARK_SCRIPT_API void spark_particle_emitter_set_ring_radius(SparkGameComponent* component, float radius);
+SPARK_SCRIPT_API float spark_particle_emitter_get_ring_radius(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_particle_emitter_set_render_space(SparkGameComponent* component, int space);
+SPARK_SCRIPT_API void spark_particle_emitter_set_sprite_layer_sort_order(SparkGameComponent* component, int32_t order);
+SPARK_SCRIPT_API int32_t spark_particle_emitter_get_sprite_layer_sort_order(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_particle_emitter_clear_particles(SparkGameComponent* component);
+SPARK_SCRIPT_API int32_t spark_particle_emitter_get_alive_particle_count(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_particle_emitter_emit_continuous(SparkGameComponent* component, const SparkVector3* origin, const SparkVector3* worldEmissionDir, float deltaTimeSeconds);
+SPARK_SCRIPT_API void spark_particle_emitter_emit_ring(SparkGameComponent* component, const SparkVector3* origin, const SparkVector3* worldEmissionDir, float deltaTimeSeconds);
+
 SPARK_SCRIPT_API int spark_post_process_volume_is_enabled(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_post_process_volume_set_enabled(SparkGameComponent* component, int e);
 SPARK_SCRIPT_API int spark_post_process_volume_get_shape(const SparkGameComponent* component);
@@ -790,6 +944,11 @@ SPARK_SCRIPT_API float spark_post_process_volume_get_exposure(const SparkGameCom
 SPARK_SCRIPT_API int spark_post_process_volume_has_s_ambient_scale_override(const SparkGameComponent* component);
 SPARK_SCRIPT_API float spark_post_process_volume_get_ambient_scale(const SparkGameComponent* component);
 
+SPARK_SCRIPT_API int32_t spark_render_layer_get_order_in_layer(const SparkGameComponent* component);
+SPARK_SCRIPT_API int spark_render_layer_has_s_explicit_order_in_layer(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_render_layer_set_layer_id(SparkGameComponent* component, int id);
+SPARK_SCRIPT_API void spark_render_layer_clear_explicit_order_in_layer(SparkGameComponent* component);
+
 SPARK_SCRIPT_API void spark_scene2_d_composite_view_set_feature(SparkGameComponent* component, int value);
 SPARK_SCRIPT_API int spark_scene2_d_composite_view_get_feature(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_scene2_d_composite_view_set_enabled(SparkGameComponent* component, int value);
@@ -797,6 +956,18 @@ SPARK_SCRIPT_API int spark_scene2_d_composite_view_is_enabled(const SparkGameCom
 
 SPARK_SCRIPT_API int spark_skinned_mesh_is_mesh_loaded(const SparkGameComponent* component);
 SPARK_SCRIPT_API int spark_skinned_mesh_is_skeleton_loaded(const SparkGameComponent* component);
+
+SPARK_SCRIPT_API int spark_sky_get_sky_mode(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_sky_set_sky_mode(SparkGameComponent* component, int m);
+SPARK_SCRIPT_API int spark_sky_is_sky_enabled(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_sky_set_sky_enabled(SparkGameComponent* component, int e);
+SPARK_SCRIPT_API void spark_sky_get_tint(const SparkGameComponent* component, SparkVector3* outTint);
+
+SPARK_SCRIPT_API int spark_sorting_group_is_enabled(const SparkGameComponent* component);
+SPARK_SCRIPT_API int32_t spark_sorting_group_get_sorting_order(const SparkGameComponent* component);
+SPARK_SCRIPT_API int spark_sorting_group_is_uses_root_world_y(const SparkGameComponent* component);
+
+SPARK_SCRIPT_API int32_t spark_sprite_get_sort_order(const SparkGameComponent* component);
 
 SPARK_SCRIPT_API int spark_sprite_lighting2_d_get_mode(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_sprite_lighting2_d_set_mode(SparkGameComponent* component, int m);
@@ -814,14 +985,39 @@ SPARK_SCRIPT_API float spark_terrain_get_persistence(const SparkGameComponent* c
 SPARK_SCRIPT_API float spark_terrain_get_lacunarity(const SparkGameComponent* component);
 SPARK_SCRIPT_API int32_t spark_terrain_get_seed(const SparkGameComponent* component);
 SPARK_SCRIPT_API float spark_terrain_get_world_units_per_texture_repeat(const SparkGameComponent* component);
-SPARK_SCRIPT_API void spark_terrain_get_mesh_albedo(const SparkGameComponent* component, SparkVector3* outMeshAlbedo);
 SPARK_SCRIPT_API void spark_terrain_set_height_scale(SparkGameComponent* component, float v);
 SPARK_SCRIPT_API void spark_terrain_set_noise_scale(SparkGameComponent* component, float v);
 SPARK_SCRIPT_API void spark_terrain_set_seed(SparkGameComponent* component, uint32_t v);
-SPARK_SCRIPT_API void spark_terrain_reset_heights_to_procedural(SparkGameComponent* component, SparkGameObject* owner);
-SPARK_SCRIPT_API void spark_terrain_regenerate_mesh(SparkGameComponent* component, SparkGameObject* owner);
-SPARK_SCRIPT_API void spark_terrain_apply_height_brush_local(SparkGameComponent* component, SparkGameObject* owner, const SparkVector2* centerXZ, float radiusXZ, float deltaY);
 SPARK_SCRIPT_API void spark_terrain_apply_height_brush_world(SparkGameComponent* component, SparkGameObject* owner, const SparkVector3* centerWorld, float radiusWorld, float deltaY);
+
+SPARK_SCRIPT_API float spark_text_overlay_get_screen_x(const SparkGameComponent* component);
+SPARK_SCRIPT_API float spark_text_overlay_get_screen_y(const SparkGameComponent* component);
+SPARK_SCRIPT_API float spark_text_overlay_get_font_size_pixels(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_text_overlay_get_color(const SparkGameComponent* component, SparkVector3* outColor);
+SPARK_SCRIPT_API float spark_text_overlay_get_alpha(const SparkGameComponent* component);
+SPARK_SCRIPT_API int spark_text_overlay_is_visible(const SparkGameComponent* component);
+
+SPARK_SCRIPT_API int32_t spark_tilemap_get_map_width(const SparkGameComponent* component);
+SPARK_SCRIPT_API int32_t spark_tilemap_get_map_height(const SparkGameComponent* component);
+SPARK_SCRIPT_API int32_t spark_tilemap_get_atlas_tiles_u(const SparkGameComponent* component);
+SPARK_SCRIPT_API int32_t spark_tilemap_get_atlas_tiles_v(const SparkGameComponent* component);
+SPARK_SCRIPT_API float spark_tilemap_get_tile_world_size(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_tilemap_set_tile_world_size(SparkGameComponent* component, float size);
+SPARK_SCRIPT_API int32_t spark_tilemap_get_sort_order_base(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_tilemap_set_sort_order_base(SparkGameComponent* component, int32_t order);
+SPARK_SCRIPT_API void spark_tilemap_resize(SparkGameComponent* component, uint32_t mapW, uint32_t mapH);
+SPARK_SCRIPT_API int32_t spark_tilemap_get_add_layer(SparkGameComponent* component, const char* name);
+SPARK_SCRIPT_API void spark_tilemap_remove_layer(SparkGameComponent* component, uint32_t layerIndex);
+SPARK_SCRIPT_API void spark_tilemap_set_paint_tile(SparkGameComponent* component, uint32_t x, uint32_t y, int paintTileId);
+
+SPARK_SCRIPT_API void spark_vfx_player_set_vfx_asset_key(SparkGameComponent* component, const char* key);
+SPARK_SCRIPT_API void spark_vfx_player_set_play_on_start(SparkGameComponent* component, int enabled);
+SPARK_SCRIPT_API int spark_vfx_player_get_play_on_start(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_vfx_player_set_play_on_start_once(SparkGameComponent* component, int enabled);
+SPARK_SCRIPT_API int spark_vfx_player_get_play_on_start_once(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_vfx_player_set_pooled_playback(SparkGameComponent* component, int pooled);
+SPARK_SCRIPT_API int spark_vfx_player_is_pooled_playback(const SparkGameComponent* component);
+SPARK_SCRIPT_API int spark_vfx_player_get_playback_state(const SparkGameComponent* component);
 
 SPARK_SCRIPT_API int32_t spark_tilemap_autotile_get_layer_index(const SparkGameComponent* component);
 SPARK_SCRIPT_API int spark_tilemap_autotile_get_rebuild_on_update(const SparkGameComponent* component);
@@ -860,6 +1056,14 @@ SPARK_SCRIPT_API void spark_tilemap_tile_animator_set_animation_time_seconds(Spa
 SPARK_SCRIPT_API void spark_tilemap_tile_animator_reset_animation_time(SparkGameComponent* component);
 SPARK_SCRIPT_API int spark_tilemap_tile_animator_is_playing(const SparkGameComponent* component);
 SPARK_SCRIPT_API void spark_tilemap_tile_animator_set_playing(SparkGameComponent* component, int play);
+
+SPARK_SCRIPT_API int spark_ui_canvas_get_sort_order(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_ui_canvas_set_canvas_enabled(SparkGameComponent* component, int enabled);
+SPARK_SCRIPT_API int spark_ui_canvas_is_canvas_enabled(const SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_ui_canvas_clear_transient_pointer_state(SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_ui_canvas_clear_keyboard_focus(SparkGameComponent* component);
+SPARK_SCRIPT_API void spark_ui_canvas_set_modal_input_capture(SparkGameComponent* component, int capture);
+SPARK_SCRIPT_API int spark_ui_canvas_get_modal_input_capture(const SparkGameComponent* component);
 
 SPARK_SCRIPT_API int spark_water_body_get_mode(const SparkGameComponent* component);
 SPARK_SCRIPT_API float spark_water_body_get_water_level_y(const SparkGameComponent* component);

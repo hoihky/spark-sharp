@@ -15,7 +15,7 @@ public sealed partial class BillboardComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_billboard_get_mode(InteropPtr.Component(Handle));
+return Native.spark_billboard_get_mode(InteropPtr.Component(Handle));
             }
         }
         set

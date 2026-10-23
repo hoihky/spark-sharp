@@ -15,7 +15,7 @@ public sealed partial class TilemapMapSourceComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_tilemap_map_source_get_pixels_per_world_unit(InteropPtr.Component(Handle));
+return Native.spark_tilemap_map_source_get_pixels_per_world_unit(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class TilemapMapSourceComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_tilemap_map_source_get_import_on_attach(InteropPtr.Component(Handle));
+return Native.spark_tilemap_map_source_get_import_on_attach(InteropPtr.Component(Handle));
             }
         }
         set
@@ -51,7 +51,7 @@ public sealed partial class TilemapMapSourceComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_tilemap_map_source_get_hot_reload(InteropPtr.Component(Handle));
+return Native.spark_tilemap_map_source_get_hot_reload(InteropPtr.Component(Handle));
             }
         }
         set

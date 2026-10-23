@@ -15,7 +15,7 @@ public sealed partial class AmbientZoneComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_ambient_zone_get_shape(InteropPtr.Component(Handle));
+return Native.spark_ambient_zone_get_shape(InteropPtr.Component(Handle));
             }
         }
         set
@@ -54,7 +54,7 @@ public sealed partial class AmbientZoneComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_ambient_zone_get_volume_scale(InteropPtr.Component(Handle));
+return Native.spark_ambient_zone_get_volume_scale(InteropPtr.Component(Handle));
             }
         }
         set
@@ -72,7 +72,7 @@ public sealed partial class AmbientZoneComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_ambient_zone_get_low_pass_amount(InteropPtr.Component(Handle));
+return Native.spark_ambient_zone_get_low_pass_amount(InteropPtr.Component(Handle));
             }
         }
         set

@@ -9,31 +9,13 @@ public sealed partial class GrassFieldComponent : GameComponentHandle
     internal GrassFieldComponent(nint handle)
         : base(handle) { }
 
-    public bool Enabled
-    {
-        get
-        {
-            unsafe
-            {
-                return Native.spark_grass_field_get_enabled(InteropPtr.Component(Handle)) != 0;
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_grass_field_set_enabled(InteropPtr.Component(Handle), value ? 1 : 0);
-            }
-        }
-    }
-
     public int NeighborhoodRingRadius
     {
         get
         {
             unsafe
             {
-                return Native.spark_grass_field_get_neighborhood_ring_radius(InteropPtr.Component(Handle));
+return Native.spark_grass_field_get_neighborhood_ring_radius(InteropPtr.Component(Handle));
             }
         }
         set
@@ -51,7 +33,7 @@ public sealed partial class GrassFieldComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_grass_field_get_alpha_cutoff(InteropPtr.Component(Handle));
+return Native.spark_grass_field_get_alpha_cutoff(InteropPtr.Component(Handle));
             }
         }
         set
@@ -69,7 +51,7 @@ public sealed partial class GrassFieldComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_grass_field_get_wind_bend_scale(InteropPtr.Component(Handle));
+return Native.spark_grass_field_get_wind_bend_scale(InteropPtr.Component(Handle));
             }
         }
         set
@@ -107,6 +89,14 @@ public sealed partial class GrassFieldComponent : GameComponentHandle
         }
     }
 
+    public void SetEnabled(int value)
+    {
+        unsafe
+        {
+                Native.spark_grass_field_set_enabled(InteropPtr.Component(Handle), value);
+        }
+    }
+
     public void SetTerrainObject(GameObject gameObject)
     {
         unsafe
@@ -115,11 +105,29 @@ public sealed partial class GrassFieldComponent : GameComponentHandle
         }
     }
 
+    public GameObject GetTerrainObject()
+    {
+        unsafe
+        {
+                var raw = Native.spark_grass_field_get_terrain_object(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
+        }
+    }
+
     public void SetViewTargetObject(GameObject gameObject)
     {
         unsafe
         {
                 Native.spark_grass_field_set_view_target_object(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
+        }
+    }
+
+    public GameObject GetViewTargetObject()
+    {
+        unsafe
+        {
+                var raw = Native.spark_grass_field_get_view_target_object(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 

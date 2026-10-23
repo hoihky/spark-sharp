@@ -15,7 +15,7 @@ public sealed partial class TriggerVolume3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_trigger_volume3_d_get_shape(InteropPtr.Component(Handle));
+return Native.spark_trigger_volume3_d_get_shape(InteropPtr.Component(Handle));
             }
         }
         set
@@ -54,7 +54,7 @@ public sealed partial class TriggerVolume3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_trigger_volume3_d_get_radius(InteropPtr.Component(Handle));
+return Native.spark_trigger_volume3_d_get_radius(InteropPtr.Component(Handle));
             }
         }
         set
@@ -72,7 +72,7 @@ public sealed partial class TriggerVolume3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_trigger_volume3_d_get_height(InteropPtr.Component(Handle));
+return Native.spark_trigger_volume3_d_get_height(InteropPtr.Component(Handle));
             }
         }
         set
@@ -90,7 +90,7 @@ public sealed partial class TriggerVolume3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_trigger_volume3_d_get_capsule_direction(InteropPtr.Component(Handle));
+return Native.spark_trigger_volume3_d_get_capsule_direction(InteropPtr.Component(Handle));
             }
         }
         set
@@ -131,6 +131,22 @@ public sealed partial class TriggerVolume3DComponent : GameComponentHandle
             {
                 Native.spark_trigger_volume3_d_set_filter_tag(InteropPtr.Component(Handle), (sbyte*)ptr);
             });
+        }
+    }
+
+    public void SetCategoryBits(int bits)
+    {
+        unsafe
+        {
+                Native.spark_trigger_volume3_d_set_category_bits(InteropPtr.Component(Handle), bits);
+        }
+    }
+
+    public void SetMaskBits(int bits)
+    {
+        unsafe
+        {
+                Native.spark_trigger_volume3_d_set_mask_bits(InteropPtr.Component(Handle), bits);
         }
     }
 

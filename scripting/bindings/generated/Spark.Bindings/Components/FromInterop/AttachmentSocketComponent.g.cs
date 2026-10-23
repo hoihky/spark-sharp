@@ -9,6 +9,27 @@ public sealed partial class AttachmentSocketComponent : GameComponentHandle
     internal AttachmentSocketComponent(nint handle)
         : base(handle) { }
 
+    public Vector3 LocalOffset
+    {
+        get
+        {
+            unsafe
+            {
+                SparkVector3 v;
+                Native.spark_attachment_socket_get_local_offset(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                var v = value.ToNative();
+                Native.spark_attachment_socket_set_local_offset(InteropPtr.Component(Handle), &v);
+            }
+        }
+    }
+
     public void SetSourceObject(GameObject sourceObject)
     {
         unsafe
@@ -46,20 +67,45 @@ public sealed partial class AttachmentSocketComponent : GameComponentHandle
         }
     }
 
-    public void SetLocalOffset(in Vector3 offset)
-    {
-        unsafe
-        {
-            var offsetNative = offset.ToNative();
-                Native.spark_attachment_socket_set_local_offset(InteropPtr.Component(Handle), &offsetNative);
-        }
-    }
-
     public void SetEnabled(int enabled)
     {
         unsafe
         {
                 Native.spark_attachment_socket_set_enabled(InteropPtr.Component(Handle), enabled);
+        }
+    }
+
+    public GameObject GetSourceObject()
+    {
+        unsafe
+        {
+                var raw = Native.spark_attachment_socket_get_source_object(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
+        }
+    }
+
+    public GameObject GetAttachedObject()
+    {
+        unsafe
+        {
+                var raw = Native.spark_attachment_socket_get_attached_object(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
+        }
+    }
+
+    public int GetJointIndex()
+    {
+        unsafe
+        {
+                return Native.spark_attachment_socket_get_joint_index(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int IsEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_attachment_socket_is_enabled(InteropPtr.Component(Handle));
         }
     }
 }

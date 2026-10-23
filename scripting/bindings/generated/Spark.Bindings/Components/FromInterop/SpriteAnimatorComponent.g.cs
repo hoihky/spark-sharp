@@ -15,7 +15,7 @@ public sealed partial class SpriteAnimatorComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_sprite_animator_get_clip_index(InteropPtr.Component(Handle));
+return Native.spark_sprite_animator_get_clip_index(InteropPtr.Component(Handle));
             }
         }
         set
@@ -64,6 +64,22 @@ public sealed partial class SpriteAnimatorComponent : GameComponentHandle
         unsafe
         {
                 return Native.spark_sprite_animator_is_current_clip_finished(InteropPtr.Component(Handle));
+        }
+    }
+
+    public float GetTimeInClipSeconds()
+    {
+        unsafe
+        {
+                return Native.spark_sprite_animator_get_time_in_clip_seconds(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetCurrentLocalFrame()
+    {
+        unsafe
+        {
+                return Native.spark_sprite_animator_get_current_local_frame(InteropPtr.Component(Handle));
         }
     }
 }

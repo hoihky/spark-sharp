@@ -9,6 +9,42 @@ public sealed partial class UiCanvasComponent : GameComponentHandle
     internal UiCanvasComponent(nint handle)
         : base(handle) { }
 
+    public int SortOrder
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_ui_canvas_get_sort_order(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_ui_canvas_set_sort_order(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public int ModalInputCapture
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_ui_canvas_get_modal_input_capture(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_ui_canvas_set_modal_input_capture(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
     public void SetEnabled(int enabled)
     {
         unsafe
@@ -17,19 +53,43 @@ public sealed partial class UiCanvasComponent : GameComponentHandle
         }
     }
 
-    public void SetSortOrder(int sortOrder)
-    {
-        unsafe
-        {
-                Native.spark_ui_canvas_set_sort_order(InteropPtr.Component(Handle), sortOrder);
-        }
-    }
-
     public void ClearRoot()
     {
         unsafe
         {
                 Native.spark_ui_canvas_clear_root(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetCanvasEnabled(int enabled)
+    {
+        unsafe
+        {
+                Native.spark_ui_canvas_set_canvas_enabled(InteropPtr.Component(Handle), enabled);
+        }
+    }
+
+    public int IsCanvasEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_ui_canvas_is_canvas_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void ClearTransientPointerState()
+    {
+        unsafe
+        {
+                Native.spark_ui_canvas_clear_transient_pointer_state(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void ClearKeyboardFocus()
+    {
+        unsafe
+        {
+                Native.spark_ui_canvas_clear_keyboard_focus(InteropPtr.Component(Handle));
         }
     }
 }

@@ -15,7 +15,7 @@ public sealed partial class TilemapObjectSpawnComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_tilemap_object_spawn_get_spawn_on_attach(InteropPtr.Component(Handle));
+return Native.spark_tilemap_object_spawn_get_spawn_on_attach(InteropPtr.Component(Handle));
             }
         }
         set

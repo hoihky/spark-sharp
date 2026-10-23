@@ -15,7 +15,7 @@ public sealed partial class Hurtbox2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_hurtbox2_d_get_shape(InteropPtr.Component(Handle));
+return Native.spark_hurtbox2_d_get_shape(InteropPtr.Component(Handle));
             }
         }
         set
@@ -54,7 +54,7 @@ public sealed partial class Hurtbox2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_hurtbox2_d_get_radius(InteropPtr.Component(Handle));
+return Native.spark_hurtbox2_d_get_radius(InteropPtr.Component(Handle));
             }
         }
         set
@@ -93,7 +93,7 @@ public sealed partial class Hurtbox2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_hurtbox2_d_get_invulnerability_seconds(InteropPtr.Component(Handle));
+return Native.spark_hurtbox2_d_get_invulnerability_seconds(InteropPtr.Component(Handle));
             }
         }
         set

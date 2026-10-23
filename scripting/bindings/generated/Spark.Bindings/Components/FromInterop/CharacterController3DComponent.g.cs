@@ -15,7 +15,7 @@ public sealed partial class CharacterController3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_character_controller3_d_get_radius(InteropPtr.Component(Handle));
+return Native.spark_character_controller3_d_get_radius(InteropPtr.Component(Handle));
             }
         }
         set
@@ -54,7 +54,7 @@ public sealed partial class CharacterController3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_character_controller3_d_get_step_offset(InteropPtr.Component(Handle));
+return Native.spark_character_controller3_d_get_step_offset(InteropPtr.Component(Handle));
             }
         }
         set
@@ -72,7 +72,7 @@ public sealed partial class CharacterController3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_character_controller3_d_get_skin_width(InteropPtr.Component(Handle));
+return Native.spark_character_controller3_d_get_skin_width(InteropPtr.Component(Handle));
             }
         }
         set
@@ -90,7 +90,7 @@ public sealed partial class CharacterController3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_character_controller3_d_get_gravity_scale(InteropPtr.Component(Handle));
+return Native.spark_character_controller3_d_get_gravity_scale(InteropPtr.Component(Handle));
             }
         }
         set
@@ -141,6 +141,22 @@ public sealed partial class CharacterController3DComponent : GameComponentHandle
         unsafe
         {
                 return Native.spark_character_controller3_d_is_grounded(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetCategoryBits(int bits)
+    {
+        unsafe
+        {
+                Native.spark_character_controller3_d_set_category_bits(InteropPtr.Component(Handle), bits);
+        }
+    }
+
+    public void SetMaskBits(int bits)
+    {
+        unsafe
+        {
+                Native.spark_character_controller3_d_set_mask_bits(InteropPtr.Component(Handle), bits);
         }
     }
 }

@@ -15,7 +15,7 @@ public sealed partial class TilemapGameplayGridComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_tilemap_gameplay_grid_get_auto_rebake(InteropPtr.Component(Handle));
+return Native.spark_tilemap_gameplay_grid_get_auto_rebake(InteropPtr.Component(Handle));
             }
         }
         set

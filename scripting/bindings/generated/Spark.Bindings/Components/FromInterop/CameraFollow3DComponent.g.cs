@@ -36,7 +36,7 @@ public sealed partial class CameraFollow3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_camera_follow3_d_get_follow_smooth_rate(InteropPtr.Component(Handle));
+return Native.spark_camera_follow3_d_get_follow_smooth_rate(InteropPtr.Component(Handle));
             }
         }
         set
@@ -54,7 +54,7 @@ public sealed partial class CameraFollow3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_camera_follow3_d_get_look_at_target(InteropPtr.Component(Handle));
+return Native.spark_camera_follow3_d_get_look_at_target(InteropPtr.Component(Handle));
             }
         }
         set
@@ -63,6 +63,15 @@ public sealed partial class CameraFollow3DComponent : GameComponentHandle
             {
                 Native.spark_camera_follow3_d_set_look_at_target(InteropPtr.Component(Handle), value);
             }
+        }
+    }
+
+    public GameObject GetTarget()
+    {
+        unsafe
+        {
+                var raw = Native.spark_camera_follow3_d_get_target(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 

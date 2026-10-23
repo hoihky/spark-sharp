@@ -15,7 +15,7 @@ public sealed partial class FogOfWar2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_fog_of_war2_d_get_vision_radius_world(InteropPtr.Component(Handle));
+return Native.spark_fog_of_war2_d_get_vision_radius_world(InteropPtr.Component(Handle));
             }
         }
         set
@@ -32,6 +32,15 @@ public sealed partial class FogOfWar2DComponent : GameComponentHandle
         unsafe
         {
                 Native.spark_fog_of_war2_d_set_reveal_target(InteropPtr.Component(Handle), InteropPtr.Object(target.Handle));
+        }
+    }
+
+    public GameObject GetRevealTarget()
+    {
+        unsafe
+        {
+                var raw = Native.spark_fog_of_war2_d_get_reveal_target(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 

@@ -15,7 +15,7 @@ public sealed partial class GridNavTarget2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_grid_nav_target2_d_get_snap_to_walkable_cell(InteropPtr.Component(Handle));
+return Native.spark_grid_nav_target2_d_get_snap_to_walkable_cell(InteropPtr.Component(Handle));
             }
         }
         set

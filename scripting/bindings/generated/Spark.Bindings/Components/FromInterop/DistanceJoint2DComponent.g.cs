@@ -15,7 +15,7 @@ public sealed partial class DistanceJoint2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_distance_joint2_d_get_rest_length(InteropPtr.Component(Handle));
+return Native.spark_distance_joint2_d_get_rest_length(InteropPtr.Component(Handle));
             }
         }
         set
@@ -75,7 +75,7 @@ public sealed partial class DistanceJoint2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_distance_joint2_d_get_stiffness(InteropPtr.Component(Handle));
+return Native.spark_distance_joint2_d_get_stiffness(InteropPtr.Component(Handle));
             }
         }
         set
@@ -84,6 +84,15 @@ public sealed partial class DistanceJoint2DComponent : GameComponentHandle
             {
                 Native.spark_distance_joint2_d_set_stiffness(InteropPtr.Component(Handle), value);
             }
+        }
+    }
+
+    public GameObject GetConnectedBody()
+    {
+        unsafe
+        {
+                var raw = Native.spark_distance_joint2_d_get_connected_body(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 

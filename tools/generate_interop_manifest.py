@@ -4,12 +4,17 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-INTEROP = ROOT / "include/spark/scripting/SparkInterop.h"
-INTEROP_GENERATED = ROOT / "include/spark/scripting/SparkInteropComponentBindings.generated.h"
-OUT = ROOT / "scripting/bindings/spark-interop-bindings.json"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from spark_sharp_paths import BINDINGS_MANIFEST, INTEROP_GEN_H, INTEROP_H, SHARP_ROOT  # noqa: E402
+
+ROOT = SHARP_ROOT
+INTEROP = INTEROP_H
+INTEROP_GENERATED = INTEROP_GEN_H
+OUT = BINDINGS_MANIFEST
 
 CLASS_OVERRIDES: dict[str, str] = {
     "sprite_2d_fsm": "Sprite2DCharacterAnimFsmComponent",
@@ -21,6 +26,13 @@ CLASS_OVERRIDES: dict[str, str] = {
     "grass_field_bounds": "GrassFieldComponent",
     "input_action_map": "InputActionMapComponent",
     "player_input": "PlayerInputComponent",
+    "animation_layer_stack": "AnimationLayerStackComponent",
+    "combat_hurt_flash_3d": "CombatHurtFlash3DComponent",
+    "character_3d_body": "Character3DBodyComponent",
+    "character_3d_visual": "Character3DVisualComponent",
+    "physics_attached_body_3d": "PhysicsAttachedBody3DComponent",
+    "gameplay_inventory_collector": "GameplayInventoryCollectorComponent",
+    "physics_contact_listener_3d": "PhysicsContactListener3DComponent",
     "screen_shake": "ScreenShakeComponent",
     "game_state": "GameStateComponent",
     "game_flow_trigger": "GameFlowTriggerComponent",

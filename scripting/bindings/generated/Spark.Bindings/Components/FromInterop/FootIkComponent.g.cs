@@ -15,7 +15,7 @@ public sealed partial class FootIkComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_foot_ik_get_weight(InteropPtr.Component(Handle));
+return Native.spark_foot_ik_get_weight(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class FootIkComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_foot_ik_get_ray_origin_lift(InteropPtr.Component(Handle));
+return Native.spark_foot_ik_get_ray_origin_lift(InteropPtr.Component(Handle));
             }
         }
         set
@@ -51,7 +51,7 @@ public sealed partial class FootIkComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_foot_ik_get_ray_max_distance(InteropPtr.Component(Handle));
+return Native.spark_foot_ik_get_ray_max_distance(InteropPtr.Component(Handle));
             }
         }
         set

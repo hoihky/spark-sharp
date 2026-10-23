@@ -57,7 +57,7 @@ public sealed partial class HingeJoint3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_hinge_joint3_d_get_stiffness(InteropPtr.Component(Handle));
+return Native.spark_hinge_joint3_d_get_stiffness(InteropPtr.Component(Handle));
             }
         }
         set
@@ -66,6 +66,15 @@ public sealed partial class HingeJoint3DComponent : GameComponentHandle
             {
                 Native.spark_hinge_joint3_d_set_stiffness(InteropPtr.Component(Handle), value);
             }
+        }
+    }
+
+    public GameObject GetConnectedBody()
+    {
+        unsafe
+        {
+                var raw = Native.spark_hinge_joint3_d_get_connected_body(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 

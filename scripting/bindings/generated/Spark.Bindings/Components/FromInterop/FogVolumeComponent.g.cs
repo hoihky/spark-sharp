@@ -15,7 +15,7 @@ public sealed partial class FogVolumeComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_fog_volume_get_shape(InteropPtr.Component(Handle));
+return Native.spark_fog_volume_get_shape(InteropPtr.Component(Handle));
             }
         }
         set
@@ -75,7 +75,7 @@ public sealed partial class FogVolumeComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_fog_volume_get_fog_density(InteropPtr.Component(Handle));
+return Native.spark_fog_volume_get_fog_density(InteropPtr.Component(Handle));
             }
         }
         set
@@ -93,7 +93,7 @@ public sealed partial class FogVolumeComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_fog_volume_get_fog_start(InteropPtr.Component(Handle));
+return Native.spark_fog_volume_get_fog_start(InteropPtr.Component(Handle));
             }
         }
         set
@@ -111,7 +111,7 @@ public sealed partial class FogVolumeComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_fog_volume_get_fog_end(InteropPtr.Component(Handle));
+return Native.spark_fog_volume_get_fog_end(InteropPtr.Component(Handle));
             }
         }
         set

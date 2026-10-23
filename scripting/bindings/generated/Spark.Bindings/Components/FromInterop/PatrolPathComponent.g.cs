@@ -15,7 +15,7 @@ public sealed partial class PatrolPathComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_patrol_path_get_wait_seconds_per_point(InteropPtr.Component(Handle));
+return Native.spark_patrol_path_get_wait_seconds_per_point(InteropPtr.Component(Handle));
             }
         }
         set

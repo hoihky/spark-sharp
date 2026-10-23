@@ -15,7 +15,7 @@ public sealed partial class PhysicsMaterial3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_physics_material3_d_get_static_friction(InteropPtr.Component(Handle));
+return Native.spark_physics_material3_d_get_static_friction(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class PhysicsMaterial3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_physics_material3_d_get_dynamic_friction(InteropPtr.Component(Handle));
+return Native.spark_physics_material3_d_get_dynamic_friction(InteropPtr.Component(Handle));
             }
         }
         set
@@ -51,7 +51,7 @@ public sealed partial class PhysicsMaterial3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_physics_material3_d_get_restitution(InteropPtr.Component(Handle));
+return Native.spark_physics_material3_d_get_restitution(InteropPtr.Component(Handle));
             }
         }
         set

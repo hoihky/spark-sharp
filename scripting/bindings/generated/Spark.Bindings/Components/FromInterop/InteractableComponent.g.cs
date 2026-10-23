@@ -15,7 +15,7 @@ public sealed partial class InteractableComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_interactable_get_interaction_radius(InteropPtr.Component(Handle));
+return Native.spark_interactable_get_interaction_radius(InteropPtr.Component(Handle));
             }
         }
         set

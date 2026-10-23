@@ -9,19 +9,57 @@ public sealed partial class GameFlowTriggerComponent : GameComponentHandle
     internal GameFlowTriggerComponent(nint handle)
         : base(handle) { }
 
-    public void SetSource(SparkGameFlowTriggerSource value)
+    public SparkGameFlowTriggerSource Source
     {
-        unsafe
+        get
         {
-                Native.spark_game_flow_trigger_set_source(InteropPtr.Component(Handle), (SparkGameFlowTriggerSource)value);
+            unsafe
+            {
+return Native.spark_game_flow_trigger_get_source(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_game_flow_trigger_set_source(InteropPtr.Component(Handle), value);
+            }
         }
     }
 
-    public void SetTargetState(SparkGameFlowState state)
+    public SparkGameFlowState TargetState
     {
-        unsafe
+        get
         {
-                Native.spark_game_flow_trigger_set_target_state(InteropPtr.Component(Handle), (SparkGameFlowState)state);
+            unsafe
+            {
+return Native.spark_game_flow_trigger_get_target_state(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_game_flow_trigger_set_target_state(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public SparkGameFlowState WatchState
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_game_flow_trigger_get_watch_state(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_game_flow_trigger_set_watch_state(InteropPtr.Component(Handle), value);
+            }
         }
     }
 
@@ -41,6 +79,15 @@ public sealed partial class GameFlowTriggerComponent : GameComponentHandle
         unsafe
         {
                 Native.spark_game_flow_trigger_set_state_owner(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle));
+        }
+    }
+
+    public GameObject GetStateOwner()
+    {
+        unsafe
+        {
+                var raw = Native.spark_game_flow_trigger_get_state_owner(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 }

@@ -15,7 +15,7 @@ public sealed partial class SceneSpatialPolicyComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_scene_spatial_policy_get_partition_kind(InteropPtr.Component(Handle));
+return Native.spark_scene_spatial_policy_get_partition_kind(InteropPtr.Component(Handle));
             }
         }
         set

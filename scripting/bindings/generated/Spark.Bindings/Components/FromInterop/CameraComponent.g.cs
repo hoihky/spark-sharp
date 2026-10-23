@@ -15,7 +15,7 @@ public sealed partial class CameraComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_camera_get_projection_mode(InteropPtr.Component(Handle));
+return Native.spark_camera_get_projection_mode(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class CameraComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_camera_get_fov_y_degrees(InteropPtr.Component(Handle));
+return Native.spark_camera_get_fov_y_degrees(InteropPtr.Component(Handle));
             }
         }
         set
@@ -51,7 +51,7 @@ public sealed partial class CameraComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_camera_get_near_plane(InteropPtr.Component(Handle));
+return Native.spark_camera_get_near_plane(InteropPtr.Component(Handle));
             }
         }
         set
@@ -69,7 +69,7 @@ public sealed partial class CameraComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_camera_get_far_plane(InteropPtr.Component(Handle));
+return Native.spark_camera_get_far_plane(InteropPtr.Component(Handle));
             }
         }
         set
@@ -87,7 +87,7 @@ public sealed partial class CameraComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_camera_get_ortho_half_height(InteropPtr.Component(Handle));
+return Native.spark_camera_get_ortho_half_height(InteropPtr.Component(Handle));
             }
         }
         set

@@ -39,11 +39,28 @@ public sealed partial class ScreenShakeComponent : GameComponentHandle
         }
     }
 
+    public float GetTrauma()
+    {
+        unsafe
+        {
+                return Native.spark_screen_shake_get_trauma(InteropPtr.Component(Handle));
+        }
+    }
+
     public void Clear()
     {
         unsafe
         {
                 Native.spark_screen_shake_clear(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void Tick(float deltaSeconds, in Vector2 outTick)
+    {
+        unsafe
+        {
+            var outTickNative = outTick.ToNative();
+                Native.spark_screen_shake_tick(InteropPtr.Component(Handle), deltaSeconds, &outTickNative);
         }
     }
 }

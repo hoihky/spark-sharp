@@ -15,7 +15,7 @@ public sealed partial class GridPathFollower2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_grid_path_follower2_d_get_mode(InteropPtr.Component(Handle));
+return Native.spark_grid_path_follower2_d_get_mode(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class GridPathFollower2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_grid_path_follower2_d_get_max_speed(InteropPtr.Component(Handle));
+return Native.spark_grid_path_follower2_d_get_max_speed(InteropPtr.Component(Handle));
             }
         }
         set
@@ -51,7 +51,7 @@ public sealed partial class GridPathFollower2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_grid_path_follower2_d_get_arrive_radius(InteropPtr.Component(Handle));
+return Native.spark_grid_path_follower2_d_get_arrive_radius(InteropPtr.Component(Handle));
             }
         }
         set
@@ -69,7 +69,7 @@ public sealed partial class GridPathFollower2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_grid_path_follower2_d_get_stop_on_path_end(InteropPtr.Component(Handle));
+return Native.spark_grid_path_follower2_d_get_stop_on_path_end(InteropPtr.Component(Handle));
             }
         }
         set

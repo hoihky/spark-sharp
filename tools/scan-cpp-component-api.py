@@ -4,36 +4,72 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-COMPONENT_GLOB = ROOT / "include/spark/ecs/components"
-INTEROP = ROOT / "include/spark/scripting/SparkInterop.h"
-OUT = ROOT / "scripting/bindings/binding-coverage.json"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from spark_sharp_paths import (  # noqa: E402
+    BINDINGS_COVERAGE,
+    ENGINE_COMPONENTS,
+    INTEROP_GEN_H,
+    INTEROP_H,
+)
 
 METHOD_RE = re.compile(
     r"^\s+(?:virtual\s+)?(?:[\w:<>,\s&]+\s+)?(\w+)\s*\([^;]*\)\s*(?:const)?\s*(?:override)?\s*;",
     re.MULTILINE,
 )
 
-SPARK_FN_RE = re.compile(r"spark_(\w+?)_(?:get_|set_|is_|[\w_]+)", re.MULTILINE)
+SPARK_FN_RE = re.compile(r"\b(spark_[a-z0-9_]+)\s*\(", re.MULTILINE)
+
+SKIP_METHODS = {
+    "Kind",
+    "OnAttach",
+    "OnDetach",
+    "OnUpdate",
+    "OnSignal",
+    "UpdatePriority",
+    "SubsystemTick",
+}
 
 
 def component_kind_from_path(path: Path) -> str:
-    name = path.stem  # FooComponent
+    name = path.stem
     if name.endswith("Component"):
         name = name[: -len("Component")]
     return name
 
 
+def pascal_to_prefix(kind: str) -> str:
+    parts: list[str] = []
+    buf = ""
+    for ch in kind:
+        if ch.isupper() and buf:
+            parts.append(buf.lower())
+            buf = ch
+        else:
+            buf += ch
+    if buf:
+        parts.append(buf.lower())
+    return "_".join(parts)
+
+
+def load_interop_functions() -> set[str]:
+    text = INTEROP_H.read_text(encoding="utf-8", errors="ignore")
+    if INTEROP_GEN_H.is_file():
+        text += INTEROP_GEN_H.read_text(encoding="utf-8", errors="ignore")
+    return set(SPARK_FN_RE.findall(text))
+
+
 def scan_headers() -> dict[str, list[str]]:
     result: dict[str, list[str]] = {}
-    for path in COMPONENT_GLOB.rglob("*Component.hpp"):
+    for path in ENGINE_COMPONENTS.rglob("*Component.hpp"):
         text = path.read_text(encoding="utf-8", errors="ignore")
         methods = []
         for m in METHOD_RE.finditer(text):
             name = m.group(1)
-            if name in {"Kind", "OnAttach", "OnDetach", "OnUpdate", "OnSignal", "UpdatePriority"}:
+            if name in SKIP_METHODS:
                 continue
             methods.append(name)
         if methods:
@@ -41,33 +77,32 @@ def scan_headers() -> dict[str, list[str]]:
     return result
 
 
-def scan_interop_prefixes() -> set[str]:
-    text = INTEROP.read_text(encoding="utf-8")
-    prefixes: set[str] = set()
-    for m in SPARK_FN_RE.finditer(text):
-        prefixes.add(m.group(1))
-    return prefixes
-
-
 def main() -> int:
+    if not ENGINE_COMPONENTS.is_dir():
+        print(f"error: {ENGINE_COMPONENTS} not found", file=sys.stderr)
+        return 1
     headers = scan_headers()
-    prefixes = scan_interop_prefixes()
+    interop_fns = load_interop_functions()
     report = {
         "componentsWithPublicMethods": len(headers),
-        "interopPrefixes": sorted(prefixes),
-        "gaps": [],
+        "interopFunctionCount": len(interop_fns),
+        "kindsWithoutInteropPrefix": [],
+        "notes": "Per-method coverage requires SPARK_SCRIPT_BIND + bindgen; kinds listed lack any spark_<prefix>_ symbol.",
     }
     for kind, methods in sorted(headers.items()):
-        snake = re.sub(r"(?<!^)(?=[A-Z])", "_", kind).lower()
-        has_prefix = any(
-            snake == p or snake.startswith(p + "_") or p.startswith(snake)
-            for p in prefixes
-        )
-        if not has_prefix and methods:
-            report["gaps"].append({"kind": kind, "methodCount": len(methods), "sampleMethods": methods[:8]})
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
-    print(f"Wrote {OUT} ({len(report['gaps'])} kinds without obvious spark_ prefix)")
+        prefix = pascal_to_prefix(kind)
+        has_any = any(fn.startswith(f"spark_{prefix}_") for fn in interop_fns)
+        if not has_any:
+            report["kindsWithoutInteropPrefix"].append(
+                {"kind": kind, "expectedPrefix": prefix, "methodCount": len(methods), "sampleMethods": methods[:10]}
+            )
+    BINDINGS_COVERAGE.parent.mkdir(parents=True, exist_ok=True)
+    BINDINGS_COVERAGE.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    print(
+        f"Wrote {BINDINGS_COVERAGE} "
+        f"({len(report['kindsWithoutInteropPrefix'])} kinds without interop prefix, "
+        f"{report['interopFunctionCount']} spark_* functions)"
+    )
     return 0
 
 

@@ -36,7 +36,7 @@ public sealed partial class NavMeshAgentComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_nav_mesh_agent_get_grid_cell_size(InteropPtr.Component(Handle));
+return Native.spark_nav_mesh_agent_get_grid_cell_size(InteropPtr.Component(Handle));
             }
         }
         set
@@ -61,6 +61,15 @@ public sealed partial class NavMeshAgentComponent : GameComponentHandle
         unsafe
         {
                 Native.spark_nav_mesh_agent_set_enabled(InteropPtr.Component(Handle), e);
+        }
+    }
+
+    public GameObject GetPatrolPathObject()
+    {
+        unsafe
+        {
+                var raw = Native.spark_nav_mesh_agent_get_patrol_path_object(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 

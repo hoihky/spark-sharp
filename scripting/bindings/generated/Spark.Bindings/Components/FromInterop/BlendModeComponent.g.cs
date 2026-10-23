@@ -15,7 +15,7 @@ public sealed partial class BlendModeComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_blend_mode_get_mode(InteropPtr.Component(Handle));
+return Native.spark_blend_mode_get_mode(InteropPtr.Component(Handle));
             }
         }
         set

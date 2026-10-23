@@ -17,11 +17,19 @@ public sealed partial class GameStateComponent : GameComponentHandle
         }
     }
 
-    public int RequestState(SparkGameFlowState nextState)
+    public SparkGameFlowState GetPreviousState()
     {
         unsafe
         {
-                return Native.spark_game_state_request_state(InteropPtr.Component(Handle), (SparkGameFlowState)nextState);
+                return Native.spark_game_state_get_previous_state(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int IsState(SparkGameFlowState state)
+    {
+        unsafe
+        {
+                return Native.spark_game_state_is_state(InteropPtr.Component(Handle), (SparkGameFlowState)state);
         }
     }
 
@@ -30,14 +38,6 @@ public sealed partial class GameStateComponent : GameComponentHandle
         unsafe
         {
                 Native.spark_game_state_push_state(InteropPtr.Component(Handle), (SparkGameFlowState)nextState);
-        }
-    }
-
-    public int PopState()
-    {
-        unsafe
-        {
-                return Native.spark_game_state_pop_state(InteropPtr.Component(Handle));
         }
     }
 }

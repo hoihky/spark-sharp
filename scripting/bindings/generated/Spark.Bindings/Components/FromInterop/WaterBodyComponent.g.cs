@@ -15,7 +15,7 @@ public sealed partial class WaterBodyComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_water_body_get_mode(InteropPtr.Component(Handle));
+return Native.spark_water_body_get_mode(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class WaterBodyComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_water_body_get_water_level_y(InteropPtr.Component(Handle));
+return Native.spark_water_body_get_water_level_y(InteropPtr.Component(Handle));
             }
         }
         set
@@ -51,7 +51,7 @@ public sealed partial class WaterBodyComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_water_body_get_wave_preset_id(InteropPtr.Component(Handle));
+return Native.spark_water_body_get_wave_preset_id(InteropPtr.Component(Handle));
             }
         }
         set
@@ -69,7 +69,7 @@ public sealed partial class WaterBodyComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_water_body_get_wave_time_scale(InteropPtr.Component(Handle));
+return Native.spark_water_body_get_wave_time_scale(InteropPtr.Component(Handle));
             }
         }
         set
@@ -129,7 +129,7 @@ public sealed partial class WaterBodyComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_water_body_get_absorption(InteropPtr.Component(Handle));
+return Native.spark_water_body_get_absorption(InteropPtr.Component(Handle));
             }
         }
         set
@@ -147,7 +147,7 @@ public sealed partial class WaterBodyComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_water_body_get_foam_strength(InteropPtr.Component(Handle));
+return Native.spark_water_body_get_foam_strength(InteropPtr.Component(Handle));
             }
         }
         set
@@ -165,7 +165,7 @@ public sealed partial class WaterBodyComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_water_body_get_detail_normal_strength(InteropPtr.Component(Handle));
+return Native.spark_water_body_get_detail_normal_strength(InteropPtr.Component(Handle));
             }
         }
         set
@@ -183,7 +183,7 @@ public sealed partial class WaterBodyComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_water_body_get_shoreline_foam_strength(InteropPtr.Component(Handle));
+return Native.spark_water_body_get_shoreline_foam_strength(InteropPtr.Component(Handle));
             }
         }
         set
@@ -201,7 +201,7 @@ public sealed partial class WaterBodyComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_water_body_get_shoreline_foam_max_depth(InteropPtr.Component(Handle));
+return Native.spark_water_body_get_shoreline_foam_max_depth(InteropPtr.Component(Handle));
             }
         }
         set
@@ -219,7 +219,7 @@ public sealed partial class WaterBodyComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_water_body_get_wave_amplitude_scale(InteropPtr.Component(Handle));
+return Native.spark_water_body_get_wave_amplitude_scale(InteropPtr.Component(Handle));
             }
         }
         set
@@ -237,7 +237,7 @@ public sealed partial class WaterBodyComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_water_body_get_wave_speed_scale(InteropPtr.Component(Handle));
+return Native.spark_water_body_get_wave_speed_scale(InteropPtr.Component(Handle));
             }
         }
         set

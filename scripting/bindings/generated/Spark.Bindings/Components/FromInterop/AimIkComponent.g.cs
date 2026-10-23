@@ -15,7 +15,7 @@ public sealed partial class AimIkComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_aim_ik_get_weight(InteropPtr.Component(Handle));
+return Native.spark_aim_ik_get_weight(InteropPtr.Component(Handle));
             }
         }
         set
@@ -61,6 +61,15 @@ public sealed partial class AimIkComponent : GameComponentHandle
         unsafe
         {
                 return Native.spark_aim_ik_is_uses_main_camera(InteropPtr.Component(Handle));
+        }
+    }
+
+    public GameObject GetTargetObject()
+    {
+        unsafe
+        {
+                var raw = Native.spark_aim_ik_get_target_object(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 

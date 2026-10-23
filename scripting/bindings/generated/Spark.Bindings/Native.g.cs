@@ -964,6 +964,15 @@ namespace Spark.Bindings
         public static extern void spark_foliage_instanced_configure_grid_within_square(SparkGameComponent* foliage, float halfExtentMeters, float spacingMeters, float edgeMarginMeters);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern SparkGameComponent* spark_object_add_terrain(SparkGameObject* @object, int subdivX, int subdivZ, float halfExtentX, float halfExtentZ, float heightScale, SparkVector3* meshAlbedoRgb);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern SparkGameComponent* spark_object_add_directional_light(SparkGameObject* @object, SparkVector3* colorRgb, float intensity);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern SparkGameComponent* spark_object_add_sound_cue(SparkGameObject* @object);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern SparkGameComponent* spark_object_add_grass_field(SparkGameObject* @object);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]

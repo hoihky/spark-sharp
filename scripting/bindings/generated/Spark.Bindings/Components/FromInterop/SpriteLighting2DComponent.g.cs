@@ -15,7 +15,7 @@ public sealed partial class SpriteLighting2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_sprite_lighting2_d_get_mode(InteropPtr.Component(Handle));
+return Native.spark_sprite_lighting2_d_get_mode(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class SpriteLighting2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_sprite_lighting2_d_get_sync_normal_uv_with_sprite(InteropPtr.Component(Handle));
+return Native.spark_sprite_lighting2_d_get_sync_normal_uv_with_sprite(InteropPtr.Component(Handle));
             }
         }
         set

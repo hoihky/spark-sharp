@@ -9,28 +9,60 @@ public sealed partial class PointLightComponent : GameComponentHandle
     internal PointLightComponent(nint handle)
         : base(handle) { }
 
-    public void SetColor(in Vector3 color)
+    public Vector3 Color
     {
-        unsafe
+        get
         {
-            var colorNative = color.ToNative();
-                Native.spark_point_light_set_color(InteropPtr.Component(Handle), &colorNative);
+            unsafe
+            {
+                SparkVector3 v;
+                Native.spark_point_light_get_color(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                var v = value.ToNative();
+                Native.spark_point_light_set_color(InteropPtr.Component(Handle), &v);
+            }
         }
     }
 
-    public void SetIntensity(float intensity)
+    public float Intensity
     {
-        unsafe
+        get
         {
-                Native.spark_point_light_set_intensity(InteropPtr.Component(Handle), intensity);
+            unsafe
+            {
+return Native.spark_point_light_get_intensity(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_point_light_set_intensity(InteropPtr.Component(Handle), value);
+            }
         }
     }
 
-    public void SetRange(float range)
+    public float Range
     {
-        unsafe
+        get
         {
-                Native.spark_point_light_set_range(InteropPtr.Component(Handle), range);
+            unsafe
+            {
+return Native.spark_point_light_get_range(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_point_light_set_range(InteropPtr.Component(Handle), value);
+            }
         }
     }
 
@@ -39,6 +71,30 @@ public sealed partial class PointLightComponent : GameComponentHandle
         unsafe
         {
                 Native.spark_point_light_set_enabled(InteropPtr.Component(Handle), enabled);
+        }
+    }
+
+    public int IsEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_point_light_is_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int IsCastsShadow()
+    {
+        unsafe
+        {
+                return Native.spark_point_light_is_casts_shadow(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetCastsShadow(int c)
+    {
+        unsafe
+        {
+                Native.spark_point_light_set_casts_shadow(InteropPtr.Component(Handle), c);
         }
     }
 }

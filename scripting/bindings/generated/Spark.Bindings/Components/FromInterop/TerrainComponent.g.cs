@@ -15,7 +15,7 @@ public sealed partial class TerrainComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_terrain_get_height_scale(InteropPtr.Component(Handle));
+return Native.spark_terrain_get_height_scale(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class TerrainComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_terrain_get_noise_scale(InteropPtr.Component(Handle));
+return Native.spark_terrain_get_noise_scale(InteropPtr.Component(Handle));
             }
         }
         set
@@ -117,49 +117,11 @@ public sealed partial class TerrainComponent : GameComponentHandle
         }
     }
 
-    public Vector3 MeshAlbedo
-    {
-        get
-        {
-            unsafe
-            {
-                SparkVector3 v;
-                Native.spark_terrain_get_mesh_albedo(InteropPtr.Component(Handle), &v);
-                return Vector3.FromNative(v);
-            }
-        }
-    }
-
     public void SetSeed(uint v)
     {
         unsafe
         {
                 Native.spark_terrain_set_seed(InteropPtr.Component(Handle), v);
-        }
-    }
-
-    public void ResetHeightsToProcedural(GameObject owner)
-    {
-        unsafe
-        {
-                Native.spark_terrain_reset_heights_to_procedural(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle));
-        }
-    }
-
-    public void RegenerateMesh(GameObject owner)
-    {
-        unsafe
-        {
-                Native.spark_terrain_regenerate_mesh(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle));
-        }
-    }
-
-    public void ApplyHeightBrushLocal(GameObject owner, in Vector2 centerXZ, float radiusXZ, float deltaY)
-    {
-        unsafe
-        {
-            var centerXZNative = centerXZ.ToNative();
-                Native.spark_terrain_apply_height_brush_local(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle), &centerXZNative, radiusXZ, deltaY);
         }
     }
 

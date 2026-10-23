@@ -36,7 +36,7 @@ public sealed partial class SkeletonDebugDrawComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_skeleton_debug_draw_get_bone_thickness(InteropPtr.Component(Handle));
+return Native.spark_skeleton_debug_draw_get_bone_thickness(InteropPtr.Component(Handle));
             }
         }
         set
@@ -54,7 +54,7 @@ public sealed partial class SkeletonDebugDrawComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_skeleton_debug_draw_get_joint_marker_scale(InteropPtr.Component(Handle));
+return Native.spark_skeleton_debug_draw_get_joint_marker_scale(InteropPtr.Component(Handle));
             }
         }
         set
@@ -63,6 +63,15 @@ public sealed partial class SkeletonDebugDrawComponent : GameComponentHandle
             {
                 Native.spark_skeleton_debug_draw_set_joint_marker_scale(InteropPtr.Component(Handle), value);
             }
+        }
+    }
+
+    public GameObject GetSourceObject()
+    {
+        unsafe
+        {
+                var raw = Native.spark_skeleton_debug_draw_get_source_object(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 

@@ -33,7 +33,7 @@ public sealed partial class CircleCollider2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_circle_collider_2d_get_radius(InteropPtr.Component(Handle));
+return Native.spark_circle_collider_2d_get_radius(InteropPtr.Component(Handle));
             }
         }
         set

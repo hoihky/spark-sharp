@@ -6,14 +6,23 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-HDR = ROOT / "include/spark/scripting/SparkInteropComponentKinds.h"
-ECS_HPP = ROOT / "include/spark/ecs/Ecs.hpp"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from spark_sharp_paths import (  # noqa: E402
+    ENGINE_ECS_HPP,
+    INTEROP_FACTORY_CPP,
+    INTEROP_KINDS_H,
+    SHARP_ROOT,
+)
+
+ROOT = SHARP_ROOT
+HDR = INTEROP_KINDS_H
+ECS_HPP = ENGINE_ECS_HPP
 OUT_COMPONENTS = ROOT / "scripting/bindings/generated/Spark.Bindings/Components/Generated"
 OUT_COMPONENTS_ROOT = ROOT / "scripting/bindings/generated/Spark.Bindings/Components"
 FROM_INTEROP = ROOT / "scripting/bindings/generated/Spark.Bindings/Components/FromInterop"
 OUT_GAMEOBJECT = ROOT / "scripting/bindings/generated/Spark.Bindings/GameObject.ComponentAccess.g.cs"
-OUT_FACTORY_CPP = ROOT / "src/spark/scripting/SparkInteropComponentFactory.generated.cpp"
+OUT_FACTORY_CPP = INTEROP_FACTORY_CPP
 
 # Rich mirrors live outside Generated/ (do not emit duplicate handle files).
 SKIP_HANDLE_FILES: set[str] = set()

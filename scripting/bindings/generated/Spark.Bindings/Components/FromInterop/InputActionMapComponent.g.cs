@@ -9,14 +9,6 @@ public sealed partial class InputActionMapComponent : GameComponentHandle
     internal InputActionMapComponent(nint handle)
         : base(handle) { }
 
-    public void Clear()
-    {
-        unsafe
-        {
-                Native.spark_input_action_map_clear(InteropPtr.Component(Handle));
-        }
-    }
-
     public void BindButton(string actionName, int primaryKey, int secondaryKey)
     {
         unsafe
@@ -35,6 +27,28 @@ public sealed partial class InputActionMapComponent : GameComponentHandle
             InteropUtf8.WithUtf8(actionName, ptr =>
             {
                 Native.spark_input_action_map_bind_axis1d(InteropPtr.Component(Handle), (sbyte*)ptr, negativeKey, positiveKey, secondaryNegativeKey, secondaryPositiveKey);
+            });
+        }
+    }
+
+    public void BindGamepadButton(string actionName, int gamepadButton)
+    {
+        unsafe
+        {
+            InteropUtf8.WithUtf8(actionName, ptr =>
+            {
+                Native.spark_input_action_map_bind_gamepad_button(InteropPtr.Component(Handle), (sbyte*)ptr, gamepadButton);
+            });
+        }
+    }
+
+    public void BindGamepadAxis1D(string actionName, int gamepadAxis, float axisScale)
+    {
+        unsafe
+        {
+            InteropUtf8.WithUtf8(actionName, ptr =>
+            {
+                Native.spark_input_action_map_bind_gamepad_axis1_d(InteropPtr.Component(Handle), (sbyte*)ptr, gamepadAxis, axisScale);
             });
         }
     }

@@ -15,7 +15,7 @@ public sealed partial class Camera2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_camera_2d_get_half_extent_y(InteropPtr.Component(Handle));
+return Native.spark_camera_2d_get_half_extent_y(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class Camera2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_camera_2d_get_clip_near_z(InteropPtr.Component(Handle));
+return Native.spark_camera_2d_get_clip_near_z(InteropPtr.Component(Handle));
             }
         }
         set
@@ -51,7 +51,7 @@ public sealed partial class Camera2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_camera_2d_get_clip_far_z(InteropPtr.Component(Handle));
+return Native.spark_camera_2d_get_clip_far_z(InteropPtr.Component(Handle));
             }
         }
         set

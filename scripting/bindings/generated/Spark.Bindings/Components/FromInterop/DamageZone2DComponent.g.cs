@@ -15,7 +15,7 @@ public sealed partial class DamageZone2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_damage_zone2_d_get_shape(InteropPtr.Component(Handle));
+return Native.spark_damage_zone2_d_get_shape(InteropPtr.Component(Handle));
             }
         }
         set
@@ -54,7 +54,7 @@ public sealed partial class DamageZone2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_damage_zone2_d_get_radius(InteropPtr.Component(Handle));
+return Native.spark_damage_zone2_d_get_radius(InteropPtr.Component(Handle));
             }
         }
         set
@@ -93,7 +93,7 @@ public sealed partial class DamageZone2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_damage_zone2_d_get_damage_per_second(InteropPtr.Component(Handle));
+return Native.spark_damage_zone2_d_get_damage_per_second(InteropPtr.Component(Handle));
             }
         }
         set
@@ -142,6 +142,15 @@ public sealed partial class DamageZone2DComponent : GameComponentHandle
         unsafe
         {
                 Native.spark_damage_zone2_d_set_instigator(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
+        }
+    }
+
+    public GameObject GetInstigator()
+    {
+        unsafe
+        {
+                var raw = Native.spark_damage_zone2_d_get_instigator(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 }

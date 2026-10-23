@@ -72,6 +72,38 @@ public sealed partial class AnimationMeleeHitComponent : GameComponentHandle
         }
     }
 
+    public void SetWorldHurtboxQueryEnabled(int enabled)
+    {
+        unsafe
+        {
+                Native.spark_animation_melee_hit_set_world_hurtbox_query_enabled(InteropPtr.Component(Handle), enabled);
+        }
+    }
+
+    public int IsWorldHurtboxQueryEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_animation_melee_hit_is_world_hurtbox_query_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetKnockbackMeters(float meters)
+    {
+        unsafe
+        {
+                Native.spark_animation_melee_hit_set_knockback_meters(InteropPtr.Component(Handle), meters);
+        }
+    }
+
+    public void SetApplyHurtReaction(int enabled)
+    {
+        unsafe
+        {
+                Native.spark_animation_melee_hit_set_apply_hurt_reaction(InteropPtr.Component(Handle), enabled);
+        }
+    }
+
     public void ClearTargets()
     {
         unsafe

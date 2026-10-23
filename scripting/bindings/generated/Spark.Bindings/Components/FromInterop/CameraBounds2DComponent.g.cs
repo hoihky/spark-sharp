@@ -57,7 +57,7 @@ public sealed partial class CameraBounds2DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_camera_bounds2_d_get_priority(InteropPtr.Component(Handle));
+return Native.spark_camera_bounds2_d_get_priority(InteropPtr.Component(Handle));
             }
         }
         set

@@ -15,7 +15,7 @@ public sealed partial class TilemapTileAnimatorComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_tilemap_tile_animator_get_animation_time_seconds(InteropPtr.Component(Handle));
+return Native.spark_tilemap_tile_animator_get_animation_time_seconds(InteropPtr.Component(Handle));
             }
         }
         set

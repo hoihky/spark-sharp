@@ -9,70 +9,13 @@ public sealed partial class WindEnvironmentComponent : GameComponentHandle
     internal WindEnvironmentComponent(nint handle)
         : base(handle) { }
 
-    public bool Enabled
-    {
-        get
-        {
-            unsafe
-            {
-                return Native.spark_wind_environment_get_enabled(InteropPtr.Component(Handle)) != 0;
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_wind_environment_set_enabled(InteropPtr.Component(Handle), value ? 1 : 0);
-            }
-        }
-    }
-
-    public Vector3 Direction
-    {
-        get
-        {
-            unsafe
-            {
-                SparkVector3 v;
-                Native.spark_wind_environment_get_direction(InteropPtr.Component(Handle), &v);
-                return Vector3.FromNative(v);
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                var v = value.ToNative();
-                Native.spark_wind_environment_set_direction(InteropPtr.Component(Handle), &v);
-            }
-        }
-    }
-
-    public float BaseSpeed
-    {
-        get
-        {
-            unsafe
-            {
-                return Native.spark_wind_environment_get_base_speed(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_wind_environment_set_base_speed(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public float GustAmplitude
     {
         get
         {
             unsafe
             {
-                return Native.spark_wind_environment_get_gust_amplitude(InteropPtr.Component(Handle));
+return Native.spark_wind_environment_get_gust_amplitude(InteropPtr.Component(Handle));
             }
         }
         set
@@ -84,31 +27,13 @@ public sealed partial class WindEnvironmentComponent : GameComponentHandle
         }
     }
 
-    public float GustFrequency
-    {
-        get
-        {
-            unsafe
-            {
-                return Native.spark_wind_environment_get_gust_frequency(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_wind_environment_set_gust_frequency(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public float Turbulence
     {
         get
         {
             unsafe
             {
-                return Native.spark_wind_environment_get_turbulence(InteropPtr.Component(Handle));
+return Native.spark_wind_environment_get_turbulence(InteropPtr.Component(Handle));
             }
         }
         set

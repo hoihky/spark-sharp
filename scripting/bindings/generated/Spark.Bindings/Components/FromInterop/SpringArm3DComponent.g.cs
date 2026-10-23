@@ -36,7 +36,7 @@ public sealed partial class SpringArm3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_spring_arm3_d_get_arm_length(InteropPtr.Component(Handle));
+return Native.spark_spring_arm3_d_get_arm_length(InteropPtr.Component(Handle));
             }
         }
         set
@@ -54,7 +54,7 @@ public sealed partial class SpringArm3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_spring_arm3_d_get_yaw_radians(InteropPtr.Component(Handle));
+return Native.spark_spring_arm3_d_get_yaw_radians(InteropPtr.Component(Handle));
             }
         }
         set
@@ -72,7 +72,7 @@ public sealed partial class SpringArm3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_spring_arm3_d_get_pitch_radians(InteropPtr.Component(Handle));
+return Native.spark_spring_arm3_d_get_pitch_radians(InteropPtr.Component(Handle));
             }
         }
         set
@@ -90,7 +90,7 @@ public sealed partial class SpringArm3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_spring_arm3_d_get_probe_radius(InteropPtr.Component(Handle));
+return Native.spark_spring_arm3_d_get_probe_radius(InteropPtr.Component(Handle));
             }
         }
         set
@@ -108,7 +108,7 @@ public sealed partial class SpringArm3DComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_spring_arm3_d_get_min_arm_length(InteropPtr.Component(Handle));
+return Native.spark_spring_arm3_d_get_min_arm_length(InteropPtr.Component(Handle));
             }
         }
         set
@@ -117,6 +117,15 @@ public sealed partial class SpringArm3DComponent : GameComponentHandle
             {
                 Native.spark_spring_arm3_d_set_min_arm_length(InteropPtr.Component(Handle), value);
             }
+        }
+    }
+
+    public GameObject GetPivotTarget()
+    {
+        unsafe
+        {
+                var raw = Native.spark_spring_arm3_d_get_pivot_target(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 

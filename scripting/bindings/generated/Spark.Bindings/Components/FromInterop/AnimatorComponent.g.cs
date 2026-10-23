@@ -15,7 +15,7 @@ public sealed partial class AnimatorComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_animator_get_clip_index(InteropPtr.Component(Handle));
+return Native.spark_animator_get_clip_index(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class AnimatorComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_animator_get_time_seconds(InteropPtr.Component(Handle));
+return Native.spark_animator_get_time_seconds(InteropPtr.Component(Handle));
             }
         }
         set
@@ -51,7 +51,7 @@ public sealed partial class AnimatorComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_animator_get_speed(InteropPtr.Component(Handle));
+return Native.spark_animator_get_speed(InteropPtr.Component(Handle));
             }
         }
         set
@@ -69,7 +69,7 @@ public sealed partial class AnimatorComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_animator_get_loop_mode(InteropPtr.Component(Handle));
+return Native.spark_animator_get_loop_mode(InteropPtr.Component(Handle));
             }
         }
         set
@@ -192,6 +192,30 @@ public sealed partial class AnimatorComponent : GameComponentHandle
                 result = Native.spark_animator_get_clip_name(InteropPtr.Component(Handle), clipIndex, (sbyte*)ptr, outCapacity);
             });
             return result;
+        }
+    }
+
+    public int GetCrossfadeFromClip()
+    {
+        unsafe
+        {
+                return Native.spark_animator_get_crossfade_from_clip(InteropPtr.Component(Handle));
+        }
+    }
+
+    public float GetCrossfadeFromTime()
+    {
+        unsafe
+        {
+                return Native.spark_animator_get_crossfade_from_time(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void RestartCurrentClip()
+    {
+        unsafe
+        {
+                Native.spark_animator_restart_current_clip(InteropPtr.Component(Handle));
         }
     }
 }

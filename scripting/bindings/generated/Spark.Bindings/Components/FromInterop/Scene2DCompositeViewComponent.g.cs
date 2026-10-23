@@ -15,7 +15,7 @@ public sealed partial class Scene2DCompositeViewComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_scene2_d_composite_view_get_feature(InteropPtr.Component(Handle));
+return Native.spark_scene2_d_composite_view_get_feature(InteropPtr.Component(Handle));
             }
         }
         set

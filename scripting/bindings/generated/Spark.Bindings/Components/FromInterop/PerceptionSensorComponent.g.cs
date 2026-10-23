@@ -15,7 +15,7 @@ public sealed partial class PerceptionSensorComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_perception_sensor_get_sight_radius(InteropPtr.Component(Handle));
+return Native.spark_perception_sensor_get_sight_radius(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class PerceptionSensorComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_perception_sensor_get_hearing_radius(InteropPtr.Component(Handle));
+return Native.spark_perception_sensor_get_hearing_radius(InteropPtr.Component(Handle));
             }
         }
         set
@@ -51,7 +51,7 @@ public sealed partial class PerceptionSensorComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_perception_sensor_get_sight_fov_degrees(InteropPtr.Component(Handle));
+return Native.spark_perception_sensor_get_sight_fov_degrees(InteropPtr.Component(Handle));
             }
         }
         set

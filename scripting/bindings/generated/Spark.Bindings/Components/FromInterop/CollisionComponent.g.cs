@@ -15,7 +15,7 @@ public sealed partial class CollisionComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_collision_get_radius(InteropPtr.Component(Handle));
+return Native.spark_collision_get_radius(InteropPtr.Component(Handle));
             }
         }
         set

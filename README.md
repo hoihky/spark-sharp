@@ -22,7 +22,7 @@ The engine repo keeps only `include/spark/scripting/SparkScriptBind.hpp` (annota
 ## Build
 
 ```bash
-export SPARK_ENGINE_ROOT=/path/to/spark   # optional if ../spark exists
+export SPARK_ENGINE_ROOT=/path/to/spark   # optional if ../spark exists; see docs/PATHS_AND_PRIVACY.md
 
 cmake --preset debug
 cmake --build build --target SparkInterop SparkScriptHost SparkHelloCsGameDebug

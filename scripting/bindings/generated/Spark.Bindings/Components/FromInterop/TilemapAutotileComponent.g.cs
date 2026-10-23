@@ -15,7 +15,7 @@ public sealed partial class TilemapAutotileComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_tilemap_autotile_get_rebuild_on_update(InteropPtr.Component(Handle));
+return Native.spark_tilemap_autotile_get_rebuild_on_update(InteropPtr.Component(Handle));
             }
         }
         set

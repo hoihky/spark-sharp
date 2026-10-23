@@ -16,4 +16,36 @@ public sealed partial class RenderLayerComponent : GameComponentHandle
                 Native.spark_render_layer_set_order_in_layer(InteropPtr.Component(Handle), orderInLayer);
         }
     }
+
+    public int GetOrderInLayer()
+    {
+        unsafe
+        {
+                return Native.spark_render_layer_get_order_in_layer(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int HasSExplicitOrderInLayer()
+    {
+        unsafe
+        {
+                return Native.spark_render_layer_has_s_explicit_order_in_layer(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetLayerId(int id)
+    {
+        unsafe
+        {
+                Native.spark_render_layer_set_layer_id(InteropPtr.Component(Handle), id);
+        }
+    }
+
+    public void ClearExplicitOrderInLayer()
+    {
+        unsafe
+        {
+                Native.spark_render_layer_clear_explicit_order_in_layer(InteropPtr.Component(Handle));
+        }
+    }
 }

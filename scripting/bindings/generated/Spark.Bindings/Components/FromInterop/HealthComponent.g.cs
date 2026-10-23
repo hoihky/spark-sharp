@@ -15,7 +15,7 @@ public sealed partial class HealthComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_health_get_maximum(InteropPtr.Component(Handle));
+return Native.spark_health_get_maximum(InteropPtr.Component(Handle));
             }
         }
         set
@@ -33,7 +33,7 @@ public sealed partial class HealthComponent : GameComponentHandle
         {
             unsafe
             {
-                return Native.spark_health_get_current(InteropPtr.Component(Handle));
+return Native.spark_health_get_current(InteropPtr.Component(Handle));
             }
         }
         set

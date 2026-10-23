@@ -14,12 +14,19 @@ All of the above are listed in **`.gitignore`**.
 
 - **CMake / presets** use `${sourceDir}`, `SPARK_ENGINE_ROOT`, `CMAKE_BINARY_DIR` — no hardcoded user paths.
 - **Shell / Python tools** resolve roots from `$(dirname "$0")` or `SPARK_ENGINE_ROOT` / `SPARK_SHARP_ROOT` env vars.
-- **CLion / VS Code** run configs use `$PROJECT_DIR$` / `$ProjectFileDir$` only.
+- **CLion** shared run configs under `.idea/runConfigurations/` use `$PROJECT_DIR$` and `tools/clion-run-hello-cs-game-debug.sh` (not absolute paths).
+- **VS Code** uses `${workspaceFolder}` and a prompt for `SPARK_ENGINE_ROOT` (default `../spark`).
 
 ## Before pushing
 
 ```bash
+./tools/check-paths-privacy.sh
 git status   # ensure no build/, bin/, obj/, compile_commands.json
+```
+
+Optional manual scan:
+
+```bash
 git grep -E '/Users/|/home/|\\\\Users\\\\' -- ':!build' ':!cmake-build-*' ':!**/obj/**' ':!**/bin/**'
 ```
 

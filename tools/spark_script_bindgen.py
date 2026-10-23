@@ -73,6 +73,13 @@ PREFIX_OVERRIDES: dict[str, str] = {
     "SoundCueComponent": "sound_cue",
     "TerrainComponent": "terrain",
     "Camera2DRigComponent": "camera_2d_rig",
+    "AnimationLayerStackComponent": "animation_layer_stack",
+    "CombatHurtFlash3DComponent": "combat_hurt_flash_3d",
+    "Character3DBodyComponent": "character_3d_body",
+    "Character3DVisualComponent": "character_3d_visual",
+    "PhysicsAttachedBody3DComponent": "physics_attached_body_3d",
+    "GameplayInventoryCollectorComponent": "gameplay_inventory_collector",
+    "PhysicsContactListener3DComponent": "physics_contact_listener_3d",
 }
 # Manifest classOverrides are prefix→class; only apply when they do not clobber explicit entries above.
 for _class, _prefix in load_prefix_overrides_from_manifest().items():
@@ -208,6 +215,8 @@ def is_bindable_method(method: BoundMethod) -> bool:
         pass
     elif "ParallaxAxisMode" in ret or "ParallaxDriftMode" in ret:
         pass
+    elif "GameObject*" in ret:
+        pass
     elif "&" in ret or "*" in ret:
         return False
     elif norm in {"Matrix4", "Camera2D", "Quaternion"}:
@@ -312,6 +321,8 @@ def map_c_return(cpp_ret: str) -> str:
         return "uint32_t"
     if "uint64_t" in cpp_ret or "std::uint64_t" in cpp_ret:
         return "uint64_t"
+    if "GameObject*" in cpp_ret:
+        return "SparkGameObject*"
     return "int"
 
 
@@ -366,6 +377,26 @@ def c_param_from_cpp(typ: str, name: str, index: int) -> tuple[str, str]:
         return (
             f"SparkGameFlowTriggerSource {n}",
             f"static_cast<Spark::GameFlowTriggerSource>(static_cast<std::uint8_t>({n}))",
+        )
+    if "GameplayTeamId" in stripped:
+        return (
+            f"int32_t {n}",
+            f"Spark::GameplayTeamId{{static_cast<std::int32_t>({n})}}",
+        )
+    if "SceneShadingModel" in stripped:
+        return (
+            f"int {n}",
+            f"static_cast<Spark::SceneShadingModel>(static_cast<std::uint8_t>({n}))",
+        )
+    if "ParticleRenderSpace" in stripped:
+        return (
+            f"int {n}",
+            f"static_cast<Spark::ParticleRenderSpace>(static_cast<std::uint8_t>({n}))",
+        )
+    if "UiTheme" in stripped or "Ui::UiTheme" in stripped:
+        return (
+            f"int {n}",
+            f"static_cast<Spark::Ui::UiTheme>(static_cast<std::uint8_t>({n}))",
         )
     if "ParallaxAxisMode" in stripped:
         return (
@@ -446,6 +477,10 @@ def default_return(method: BoundMethod, ret_c: str) -> str:
         return "        return 0;\n"
     if ret_c == "float":
         return "        return 0.0F;\n"
+    if "GameObject*" in method.return_type:
+        return "        return nullptr;\n"
+    if "GameFlowTriggerSource" in method.return_type:
+        return "        return SparkGameFlowTriggerSource_TriggerEnter;\n"
     if "GameFlowState" in method.return_type:
         return "        return SparkGameFlowState_Playing;\n"
     if "ParallaxAxisMode" in method.return_type:
@@ -516,8 +551,17 @@ def emit_c_function(comp: BoundComponent, method: BoundMethod) -> list[str]:
         lines.append(f"    return self->{method.cpp_name}({', '.join(call_args)}) ? 1 : 0;")
     elif method.return_type.strip() == "float":
         lines.append(f"    return self->{method.cpp_name}({', '.join(call_args)});")
+    elif "GameObject*" in method.return_type:
+        lines.append(
+            f"    return reinterpret_cast<SparkGameObject*>(self->{method.cpp_name}({', '.join(call_args)}));"
+        )
     elif "uint64_t" in method.return_type or "std::uint64_t" in method.return_type:
         lines.append(f"    return self->{method.cpp_name}({', '.join(call_args)});")
+    elif "GameFlowTriggerSource" in method.return_type:
+        lines.append(
+            f"    return static_cast<SparkGameFlowTriggerSource>(static_cast<std::uint8_t>("
+            f"self->{method.cpp_name}({', '.join(call_args)})));"
+        )
     elif "GameFlowState" in method.return_type:
         lines.append(
             f"    return static_cast<SparkGameFlowState>(static_cast<std::uint8_t>("
@@ -526,6 +570,11 @@ def emit_c_function(comp: BoundComponent, method: BoundMethod) -> list[str]:
     elif "ParallaxAxisMode" in method.return_type:
         lines.append(
             f"    return static_cast<SparkParallaxAxisMode>(static_cast<std::uint8_t>("
+            f"self->{method.cpp_name}({', '.join(call_args)})));"
+        )
+    elif "SceneShadingModel" in method.return_type:
+        lines.append(
+            f"    return static_cast<int>(static_cast<std::uint8_t>("
             f"self->{method.cpp_name}({', '.join(call_args)})));"
         )
     elif spark_enum_type_name(method.return_type) or normalize_cpp_type(method.return_type).endswith(
