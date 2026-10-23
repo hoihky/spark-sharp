@@ -9,6 +9,7 @@
 #include "spark/ecs/components/physics/2d/BoxCollider2DComponent.hpp"
 #include "spark/ecs/components/physics/2d/CircleCollider2DComponent.hpp"
 #include "spark/ecs/components/physics/3d/BoxCollider3DComponent.hpp"
+#include "spark/ecs/components/physics/3d/CharacterController3DComponent.hpp"
 #include "spark/ecs/components/physics/2d/CircleCollider2DComponent.hpp"
 #include "spark/ecs/components/physics/CollisionComponent.hpp"
 #include "spark/ecs/components/ui/UiCanvasComponent.hpp"
@@ -22,6 +23,12 @@
 #include "spark/ecs/components/physics/3d/Rigidbody3DComponent.hpp"
 #include "spark/ecs/components/rendering/SkinnedMeshComponent.hpp"
 #include "spark/ecs/components/rendering/SkyComponent.hpp"
+#include "spark/scene/assets/GameWorldAssetCache.hpp"
+#include "spark/math/Quaternion.hpp"
+#include "spark/math/Constants.hpp"
+
+#include <algorithm>
+#include <cmath>
 #include "spark/ecs/components/physics/3d/SphereCollider3DComponent.hpp"
 #include "spark/ecs/components/lighting/SpotLightComponent.hpp"
 #include "spark/ecs/components/animation/Character3DAnimFsmComponent.hpp"
@@ -379,6 +386,103 @@ int spark_object_add_skinned_character_from_gltf(
         *outMaterial = reinterpret_cast<SparkGameComponent*>(mat);
     }
     return 1;
+}
+
+int spark_object_apply_gltf_prop_material(
+        SparkGameObject* object,
+        SparkGameWorld* world,
+        const char* gltfPath,
+        const char* overrideBaseColorTextureKeyOrPath) {
+    if (object == nullptr || world == nullptr || gltfPath == nullptr) {
+        return 0;
+    }
+    Spark::GameObject* go = ToObject(object);
+    Spark::GameWorld* cppWorld = ToWorld(world);
+    Spark::GltfAsset asset{};
+    if (!cppWorld->AwaitGltf(gltfPath, asset)) {
+        return 0;
+    }
+    Spark::MaterialComponent* mat = go->GetComponent<Spark::MaterialComponent>();
+    if (mat == nullptr) {
+        mat = go->AddComponent<Spark::MaterialComponent>();
+    }
+    Spark::ApplyGltfMaterialDesc(*mat, asset.material);
+    if (overrideBaseColorTextureKeyOrPath != nullptr && overrideBaseColorTextureKeyOrPath[0] != '\0') {
+        Spark::SharedPtr<Spark::Texture2D> tex =
+                cppWorld->TryGetTextureByKeyOrPath(overrideBaseColorTextureKeyOrPath);
+        if (tex) {
+            mat->SetBaseColorTexture(tex);
+        }
+    }
+    mat->SetMetallic(0.05F);
+    mat->SetRoughness(0.82F);
+    return 1;
+}
+
+int spark_skinned_gltf_measure_avatar_layout(
+        SparkGameWorld* world,
+        const char* gltfPath,
+        const float targetHeightMeters,
+        float* outUniformScale,
+        SparkQuaternion* outBindFix,
+        float* outFacingYawOffset,
+        float* outFittedHeightMeters) {
+    if (world == nullptr || gltfPath == nullptr || outUniformScale == nullptr || outBindFix == nullptr ||
+        outFacingYawOffset == nullptr || outFittedHeightMeters == nullptr) {
+        return 0;
+    }
+    const Spark::SkinnedGltfAsset asset = ToWorld(world)->LoadSkinnedGltf(gltfPath);
+    if (!asset.mesh) {
+        return 0;
+    }
+    const Spark::Quaternion bindFix = asset.bindUpAlignment.Normalized();
+    *outBindFix = FromQuaternion(bindFix);
+    *outFacingYawOffset = asset.bindFacingYawOffset;
+
+    Spark::Vector3 alignedMin{};
+    Spark::Vector3 alignedMax{};
+    bool haveBounds = false;
+    const Spark::Array<Spark::SkinnedMesh::Vertex>& vertices = asset.mesh->GetVertices();
+    if (!vertices.IsEmpty()) {
+        haveBounds = true;
+        bool first = true;
+        for (std::size_t vi = 0; vi < vertices.GetSize(); ++vi) {
+            const Spark::Vector3 p = bindFix.RotateVector(vertices[vi].position);
+            if (first) {
+                alignedMin = p;
+                alignedMax = p;
+                first = false;
+            } else {
+                alignedMin.x = std::min(alignedMin.x, p.x);
+                alignedMin.y = std::min(alignedMin.y, p.y);
+                alignedMin.z = std::min(alignedMin.z, p.z);
+                alignedMax.x = std::max(alignedMax.x, p.x);
+                alignedMax.y = std::max(alignedMax.y, p.y);
+                alignedMax.z = std::max(alignedMax.z, p.z);
+            }
+        }
+    }
+
+    float scale = 0.04F;
+    if (haveBounds) {
+        const float h = std::max(1.0e-4F, alignedMax.y - alignedMin.y);
+        scale = targetHeightMeters / h;
+    }
+    *outUniformScale = scale;
+    *outFittedHeightMeters = haveBounds ? (alignedMax.y - alignedMin.y) * scale : targetHeightMeters;
+    return 1;
+}
+
+void spark_character_controller3_d_set_move_input(
+        SparkGameComponent* component,
+        const SparkVector3* worldVelocity) {
+    auto* self = Spark::Scripting::AsComponent<Spark::CharacterController3DComponent>(
+            component,
+            Spark::ComponentKind::CharacterController3D);
+    if (self == nullptr || worldVelocity == nullptr) {
+        return;
+    }
+    self->SetMoveInput(Spark::Scripting::ToVector3(*worldVelocity));
 }
 
 void spark_transform_get_translation(const SparkGameComponent* transform, SparkVector3* out) {

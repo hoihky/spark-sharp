@@ -157,6 +157,15 @@ typedef struct SparkPhysicsQueryHit2D {
     SparkGameObject* owner;
 } SparkPhysicsQueryHit2D;
 
+/** Mirrors Spark::CharacterController3DSettings (subset used by script games). */
+typedef struct SparkCharacterController3DSettings {
+    float gravityY;
+    float maxFallSpeed;
+    int slideIterations;
+    int sweepBinaryIterations;
+    float broadPhaseCellSize;
+} SparkCharacterController3DSettings;
+
 #ifdef __cplusplus
 }
 #endif

@@ -11,7 +11,9 @@
 #include "spark/engine/SceneRenderParams.hpp"
 #include "spark/scene/core/GameWorld.hpp"
 #include "spark/scene/core/Scene.hpp"
+#include "spark/render/platform/Window.hpp"
 
+#include <GLFW/glfw3.h>
 #include <cstring>
 
 namespace {
@@ -58,6 +60,14 @@ SparkScene* spark_context_try_get_scene(SparkEngineContext* context) {
     auto* ctx = reinterpret_cast<Spark::IEngineContext*>(context);
     Spark::Scene* scene = ctx->TryGetScene();
     return reinterpret_cast<SparkScene*>(scene);
+}
+
+void spark_context_request_window_close(SparkEngineContext* context) {
+    if (context == nullptr) {
+        return;
+    }
+    auto* ctx = reinterpret_cast<Spark::IEngineContext*>(context);
+    glfwSetWindowShouldClose(ctx->GetWindow().Handle(), GLFW_TRUE);
 }
 
 void spark_context_set_scene_render_params(

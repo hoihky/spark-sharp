@@ -79,6 +79,8 @@ SPARK_SCRIPT_API void spark_context_set_scene_render_params(
         const void* params,
         uint32_t paramsByteSize);
 SPARK_SCRIPT_API void spark_context_process_ui_input(SparkEngineContext* context);
+/** Requests application exit (same as GLFW close on the engine window). */
+SPARK_SCRIPT_API void spark_context_request_window_close(SparkEngineContext* context);
 
 SPARK_SCRIPT_API int spark_input_is_key_down(const SparkInput* input, int keyCode);
 SPARK_SCRIPT_API int spark_input_is_key_pressed_this_frame(const SparkInput* input, int keyCode);
@@ -114,6 +116,10 @@ SPARK_SCRIPT_API void spark_world_physics_simulate_2d(
         const SparkFrameTiming* timing,
         const SparkPhysicsWorld2DSettings* settings);
 SPARK_SCRIPT_API void spark_world_physics_simulate_3d(SparkGameWorld* world, const SparkFrameTiming* timing);
+SPARK_SCRIPT_API void spark_world_simulate_character_controllers_3d(
+        SparkGameWorld* world,
+        const SparkFrameTiming* timing,
+        const SparkCharacterController3DSettings* settings);
 
 SPARK_SCRIPT_API SparkGameObject* spark_world_create_game_object(SparkGameWorld* world, const char* utf8Name);
 SPARK_SCRIPT_API void spark_world_destroy_game_object(SparkGameWorld* world, SparkGameObject* object);
@@ -125,6 +131,18 @@ SPARK_SCRIPT_API int spark_world_is_game_object_alive(SparkGameWorld* world, Spa
 SPARK_SCRIPT_API int spark_world_load_gltf(SparkGameWorld* world, const char* path);
 SPARK_SCRIPT_API int spark_world_load_skinned_gltf(SparkGameWorld* world, const char* path);
 SPARK_SCRIPT_API int spark_world_load_texture(SparkGameWorld* world, const char* path);
+/** Registers a sky-sphere mesh (radius 1) under @p cacheKey for use with MeshComponent::SetMeshByKey. */
+SPARK_SCRIPT_API int spark_world_register_sky_sphere_mesh(
+        SparkGameWorld* world,
+        const char* cacheKey,
+        float radius,
+        int latitudeSegments,
+        int longitudeSegments);
+/** Loads a texture file and registers it under @p cacheKey (also resolvable by @p filePath). */
+SPARK_SCRIPT_API int spark_world_register_texture_from_file(
+        SparkGameWorld* world,
+        const char* filePath,
+        const char* cacheKey);
 SPARK_SCRIPT_API int spark_world_register_checkerboard_texture(
         SparkGameWorld* world,
         const char* cacheKey,
@@ -315,6 +333,25 @@ SPARK_SCRIPT_API int spark_object_add_skinned_character_from_gltf(
         SparkGameComponent** outAnimator,
         SparkGameComponent** outMaterial);
 
+/** Applies cached glTF material to the object's MaterialComponent (creates one if missing). */
+SPARK_SCRIPT_API int spark_object_apply_gltf_prop_material(
+        SparkGameObject* object,
+        SparkGameWorld* world,
+        const char* gltfPath,
+        const char* overrideBaseColorTextureKeyOrPath);
+
+/**
+ * Computes uniform scale for ~@p targetHeightMeters from skinned mesh bind-space bounds (ARPG Fox-style avatars).
+ */
+SPARK_SCRIPT_API int spark_skinned_gltf_measure_avatar_layout(
+        SparkGameWorld* world,
+        const char* gltfPath,
+        float targetHeightMeters,
+        float* outUniformScale,
+        SparkQuaternion* outBindFix,
+        float* outFacingYawOffset,
+        float* outFittedHeightMeters);
+
 /* --- Transform --- */
 SPARK_SCRIPT_API void spark_transform_get_translation(
         const SparkGameComponent* transform,
@@ -323,6 +360,10 @@ SPARK_SCRIPT_API void spark_transform_set_translation(SparkGameComponent* transf
 SPARK_SCRIPT_API void spark_transform_set_rotation(SparkGameComponent* transform, const SparkQuaternion* q);
 SPARK_SCRIPT_API void spark_transform_set_scale(SparkGameComponent* transform, const SparkVector3* s);
 SPARK_SCRIPT_API void spark_transform_set_uniform_scale(SparkGameComponent* transform, float s);
+
+SPARK_SCRIPT_API void spark_character_controller3_d_set_move_input(
+        SparkGameComponent* component,
+        const SparkVector3* worldVelocity);
 
 /* --- Mesh --- */
 SPARK_SCRIPT_API void spark_mesh_get_albedo(const SparkGameComponent* mesh, SparkVector3* out);

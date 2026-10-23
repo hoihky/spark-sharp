@@ -12,6 +12,10 @@
 #include "spark/scene/core/Scene.hpp"
 #include "spark/scene/submit/SceneSubmit.hpp"
 #include "spark/scene/texture/Texture2D.hpp"
+#include "spark/scene/mesh/Mesh.hpp"
+#include "spark/memory/SharedPtr.hpp"
+#include "spark/core/Utf8String.hpp"
+#include "spark/physics/CharacterController3D.hpp"
 
 using namespace Spark::Scripting;
 
@@ -72,6 +76,27 @@ void spark_world_physics_simulate_3d(SparkGameWorld* world, const SparkFrameTimi
     physics.Simulate3D(*reinterpret_cast<Spark::GameWorld*>(world), ToCppTiming(*timing));
 }
 
+void spark_world_simulate_character_controllers_3d(
+        SparkGameWorld* world,
+        const SparkFrameTiming* timing,
+        const SparkCharacterController3DSettings* settings) {
+    if (world == nullptr || timing == nullptr) {
+        return;
+    }
+    Spark::CharacterController3DSettings cpp{};
+    if (settings != nullptr) {
+        cpp.gravityY = settings->gravityY;
+        cpp.maxFallSpeed = settings->maxFallSpeed;
+        cpp.slideIterations = settings->slideIterations;
+        cpp.sweepBinaryIterations = settings->sweepBinaryIterations;
+        cpp.broadPhaseCellSize = settings->broadPhaseCellSize;
+    }
+    Spark::SimulateCharacterControllers3D(
+            *reinterpret_cast<Spark::GameWorld*>(world),
+            ToCppTiming(*timing),
+            cpp);
+}
+
 int spark_world_load_gltf(SparkGameWorld* world, const char* path) {
     if (world == nullptr || path == nullptr) {
         return 0;
@@ -95,6 +120,44 @@ int spark_world_load_texture(SparkGameWorld* world, const char* path) {
         return 0;
     }
     return reinterpret_cast<Spark::GameWorld*>(world)->LoadTexture(path) ? 1 : 0;
+}
+
+int spark_world_register_sky_sphere_mesh(
+        SparkGameWorld* world,
+        const char* cacheKey,
+        const float radius,
+        const int latitudeSegments,
+        const int longitudeSegments) {
+    if (world == nullptr || cacheKey == nullptr || cacheKey[0] == '\0') {
+        return 0;
+    }
+    if (latitudeSegments < 2 || longitudeSegments < 3) {
+        return 0;
+    }
+    auto* cppWorld = reinterpret_cast<Spark::GameWorld*>(world);
+    Spark::SharedPtr<Spark::Mesh> skyMesh =
+            Spark::MakeShared<Spark::Mesh>(Spark::Utf8String("ScriptSkySphere"));
+    *skyMesh = Spark::Mesh::CreateSkySphere(radius, latitudeSegments, longitudeSegments);
+    cppWorld->RegisterMesh(skyMesh, cacheKey);
+    return 1;
+}
+
+int spark_world_register_texture_from_file(
+        SparkGameWorld* world,
+        const char* filePath,
+        const char* cacheKey) {
+    if (world == nullptr || filePath == nullptr || filePath[0] == '\0' || cacheKey == nullptr ||
+        cacheKey[0] == '\0') {
+        return 0;
+    }
+    Spark::Texture2D decoded{};
+    if (!Spark::Texture2D::TryLoadFromFile(filePath, decoded)) {
+        return 0;
+    }
+    auto shared = Spark::MakeShared<Spark::Texture2D>(Spark::MoveTemp(decoded));
+    reinterpret_cast<Spark::GameWorld*>(world)->RegisterTexture(shared, cacheKey);
+    reinterpret_cast<Spark::GameWorld*>(world)->RegisterTexture(shared, filePath);
+    return 1;
 }
 
 int spark_world_register_checkerboard_texture(

@@ -200,6 +200,15 @@ namespace Spark.Bindings
         public ulong frameIndex;
     }
 
+    public partial struct SparkCharacterController3DSettings
+    {
+        public float gravityY;
+        public float maxFallSpeed;
+        public int slideIterations;
+        public int sweepBinaryIterations;
+        public float broadPhaseCellSize;
+    }
+
     public unsafe partial struct SparkAnimationEventPayload
     {
         public sbyte* eventName;
@@ -227,6 +236,9 @@ namespace Spark.Bindings
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void spark_context_process_ui_input(SparkEngineContext* context);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void spark_context_request_window_close(SparkEngineContext* context);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int spark_input_is_key_down( SparkInput* input, int keyCode);
@@ -283,6 +295,12 @@ namespace Spark.Bindings
         public static extern void spark_world_physics_simulate_3d(SparkGameWorld* world, SparkFrameTiming* timing);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void spark_world_simulate_character_controllers_3d(
+            SparkGameWorld* world,
+            SparkFrameTiming* timing,
+            SparkCharacterController3DSettings* settings);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern SparkGameObject* spark_world_create_game_object(SparkGameWorld* world, sbyte* utf8Name);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -305,6 +323,20 @@ namespace Spark.Bindings
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int spark_world_load_texture(SparkGameWorld* world, sbyte* path);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_world_register_sky_sphere_mesh(
+            SparkGameWorld* world,
+            sbyte* cacheKey,
+            float radius,
+            int latitudeSegments,
+            int longitudeSegments);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_world_register_texture_from_file(
+            SparkGameWorld* world,
+            sbyte* filePath,
+            sbyte* cacheKey);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int spark_world_register_checkerboard_texture(SparkGameWorld* world, sbyte* cacheKey, uint size, uint tilePixels, SparkVector3* colorA, SparkVector3* colorB);
@@ -445,6 +477,23 @@ namespace Spark.Bindings
         public static extern int spark_object_add_skinned_character_from_gltf(SparkGameObject* @object, SparkGameWorld* world, sbyte* gltfPath, SparkGameComponent** outSkinnedMesh, SparkGameComponent** outAnimator, SparkGameComponent** outMaterial);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_object_apply_gltf_prop_material(
+            SparkGameObject* @object,
+            SparkGameWorld* world,
+            sbyte* gltfPath,
+            sbyte* overrideBaseColorTextureKeyOrPath);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_skinned_gltf_measure_avatar_layout(
+            SparkGameWorld* world,
+            sbyte* gltfPath,
+            float targetHeightMeters,
+            float* outUniformScale,
+            SparkQuaternion* outBindFix,
+            float* outFacingYawOffset,
+            float* outFittedHeightMeters);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void spark_transform_get_translation( SparkGameComponent* transform, SparkVector3* @out);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -458,6 +507,11 @@ namespace Spark.Bindings
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void spark_transform_set_uniform_scale(SparkGameComponent* transform, float s);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void spark_character_controller3_d_set_move_input(
+            SparkGameComponent* component,
+            SparkVector3* worldVelocity);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void spark_mesh_get_albedo( SparkGameComponent* mesh, SparkVector3* @out);
