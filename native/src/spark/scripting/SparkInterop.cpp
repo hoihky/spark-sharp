@@ -267,6 +267,15 @@ int spark_world_is_game_object_alive(SparkGameWorld* world, SparkGameObject* obj
             : 0;
 }
 
+SparkGameObject* spark_world_find_game_object_with_tag(SparkGameWorld* world, const char* tag) {
+    if (world == nullptr || tag == nullptr) {
+        return nullptr;
+    }
+    Spark::GameObject* found =
+            reinterpret_cast<Spark::GameWorld*>(world)->FindGameObjectWithTag(tag);
+    return reinterpret_cast<SparkGameObject*>(found);
+}
+
 std::uint64_t spark_object_get_id(const SparkGameObject* object) {
     if (object == nullptr) {
         return 0;

@@ -242,6 +242,20 @@ SPARK_SCRIPT_API void spark_camera2d_billboard_basis(
 SPARK_SCRIPT_API uint64_t spark_object_get_id(const SparkGameObject* object);
 SPARK_SCRIPT_API int spark_object_get_name(const SparkGameObject* object, char* outUtf8, uint32_t outCapacity);
 SPARK_SCRIPT_API void spark_object_set_name(SparkGameObject* object, const char* utf8Name);
+/** Mirrors <c>Spark::GameObject::GetWorld</c>. */
+SPARK_SCRIPT_API SparkGameWorld* spark_object_get_world(SparkGameObject* object);
+SPARK_SCRIPT_API int spark_object_is_pending_destroy(const SparkGameObject* object);
+SPARK_SCRIPT_API int spark_object_get_tag(const SparkGameObject* object, char* outUtf8, uint32_t outCapacity);
+SPARK_SCRIPT_API void spark_object_set_tag(SparkGameObject* object, const char* utf8Tag);
+SPARK_SCRIPT_API int spark_object_is_active_self(const SparkGameObject* object);
+SPARK_SCRIPT_API void spark_object_set_active(SparkGameObject* object, int active);
+SPARK_SCRIPT_API int spark_object_is_active_in_hierarchy(const SparkGameObject* object);
+SPARK_SCRIPT_API SparkGameObject* spark_object_get_parent(const SparkGameObject* object);
+SPARK_SCRIPT_API int spark_object_set_parent(SparkGameObject* object, SparkGameObject* newParent);
+SPARK_SCRIPT_API uint32_t spark_object_get_child_count(const SparkGameObject* object);
+SPARK_SCRIPT_API SparkGameObject* spark_object_get_child(const SparkGameObject* object, uint32_t childIndex);
+SPARK_SCRIPT_API void spark_object_get_world_matrix(const SparkGameObject* object, SparkMatrix4* out);
+SPARK_SCRIPT_API SparkGameObject* spark_world_find_game_object_with_tag(SparkGameWorld* world, const char* tag);
 SPARK_SCRIPT_API SparkGameComponent* spark_object_try_get_component_by_kind(
         SparkGameObject* object,
         SparkComponentKind kind);

@@ -23,6 +23,18 @@ internal static class InteropUtf8
         }
     }
 
+    public unsafe delegate int Utf8BufferWriter(sbyte* buffer, uint capacity);
+
+    public static unsafe string ReadIntoBuffer(Utf8BufferWriter writeIntoBuffer)
+    {
+        Span<byte> buffer = stackalloc byte[512];
+        fixed (byte* p = buffer)
+        {
+            int len = writeIntoBuffer((sbyte*)p, (uint)buffer.Length);
+            return len <= 0 ? string.Empty : Encoding.UTF8.GetString(buffer[..len]);
+        }
+    }
+
     public static unsafe string? PtrToString(sbyte* ptr)
     {
         if (ptr is null)

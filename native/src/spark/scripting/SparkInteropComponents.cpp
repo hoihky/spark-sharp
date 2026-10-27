@@ -49,6 +49,7 @@
 #include "spark/scene/submit/RenderLayerRegistry.hpp"
 #include "spark/memory/SharedPtr.hpp"
 #include "spark/scene/core/GameWorld.hpp"
+#include "spark/scripting/SparkInteropInternal.hpp"
 
 #include <cstring>
 
@@ -97,6 +98,107 @@ void spark_object_set_name(SparkGameObject* object, const char* utf8Name) {
         return;
     }
     ToObject(object)->GetName() = utf8Name != nullptr ? Spark::Utf8String(utf8Name) : Spark::Utf8String();
+}
+
+SparkGameWorld* spark_object_get_world(SparkGameObject* object) {
+    if (object == nullptr) {
+        return nullptr;
+    }
+    return reinterpret_cast<SparkGameWorld*>(&ToObject(object)->GetWorld());
+}
+
+int spark_object_is_pending_destroy(const SparkGameObject* object) {
+    if (object == nullptr) {
+        return 0;
+    }
+    return ToObject(const_cast<SparkGameObject*>(object))->IsPendingDestroy() ? 1 : 0;
+}
+
+int spark_object_get_tag(const SparkGameObject* object, char* outUtf8, const std::uint32_t outCapacity) {
+    if (object == nullptr || outUtf8 == nullptr || outCapacity == 0) {
+        return 0;
+    }
+    const char* tag = ToObject(const_cast<SparkGameObject*>(object))->GetTag().CStr();
+    if (tag == nullptr) {
+        outUtf8[0] = '\0';
+        return 0;
+    }
+    const std::size_t len = std::strlen(tag);
+    const std::size_t copy = (len < outCapacity - 1) ? len : (outCapacity - 1);
+    std::memcpy(outUtf8, tag, copy);
+    outUtf8[copy] = '\0';
+    return static_cast<int>(copy);
+}
+
+void spark_object_set_tag(SparkGameObject* object, const char* utf8Tag) {
+    if (object == nullptr) {
+        return;
+    }
+    ToObject(object)->SetTag(utf8Tag != nullptr ? utf8Tag : "");
+}
+
+int spark_object_is_active_self(const SparkGameObject* object) {
+    if (object == nullptr) {
+        return 0;
+    }
+    return ToObject(const_cast<SparkGameObject*>(object))->IsActiveSelf() ? 1 : 0;
+}
+
+void spark_object_set_active(SparkGameObject* object, const int active) {
+    if (object == nullptr) {
+        return;
+    }
+    ToObject(object)->SetActive(active != 0);
+}
+
+int spark_object_is_active_in_hierarchy(const SparkGameObject* object) {
+    if (object == nullptr) {
+        return 0;
+    }
+    return ToObject(const_cast<SparkGameObject*>(object))->IsActiveInHierarchy() ? 1 : 0;
+}
+
+SparkGameObject* spark_object_get_parent(const SparkGameObject* object) {
+    if (object == nullptr) {
+        return nullptr;
+    }
+    return reinterpret_cast<SparkGameObject*>(ToObject(const_cast<SparkGameObject*>(object))->GetParent());
+}
+
+int spark_object_set_parent(SparkGameObject* object, SparkGameObject* newParent) {
+    if (object == nullptr) {
+        return 0;
+    }
+    Spark::GameObject* parent = newParent != nullptr ? ToObject(newParent) : nullptr;
+    return ToObject(object)->SetParent(parent) ? 1 : 0;
+}
+
+std::uint32_t spark_object_get_child_count(const SparkGameObject* object) {
+    if (object == nullptr) {
+        return 0;
+    }
+    return static_cast<std::uint32_t>(
+            ToObject(const_cast<SparkGameObject*>(object))->GetChildren().GetSize());
+}
+
+SparkGameObject* spark_object_get_child(const SparkGameObject* object, const std::uint32_t childIndex) {
+    if (object == nullptr) {
+        return nullptr;
+    }
+    const Spark::Array<Spark::GameObject*>& children =
+            ToObject(const_cast<SparkGameObject*>(object))->GetChildren();
+    if (childIndex >= children.GetSize()) {
+        return nullptr;
+    }
+    return reinterpret_cast<SparkGameObject*>(children[childIndex]);
+}
+
+void spark_object_get_world_matrix(const SparkGameObject* object, SparkMatrix4* out) {
+    if (object == nullptr || out == nullptr) {
+        return;
+    }
+    *out = Spark::Scripting::FromMatrix4(
+            ToObject(const_cast<SparkGameObject*>(object))->GetWorldMatrix());
 }
 
 SparkGameComponent* spark_object_get_or_add_transform(SparkGameObject* object) {

@@ -54,7 +54,7 @@ public abstract class Game : IGame
 }
 
 /// <summary>Mirrors <c>Spark::IEngineContext</c>.</summary>
-public sealed class IEngineContext
+public sealed partial class IEngineContext
 {
     public nint Handle { get; init; }
 
@@ -96,7 +96,7 @@ public sealed class IEngineContext
     }
 }
 
-public sealed class IInput
+public sealed partial class IInput
 {
     public nint Handle { get; init; }
 
@@ -166,7 +166,7 @@ public sealed class Scene
     }
 }
 
-public sealed class GameWorld
+public sealed partial class GameWorld
 {
     public nint Handle { get; init; }
 
@@ -826,7 +826,7 @@ public readonly struct Vector4
     public static Vector4 FromNative(SparkVector4 v) => new() { X = v.x, Y = v.y, Z = v.z, W = v.w };
 }
 
-public readonly struct Matrix4
+public readonly partial struct Matrix4
 {
     public float M00 { get; init; }
     public float M01 { get; init; }
