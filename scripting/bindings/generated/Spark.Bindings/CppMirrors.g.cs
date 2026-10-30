@@ -436,7 +436,8 @@ public sealed partial class GameWorld
         in Vector3 particleCameraRight,
         in Vector3 particleCameraUp,
         float sceneTimeSeconds,
-        SparkSpriteSortMode spriteSortMode = SparkSpriteSortMode.SparkSpriteSortMode_SortOrderOnly)
+        SparkSpriteSortMode spriteSortMode = SparkSpriteSortMode.SparkSpriteSortMode_SortOrderOnly,
+        bool ssaoEnabled = false)
     {
         unsafe
         {
@@ -460,7 +461,8 @@ public sealed partial class GameWorld
                 &pRight,
                 &pUp,
                 sceneTimeSeconds,
-                spriteSortMode);
+                spriteSortMode,
+                ssaoEnabled ? 1 : 0);
         }
     }
 }

@@ -147,6 +147,21 @@ namespace Spark.Bindings
         public uint playerAtlasColumns;
     }
 
+    public partial struct SparkTerrainGeneratorSettings
+    {
+        public int subdivX;
+        public int subdivZ;
+        public float halfExtentX;
+        public float halfExtentZ;
+        public float heightScale;
+        public float noiseScale;
+        public int octaves;
+        public float persistence;
+        public float lacunarity;
+        public uint seed;
+        public float worldUnitsPerTextureRepeat;
+    }
+
     public partial struct SparkGameObject
     {
     }
@@ -345,6 +360,81 @@ namespace Spark.Bindings
         public static extern int spark_world_register_platformer2d_demo_textures(SparkGameWorld* world, SparkPlatformer2DAssetsInfo* outInfo);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_world_register_three_d_demo_textures(
+            SparkGameWorld* world,
+            sbyte* outBrickTextureKey,
+            int brickKeyCap);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_world_register_sky_demo_ground(
+            SparkGameWorld* world,
+            sbyte* outTextureKey,
+            int textureKeyCap,
+            float* outRoughness);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_demo_try_register_sky_hdr(SparkGameWorld* world, sbyte* outLabel, int labelCap);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_gltf_try_measure_rigid_layout(
+            SparkGameWorld* world,
+            sbyte* gltfPath,
+            float targetMaxExtent,
+            float defaultUniformScale,
+            float* outUniformScale,
+            float* outBoundsMinY);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_world_register_terrain_demo_ground(SparkGameWorld* world);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern SparkGameComponent* spark_object_add_terrain_with_settings(
+            SparkGameObject* @object,
+            SparkTerrainGeneratorSettings* settings,
+            SparkVector3* meshAlbedoRgb);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void spark_terrain_reset_heights_to_procedural(
+            SparkGameComponent* terrain,
+            SparkGameObject* owner);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_terrain_try_raycast_world(
+            SparkGameComponent* terrain,
+            SparkGameObject* owner,
+            SparkVector3* rayOriginWorld,
+            SparkVector3* rayDirWorld,
+            float maxDistance,
+            SparkVector3* outHitWorld);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_demo_terrain_screen_to_world_ray(
+            int fbW,
+            int fbH,
+            float px,
+            float py,
+            SparkMatrix4* invViewProj,
+            SparkVector3* outOrigin,
+            SparkVector3* outDir);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void spark_scene_submit_terrain_demo_from_world(
+            SparkGameWorld* world,
+            SparkEngineContext* context,
+            SparkMatrix4* viewProjection,
+            SparkVector3* cameraPositionWorld,
+            SparkVector3* lightDirectionWorld,
+            SparkVector3* lightColor,
+            float lightIntensity,
+            SparkVector3* ambientColor,
+            int enableParticles,
+            SparkVector3* particleCameraRight,
+            SparkVector3* particleCameraUp,
+            float sceneTimeSeconds,
+            SparkSpriteSortMode spriteSortMode,
+            int ssaoEnabled);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int spark_world_mount_platformer_ui_font(SparkGameWorld* world);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
@@ -354,7 +444,7 @@ namespace Spark.Bindings
         public static extern void spark_scene_fill_standard_lit_from_world(SparkGameWorld* world, SparkEngineContext* context, SparkMatrix4* viewProjection, SparkVector3* cameraPositionWorld, SparkVector3* lightDirectionWorld, SparkVector3* lightColor, float lightIntensity, SparkVector3* ambientColor, int enableParticles, SparkVector3* particleCameraRight, SparkVector3* particleCameraUp, float sceneTimeSeconds, void* outParams, uint outParamsByteSize, SparkSpriteSortMode spriteSortMode);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void spark_scene_submit_standard_lit_from_world(SparkGameWorld* world, SparkEngineContext* context, SparkMatrix4* viewProjection, SparkVector3* cameraPositionWorld, SparkVector3* lightDirectionWorld, SparkVector3* lightColor, float lightIntensity, SparkVector3* ambientColor, int enableParticles, SparkVector3* particleCameraRight, SparkVector3* particleCameraUp, float sceneTimeSeconds, SparkSpriteSortMode spriteSortMode);
+        public static extern void spark_scene_submit_standard_lit_from_world(SparkGameWorld* world, SparkEngineContext* context, SparkMatrix4* viewProjection, SparkVector3* cameraPositionWorld, SparkVector3* lightDirectionWorld, SparkVector3* lightColor, float lightIntensity, SparkVector3* ambientColor, int enableParticles, SparkVector3* particleCameraRight, SparkVector3* particleCameraUp, float sceneTimeSeconds, SparkSpriteSortMode spriteSortMode, int ssaoEnabled);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void spark_ui_process_canvases_input(SparkGameWorld* world, SparkInput* input, int framebufferWidth, int framebufferHeight);
@@ -482,6 +572,18 @@ namespace Spark.Bindings
             SparkGameWorld* world,
             sbyte* gltfPath,
             sbyte* overrideBaseColorTextureKeyOrPath);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_object_bind_rigid_gltf_mesh(
+            SparkGameObject* @object,
+            SparkGameWorld* world,
+            sbyte* gltfPath);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_object_bind_skinned_gltf_mesh(
+            SparkGameObject* @object,
+            SparkGameWorld* world,
+            sbyte* gltfPath);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int spark_skinned_gltf_measure_avatar_layout(

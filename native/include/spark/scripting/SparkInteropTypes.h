@@ -141,6 +141,21 @@ typedef struct SparkPlatformer2DAssetsInfo {
     uint32_t playerAtlasColumns;
 } SparkPlatformer2DAssetsInfo;
 
+/** Mirrors Spark::TerrainGeneratorSettings for demo terrain setup. */
+typedef struct SparkTerrainGeneratorSettings {
+    int32_t subdivX;
+    int32_t subdivZ;
+    float halfExtentX;
+    float halfExtentZ;
+    float heightScale;
+    float noiseScale;
+    int32_t octaves;
+    float persistence;
+    float lacunarity;
+    uint32_t seed;
+    float worldUnitsPerTextureRepeat;
+} SparkTerrainGeneratorSettings;
+
 typedef struct SparkGameObject SparkGameObject;
 
 /** Mirrors <c>Spark::PhysicsQueryFilter2D</c>. */

@@ -25,6 +25,11 @@ if [[ ! -x "$HOST" ]]; then
   exit 1
 fi
 
+# Optional override for libSparkInterop.dylib. Must come from the *same* CMake build as
+# SparkScriptHost — mixing build/ host with build-interop/ interop duplicates static
+# SparkEngine + ImGui and triggers "Mismatched struct layout" in ImGui.
+INTEROP_LIB_DIR="${SPARK_INTEROP_NATIVE_DIR:-}"
+
 GAME_DIR="$SHARP_ROOT/scripting/samples/HelloCsGame/bin/$CONFIG/net8.0"
 RUNTIME_CONFIG="${3:-$GAME_DIR/HelloCsGame.runtimeconfig.json}"
 ASSEMBLY="${4:-$GAME_DIR/HelloCsGame.dll}"
@@ -41,10 +46,18 @@ if [[ ! -d "$ENGINE_ROOT/assets" ]]; then
   exit 3
 fi
 
+if [[ -n "${INTEROP_LIB_DIR:-}" && "$INTEROP_LIB_DIR" != "$NATIVE_DIR" ]]; then
+  echo "warning: SPARK_INTEROP_NATIVE_DIR differs from host native dir; rebuild both from one CMake build to avoid ImGui/engine mismatch." >&2
+fi
+
 if ((${#LIB_ENV[@]})); then
   _lib_var="${LIB_ENV[0]}"
   _lib_prev="${!_lib_var:-}"
-  export "$_lib_var=$NATIVE_DIR${_lib_prev:+:$_lib_prev}"
+  _lib_paths="$NATIVE_DIR"
+  if [[ -n "${INTEROP_LIB_DIR:-}" && "$INTEROP_LIB_DIR" != "$NATIVE_DIR" ]]; then
+    _lib_paths="$INTEROP_LIB_DIR:$_lib_paths"
+  fi
+  export "$_lib_var=${_lib_paths}${_lib_prev:+:$_lib_prev}"
 fi
 
 cd "$ENGINE_ROOT"

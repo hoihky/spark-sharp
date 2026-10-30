@@ -408,4 +408,36 @@ public sealed partial class GameObject
             }
         }
     }
+
+    public bool BindRigidGltfMesh(GameWorld world, string gltfPath)
+    {
+        unsafe
+        {
+            byte[] gltfBytes = Encoding.UTF8.GetBytes(gltfPath + "\0");
+            fixed (byte* gltfPtr = gltfBytes)
+            {
+                return Native.spark_object_bind_rigid_gltf_mesh(
+                           InteropPtr.Object(Handle),
+                           InteropPtr.World(world.Handle),
+                           (sbyte*)gltfPtr)
+                       != 0;
+            }
+        }
+    }
+
+    public bool BindSkinnedGltfMesh(GameWorld world, string gltfPath)
+    {
+        unsafe
+        {
+            byte[] gltfBytes = Encoding.UTF8.GetBytes(gltfPath + "\0");
+            fixed (byte* gltfPtr = gltfBytes)
+            {
+                return Native.spark_object_bind_skinned_gltf_mesh(
+                           InteropPtr.Object(Handle),
+                           InteropPtr.World(world.Handle),
+                           (sbyte*)gltfPtr)
+                       != 0;
+            }
+        }
+    }
 }

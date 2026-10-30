@@ -155,6 +155,88 @@ SPARK_SCRIPT_API int spark_world_register_checkerboard_texture(
 SPARK_SCRIPT_API int spark_world_register_platformer2d_demo_textures(
         SparkGameWorld* world,
         SparkPlatformer2DAssetsInfo* outInfo);
+
+/** Mirrors <c>ThreeDDemo::Load</c> dirt + brick texture registration (<c>spark/demo/checker</c>, brick key out). */
+SPARK_SCRIPT_API int spark_world_register_three_d_demo_textures(
+        SparkGameWorld* world,
+        char* outBrickTextureKey,
+        int brickKeyCap);
+
+/** Mirrors <c>SkyDemo::Load</c> soil ground mesh + diffuse (<c>spark/demo/ground</c> + soil/baked key). */
+SPARK_SCRIPT_API int spark_world_register_sky_demo_ground(
+        SparkGameWorld* world,
+        char* outTextureKey,
+        int textureKeyCap,
+        float* outRoughness);
+
+/** Mirrors <c>SkyDemo</c> HDR probe order (build default HDR, then asset fallbacks). */
+SPARK_SCRIPT_API int spark_demo_try_register_sky_hdr(SparkGameWorld* world, char* outLabel, int labelCap);
+
+/** Bounds-based uniform scale like <c>ThreeDDemo::SpawnHero</c> / <c>SpawnChair</c>. */
+SPARK_SCRIPT_API int spark_gltf_try_measure_rigid_layout(
+        SparkGameWorld* world,
+        const char* gltfPath,
+        float targetMaxExtent,
+        float defaultUniformScale,
+        float* outUniformScale,
+        float* outBoundsMinY);
+
+/** Full glTF PBR bind (<c>GltfAssetBinder::BindRigidMesh</c>). */
+SPARK_SCRIPT_API int spark_object_bind_rigid_gltf_mesh(
+        SparkGameObject* object,
+        SparkGameWorld* world,
+        const char* gltfPath);
+
+/** Full glTF PBR bind for skinned meshes (<c>GltfAssetBinder::BindSkinnedMesh</c>). */
+SPARK_SCRIPT_API int spark_object_bind_skinned_gltf_mesh(
+        SparkGameObject* object,
+        SparkGameWorld* world,
+        const char* gltfPath);
+
+/** Terrain demo — soil texture key <c>spark/terrain/ground</c>. */
+SPARK_SCRIPT_API int spark_world_register_terrain_demo_ground(SparkGameWorld* world);
+
+SPARK_SCRIPT_API SparkGameComponent* spark_object_add_terrain_with_settings(
+        SparkGameObject* object,
+        const SparkTerrainGeneratorSettings* settings,
+        const SparkVector3* meshAlbedoRgb);
+
+SPARK_SCRIPT_API void spark_terrain_reset_heights_to_procedural(
+        SparkGameComponent* terrain,
+        SparkGameObject* owner);
+
+SPARK_SCRIPT_API int spark_terrain_try_raycast_world(
+        SparkGameComponent* terrain,
+        SparkGameObject* owner,
+        const SparkVector3* rayOriginWorld,
+        const SparkVector3* rayDirWorld,
+        float maxDistance,
+        SparkVector3* outHitWorld);
+
+SPARK_SCRIPT_API int spark_demo_terrain_screen_to_world_ray(
+        int fbW,
+        int fbH,
+        float px,
+        float py,
+        const SparkMatrix4* invViewProj,
+        SparkVector3* outOrigin,
+        SparkVector3* outDir);
+
+SPARK_SCRIPT_API void spark_scene_submit_terrain_demo_from_world(
+        SparkGameWorld* world,
+        SparkEngineContext* context,
+        const SparkMatrix4* viewProjection,
+        const SparkVector3* cameraPositionWorld,
+        const SparkVector3* lightDirectionWorld,
+        const SparkVector3* lightColor,
+        float lightIntensity,
+        const SparkVector3* ambientColor,
+        int enableParticles,
+        const SparkVector3* particleCameraRight,
+        const SparkVector3* particleCameraUp,
+        float sceneTimeSeconds,
+        SparkSpriteSortMode spriteSortMode,
+        int ssaoEnabled);
 /** Loads Roboto UI fonts from build tree / assets/fonts (required for TextOverlay HUD). */
 SPARK_SCRIPT_API int spark_world_mount_platformer_ui_font(SparkGameWorld* world);
 /** UV rect for Kenney simplified platformer tilesheet tile number (1-based pack index). */
@@ -190,7 +272,8 @@ SPARK_SCRIPT_API void spark_scene_submit_standard_lit_from_world(
         const SparkVector3* particleCameraRight,
         const SparkVector3* particleCameraUp,
         float sceneTimeSeconds,
-        SparkSpriteSortMode spriteSortMode);
+        SparkSpriteSortMode spriteSortMode,
+        int ssaoEnabled);
 
 /* --- UI (mirrors UiScene.hpp) --- */
 SPARK_SCRIPT_API void spark_ui_process_canvases_input(

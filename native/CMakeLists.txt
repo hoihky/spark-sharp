@@ -29,6 +29,8 @@ set(SPARK_INTEROP_SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/src/spark/scripting/SparkInteropMath.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/spark/scripting/SparkInteropScene.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/spark/scripting/SparkInteropPlatformer.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/spark/scripting/SparkInteropDemo.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/spark/scripting/SparkInteropTerrain.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/spark/scripting/SparkInteropPhysics2D.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/spark/scripting/SparkInteropComponents.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/src/spark/scripting/SparkInteropFoliage.cpp

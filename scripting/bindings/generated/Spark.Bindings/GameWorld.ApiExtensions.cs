@@ -221,6 +221,131 @@ public sealed partial class GameWorld
         }
     }
 
+    public bool RegisterThreeDDemoTextures(out string brickTextureKey)
+    {
+        brickTextureKey = "spark/demo/bricks";
+        unsafe
+        {
+            Span<byte> keyBuf = stackalloc byte[128];
+            fixed (byte* keyPtr = keyBuf)
+            {
+                int ok = Native.spark_world_register_three_d_demo_textures(
+                    InteropPtr.World(Handle),
+                    (sbyte*)keyPtr,
+                    keyBuf.Length);
+                if (ok == 0)
+                {
+                    return false;
+                }
+
+                int len = 0;
+                while (len < keyBuf.Length && keyBuf[len] != 0)
+                {
+                    len++;
+                }
+
+                brickTextureKey = Encoding.UTF8.GetString(keyBuf[..len]);
+                return true;
+            }
+        }
+    }
+
+    public bool RegisterSkyDemoGround(out string textureKey, out float roughness)
+    {
+        textureKey = "";
+        roughness = 0.91f;
+        unsafe
+        {
+            Span<byte> keyBuf = stackalloc byte[128];
+            fixed (byte* keyPtr = keyBuf)
+            {
+                float rough = 0.91f;
+                int ok = Native.spark_world_register_sky_demo_ground(
+                    InteropPtr.World(Handle),
+                    (sbyte*)keyPtr,
+                    keyBuf.Length,
+                    &rough);
+                if (ok == 0)
+                {
+                    return false;
+                }
+
+                roughness = rough;
+                int len = 0;
+                while (len < keyBuf.Length && keyBuf[len] != 0)
+                {
+                    len++;
+                }
+
+                textureKey = Encoding.UTF8.GetString(keyBuf[..len]);
+                return true;
+            }
+        }
+    }
+
+    public bool TryRegisterSkyDemoHdr(out string label)
+    {
+        label = "";
+        unsafe
+        {
+            Span<byte> labelBuf = stackalloc byte[128];
+            fixed (byte* labelPtr = labelBuf)
+            {
+                int ok = Native.spark_demo_try_register_sky_hdr(InteropPtr.World(Handle), (sbyte*)labelPtr, labelBuf.Length);
+                if (ok == 0)
+                {
+                    return false;
+                }
+
+                int len = 0;
+                while (len < labelBuf.Length && labelBuf[len] != 0)
+                {
+                    len++;
+                }
+
+                label = Encoding.UTF8.GetString(labelBuf[..len]);
+                return true;
+            }
+        }
+    }
+
+    public bool TryMeasureRigidGltfLayout(
+        string gltfPath,
+        float targetMaxExtent,
+        float defaultUniformScale,
+        out float uniformScale,
+        out float boundsMinY)
+    {
+        uniformScale = defaultUniformScale;
+        boundsMinY = 0;
+        unsafe
+        {
+            float scale = defaultUniformScale;
+            float minY = 0;
+            byte[] pathBytes = Encoding.UTF8.GetBytes(gltfPath + "\0");
+            int ok;
+            fixed (byte* ptr = pathBytes)
+            {
+                ok = Native.spark_gltf_try_measure_rigid_layout(
+                    InteropPtr.World(Handle),
+                    (sbyte*)ptr,
+                    targetMaxExtent,
+                    defaultUniformScale,
+                    &scale,
+                    &minY);
+            }
+
+            if (ok == 0)
+            {
+                return false;
+            }
+
+            uniformScale = scale;
+            boundsMinY = minY;
+            return true;
+        }
+    }
+
     public void FillStandardLitFromWorld(
         IEngineContext context,
         in Matrix4 viewProjection,

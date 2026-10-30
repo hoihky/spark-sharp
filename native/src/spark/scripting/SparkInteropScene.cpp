@@ -235,13 +235,15 @@ void spark_scene_submit_standard_lit_from_world(
         const SparkVector3* particleCameraRight,
         const SparkVector3* particleCameraUp,
         const float sceneTimeSeconds,
-        const SparkSpriteSortMode spriteSortMode) {
+        const SparkSpriteSortMode spriteSortMode,
+        const int ssaoEnabled) {
     if (world == nullptr || context == nullptr || viewProjection == nullptr || cameraPositionWorld == nullptr ||
         lightDirectionWorld == nullptr || lightColor == nullptr || ambientColor == nullptr ||
         particleCameraRight == nullptr || particleCameraUp == nullptr) {
         return;
     }
-    Spark::SubmitStandardLitSceneFromWorld(
+    Spark::SceneRenderParams params{};
+    Spark::FillStandardLitSceneFromWorld(
             *reinterpret_cast<Spark::GameWorld*>(world),
             *reinterpret_cast<Spark::IEngineContext*>(context),
             ToMatrix4(*viewProjection),
@@ -254,7 +256,11 @@ void spark_scene_submit_standard_lit_from_world(
             ToVector3(*particleCameraRight),
             ToVector3(*particleCameraUp),
             sceneTimeSeconds,
+            params,
             ToCppSortMode(spriteSortMode));
+    params.ssaoEnabled = ssaoEnabled != 0;
+    params.Sanitize();
+    reinterpret_cast<Spark::IEngineContext*>(context)->SetSceneRenderParams(params);
 }
 
 void spark_ui_process_canvases_input(
