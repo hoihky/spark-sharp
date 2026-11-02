@@ -12,6 +12,21 @@ public static unsafe partial class Native
         SignalId id,
         SparkSignalPayload* payload,
         SparkGameComponent* sender);
+
+    [DllImport("SparkInterop", EntryPoint = "spark_object_get_or_add_script_signal_listener", CallingConvention = CallingConvention.Cdecl)]
+    public static extern SparkGameComponent* spark_object_get_or_add_script_signal_listener(SparkGameObject* @object);
+
+    [DllImport("SparkInterop", EntryPoint = "spark_script_signal_listener_set_listen_signal", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void spark_script_signal_listener_set_listen_signal(SparkGameComponent* listener, SignalId id);
+
+    [DllImport("SparkInterop", EntryPoint = "spark_script_signal_listener_get_listen_signal", CallingConvention = CallingConvention.Cdecl)]
+    public static extern SignalId spark_script_signal_listener_get_listen_signal(SparkGameComponent* listener);
+
+    [DllImport("SparkInterop", EntryPoint = "spark_script_signal_listener_set_callback", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void spark_script_signal_listener_set_callback(
+        SparkGameComponent* listener,
+        IntPtr callback,
+        void* userData);
 }
 
 [StructLayout(LayoutKind.Sequential)]

@@ -34,6 +34,13 @@ world.Query.CollectWithTag("Pickup", buffer);
 world.Scenes.BeginLoadAsync("levels/hub.sparkscene");
 world.Scenes.Pump();
 player.EmitSignal(SignalId.UserSignal(0));
+
+var listener = goalTrigger.GetOrAddScriptSignalListener();
+listener.ListenSignal = SignalId.Physics2DTriggerEnter;
+listener.SetCallback((owner, id, payload) =>
+{
+    var other = payload.TryGetObjectFromPointer();
+});
 ```
 
 | Facet | Mirrors C++ |
@@ -54,8 +61,8 @@ player.EmitSignal(SignalId.UserSignal(0));
 | C++ | C# |
 |-----|-----|
 | `GameObject::EmitSignal` | `gameObject.EmitSignal(SignalId, …)` |
+| `GameComponent::OnSignal` | `gameObject.GetOrAddScriptSignalListener().SetCallback(...)` |
 | `SignalId` / `UserBase + n` | `SignalId` enum / `GameObject.UserSignal(offset)` |
-| `OnSignal` on components | Not exposed (no managed callback interop yet) |
 
 ### Deprecated static helpers
 
@@ -99,7 +106,7 @@ These C++ areas still need `SPARK_SCRIPT_BIND` / interop before C# can mirror th
 | Area | C++ examples | Status |
 |------|----------------|--------|
 | **SceneManager** | additive load, prefabs | `world.Scenes` facet |
-| **Signals** | `OnSignal` on components | Emit only; no managed `OnSignal` |
+| **Signals** | `OnSignal` on components | `ScriptSignalListenerComponent` + `SetCallback` |
 | **SceneLoadSession** | async load helper | Use `world.Scenes.BeginLoadAsync` + `Pump` |
 | **Game flow / save** | `GameFlowCoordinator`, `GameSave` | No C API |
 | **Async asset callbacks** | `OnGltfReady`, `RequestGltf` | Partial (pump + `Is*Ready` only) |

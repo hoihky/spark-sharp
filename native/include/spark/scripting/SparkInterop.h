@@ -345,6 +345,27 @@ SPARK_SCRIPT_API void spark_object_emit_signal(
         SparkSignalId id,
         const SparkSignalPayload* payload,
         SparkGameComponent* sender);
+
+typedef void (*SparkSignalScriptCallbackFn)(
+        void* userData,
+        SparkGameObject* owner,
+        SparkSignalId id,
+        const SparkSignalPayload* payload);
+
+/** Adds <c>ScriptSignalListenerComponent</c> (sibling signal receiver for managed callbacks). */
+SPARK_SCRIPT_API SparkGameComponent* spark_object_add_script_signal_listener(SparkGameObject* object);
+/** Returns existing listener on @p object or adds one. */
+SPARK_SCRIPT_API SparkGameComponent* spark_object_get_or_add_script_signal_listener(SparkGameObject* object);
+SPARK_SCRIPT_API void spark_script_signal_listener_set_listen_signal(
+        SparkGameComponent* listener,
+        SparkSignalId id);
+SPARK_SCRIPT_API SparkSignalId spark_script_signal_listener_get_listen_signal(
+        const SparkGameComponent* listener);
+SPARK_SCRIPT_API void spark_script_signal_listener_set_callback(
+        SparkGameComponent* listener,
+        SparkSignalScriptCallbackFn callback,
+        void* userData);
+
 SPARK_SCRIPT_API SparkGameObject* spark_world_find_game_object_with_tag(SparkGameWorld* world, const char* tag);
 /** Like <c>FindGameObjectWithTag</c> with explicit inactive hierarchy inclusion. */
 SPARK_SCRIPT_API SparkGameObject* spark_world_find_game_object_with_tag_ex(

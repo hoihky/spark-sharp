@@ -47,4 +47,14 @@ public sealed partial class GameObject
 
     /// <summary>Allocates a game-specific signal id (<see cref="SignalId.UserBase"/> + offset).</summary>
     public static SignalId UserSignal(uint offset) => (SignalId)((uint)SignalId.UserBase + offset);
+
+    /// <summary>Adds or returns <see cref="ScriptSignalListenerComponent"/> for managed <c>OnSignal</c> handling.</summary>
+    public ScriptSignalListenerComponent GetOrAddScriptSignalListener()
+    {
+        unsafe
+        {
+            return new ScriptSignalListenerComponent(InteropPtr.From(
+                Native.spark_object_get_or_add_script_signal_listener(InteropPtr.Object(Handle))));
+        }
+    }
 }
