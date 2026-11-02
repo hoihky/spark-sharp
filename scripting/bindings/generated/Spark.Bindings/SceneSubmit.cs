@@ -2,6 +2,38 @@
 #nullable enable
 namespace Spark.Bindings;
 
+/// <summary>Instance-based standard lit submission (prefer over static helpers).</summary>
+public sealed class StandardLitSceneSubmit
+{
+    private readonly GameWorld _world;
+
+    public StandardLitSceneSubmit(GameWorld world) => _world = world;
+
+    public void Submit(
+        IEngineContext context,
+        in Camera2D camera,
+        in Vector3 lightDirectionWorld,
+        in Vector3 lightColor,
+        float lightIntensity,
+        in Vector3 ambientColor,
+        float sceneTimeSeconds,
+        bool enableParticles = false,
+        SparkSpriteSortMode spriteSortMode = SparkSpriteSortMode.SparkSpriteSortMode_SortOrderThenWorldY)
+    {
+        _world.Rendering.SubmitStandardLit(
+            context,
+            camera,
+            lightDirectionWorld,
+            lightColor,
+            lightIntensity,
+            ambientColor,
+            sceneTimeSeconds,
+            enableParticles,
+            spriteSortMode);
+    }
+}
+
+[Obsolete("Use world.Rendering.SubmitStandardLit or new StandardLitSceneSubmit(world).Submit(...)")]
 public static class SceneSubmit
 {
     public static void StandardLit(

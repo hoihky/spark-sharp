@@ -181,6 +181,59 @@ typedef struct SparkCharacterController3DSettings {
     float broadPhaseCellSize;
 } SparkCharacterController3DSettings;
 
+/** Mirrors Spark::SignalPayload. */
+typedef struct SparkSignalPayload {
+    const void* ptr;
+    uint64_t a;
+    uint64_t b;
+} SparkSignalPayload;
+
+/** Mirrors Spark::SignalId (engine-reserved values; game code uses SparkSignalId_UserBase + n). */
+typedef enum SparkSignalId {
+    SparkSignalId_None = 0,
+    SparkSignalId_TransformChanged = 1,
+    SparkSignalId_MeshDirty = 2,
+    SparkSignalId_CollisionBoundsDirty = 3,
+    SparkSignalId_Physics2DTriggerOverlap = 4,
+    SparkSignalId_Physics3DTriggerEnter = 5,
+    SparkSignalId_Physics3DTriggerExit = 6,
+    SparkSignalId_AnimationEvent = 7,
+    SparkSignalId_DamageApplied = 8,
+    SparkSignalId_Died = 9,
+    SparkSignalId_Physics2DTriggerEnter = 10,
+    SparkSignalId_Physics2DTriggerExit = 11,
+    SparkSignalId_Physics2DTriggerStay = 12,
+    SparkSignalId_SpriteAnimationEvent = 13,
+    SparkSignalId_InputActionTriggered = 14,
+    SparkSignalId_GameStateChanged = 15,
+    SparkSignalId_ItemCollected = 16,
+    SparkSignalId_Physics3DTriggerStay = 17,
+    SparkSignalId_Physics3DContact = 18,
+    SparkSignalId_UserBase = 0x10000,
+} SparkSignalId;
+
+/** Mirrors Spark::SceneLoadOptions (subset for scripting). */
+typedef struct SparkSceneLoadOptions {
+    const char* assetsRoot;
+    int additive;
+    const char* sceneNameUtf8;
+} SparkSceneLoadOptions;
+
+/** Mirrors Spark::SceneSpawnPose. */
+typedef struct SparkSceneSpawnPose {
+    int found;
+    SparkVector3 position;
+    SparkQuaternion rotation;
+    SparkGameObject* spawnObject;
+} SparkSceneSpawnPose;
+
+/** Summary of Spark::PrefabInstantiateResult (root handles via separate out array). */
+typedef struct SparkPrefabInstantiateResult {
+    uint64_t instanceId;
+    int ready;
+    uint32_t rootCount;
+} SparkPrefabInstantiateResult;
+
 #ifdef __cplusplus
 }
 #endif

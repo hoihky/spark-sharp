@@ -9,6 +9,7 @@
 #include "spark/engine/IInput.hpp"
 #include "spark/engine/IRenderFrame.hpp"
 #include "spark/engine/SceneRenderParams.hpp"
+#include "spark/ecs/GameObjectQuery.hpp"
 #include "spark/scene/core/GameWorld.hpp"
 #include "spark/scene/core/Scene.hpp"
 #include "spark/render/platform/Window.hpp"
@@ -268,12 +269,79 @@ int spark_world_is_game_object_alive(SparkGameWorld* world, SparkGameObject* obj
 }
 
 SparkGameObject* spark_world_find_game_object_with_tag(SparkGameWorld* world, const char* tag) {
+    return spark_world_find_game_object_with_tag_ex(world, tag, 0);
+}
+
+SparkGameObject* spark_world_find_game_object_with_tag_ex(
+        SparkGameWorld* world,
+        const char* tag,
+        const int includeInactive) {
     if (world == nullptr || tag == nullptr) {
         return nullptr;
     }
-    Spark::GameObject* found =
-            reinterpret_cast<Spark::GameWorld*>(world)->FindGameObjectWithTag(tag);
+    Spark::GameObjectQueryFilter filter{};
+    filter.includeInactive = includeInactive != 0;
+    Spark::GameObject* found = reinterpret_cast<Spark::GameWorld*>(world)->FindGameObjectWithTag(tag, filter);
     return reinterpret_cast<SparkGameObject*>(found);
+}
+
+SparkGameObject* spark_world_find_game_object_by_name(
+        SparkGameWorld* world,
+        const char* utf8Name,
+        const int includeInactive) {
+    if (world == nullptr || utf8Name == nullptr) {
+        return nullptr;
+    }
+    Spark::GameObjectQueryFilter filter{};
+    filter.includeInactive = includeInactive != 0;
+    Spark::GameObject* found =
+            reinterpret_cast<Spark::GameWorld*>(world)->FindGameObjectByName(utf8Name, filter);
+    return reinterpret_cast<SparkGameObject*>(found);
+}
+
+int spark_world_set_parent(
+        SparkGameWorld* world,
+        SparkGameObject* child,
+        SparkGameObject* newParent) {
+    if (world == nullptr || child == nullptr) {
+        return 0;
+    }
+    Spark::GameObject* parent = newParent != nullptr ? reinterpret_cast<Spark::GameObject*>(newParent) : nullptr;
+    return reinterpret_cast<Spark::GameWorld*>(world)->SetParent(reinterpret_cast<Spark::GameObject*>(child), parent)
+            ? 1
+            : 0;
+}
+
+void spark_world_destroy_game_object_immediate(SparkGameWorld* world, SparkGameObject* object) {
+    if (world == nullptr || object == nullptr) {
+        return;
+    }
+    reinterpret_cast<Spark::GameWorld*>(world)->DestroyGameObjectImmediate(reinterpret_cast<Spark::GameObject*>(object));
+}
+
+std::uint32_t spark_world_query_collect_by_tag(
+        SparkGameWorld* world,
+        const char* tag,
+        const int includeInactive,
+        SparkGameObject** outObjects,
+        const std::uint32_t capacity) {
+    if (world == nullptr || tag == nullptr) {
+        return 0;
+    }
+    Spark::GameObjectQueryFilter filter{};
+    filter.includeInactive = includeInactive != 0;
+    filter.tagEquals = tag;
+    const Spark::GameObjectQueryResult result =
+            reinterpret_cast<Spark::GameWorld*>(world)->QueryGameObjects(filter);
+    const std::uint32_t total = static_cast<std::uint32_t>(result.GetSize());
+    if (outObjects == nullptr || capacity == 0) {
+        return total;
+    }
+    const std::uint32_t copy = total < capacity ? total : capacity;
+    for (std::uint32_t i = 0; i < copy; ++i) {
+        outObjects[i] = reinterpret_cast<SparkGameObject*>(result[i]);
+    }
+    return total;
 }
 
 std::uint64_t spark_object_get_id(const SparkGameObject* object) {

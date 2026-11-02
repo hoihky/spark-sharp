@@ -45,4 +45,18 @@ public partial struct Matrix4
             return true;
         }
     }
+
+    public Matrix4 Multiply(in Matrix4 other)
+    {
+        unsafe
+        {
+            var outM = new SparkMatrix4();
+            var aN = ToNative();
+            var bN = other.ToNative();
+            Native.spark_mat4_mul(&outM, &aN, &bN);
+            return FromNative(outM);
+        }
+    }
+
+    public static Matrix4 operator *(in Matrix4 a, in Matrix4 b) => a.Multiply(b);
 }

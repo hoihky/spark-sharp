@@ -12,6 +12,13 @@ public abstract class SparkGame : Game
 {
     protected GameWorld? World { get; private set; }
 
+    protected WorldEntities Entities => World!.Entities;
+    protected WorldAssetCache AssetCache => World!.AssetCache;
+    protected WorldPhysics Physics => World!.Physics;
+    protected WorldRendering Rendering => World!.Rendering;
+    protected WorldSimulation Simulation => World!.Simulation;
+    protected WorldScenes Scenes => World!.Scenes;
+
     public override void OnAttach(IEngineContext context)
     {
         World = context.TryGetScene()?.GetWorld();

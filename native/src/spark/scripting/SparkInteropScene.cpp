@@ -122,6 +122,35 @@ int spark_world_load_texture(SparkGameWorld* world, const char* path) {
     return reinterpret_cast<Spark::GameWorld*>(world)->LoadTexture(path) ? 1 : 0;
 }
 
+void spark_world_pump_assets(SparkGameWorld* world) {
+    if (world == nullptr) {
+        return;
+    }
+    reinterpret_cast<Spark::GameWorld*>(world)->PumpAssets();
+}
+
+int spark_world_is_gltf_ready(SparkGameWorld* world, const char* path) {
+    if (world == nullptr || path == nullptr) {
+        return 0;
+    }
+    return reinterpret_cast<Spark::GameWorld*>(world)->IsGltfReady(path) ? 1 : 0;
+}
+
+int spark_world_is_skinned_gltf_ready(SparkGameWorld* world, const char* path) {
+    if (world == nullptr || path == nullptr) {
+        return 0;
+    }
+    return reinterpret_cast<Spark::GameWorld*>(world)->IsSkinnedGltfReady(path) ? 1 : 0;
+}
+
+std::uint32_t spark_world_get_pending_asset_load_count(SparkGameWorld* world) {
+    if (world == nullptr) {
+        return 0;
+    }
+    return static_cast<std::uint32_t>(
+            reinterpret_cast<Spark::GameWorld*>(world)->GetPendingAssetLoadCount());
+}
+
 int spark_world_register_sky_sphere_mesh(
         SparkGameWorld* world,
         const char* cacheKey,

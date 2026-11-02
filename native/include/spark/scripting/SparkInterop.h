@@ -34,6 +34,7 @@ typedef struct SparkScene SparkScene;
 typedef struct SparkGameWorld SparkGameWorld;
 typedef struct SparkGameObject SparkGameObject;
 typedef struct SparkGameComponent SparkGameComponent;
+typedef struct SparkSceneManager SparkSceneManager;
 typedef struct SparkInput SparkInput;
 typedef struct SparkRenderFrame SparkRenderFrame;
 
@@ -338,7 +339,83 @@ SPARK_SCRIPT_API int spark_object_set_parent(SparkGameObject* object, SparkGameO
 SPARK_SCRIPT_API uint32_t spark_object_get_child_count(const SparkGameObject* object);
 SPARK_SCRIPT_API SparkGameObject* spark_object_get_child(const SparkGameObject* object, uint32_t childIndex);
 SPARK_SCRIPT_API void spark_object_get_world_matrix(const SparkGameObject* object, SparkMatrix4* out);
+/** Broadcasts to sibling components (mirrors <c>GameObject::EmitSignal</c>). @p payload may be null for an empty payload. */
+SPARK_SCRIPT_API void spark_object_emit_signal(
+        SparkGameObject* object,
+        SparkSignalId id,
+        const SparkSignalPayload* payload,
+        SparkGameComponent* sender);
 SPARK_SCRIPT_API SparkGameObject* spark_world_find_game_object_with_tag(SparkGameWorld* world, const char* tag);
+/** Like <c>FindGameObjectWithTag</c> with explicit inactive hierarchy inclusion. */
+SPARK_SCRIPT_API SparkGameObject* spark_world_find_game_object_with_tag_ex(
+        SparkGameWorld* world,
+        const char* tag,
+        int includeInactive);
+SPARK_SCRIPT_API SparkGameObject* spark_world_find_game_object_by_name(
+        SparkGameWorld* world,
+        const char* utf8Name,
+        int includeInactive);
+/** Mirrors <c>GameWorld::SetParent</c> (child and optional parent must belong to @p world). */
+SPARK_SCRIPT_API int spark_world_set_parent(
+        SparkGameWorld* world,
+        SparkGameObject* child,
+        SparkGameObject* newParent);
+SPARK_SCRIPT_API void spark_world_destroy_game_object_immediate(
+        SparkGameWorld* world,
+        SparkGameObject* object);
+SPARK_SCRIPT_API void spark_world_pump_assets(SparkGameWorld* world);
+SPARK_SCRIPT_API int spark_world_is_gltf_ready(SparkGameWorld* world, const char* path);
+SPARK_SCRIPT_API int spark_world_is_skinned_gltf_ready(SparkGameWorld* world, const char* path);
+SPARK_SCRIPT_API uint32_t spark_world_get_pending_asset_load_count(SparkGameWorld* world);
+/** Writes up to @p capacity handles; returns total matches (may exceed @p capacity). */
+SPARK_SCRIPT_API uint32_t spark_world_query_collect_by_tag(
+        SparkGameWorld* world,
+        const char* tag,
+        int includeInactive,
+        SparkGameObject** outObjects,
+        uint32_t capacity);
+
+/* --- SceneManager (mirrors Spark::SceneManager on a GameWorld) --- */
+SPARK_SCRIPT_API SparkSceneManager* spark_scene_manager_create(SparkGameWorld* world);
+SPARK_SCRIPT_API void spark_scene_manager_destroy(SparkSceneManager* manager);
+SPARK_SCRIPT_API uint64_t spark_scene_manager_load_from_file(
+        SparkSceneManager* manager,
+        const char* path,
+        const SparkSceneLoadOptions* options);
+SPARK_SCRIPT_API uint64_t spark_scene_manager_begin_load_async(
+        SparkSceneManager* manager,
+        const char* path,
+        const SparkSceneLoadOptions* options);
+SPARK_SCRIPT_API void spark_scene_manager_pump(SparkSceneManager* manager);
+SPARK_SCRIPT_API int spark_scene_manager_is_scene_ready(
+        SparkSceneManager* manager,
+        uint64_t instanceId);
+SPARK_SCRIPT_API int spark_scene_manager_has_scene_failed(
+        SparkSceneManager* manager,
+        uint64_t instanceId);
+SPARK_SCRIPT_API void spark_scene_manager_unload_scene(SparkSceneManager* manager, uint64_t instanceId);
+SPARK_SCRIPT_API void spark_scene_manager_unload_all_scenes(SparkSceneManager* manager);
+SPARK_SCRIPT_API uint32_t spark_scene_manager_get_loaded_scene_count(SparkSceneManager* manager);
+SPARK_SCRIPT_API uint64_t spark_scene_manager_load_at_spawn_point(
+        SparkSceneManager* manager,
+        const char* scenePath,
+        const char* spawnPointName,
+        SparkSceneSpawnPose* outSpawnPose,
+        const SparkSceneLoadOptions* options);
+/** Fills @p outResult and up to @p outRootsCapacity root object handles. Returns 0 when @p manager or @p prefabPath is null. */
+SPARK_SCRIPT_API int spark_scene_manager_instantiate_prefab(
+        SparkSceneManager* manager,
+        const char* prefabPath,
+        SparkGameObject* parent,
+        const SparkVector3* position,
+        const SparkQuaternion* rotation,
+        const char* assetsRoot,
+        int additive,
+        int pumpUntilReady,
+        SparkPrefabInstantiateResult* outResult,
+        SparkGameObject** outRoots,
+        uint32_t outRootsCapacity);
+
 SPARK_SCRIPT_API SparkGameComponent* spark_object_try_get_component_by_kind(
         SparkGameObject* object,
         SparkComponentKind kind);

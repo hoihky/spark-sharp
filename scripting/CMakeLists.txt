@@ -22,6 +22,8 @@ set(SPARK_INTEROP_SOURCES
         ${CMAKE_SOURCE_DIR}/src/spark/scripting/SparkInteropInternal.cpp
         ${CMAKE_SOURCE_DIR}/src/spark/scripting/SparkInteropMath.cpp
         ${CMAKE_SOURCE_DIR}/src/spark/scripting/SparkInteropScene.cpp
+        ${CMAKE_SOURCE_DIR}/src/spark/scripting/SparkInteropSceneManager.cpp
+        ${CMAKE_SOURCE_DIR}/src/spark/scripting/SparkInteropSignals.cpp
         ${CMAKE_SOURCE_DIR}/src/spark/scripting/SparkInteropPlatformer.cpp
         ${CMAKE_SOURCE_DIR}/src/spark/scripting/SparkInteropPhysics2D.cpp
         ${CMAKE_SOURCE_DIR}/src/spark/scripting/SparkInteropComponents.cpp

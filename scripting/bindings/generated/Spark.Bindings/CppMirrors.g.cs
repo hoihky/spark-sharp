@@ -734,6 +734,7 @@ public readonly struct Platformer2DAssetsInfo
 }
 
 /// <summary>Mirrors <c>Spark::CollisionFilter2D</c> helpers.</summary>
+[Obsolete("Use world.Physics.Layers instead.")]
 public static class CollisionFilter2D
 {
     public static ushort LayerBit(uint layerIndex)
@@ -932,6 +933,8 @@ public readonly struct PhysicsWorld2DSettings
     };
 }
 
+/// <summary>Blittable math mirrors with helpers for native structs.</summary>
+[Obsolete("Prefer Matrix4.Multiply / operator * on Matrix4.")]
 public static class SparkMath
 {
     public static Matrix4 Mul(in Matrix4 a, in Matrix4 b)
