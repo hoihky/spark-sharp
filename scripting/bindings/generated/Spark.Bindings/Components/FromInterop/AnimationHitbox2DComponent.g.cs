@@ -27,6 +27,46 @@ return Native.spark_animation_hitbox2_d_get_shape(InteropPtr.Component(Handle));
         }
     }
 
+    public void AddTarget(GameObject target)
+    {
+        unsafe
+        {
+                Native.spark_animation_hitbox2_d_add_target(InteropPtr.Component(Handle), InteropPtr.Object(target.Handle));
+        }
+    }
+
+    public void ClearTargets()
+    {
+        unsafe
+        {
+                Native.spark_animation_hitbox2_d_clear_targets(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetHitsThisSwing()
+    {
+        unsafe
+        {
+                return Native.spark_animation_hitbox2_d_get_hits_this_swing(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int IsHitWindowActive()
+    {
+        unsafe
+        {
+                return Native.spark_animation_hitbox2_d_is_hit_window_active(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetArcHalfAngleRadians(float radians)
+    {
+        unsafe
+        {
+                Native.spark_animation_hitbox2_d_set_arc_half_angle_radians(InteropPtr.Component(Handle), radians);
+        }
+    }
+
     public void SetClipIndex(uint index)
     {
         unsafe
@@ -35,11 +75,11 @@ return Native.spark_animation_hitbox2_d_get_shape(InteropPtr.Component(Handle));
         }
     }
 
-    public void SetStartLocalFrame(uint frame)
+    public void SetDamagePerHit(float amount)
     {
         unsafe
         {
-                Native.spark_animation_hitbox2_d_set_start_local_frame(InteropPtr.Component(Handle), frame);
+                Native.spark_animation_hitbox2_d_set_damage_per_hit(InteropPtr.Component(Handle), amount);
         }
     }
 
@@ -68,51 +108,11 @@ return Native.spark_animation_hitbox2_d_get_shape(InteropPtr.Component(Handle));
         }
     }
 
-    public void SetArcHalfAngleRadians(float radians)
+    public void SetStartLocalFrame(uint frame)
     {
         unsafe
         {
-                Native.spark_animation_hitbox2_d_set_arc_half_angle_radians(InteropPtr.Component(Handle), radians);
-        }
-    }
-
-    public void SetDamagePerHit(float amount)
-    {
-        unsafe
-        {
-                Native.spark_animation_hitbox2_d_set_damage_per_hit(InteropPtr.Component(Handle), amount);
-        }
-    }
-
-    public void ClearTargets()
-    {
-        unsafe
-        {
-                Native.spark_animation_hitbox2_d_clear_targets(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void AddTarget(GameObject target)
-    {
-        unsafe
-        {
-                Native.spark_animation_hitbox2_d_add_target(InteropPtr.Component(Handle), InteropPtr.Object(target.Handle));
-        }
-    }
-
-    public int IsHitWindowActive()
-    {
-        unsafe
-        {
-                return Native.spark_animation_hitbox2_d_is_hit_window_active(InteropPtr.Component(Handle));
-        }
-    }
-
-    public int GetHitsThisSwing()
-    {
-        unsafe
-        {
-                return Native.spark_animation_hitbox2_d_get_hits_this_swing(InteropPtr.Component(Handle));
+                Native.spark_animation_hitbox2_d_set_start_local_frame(InteropPtr.Component(Handle), frame);
         }
     }
 }

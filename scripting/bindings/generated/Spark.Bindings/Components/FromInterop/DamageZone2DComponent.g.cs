@@ -9,20 +9,41 @@ public sealed partial class DamageZone2DComponent : GameComponentHandle
     internal DamageZone2DComponent(nint handle)
         : base(handle) { }
 
-    public int Shape
+    public float DamagePerSecond
     {
         get
         {
             unsafe
             {
-return Native.spark_damage_zone2_d_get_shape(InteropPtr.Component(Handle));
+return Native.spark_damage_zone2_d_get_damage_per_second(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_damage_zone2_d_set_shape(InteropPtr.Component(Handle), value);
+                Native.spark_damage_zone2_d_set_damage_per_second(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public Vector2 HalfExtents
+    {
+        get
+        {
+            unsafe
+            {
+                SparkVector2 v;
+                Native.spark_damage_zone2_d_get_half_extents(InteropPtr.Component(Handle), &v);
+                return Vector2.FromNative(v);
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                var v = value.ToNative();
+                Native.spark_damage_zone2_d_set_half_extents(InteropPtr.Component(Handle), &v);
             }
         }
     }
@@ -66,50 +87,30 @@ return Native.spark_damage_zone2_d_get_radius(InteropPtr.Component(Handle));
         }
     }
 
-    public Vector2 HalfExtents
+    public int Shape
     {
         get
         {
             unsafe
             {
-                SparkVector2 v;
-                Native.spark_damage_zone2_d_get_half_extents(InteropPtr.Component(Handle), &v);
-                return Vector2.FromNative(v);
+return Native.spark_damage_zone2_d_get_shape(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                var v = value.ToNative();
-                Native.spark_damage_zone2_d_set_half_extents(InteropPtr.Component(Handle), &v);
+                Native.spark_damage_zone2_d_set_shape(InteropPtr.Component(Handle), value);
             }
         }
     }
 
-    public float DamagePerSecond
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_damage_zone2_d_get_damage_per_second(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_damage_zone2_d_set_damage_per_second(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
-    public void SetEnabled(int value)
+    public GameObject GetInstigator()
     {
         unsafe
         {
-                Native.spark_damage_zone2_d_set_enabled(InteropPtr.Component(Handle), value);
+                var raw = Native.spark_damage_zone2_d_get_instigator(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 
@@ -129,11 +130,11 @@ return Native.spark_damage_zone2_d_get_damage_per_second(InteropPtr.Component(Ha
         }
     }
 
-    public void SetMaskBits(int bits)
+    public void SetEnabled(int value)
     {
         unsafe
         {
-                Native.spark_damage_zone2_d_set_mask_bits(InteropPtr.Component(Handle), bits);
+                Native.spark_damage_zone2_d_set_enabled(InteropPtr.Component(Handle), value);
         }
     }
 
@@ -145,12 +146,11 @@ return Native.spark_damage_zone2_d_get_damage_per_second(InteropPtr.Component(Ha
         }
     }
 
-    public GameObject GetInstigator()
+    public void SetMaskBits(int bits)
     {
         unsafe
         {
-                var raw = Native.spark_damage_zone2_d_get_instigator(InteropPtr.Component(Handle));
-                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
+                Native.spark_damage_zone2_d_set_mask_bits(InteropPtr.Component(Handle), bits);
         }
     }
 }

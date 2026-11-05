@@ -45,19 +45,61 @@ return Native.spark_terrain_get_noise_scale(InteropPtr.Component(Handle));
         }
     }
 
-    public int GetSubdivX()
+    public void ResetHeightsToProcedural(GameObject owner)
     {
         unsafe
         {
-                return Native.spark_terrain_get_subdiv_x(InteropPtr.Component(Handle));
+                Native.spark_terrain_reset_heights_to_procedural(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle));
         }
     }
 
-    public int GetSubdivZ()
+    public bool TryRaycastWorld(GameObject owner, in Vector3 rayOriginWorld, in Vector3 rayDirWorld, float maxDistance, out Vector3 outHitWorld)
     {
         unsafe
         {
-                return Native.spark_terrain_get_subdiv_z(InteropPtr.Component(Handle));
+            var result = 0;
+            var rayOriginWorldNative = rayOriginWorld.ToNative();
+            var rayDirWorldNative = rayDirWorld.ToNative();
+            var outHitWorldNative = default(SparkVector3);
+                result = Native.spark_terrain_try_raycast_world(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle), &rayOriginWorldNative, &rayDirWorldNative, maxDistance, &outHitWorldNative);
+            outHitWorld = Vector3.FromNative(outHitWorldNative);
+            return result != 0;
+        }
+    }
+
+    public void ApplyHeightBrushLocal(GameObject owner, in Vector2 centerXZ, float radiusXZ, float deltaY)
+    {
+        unsafe
+        {
+            var centerXZNative = centerXZ.ToNative();
+                Native.spark_terrain_apply_height_brush_local(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle), &centerXZNative, radiusXZ, deltaY);
+        }
+    }
+
+    public void ApplyHeightBrushLocalOn(GameObject owner, in Vector2 centerXZ, float radiusXZ, float deltaY)
+    {
+        unsafe
+        {
+            var centerXZNative = centerXZ.ToNative();
+                Native.spark_terrain_apply_height_brush_local_on(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle), &centerXZNative, radiusXZ, deltaY);
+        }
+    }
+
+    public void ApplyHeightBrushWorld(GameObject owner, in Vector3 centerWorld, float radiusWorld, float deltaY)
+    {
+        unsafe
+        {
+            var centerWorldNative = centerWorld.ToNative();
+                Native.spark_terrain_apply_height_brush_world(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle), &centerWorldNative, radiusWorld, deltaY);
+        }
+    }
+
+    public void ApplyHeightBrushWorldOn(GameObject owner, in Vector3 centerWorld, float radiusWorld, float deltaY)
+    {
+        unsafe
+        {
+            var centerWorldNative = centerWorld.ToNative();
+                Native.spark_terrain_apply_height_brush_world_on(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle), &centerWorldNative, radiusWorld, deltaY);
         }
     }
 
@@ -77,6 +119,40 @@ return Native.spark_terrain_get_noise_scale(InteropPtr.Component(Handle));
         }
     }
 
+    public float GetLacunarity()
+    {
+        unsafe
+        {
+                return Native.spark_terrain_get_lacunarity(InteropPtr.Component(Handle));
+        }
+    }
+
+    public Vector3 MeshAlbedo
+    {
+        get
+        {
+            unsafe
+            {
+                SparkVector3 v;
+                Native.spark_terrain_get_mesh_albedo(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
+            }
+        }
+    }
+
+    public Vector3 MeshAlbedoRgb
+    {
+        get
+        {
+            unsafe
+            {
+                SparkVector3 v;
+                Native.spark_terrain_get_mesh_albedo_rgb(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
+            }
+        }
+    }
+
     public int GetOctaves()
     {
         unsafe
@@ -93,14 +169,6 @@ return Native.spark_terrain_get_noise_scale(InteropPtr.Component(Handle));
         }
     }
 
-    public float GetLacunarity()
-    {
-        unsafe
-        {
-                return Native.spark_terrain_get_lacunarity(InteropPtr.Component(Handle));
-        }
-    }
-
     public int GetSeed()
     {
         unsafe
@@ -109,11 +177,43 @@ return Native.spark_terrain_get_noise_scale(InteropPtr.Component(Handle));
         }
     }
 
-    public float GetWorldUnitsPerTextureRepeat()
+    public int GetSubdivX()
     {
         unsafe
         {
-                return Native.spark_terrain_get_world_units_per_texture_repeat(InteropPtr.Component(Handle));
+                return Native.spark_terrain_get_subdiv_x(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetSubdivZ()
+    {
+        unsafe
+        {
+                return Native.spark_terrain_get_subdiv_z(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void RegenerateMesh(GameObject owner)
+    {
+        unsafe
+        {
+                Native.spark_terrain_regenerate_mesh(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle));
+        }
+    }
+
+    public void RegenerateMeshOn(GameObject owner)
+    {
+        unsafe
+        {
+                Native.spark_terrain_regenerate_mesh_on(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle));
+        }
+    }
+
+    public void ResetHeightsToProceduralOn(GameObject owner)
+    {
+        unsafe
+        {
+                Native.spark_terrain_reset_heights_to_procedural_on(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle));
         }
     }
 
@@ -122,15 +222,6 @@ return Native.spark_terrain_get_noise_scale(InteropPtr.Component(Handle));
         unsafe
         {
                 Native.spark_terrain_set_seed(InteropPtr.Component(Handle), v);
-        }
-    }
-
-    public void ApplyHeightBrushWorld(GameObject owner, in Vector3 centerWorld, float radiusWorld, float deltaY)
-    {
-        unsafe
-        {
-            var centerWorldNative = centerWorld.ToNative();
-                Native.spark_terrain_apply_height_brush_world(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle), &centerWorldNative, radiusWorld, deltaY);
         }
     }
 }

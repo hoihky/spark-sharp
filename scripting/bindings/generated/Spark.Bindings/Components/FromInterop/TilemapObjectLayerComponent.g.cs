@@ -9,6 +9,22 @@ public sealed partial class TilemapObjectLayerComponent : GameComponentHandle
     internal TilemapObjectLayerComponent(nint handle)
         : base(handle) { }
 
+    public void ClearMarkers(uint layerIndex)
+    {
+        unsafe
+        {
+                Native.spark_tilemap_object_layer_clear_markers(InteropPtr.Component(Handle), layerIndex);
+        }
+    }
+
+    public int GetAddMarker(uint layerIndex, int marker)
+    {
+        unsafe
+        {
+                return Native.spark_tilemap_object_layer_get_add_marker(InteropPtr.Component(Handle), layerIndex, marker);
+        }
+    }
+
     public int GetAddObjectLayer(string name)
     {
         unsafe
@@ -22,35 +38,19 @@ public sealed partial class TilemapObjectLayerComponent : GameComponentHandle
         }
     }
 
-    public void RemoveObjectLayer(uint layerIndex)
-    {
-        unsafe
-        {
-                Native.spark_tilemap_object_layer_remove_object_layer(InteropPtr.Component(Handle), layerIndex);
-        }
-    }
-
-    public int GetAddMarker(uint layerIndex, int marker)
-    {
-        unsafe
-        {
-                return Native.spark_tilemap_object_layer_get_add_marker(InteropPtr.Component(Handle), layerIndex, marker);
-        }
-    }
-
-    public void ClearMarkers(uint layerIndex)
-    {
-        unsafe
-        {
-                Native.spark_tilemap_object_layer_clear_markers(InteropPtr.Component(Handle), layerIndex);
-        }
-    }
-
     public int IsRemoveMarker(uint layerIndex, uint markerId)
     {
         unsafe
         {
                 return Native.spark_tilemap_object_layer_is_remove_marker(InteropPtr.Component(Handle), layerIndex, markerId);
+        }
+    }
+
+    public void RemoveObjectLayer(uint layerIndex)
+    {
+        unsafe
+        {
+                Native.spark_tilemap_object_layer_remove_object_layer(InteropPtr.Component(Handle), layerIndex);
         }
     }
 }

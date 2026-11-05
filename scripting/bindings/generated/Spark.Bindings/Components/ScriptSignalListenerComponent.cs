@@ -19,14 +19,16 @@ public sealed class ScriptSignalListenerComponent : Components.GameComponentHand
         {
             unsafe
             {
-                return Native.spark_script_signal_listener_get_listen_signal(InteropPtr.Component(Handle));
+                return (SignalId)(uint)Native.spark_script_signal_listener_get_listen_signal(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_script_signal_listener_set_listen_signal(InteropPtr.Component(Handle), value);
+                Native.spark_script_signal_listener_set_listen_signal(
+                    InteropPtr.Component(Handle),
+                    (SparkSignalId)(uint)value);
             }
         }
     }

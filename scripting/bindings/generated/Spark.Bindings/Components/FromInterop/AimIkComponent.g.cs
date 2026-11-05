@@ -48,6 +48,15 @@ return Native.spark_aim_ik_get_weight(InteropPtr.Component(Handle));
         }
     }
 
+    public GameObject GetTargetObject()
+    {
+        unsafe
+        {
+                var raw = Native.spark_aim_ik_get_target_object(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
+        }
+    }
+
     public int IsEnabled()
     {
         unsafe
@@ -64,15 +73,6 @@ return Native.spark_aim_ik_get_weight(InteropPtr.Component(Handle));
         }
     }
 
-    public GameObject GetTargetObject()
-    {
-        unsafe
-        {
-                var raw = Native.spark_aim_ik_get_target_object(InteropPtr.Component(Handle));
-                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
-        }
-    }
-
     public void SetEnabled(int value)
     {
         unsafe
@@ -81,19 +81,19 @@ return Native.spark_aim_ik_get_weight(InteropPtr.Component(Handle));
         }
     }
 
-    public void SetUseMainCamera(int value)
-    {
-        unsafe
-        {
-                Native.spark_aim_ik_set_use_main_camera(InteropPtr.Component(Handle), value);
-        }
-    }
-
     public void SetTargetObject(GameObject gameObject)
     {
         unsafe
         {
                 Native.spark_aim_ik_set_target_object(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
+        }
+    }
+
+    public void SetUseMainCamera(int value)
+    {
+        unsafe
+        {
+                Native.spark_aim_ik_set_use_main_camera(InteropPtr.Component(Handle), value);
         }
     }
 }

@@ -9,24 +9,6 @@ public sealed partial class AmbientZoneComponent : GameComponentHandle
     internal AmbientZoneComponent(nint handle)
         : base(handle) { }
 
-    public int Shape
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_ambient_zone_get_shape(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_ambient_zone_set_shape(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public Vector3 HalfExtents
     {
         get
@@ -44,24 +26,6 @@ return Native.spark_ambient_zone_get_shape(InteropPtr.Component(Handle));
             {
                 var v = value.ToNative();
                 Native.spark_ambient_zone_set_half_extents(InteropPtr.Component(Handle), &v);
-            }
-        }
-    }
-
-    public float VolumeScale
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_ambient_zone_get_volume_scale(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_ambient_zone_set_volume_scale(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -84,6 +48,50 @@ return Native.spark_ambient_zone_get_low_pass_amount(InteropPtr.Component(Handle
         }
     }
 
+    public int Shape
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_ambient_zone_get_shape(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_ambient_zone_set_shape(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float VolumeScale
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_ambient_zone_get_volume_scale(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_ambient_zone_set_volume_scale(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public int GetPriority()
+    {
+        unsafe
+        {
+                return Native.spark_ambient_zone_get_priority(InteropPtr.Component(Handle));
+        }
+    }
+
     public int IsEnabled()
     {
         unsafe
@@ -97,14 +105,6 @@ return Native.spark_ambient_zone_get_low_pass_amount(InteropPtr.Component(Handle
         unsafe
         {
                 Native.spark_ambient_zone_set_enabled(InteropPtr.Component(Handle), e);
-        }
-    }
-
-    public int GetPriority()
-    {
-        unsafe
-        {
-                return Native.spark_ambient_zone_get_priority(InteropPtr.Component(Handle));
         }
     }
 

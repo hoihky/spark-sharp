@@ -9,20 +9,20 @@ public sealed partial class SphereCollider3DComponent : GameComponentHandle
     internal SphereCollider3DComponent(nint handle)
         : base(handle) { }
 
-    public float Radius
+    public bool IsTrigger
     {
         get
         {
             unsafe
             {
-return Native.spark_sphere_collider3_d_get_radius(InteropPtr.Component(Handle));
+                return Native.spark_sphere_collider3_d_get_is_trigger(InteropPtr.Component(Handle)) != 0;
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_sphere_collider3_d_set_radius(InteropPtr.Component(Handle), value);
+                Native.spark_sphere_collider3_d_set_is_trigger(InteropPtr.Component(Handle), value ? 1 : 0);
             }
         }
     }
@@ -48,20 +48,20 @@ return Native.spark_sphere_collider3_d_get_radius(InteropPtr.Component(Handle));
         }
     }
 
-    public bool IsTrigger
+    public float Radius
     {
         get
         {
             unsafe
             {
-                return Native.spark_sphere_collider3_d_get_is_trigger(InteropPtr.Component(Handle)) != 0;
+return Native.spark_sphere_collider3_d_get_radius(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_sphere_collider3_d_set_is_trigger(InteropPtr.Component(Handle), value ? 1 : 0);
+                Native.spark_sphere_collider3_d_set_radius(InteropPtr.Component(Handle), value);
             }
         }
     }

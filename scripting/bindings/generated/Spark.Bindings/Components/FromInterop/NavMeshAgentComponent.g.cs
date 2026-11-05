@@ -9,6 +9,24 @@ public sealed partial class NavMeshAgentComponent : GameComponentHandle
     internal NavMeshAgentComponent(nint handle)
         : base(handle) { }
 
+    public float GridCellSize
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_nav_mesh_agent_get_grid_cell_size(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_nav_mesh_agent_set_grid_cell_size(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
     public Vector2 GridOriginXZ
     {
         get
@@ -30,37 +48,19 @@ public sealed partial class NavMeshAgentComponent : GameComponentHandle
         }
     }
 
-    public float GridCellSize
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_nav_mesh_agent_get_grid_cell_size(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_nav_mesh_agent_set_grid_cell_size(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
-    public int IsEnabled()
+    public int GetGridHeight()
     {
         unsafe
         {
-                return Native.spark_nav_mesh_agent_is_enabled(InteropPtr.Component(Handle));
+                return Native.spark_nav_mesh_agent_get_grid_height(InteropPtr.Component(Handle));
         }
     }
 
-    public void SetEnabled(int e)
+    public int GetGridWidth()
     {
         unsafe
         {
-                Native.spark_nav_mesh_agent_set_enabled(InteropPtr.Component(Handle), e);
+                return Native.spark_nav_mesh_agent_get_grid_width(InteropPtr.Component(Handle));
         }
     }
 
@@ -73,11 +73,11 @@ return Native.spark_nav_mesh_agent_get_grid_cell_size(InteropPtr.Component(Handl
         }
     }
 
-    public void SetPatrolPathObject(GameObject o)
+    public int IsEnabled()
     {
         unsafe
         {
-                Native.spark_nav_mesh_agent_set_patrol_path_object(InteropPtr.Component(Handle), InteropPtr.Object(o.Handle));
+                return Native.spark_nav_mesh_agent_is_enabled(InteropPtr.Component(Handle));
         }
     }
 
@@ -89,19 +89,19 @@ return Native.spark_nav_mesh_agent_get_grid_cell_size(InteropPtr.Component(Handl
         }
     }
 
-    public void SetUseGridPathfinding(int u)
+    public void SetEnabled(int e)
     {
         unsafe
         {
-                Native.spark_nav_mesh_agent_set_use_grid_pathfinding(InteropPtr.Component(Handle), u);
+                Native.spark_nav_mesh_agent_set_enabled(InteropPtr.Component(Handle), e);
         }
     }
 
-    public int GetGridWidth()
+    public void SetGridHeight(int h)
     {
         unsafe
         {
-                return Native.spark_nav_mesh_agent_get_grid_width(InteropPtr.Component(Handle));
+                Native.spark_nav_mesh_agent_set_grid_height(InteropPtr.Component(Handle), h);
         }
     }
 
@@ -113,19 +113,19 @@ return Native.spark_nav_mesh_agent_get_grid_cell_size(InteropPtr.Component(Handl
         }
     }
 
-    public int GetGridHeight()
+    public void SetPatrolPathObject(GameObject o)
     {
         unsafe
         {
-                return Native.spark_nav_mesh_agent_get_grid_height(InteropPtr.Component(Handle));
+                Native.spark_nav_mesh_agent_set_patrol_path_object(InteropPtr.Component(Handle), InteropPtr.Object(o.Handle));
         }
     }
 
-    public void SetGridHeight(int h)
+    public void SetUseGridPathfinding(int u)
     {
         unsafe
         {
-                Native.spark_nav_mesh_agent_set_grid_height(InteropPtr.Component(Handle), h);
+                Native.spark_nav_mesh_agent_set_use_grid_pathfinding(InteropPtr.Component(Handle), u);
         }
     }
 }

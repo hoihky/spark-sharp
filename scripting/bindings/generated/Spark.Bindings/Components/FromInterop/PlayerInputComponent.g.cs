@@ -9,11 +9,29 @@ public sealed partial class PlayerInputComponent : GameComponentHandle
     internal PlayerInputComponent(nint handle)
         : base(handle) { }
 
-    public void SetActionMap(GameComponentHandle mapIn)
+    public float GetActionAxis1D(string actionName)
     {
         unsafe
         {
-                Native.spark_player_input_set_action_map(InteropPtr.Component(Handle), InteropPtr.Component(mapIn.Handle));
+            float result = default;
+            InteropUtf8.WithUtf8(actionName, ptr =>
+            {
+                result = Native.spark_player_input_get_action_axis1_d(InteropPtr.Component(Handle), (sbyte*)ptr);
+            });
+            return result;
+        }
+    }
+
+    public float GetActionAxis1d(string actionName)
+    {
+        unsafe
+        {
+            float result = default;
+            InteropUtf8.WithUtf8(actionName, ptr =>
+            {
+                result = Native.spark_player_input_get_action_axis1d(InteropPtr.Component(Handle), (sbyte*)ptr);
+            });
+            return result;
         }
     }
 
@@ -30,6 +48,19 @@ public sealed partial class PlayerInputComponent : GameComponentHandle
         }
     }
 
+    public int IsWasActionPressedThisFrame(string actionName)
+    {
+        unsafe
+        {
+            int result = default;
+            InteropUtf8.WithUtf8(actionName, ptr =>
+            {
+                result = Native.spark_player_input_is_was_action_pressed_this_frame(InteropPtr.Component(Handle), (sbyte*)ptr);
+            });
+            return result;
+        }
+    }
+
     public int IsWasActionReleasedThisFrame(string actionName)
     {
         unsafe
@@ -38,6 +69,27 @@ public sealed partial class PlayerInputComponent : GameComponentHandle
             InteropUtf8.WithUtf8(actionName, ptr =>
             {
                 result = Native.spark_player_input_is_was_action_released_this_frame(InteropPtr.Component(Handle), (sbyte*)ptr);
+            });
+            return result;
+        }
+    }
+
+    public void SetActionMap(GameComponentHandle mapIn)
+    {
+        unsafe
+        {
+                Native.spark_player_input_set_action_map(InteropPtr.Component(Handle), InteropPtr.Component(mapIn.Handle));
+        }
+    }
+
+    public int WasActionPressedThisFrame(string actionName)
+    {
+        unsafe
+        {
+            int result = default;
+            InteropUtf8.WithUtf8(actionName, ptr =>
+            {
+                result = Native.spark_player_input_was_action_pressed_this_frame(InteropPtr.Component(Handle), (sbyte*)ptr);
             });
             return result;
         }

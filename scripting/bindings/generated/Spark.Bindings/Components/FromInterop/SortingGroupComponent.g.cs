@@ -33,19 +33,19 @@ public sealed partial class SortingGroupComponent : GameComponentHandle
         }
     }
 
-    public int IsEnabled()
-    {
-        unsafe
-        {
-                return Native.spark_sorting_group_is_enabled(InteropPtr.Component(Handle));
-        }
-    }
-
     public int GetSortingOrder()
     {
         unsafe
         {
                 return Native.spark_sorting_group_get_sorting_order(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int IsEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_sorting_group_is_enabled(InteropPtr.Component(Handle));
         }
     }
 

@@ -9,6 +9,27 @@ public sealed partial class ParticleEmitterComponent : GameComponentHandle
     internal ParticleEmitterComponent(nint handle)
         : base(handle) { }
 
+    public Vector3 EmissionDirection
+    {
+        get
+        {
+            unsafe
+            {
+                SparkVector3 v;
+                Native.spark_particle_emitter_get_emission_direction(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                var v = value.ToNative();
+                Native.spark_particle_emitter_set_emission_direction(InteropPtr.Component(Handle), &v);
+            }
+        }
+    }
+
     public float EmissionRate
     {
         get
@@ -48,41 +69,20 @@ return Native.spark_particle_emitter_get_emission_rate(InteropPtr.Component(Hand
         }
     }
 
-    public Vector3 EmissionDirection
+    public float RingRadius
     {
         get
         {
             unsafe
             {
-                SparkVector3 v;
-                Native.spark_particle_emitter_get_emission_direction(InteropPtr.Component(Handle), &v);
-                return Vector3.FromNative(v);
+return Native.spark_particle_emitter_get_ring_radius(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                var v = value.ToNative();
-                Native.spark_particle_emitter_set_emission_direction(InteropPtr.Component(Handle), &v);
-            }
-        }
-    }
-
-    public int UseLocalEmission
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_particle_emitter_get_use_local_emission(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_particle_emitter_set_use_local_emission(InteropPtr.Component(Handle), value);
+                Native.spark_particle_emitter_set_ring_radius(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -105,20 +105,20 @@ return Native.spark_particle_emitter_get_spread_angle_radians(InteropPtr.Compone
         }
     }
 
-    public float RingRadius
+    public int UseLocalEmission
     {
         get
         {
             unsafe
             {
-return Native.spark_particle_emitter_get_ring_radius(InteropPtr.Component(Handle));
+return Native.spark_particle_emitter_get_use_local_emission(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_particle_emitter_set_ring_radius(InteropPtr.Component(Handle), value);
+                Native.spark_particle_emitter_set_use_local_emission(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -147,150 +147,11 @@ return Native.spark_particle_emitter_get_ring_radius(InteropPtr.Component(Handle
         }
     }
 
-    public int IsEmitterEnabled()
-    {
-        unsafe
-        {
-                return Native.spark_particle_emitter_is_emitter_enabled(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void SetEmitterEnabled(int e)
-    {
-        unsafe
-        {
-                Native.spark_particle_emitter_set_emitter_enabled(InteropPtr.Component(Handle), e);
-        }
-    }
-
-    public int GetMaxParticles()
-    {
-        unsafe
-        {
-                return Native.spark_particle_emitter_get_max_particles(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void SetLifetime(float minSec, float maxSec)
-    {
-        unsafe
-        {
-                Native.spark_particle_emitter_set_lifetime(InteropPtr.Component(Handle), minSec, maxSec);
-        }
-    }
-
-    public void SetStartEndSize(float start, float end)
-    {
-        unsafe
-        {
-                Native.spark_particle_emitter_set_start_end_size(InteropPtr.Component(Handle), start, end);
-        }
-    }
-
-    public void SetSpeedRange(float minS, float maxS)
-    {
-        unsafe
-        {
-                Native.spark_particle_emitter_set_speed_range(InteropPtr.Component(Handle), minS, maxS);
-        }
-    }
-
-    public float GetLifetimeMin()
-    {
-        unsafe
-        {
-                return Native.spark_particle_emitter_get_lifetime_min(InteropPtr.Component(Handle));
-        }
-    }
-
-    public float GetLifetimeMax()
-    {
-        unsafe
-        {
-                return Native.spark_particle_emitter_get_lifetime_max(InteropPtr.Component(Handle));
-        }
-    }
-
-    public float GetStartSize()
-    {
-        unsafe
-        {
-                return Native.spark_particle_emitter_get_start_size(InteropPtr.Component(Handle));
-        }
-    }
-
-    public float GetEndSize()
-    {
-        unsafe
-        {
-                return Native.spark_particle_emitter_get_end_size(InteropPtr.Component(Handle));
-        }
-    }
-
-    public float GetSpeedMin()
-    {
-        unsafe
-        {
-                return Native.spark_particle_emitter_get_speed_min(InteropPtr.Component(Handle));
-        }
-    }
-
-    public float GetSpeedMax()
-    {
-        unsafe
-        {
-                return Native.spark_particle_emitter_get_speed_max(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void SetEmissionModuleId(string moduleId)
-    {
-        unsafe
-        {
-            InteropUtf8.WithUtf8(moduleId, ptr =>
-            {
-                Native.spark_particle_emitter_set_emission_module_id(InteropPtr.Component(Handle), (sbyte*)ptr);
-            });
-        }
-    }
-
-    public void SetRenderSpace(int space)
-    {
-        unsafe
-        {
-                Native.spark_particle_emitter_set_render_space(InteropPtr.Component(Handle), space);
-        }
-    }
-
-    public void SetSpriteLayerSortOrder(int order)
-    {
-        unsafe
-        {
-                Native.spark_particle_emitter_set_sprite_layer_sort_order(InteropPtr.Component(Handle), order);
-        }
-    }
-
-    public int GetSpriteLayerSortOrder()
-    {
-        unsafe
-        {
-                return Native.spark_particle_emitter_get_sprite_layer_sort_order(InteropPtr.Component(Handle));
-        }
-    }
-
     public void ClearParticles()
     {
         unsafe
         {
                 Native.spark_particle_emitter_clear_particles(InteropPtr.Component(Handle));
-        }
-    }
-
-    public int GetAliveParticleCount()
-    {
-        unsafe
-        {
-                return Native.spark_particle_emitter_get_alive_particle_count(InteropPtr.Component(Handle));
         }
     }
 
@@ -311,6 +172,145 @@ return Native.spark_particle_emitter_get_ring_radius(InteropPtr.Component(Handle
             var originNative = origin.ToNative();
             var worldEmissionDirNative = worldEmissionDir.ToNative();
                 Native.spark_particle_emitter_emit_ring(InteropPtr.Component(Handle), &originNative, &worldEmissionDirNative, deltaTimeSeconds);
+        }
+    }
+
+    public int GetAliveParticleCount()
+    {
+        unsafe
+        {
+                return Native.spark_particle_emitter_get_alive_particle_count(InteropPtr.Component(Handle));
+        }
+    }
+
+    public float GetEndSize()
+    {
+        unsafe
+        {
+                return Native.spark_particle_emitter_get_end_size(InteropPtr.Component(Handle));
+        }
+    }
+
+    public float GetLifetimeMax()
+    {
+        unsafe
+        {
+                return Native.spark_particle_emitter_get_lifetime_max(InteropPtr.Component(Handle));
+        }
+    }
+
+    public float GetLifetimeMin()
+    {
+        unsafe
+        {
+                return Native.spark_particle_emitter_get_lifetime_min(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetMaxParticles()
+    {
+        unsafe
+        {
+                return Native.spark_particle_emitter_get_max_particles(InteropPtr.Component(Handle));
+        }
+    }
+
+    public float GetSpeedMax()
+    {
+        unsafe
+        {
+                return Native.spark_particle_emitter_get_speed_max(InteropPtr.Component(Handle));
+        }
+    }
+
+    public float GetSpeedMin()
+    {
+        unsafe
+        {
+                return Native.spark_particle_emitter_get_speed_min(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetSpriteLayerSortOrder()
+    {
+        unsafe
+        {
+                return Native.spark_particle_emitter_get_sprite_layer_sort_order(InteropPtr.Component(Handle));
+        }
+    }
+
+    public float GetStartSize()
+    {
+        unsafe
+        {
+                return Native.spark_particle_emitter_get_start_size(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int IsEmitterEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_particle_emitter_is_emitter_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetEmissionModuleId(string moduleId)
+    {
+        unsafe
+        {
+            InteropUtf8.WithUtf8(moduleId, ptr =>
+            {
+                Native.spark_particle_emitter_set_emission_module_id(InteropPtr.Component(Handle), (sbyte*)ptr);
+            });
+        }
+    }
+
+    public void SetEmitterEnabled(int e)
+    {
+        unsafe
+        {
+                Native.spark_particle_emitter_set_emitter_enabled(InteropPtr.Component(Handle), e);
+        }
+    }
+
+    public void SetLifetime(float minSec, float maxSec)
+    {
+        unsafe
+        {
+                Native.spark_particle_emitter_set_lifetime(InteropPtr.Component(Handle), minSec, maxSec);
+        }
+    }
+
+    public void SetRenderSpace(int space)
+    {
+        unsafe
+        {
+                Native.spark_particle_emitter_set_render_space(InteropPtr.Component(Handle), space);
+        }
+    }
+
+    public void SetSpeedRange(float minS, float maxS)
+    {
+        unsafe
+        {
+                Native.spark_particle_emitter_set_speed_range(InteropPtr.Component(Handle), minS, maxS);
+        }
+    }
+
+    public void SetSpriteLayerSortOrder(int order)
+    {
+        unsafe
+        {
+                Native.spark_particle_emitter_set_sprite_layer_sort_order(InteropPtr.Component(Handle), order);
+        }
+    }
+
+    public void SetStartEndSize(float start, float end)
+    {
+        unsafe
+        {
+                Native.spark_particle_emitter_set_start_end_size(InteropPtr.Component(Handle), start, end);
         }
     }
 }

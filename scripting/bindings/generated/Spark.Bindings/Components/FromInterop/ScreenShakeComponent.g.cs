@@ -26,6 +26,14 @@ public sealed partial class ScreenShakeComponent : GameComponentHandle
         }
     }
 
+    public void Clear()
+    {
+        unsafe
+        {
+                Native.spark_screen_shake_clear(InteropPtr.Component(Handle));
+        }
+    }
+
     public Vector2 Offset
     {
         get
@@ -47,20 +55,13 @@ public sealed partial class ScreenShakeComponent : GameComponentHandle
         }
     }
 
-    public void Clear()
+    public void Tick(float deltaSeconds, out Vector2 outTick)
     {
         unsafe
         {
-                Native.spark_screen_shake_clear(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void Tick(float deltaSeconds, in Vector2 outTick)
-    {
-        unsafe
-        {
-            var outTickNative = outTick.ToNative();
+            var outTickNative = default(SparkVector2);
                 Native.spark_screen_shake_tick(InteropPtr.Component(Handle), deltaSeconds, &outTickNative);
+            outTick = Vector2.FromNative(outTickNative);
         }
     }
 }

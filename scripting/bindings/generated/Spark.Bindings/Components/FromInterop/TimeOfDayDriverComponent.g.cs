@@ -45,19 +45,19 @@ return Native.spark_time_of_day_driver_get_time_of_day(InteropPtr.Component(Hand
         }
     }
 
+    public int GetPriority()
+    {
+        unsafe
+        {
+                return Native.spark_time_of_day_driver_get_priority(InteropPtr.Component(Handle));
+        }
+    }
+
     public int IsEnabled()
     {
         unsafe
         {
                 return Native.spark_time_of_day_driver_is_enabled(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void SetEnabled(int e)
-    {
-        unsafe
-        {
-                Native.spark_time_of_day_driver_set_enabled(InteropPtr.Component(Handle), e);
         }
     }
 
@@ -69,19 +69,19 @@ return Native.spark_time_of_day_driver_get_time_of_day(InteropPtr.Component(Hand
         }
     }
 
+    public void SetEnabled(int e)
+    {
+        unsafe
+        {
+                Native.spark_time_of_day_driver_set_enabled(InteropPtr.Component(Handle), e);
+        }
+    }
+
     public void SetLooping(int l)
     {
         unsafe
         {
                 Native.spark_time_of_day_driver_set_looping(InteropPtr.Component(Handle), l);
-        }
-    }
-
-    public int GetPriority()
-    {
-        unsafe
-        {
-                return Native.spark_time_of_day_driver_get_priority(InteropPtr.Component(Handle));
         }
     }
 

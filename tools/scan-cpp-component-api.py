@@ -87,7 +87,7 @@ def main() -> int:
         "componentsWithPublicMethods": len(headers),
         "interopFunctionCount": len(interop_fns),
         "kindsWithoutInteropPrefix": [],
-        "notes": "Per-method coverage requires SPARK_SCRIPT_BIND + bindgen; kinds listed lack any spark_<prefix>_ symbol.",
+        "notes": "Per-method coverage requires component-script-catalog.json + bindgen; kinds listed lack any spark_<prefix>_ symbol.",
     }
     for kind, methods in sorted(headers.items()):
         prefix = pascal_to_prefix(kind)

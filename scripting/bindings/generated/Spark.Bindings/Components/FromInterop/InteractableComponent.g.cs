@@ -27,33 +27,11 @@ return Native.spark_interactable_get_interaction_radius(InteropPtr.Component(Han
         }
     }
 
-    public void SetPromptText(string text)
+    public int IsCanInteract(GameObject instigator)
     {
         unsafe
         {
-            InteropUtf8.WithUtf8(text, ptr =>
-            {
-                Native.spark_interactable_set_prompt_text(InteropPtr.Component(Handle), (sbyte*)ptr);
-            });
-        }
-    }
-
-    public void SetRequiredInstigatorTag(string tag)
-    {
-        unsafe
-        {
-            InteropUtf8.WithUtf8(tag, ptr =>
-            {
-                Native.spark_interactable_set_required_instigator_tag(InteropPtr.Component(Handle), (sbyte*)ptr);
-            });
-        }
-    }
-
-    public void SetEnabled(int value)
-    {
-        unsafe
-        {
-                Native.spark_interactable_set_enabled(InteropPtr.Component(Handle), value);
+                return Native.spark_interactable_is_can_interact(InteropPtr.Component(Handle), InteropPtr.Object(instigator.Handle));
         }
     }
 
@@ -73,11 +51,33 @@ return Native.spark_interactable_get_interaction_radius(InteropPtr.Component(Han
         }
     }
 
-    public int IsCanInteract(GameObject instigator)
+    public void SetEnabled(int value)
     {
         unsafe
         {
-                return Native.spark_interactable_is_can_interact(InteropPtr.Component(Handle), InteropPtr.Object(instigator.Handle));
+                Native.spark_interactable_set_enabled(InteropPtr.Component(Handle), value);
+        }
+    }
+
+    public void SetPromptText(string text)
+    {
+        unsafe
+        {
+            InteropUtf8.WithUtf8(text, ptr =>
+            {
+                Native.spark_interactable_set_prompt_text(InteropPtr.Component(Handle), (sbyte*)ptr);
+            });
+        }
+    }
+
+    public void SetRequiredInstigatorTag(string tag)
+    {
+        unsafe
+        {
+            InteropUtf8.WithUtf8(tag, ptr =>
+            {
+                Native.spark_interactable_set_required_instigator_tag(InteropPtr.Component(Handle), (sbyte*)ptr);
+            });
         }
     }
 }

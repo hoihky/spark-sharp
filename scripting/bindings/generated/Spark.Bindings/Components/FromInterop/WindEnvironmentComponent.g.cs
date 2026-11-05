@@ -9,6 +9,102 @@ public sealed partial class WindEnvironmentComponent : GameComponentHandle
     internal WindEnvironmentComponent(nint handle)
         : base(handle) { }
 
+    public float BaseSpeed
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_wind_environment_get_base_speed(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_wind_environment_set_base_speed(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float BaseSpeedMetersPerSecond
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_wind_environment_get_base_speed_meters_per_second(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_wind_environment_set_base_speed_meters_per_second(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public Vector3 Direction
+    {
+        get
+        {
+            unsafe
+            {
+                SparkVector3 v;
+                Native.spark_wind_environment_get_direction(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                var v = value.ToNative();
+                Native.spark_wind_environment_set_direction(InteropPtr.Component(Handle), &v);
+            }
+        }
+    }
+
+    public Vector3 DirectionWorld
+    {
+        get
+        {
+            unsafe
+            {
+                SparkVector3 v;
+                Native.spark_wind_environment_get_direction_world(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                var v = value.ToNative();
+                Native.spark_wind_environment_set_direction_world(InteropPtr.Component(Handle), &v);
+            }
+        }
+    }
+
+    public bool Enabled
+    {
+        get
+        {
+            unsafe
+            {
+                return Native.spark_wind_environment_get_enabled(InteropPtr.Component(Handle)) != 0;
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_wind_environment_set_enabled(InteropPtr.Component(Handle), value ? 1 : 0);
+            }
+        }
+    }
+
     public float GustAmplitude
     {
         get
@@ -23,6 +119,42 @@ return Native.spark_wind_environment_get_gust_amplitude(InteropPtr.Component(Han
             unsafe
             {
                 Native.spark_wind_environment_set_gust_amplitude(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float GustFrequency
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_wind_environment_get_gust_frequency(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_wind_environment_set_gust_frequency(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float GustFrequencyHertz
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_wind_environment_get_gust_frequency_hertz(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_wind_environment_set_gust_frequency_hertz(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -42,6 +174,22 @@ return Native.spark_wind_environment_get_turbulence(InteropPtr.Component(Handle)
             {
                 Native.spark_wind_environment_set_turbulence(InteropPtr.Component(Handle), value);
             }
+        }
+    }
+
+    public int IsWindEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_wind_environment_is_wind_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetWindEnabled(int value)
+    {
+        unsafe
+        {
+                Native.spark_wind_environment_set_wind_enabled(InteropPtr.Component(Handle), value);
         }
     }
 }

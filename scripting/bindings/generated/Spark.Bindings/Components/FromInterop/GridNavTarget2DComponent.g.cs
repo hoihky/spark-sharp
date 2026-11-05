@@ -27,19 +27,19 @@ return Native.spark_grid_nav_target2_d_get_snap_to_walkable_cell(InteropPtr.Comp
         }
     }
 
-    public void SetEnabled(int value)
-    {
-        unsafe
-        {
-                Native.spark_grid_nav_target2_d_set_enabled(InteropPtr.Component(Handle), value);
-        }
-    }
-
     public int IsEnabled()
     {
         unsafe
         {
                 return Native.spark_grid_nav_target2_d_is_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetEnabled(int value)
+    {
+        unsafe
+        {
+                Native.spark_grid_nav_target2_d_set_enabled(InteropPtr.Component(Handle), value);
         }
     }
 }

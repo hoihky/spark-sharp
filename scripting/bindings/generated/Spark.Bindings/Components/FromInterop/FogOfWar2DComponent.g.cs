@@ -27,14 +27,6 @@ return Native.spark_fog_of_war2_d_get_vision_radius_world(InteropPtr.Component(H
         }
     }
 
-    public void SetRevealTarget(GameObject target)
-    {
-        unsafe
-        {
-                Native.spark_fog_of_war2_d_set_reveal_target(InteropPtr.Component(Handle), InteropPtr.Object(target.Handle));
-        }
-    }
-
     public GameObject GetRevealTarget()
     {
         unsafe
@@ -49,6 +41,14 @@ return Native.spark_fog_of_war2_d_get_vision_radius_world(InteropPtr.Component(H
         unsafe
         {
                 Native.spark_fog_of_war2_d_rebuild_mask_texture(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetRevealTarget(GameObject target)
+    {
+        unsafe
+        {
+                Native.spark_fog_of_war2_d_set_reveal_target(InteropPtr.Component(Handle), InteropPtr.Object(target.Handle));
         }
     }
 }

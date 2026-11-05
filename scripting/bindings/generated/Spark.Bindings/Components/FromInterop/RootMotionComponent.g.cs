@@ -45,28 +45,12 @@ return Native.spark_root_motion_get_translation_mask(InteropPtr.Component(Handle
         }
     }
 
-    public void SetAnimatorObject(GameObject gameObject)
-    {
-        unsafe
-        {
-                Native.spark_root_motion_set_animator_object(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
-        }
-    }
-
     public GameObject GetAnimatorObject()
     {
         unsafe
         {
                 var raw = Native.spark_root_motion_get_animator_object(InteropPtr.Component(Handle));
                 return raw == null ? null! : new GameObject(InteropPtr.From(raw));
-        }
-    }
-
-    public void SetApplyTarget(GameObject gameObject)
-    {
-        unsafe
-        {
-                Native.spark_root_motion_set_apply_target(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
         }
     }
 
@@ -79,68 +63,12 @@ return Native.spark_root_motion_get_translation_mask(InteropPtr.Component(Handle
         }
     }
 
-    public void SetFacingObject(GameObject gameObject)
-    {
-        unsafe
-        {
-                Native.spark_root_motion_set_facing_object(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
-        }
-    }
-
     public GameObject GetFacingObject()
     {
         unsafe
         {
                 var raw = Native.spark_root_motion_get_facing_object(InteropPtr.Component(Handle));
                 return raw == null ? null! : new GameObject(InteropPtr.From(raw));
-        }
-    }
-
-    public void SetInPlace(int enabled)
-    {
-        unsafe
-        {
-                Native.spark_root_motion_set_in_place(InteropPtr.Component(Handle), enabled);
-        }
-    }
-
-    public int IsInPlace()
-    {
-        unsafe
-        {
-                return Native.spark_root_motion_is_in_place(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void SetEnabled(int enabled)
-    {
-        unsafe
-        {
-                Native.spark_root_motion_set_enabled(InteropPtr.Component(Handle), enabled);
-        }
-    }
-
-    public int IsEnabled()
-    {
-        unsafe
-        {
-                return Native.spark_root_motion_is_enabled(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void SetMotionJointIndex(uint jointIndex)
-    {
-        unsafe
-        {
-                Native.spark_root_motion_set_motion_joint_index(InteropPtr.Component(Handle), jointIndex);
-        }
-    }
-
-    public void UsePatternMotionJointResolver()
-    {
-        unsafe
-        {
-                Native.spark_root_motion_use_pattern_motion_joint_resolver(InteropPtr.Component(Handle));
         }
     }
 
@@ -167,6 +95,78 @@ return Native.spark_root_motion_get_translation_mask(InteropPtr.Component(Handle
                 Native.spark_root_motion_get_last_delta_world_space(InteropPtr.Component(Handle), &v);
                 return Vector3.FromNative(v);
             }
+        }
+    }
+
+    public int IsEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_root_motion_is_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int IsInPlace()
+    {
+        unsafe
+        {
+                return Native.spark_root_motion_is_in_place(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetAnimatorObject(GameObject gameObject)
+    {
+        unsafe
+        {
+                Native.spark_root_motion_set_animator_object(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
+        }
+    }
+
+    public void SetApplyTarget(GameObject gameObject)
+    {
+        unsafe
+        {
+                Native.spark_root_motion_set_apply_target(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
+        }
+    }
+
+    public void SetEnabled(int enabled)
+    {
+        unsafe
+        {
+                Native.spark_root_motion_set_enabled(InteropPtr.Component(Handle), enabled);
+        }
+    }
+
+    public void SetFacingObject(GameObject gameObject)
+    {
+        unsafe
+        {
+                Native.spark_root_motion_set_facing_object(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
+        }
+    }
+
+    public void SetInPlace(int enabled)
+    {
+        unsafe
+        {
+                Native.spark_root_motion_set_in_place(InteropPtr.Component(Handle), enabled);
+        }
+    }
+
+    public void SetMotionJointIndex(uint jointIndex)
+    {
+        unsafe
+        {
+                Native.spark_root_motion_set_motion_joint_index(InteropPtr.Component(Handle), jointIndex);
+        }
+    }
+
+    public void UsePatternMotionJointResolver()
+    {
+        unsafe
+        {
+                Native.spark_root_motion_use_pattern_motion_joint_resolver(InteropPtr.Component(Handle));
         }
     }
 }

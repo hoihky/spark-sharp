@@ -48,6 +48,24 @@ return Native.spark_grid_nav_agent2_d_get_goal_mode(InteropPtr.Component(Handle)
         }
     }
 
+    public int PathIndex
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_grid_nav_agent2_d_get_path_index(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_grid_nav_agent2_d_set_path_index(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
     public int RepathEveryFrame
     {
         get
@@ -102,62 +120,11 @@ return Native.spark_grid_nav_agent2_d_get_sync_to_ai_agent(InteropPtr.Component(
         }
     }
 
-    public int PathIndex
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_grid_nav_agent2_d_get_path_index(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_grid_nav_agent2_d_set_path_index(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
-    public void SetEnabled(int value)
+    public void ClearPath()
     {
         unsafe
         {
-                Native.spark_grid_nav_agent2_d_set_enabled(InteropPtr.Component(Handle), value);
-        }
-    }
-
-    public int IsEnabled()
-    {
-        unsafe
-        {
-                return Native.spark_grid_nav_agent2_d_is_enabled(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void SetGridSourceObject(GameObject gameObject)
-    {
-        unsafe
-        {
-                Native.spark_grid_nav_agent2_d_set_grid_source_object(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
-        }
-    }
-
-    public GameObject GetGridSourceObject()
-    {
-        unsafe
-        {
-                var raw = Native.spark_grid_nav_agent2_d_get_grid_source_object(InteropPtr.Component(Handle));
-                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
-        }
-    }
-
-    public void SetGoalTarget(GameObject gameObject)
-    {
-        unsafe
-        {
-                Native.spark_grid_nav_agent2_d_set_goal_target(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
+                Native.spark_grid_nav_agent2_d_clear_path(InteropPtr.Component(Handle));
         }
     }
 
@@ -170,19 +137,12 @@ return Native.spark_grid_nav_agent2_d_get_path_index(InteropPtr.Component(Handle
         }
     }
 
-    public void RequestRepath()
+    public GameObject GetGridSourceObject()
     {
         unsafe
         {
-                Native.spark_grid_nav_agent2_d_request_repath(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void ClearPath()
-    {
-        unsafe
-        {
-                Native.spark_grid_nav_agent2_d_clear_path(InteropPtr.Component(Handle));
+                var raw = Native.spark_grid_nav_agent2_d_get_grid_source_object(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 
@@ -191,6 +151,46 @@ return Native.spark_grid_nav_agent2_d_get_path_index(InteropPtr.Component(Handle
         unsafe
         {
                 return Native.spark_grid_nav_agent2_d_has_s_path(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int IsEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_grid_nav_agent2_d_is_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void RequestRepath()
+    {
+        unsafe
+        {
+                Native.spark_grid_nav_agent2_d_request_repath(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetEnabled(int value)
+    {
+        unsafe
+        {
+                Native.spark_grid_nav_agent2_d_set_enabled(InteropPtr.Component(Handle), value);
+        }
+    }
+
+    public void SetGoalTarget(GameObject gameObject)
+    {
+        unsafe
+        {
+                Native.spark_grid_nav_agent2_d_set_goal_target(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
+        }
+    }
+
+    public void SetGridSourceObject(GameObject gameObject)
+    {
+        unsafe
+        {
+                Native.spark_grid_nav_agent2_d_set_grid_source_object(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
         }
     }
 }

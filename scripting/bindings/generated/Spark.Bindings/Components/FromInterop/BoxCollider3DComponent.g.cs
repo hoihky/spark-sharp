@@ -30,6 +30,24 @@ public sealed partial class BoxCollider3DComponent : GameComponentHandle
         }
     }
 
+    public bool IsTrigger
+    {
+        get
+        {
+            unsafe
+            {
+                return Native.spark_box_collider3_d_get_is_trigger(InteropPtr.Component(Handle)) != 0;
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_box_collider3_d_set_is_trigger(InteropPtr.Component(Handle), value ? 1 : 0);
+            }
+        }
+    }
+
     public Vector3 Offset
     {
         get
@@ -47,24 +65,6 @@ public sealed partial class BoxCollider3DComponent : GameComponentHandle
             {
                 var v = value.ToNative();
                 Native.spark_box_collider3_d_set_offset(InteropPtr.Component(Handle), &v);
-            }
-        }
-    }
-
-    public bool IsTrigger
-    {
-        get
-        {
-            unsafe
-            {
-                return Native.spark_box_collider3_d_get_is_trigger(InteropPtr.Component(Handle)) != 0;
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_box_collider3_d_set_is_trigger(InteropPtr.Component(Handle), value ? 1 : 0);
             }
         }
     }

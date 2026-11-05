@@ -13,7 +13,7 @@ GENERATOR="${SHARP_ROOT}/scripting/bindings/generator/Spark.Bindings.Generator.c
 OUT="${SHARP_ROOT}/scripting/bindings/generated/Spark.Bindings"
 
 cd "${SHARP_ROOT}"
-python3 "${SHARP_ROOT}/tools/inject_spark_script_bind.py"
+python3 "${SHARP_ROOT}/tools/validate_component_script_catalog.py"
 python3 "${SHARP_ROOT}/tools/spark_script_bindgen.py"
 python3 "${SHARP_ROOT}/tools/generate_interop_manifest.py"
 dotnet tool restore >/dev/null

@@ -123,24 +123,6 @@ return Native.spark_rigidbody_3d_get_inverse_mass(InteropPtr.Component(Handle));
         }
     }
 
-    public float InverseInertiaTensorScale
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_rigidbody_3d_get_inverse_inertia_tensor_scale(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_rigidbody_3d_set_inverse_inertia_tensor_scale(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public int BodyType
     {
         get
@@ -173,6 +155,24 @@ return Native.spark_rigidbody_3d_get_gravity_scale(InteropPtr.Component(Handle))
             unsafe
             {
                 Native.spark_rigidbody_3d_set_gravity_scale(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float InverseInertiaTensorScale
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_rigidbody_3d_get_inverse_inertia_tensor_scale(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_rigidbody_3d_set_inverse_inertia_tensor_scale(InteropPtr.Component(Handle), value);
             }
         }
     }

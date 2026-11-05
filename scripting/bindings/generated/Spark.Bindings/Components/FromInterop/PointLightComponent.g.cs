@@ -74,19 +74,19 @@ return Native.spark_point_light_get_range(InteropPtr.Component(Handle));
         }
     }
 
-    public int IsEnabled()
-    {
-        unsafe
-        {
-                return Native.spark_point_light_is_enabled(InteropPtr.Component(Handle));
-        }
-    }
-
     public int IsCastsShadow()
     {
         unsafe
         {
                 return Native.spark_point_light_is_casts_shadow(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int IsEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_point_light_is_enabled(InteropPtr.Component(Handle));
         }
     }
 

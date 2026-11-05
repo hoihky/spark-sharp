@@ -9,14 +9,67 @@ public sealed partial class AnimationMeleeHitComponent : GameComponentHandle
     internal AnimationMeleeHitComponent(nint handle)
         : base(handle) { }
 
-    public void SetStartEventName(string name)
+    public void AddTarget(GameObject target)
     {
         unsafe
         {
-            InteropUtf8.WithUtf8(name, ptr =>
-            {
-                Native.spark_animation_melee_hit_set_start_event_name(InteropPtr.Component(Handle), (sbyte*)ptr);
-            });
+                Native.spark_animation_melee_hit_add_target(InteropPtr.Component(Handle), InteropPtr.Object(target.Handle));
+        }
+    }
+
+    public void ClearTargets()
+    {
+        unsafe
+        {
+                Native.spark_animation_melee_hit_clear_targets(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetHitsThisSwing()
+    {
+        unsafe
+        {
+                return Native.spark_animation_melee_hit_get_hits_this_swing(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetTotalHits()
+    {
+        unsafe
+        {
+                return Native.spark_animation_melee_hit_get_total_hits(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int IsHitWindowActive()
+    {
+        unsafe
+        {
+                return Native.spark_animation_melee_hit_is_hit_window_active(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int IsWorldHurtboxQueryEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_animation_melee_hit_is_world_hurtbox_query_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetApplyHurtReaction(int enabled)
+    {
+        unsafe
+        {
+                Native.spark_animation_melee_hit_set_apply_hurt_reaction(InteropPtr.Component(Handle), enabled);
+        }
+    }
+
+    public void SetDamagePerHit(float amount)
+    {
+        unsafe
+        {
+                Native.spark_animation_melee_hit_set_damage_per_hit(InteropPtr.Component(Handle), amount);
         }
     }
 
@@ -39,52 +92,11 @@ public sealed partial class AnimationMeleeHitComponent : GameComponentHandle
         }
     }
 
-    public void SetOriginLocalOffset(in Vector3 offset)
-    {
-        unsafe
-        {
-            var offsetNative = offset.ToNative();
-                Native.spark_animation_melee_hit_set_origin_local_offset(InteropPtr.Component(Handle), &offsetNative);
-        }
-    }
-
-    public void SetTraceDistance(float meters)
-    {
-        unsafe
-        {
-                Native.spark_animation_melee_hit_set_trace_distance(InteropPtr.Component(Handle), meters);
-        }
-    }
-
     public void SetHitRadius(float meters)
     {
         unsafe
         {
                 Native.spark_animation_melee_hit_set_hit_radius(InteropPtr.Component(Handle), meters);
-        }
-    }
-
-    public void SetDamagePerHit(float amount)
-    {
-        unsafe
-        {
-                Native.spark_animation_melee_hit_set_damage_per_hit(InteropPtr.Component(Handle), amount);
-        }
-    }
-
-    public void SetWorldHurtboxQueryEnabled(int enabled)
-    {
-        unsafe
-        {
-                Native.spark_animation_melee_hit_set_world_hurtbox_query_enabled(InteropPtr.Component(Handle), enabled);
-        }
-    }
-
-    public int IsWorldHurtboxQueryEnabled()
-    {
-        unsafe
-        {
-                return Native.spark_animation_melee_hit_is_world_hurtbox_query_enabled(InteropPtr.Component(Handle));
         }
     }
 
@@ -96,51 +108,39 @@ public sealed partial class AnimationMeleeHitComponent : GameComponentHandle
         }
     }
 
-    public void SetApplyHurtReaction(int enabled)
+    public void SetOriginLocalOffset(in Vector3 offset)
     {
         unsafe
         {
-                Native.spark_animation_melee_hit_set_apply_hurt_reaction(InteropPtr.Component(Handle), enabled);
+            var offsetNative = offset.ToNative();
+                Native.spark_animation_melee_hit_set_origin_local_offset(InteropPtr.Component(Handle), &offsetNative);
         }
     }
 
-    public void ClearTargets()
+    public void SetStartEventName(string name)
     {
         unsafe
         {
-                Native.spark_animation_melee_hit_clear_targets(InteropPtr.Component(Handle));
+            InteropUtf8.WithUtf8(name, ptr =>
+            {
+                Native.spark_animation_melee_hit_set_start_event_name(InteropPtr.Component(Handle), (sbyte*)ptr);
+            });
         }
     }
 
-    public void AddTarget(GameObject target)
+    public void SetTraceDistance(float meters)
     {
         unsafe
         {
-                Native.spark_animation_melee_hit_add_target(InteropPtr.Component(Handle), InteropPtr.Object(target.Handle));
+                Native.spark_animation_melee_hit_set_trace_distance(InteropPtr.Component(Handle), meters);
         }
     }
 
-    public int IsHitWindowActive()
+    public void SetWorldHurtboxQueryEnabled(int enabled)
     {
         unsafe
         {
-                return Native.spark_animation_melee_hit_is_hit_window_active(InteropPtr.Component(Handle));
-        }
-    }
-
-    public int GetHitsThisSwing()
-    {
-        unsafe
-        {
-                return Native.spark_animation_melee_hit_get_hits_this_swing(InteropPtr.Component(Handle));
-        }
-    }
-
-    public int GetTotalHits()
-    {
-        unsafe
-        {
-                return Native.spark_animation_melee_hit_get_total_hits(InteropPtr.Component(Handle));
+                Native.spark_animation_melee_hit_set_world_hurtbox_query_enabled(InteropPtr.Component(Handle), enabled);
         }
     }
 }

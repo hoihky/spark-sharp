@@ -9,24 +9,6 @@ public sealed partial class TriggerVolume2DComponent : GameComponentHandle
     internal TriggerVolume2DComponent(nint handle)
         : base(handle) { }
 
-    public int Shape
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_trigger_volume2_d_get_shape(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_trigger_volume2_d_set_shape(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public Vector2 HalfExtents
     {
         get
@@ -44,24 +26,6 @@ return Native.spark_trigger_volume2_d_get_shape(InteropPtr.Component(Handle));
             {
                 var v = value.ToNative();
                 Native.spark_trigger_volume2_d_set_half_extents(InteropPtr.Component(Handle), &v);
-            }
-        }
-    }
-
-    public float Radius
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_trigger_volume2_d_get_radius(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_trigger_volume2_d_set_radius(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -87,14 +51,39 @@ return Native.spark_trigger_volume2_d_get_radius(InteropPtr.Component(Handle));
         }
     }
 
-    public void SetFilterTag(string tag)
+    public float Radius
     {
-        unsafe
+        get
         {
-            InteropUtf8.WithUtf8(tag, ptr =>
+            unsafe
             {
-                Native.spark_trigger_volume2_d_set_filter_tag(InteropPtr.Component(Handle), (sbyte*)ptr);
-            });
+return Native.spark_trigger_volume2_d_get_radius(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_trigger_volume2_d_set_radius(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public int Shape
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_trigger_volume2_d_get_shape(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_trigger_volume2_d_set_shape(InteropPtr.Component(Handle), value);
+            }
         }
     }
 
@@ -103,6 +92,17 @@ return Native.spark_trigger_volume2_d_get_radius(InteropPtr.Component(Handle));
         unsafe
         {
                 return Native.spark_trigger_volume2_d_is_overlapping(InteropPtr.Component(Handle), InteropPtr.Object(other.Handle));
+        }
+    }
+
+    public void SetFilterTag(string tag)
+    {
+        unsafe
+        {
+            InteropUtf8.WithUtf8(tag, ptr =>
+            {
+                Native.spark_trigger_volume2_d_set_filter_tag(InteropPtr.Component(Handle), (sbyte*)ptr);
+            });
         }
     }
 }

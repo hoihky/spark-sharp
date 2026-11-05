@@ -9,20 +9,20 @@ public sealed partial class TilemapMapSourceComponent : GameComponentHandle
     internal TilemapMapSourceComponent(nint handle)
         : base(handle) { }
 
-    public float PixelsPerWorldUnit
+    public int HotReload
     {
         get
         {
             unsafe
             {
-return Native.spark_tilemap_map_source_get_pixels_per_world_unit(InteropPtr.Component(Handle));
+return Native.spark_tilemap_map_source_get_hot_reload(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_tilemap_map_source_set_pixels_per_world_unit(InteropPtr.Component(Handle), value);
+                Native.spark_tilemap_map_source_set_hot_reload(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -45,32 +45,21 @@ return Native.spark_tilemap_map_source_get_import_on_attach(InteropPtr.Component
         }
     }
 
-    public int HotReload
+    public float PixelsPerWorldUnit
     {
         get
         {
             unsafe
             {
-return Native.spark_tilemap_map_source_get_hot_reload(InteropPtr.Component(Handle));
+return Native.spark_tilemap_map_source_get_pixels_per_world_unit(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_tilemap_map_source_set_hot_reload(InteropPtr.Component(Handle), value);
+                Native.spark_tilemap_map_source_set_pixels_per_world_unit(InteropPtr.Component(Handle), value);
             }
-        }
-    }
-
-    public void SetTmxPath(string path)
-    {
-        unsafe
-        {
-            InteropUtf8.WithUtf8(path, ptr =>
-            {
-                Native.spark_tilemap_map_source_set_tmx_path(InteropPtr.Component(Handle), (sbyte*)ptr);
-            });
         }
     }
 
@@ -81,6 +70,17 @@ return Native.spark_tilemap_map_source_get_hot_reload(InteropPtr.Component(Handl
             InteropUtf8.WithUtf8(path, ptr =>
             {
                 Native.spark_tilemap_map_source_set_spark_map_path(InteropPtr.Component(Handle), (sbyte*)ptr);
+            });
+        }
+    }
+
+    public void SetTmxPath(string path)
+    {
+        unsafe
+        {
+            InteropUtf8.WithUtf8(path, ptr =>
+            {
+                Native.spark_tilemap_map_source_set_tmx_path(InteropPtr.Component(Handle), (sbyte*)ptr);
             });
         }
     }

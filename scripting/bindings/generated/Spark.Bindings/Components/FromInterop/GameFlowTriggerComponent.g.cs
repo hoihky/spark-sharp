@@ -63,6 +63,15 @@ return Native.spark_game_flow_trigger_get_watch_state(InteropPtr.Component(Handl
         }
     }
 
+    public GameObject GetStateOwner()
+    {
+        unsafe
+        {
+                var raw = Native.spark_game_flow_trigger_get_state_owner(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
+        }
+    }
+
     public void SetInstigatorNameFilter(string filter)
     {
         unsafe
@@ -79,15 +88,6 @@ return Native.spark_game_flow_trigger_get_watch_state(InteropPtr.Component(Handl
         unsafe
         {
                 Native.spark_game_flow_trigger_set_state_owner(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle));
-        }
-    }
-
-    public GameObject GetStateOwner()
-    {
-        unsafe
-        {
-                var raw = Native.spark_game_flow_trigger_get_state_owner(InteropPtr.Component(Handle));
-                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 }

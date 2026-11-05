@@ -29,6 +29,8 @@ compile_commands.json
 
 # OS / secrets
 .DS_Store
+__pycache__/
+*.py[cod]
 .env
 .env.*
 !.env.example

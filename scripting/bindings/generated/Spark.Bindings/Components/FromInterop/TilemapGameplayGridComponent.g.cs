@@ -27,19 +27,19 @@ return Native.spark_tilemap_gameplay_grid_get_auto_rebake(InteropPtr.Component(H
         }
     }
 
-    public void RequestRebake()
-    {
-        unsafe
-        {
-                Native.spark_tilemap_gameplay_grid_request_rebake(InteropPtr.Component(Handle));
-        }
-    }
-
     public void RebakeIfNeeded(GameObject owner)
     {
         unsafe
         {
                 Native.spark_tilemap_gameplay_grid_rebake_if_needed(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle));
+        }
+    }
+
+    public void RequestRebake()
+    {
+        unsafe
+        {
+                Native.spark_tilemap_gameplay_grid_request_rebake(InteropPtr.Component(Handle));
         }
     }
 }

@@ -9,24 +9,6 @@ public sealed partial class CollisionComponent : GameComponentHandle
     internal CollisionComponent(nint handle)
         : base(handle) { }
 
-    public float Radius
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_collision_get_radius(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_collision_set_radius(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public Vector3 LocalCenter
     {
         get
@@ -44,6 +26,24 @@ return Native.spark_collision_get_radius(InteropPtr.Component(Handle));
             {
                 var v = value.ToNative();
                 Native.spark_collision_set_local_center(InteropPtr.Component(Handle), &v);
+            }
+        }
+    }
+
+    public float Radius
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_collision_get_radius(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_collision_set_radius(InteropPtr.Component(Handle), value);
             }
         }
     }

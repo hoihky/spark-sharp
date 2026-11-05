@@ -17,19 +17,11 @@ public sealed partial class MultiMaterialComponent : GameComponentHandle
         }
     }
 
-    public void ResizeSlots(int count)
+    public void CycleActiveVariant()
     {
         unsafe
         {
-                Native.spark_multi_material_resize_slots(InteropPtr.Component(Handle), count);
-        }
-    }
-
-    public int IsSlotHasMaterialAsset(int index)
-    {
-        unsafe
-        {
-                return Native.spark_multi_material_is_slot_has_material_asset(InteropPtr.Component(Handle), index);
+                Native.spark_multi_material_cycle_active_variant(InteropPtr.Component(Handle));
         }
     }
 
@@ -49,19 +41,27 @@ public sealed partial class MultiMaterialComponent : GameComponentHandle
         }
     }
 
+    public int IsSlotHasMaterialAsset(int index)
+    {
+        unsafe
+        {
+                return Native.spark_multi_material_is_slot_has_material_asset(InteropPtr.Component(Handle), index);
+        }
+    }
+
+    public void ResizeSlots(int count)
+    {
+        unsafe
+        {
+                Native.spark_multi_material_resize_slots(InteropPtr.Component(Handle), count);
+        }
+    }
+
     public void SetActiveVariantIndex(uint index)
     {
         unsafe
         {
                 Native.spark_multi_material_set_active_variant_index(InteropPtr.Component(Handle), index);
-        }
-    }
-
-    public void CycleActiveVariant()
-    {
-        unsafe
-        {
-                Native.spark_multi_material_cycle_active_variant(InteropPtr.Component(Handle));
         }
     }
 }

@@ -11,7 +11,7 @@ This repository owns:
 - **Spark.Scripting** — managed game bootstrap (`scripting/Spark.Scripting/`)
 - **Tools** — bindgen and C# codegen (`tools/`)
 
-The engine repo keeps only `include/spark/scripting/SparkScriptBind.hpp` (annotation macros for codegen).
+Codegen reads **`component-script-catalog.json`** and component headers from **SPARK_ENGINE_ROOT** (`include/spark/ecs/components`).
 
 ## Prerequisites
 
@@ -56,14 +56,14 @@ Or manually:
 
 ## Regenerate C# API
 
-After changing `SPARK_SCRIPT_BIND` markers or `SparkInterop.h`:
+After changing **`component-script-catalog.json`**, engine component headers, or `SparkInterop.h`:
 
 ```bash
 export SPARK_ENGINE_ROOT=/path/to/spark
 ./tools/generate-csharp-bindings.sh
 ```
 
-Codegen reads component headers from **SPARK_ENGINE_ROOT** (`include/spark/ecs/components`).
+See **`scripting/bindings/COMPONENT_SCRIPT_CATALOG.md`** and **`docs/PATHS_AND_PRIVACY.md`** before pushing.
 
 ## Debugging C# (HelloCsGame)
 

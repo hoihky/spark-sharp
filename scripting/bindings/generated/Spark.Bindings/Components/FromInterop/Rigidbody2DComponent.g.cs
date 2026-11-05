@@ -74,6 +74,14 @@ return Native.spark_rigidbody_2d_get_gravity_scale(InteropPtr.Component(Handle))
         }
     }
 
+    public void SetGrounded(int g)
+    {
+        unsafe
+        {
+                Native.spark_rigidbody_2d_set_grounded(InteropPtr.Component(Handle), g);
+        }
+    }
+
     public void SetVelocityX(float x)
     {
         unsafe
@@ -87,14 +95,6 @@ return Native.spark_rigidbody_2d_get_gravity_scale(InteropPtr.Component(Handle))
         unsafe
         {
                 Native.spark_rigidbody_2d_set_velocity_y(InteropPtr.Component(Handle), y);
-        }
-    }
-
-    public void SetGrounded(int g)
-    {
-        unsafe
-        {
-                Native.spark_rigidbody_2d_set_grounded(InteropPtr.Component(Handle), g);
         }
     }
 }

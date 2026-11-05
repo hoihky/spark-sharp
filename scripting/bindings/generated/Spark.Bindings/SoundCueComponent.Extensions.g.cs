@@ -6,14 +6,10 @@ namespace Spark.Bindings.Components;
 public sealed partial class SoundCueComponent
 {
     public void QueuePreset(ProceduralSoundPreset preset, float volume = 1f)
-        => QueuePreset((int)preset, volume);
-
-    public void QueueAtWorldPreset(
-        ProceduralSoundPreset preset,
-        float volume,
-        in Vector3 worldPosition,
-        float spatialBlend,
-        float minDistance,
-        float maxDistance)
-        => QueueAtWorldPreset((int)preset, volume, worldPosition, spatialBlend, minDistance, maxDistance);
+    {
+        unsafe
+        {
+            Native.spark_sound_cue_queue_preset(InteropPtr.Component(Handle), (int)preset, volume);
+        }
+    }
 }

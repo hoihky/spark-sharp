@@ -9,20 +9,20 @@ public sealed partial class CapsuleCollider3DComponent : GameComponentHandle
     internal CapsuleCollider3DComponent(nint handle)
         : base(handle) { }
 
-    public float Radius
+    public int Direction
     {
         get
         {
             unsafe
             {
-return Native.spark_capsule_collider3_d_get_radius(InteropPtr.Component(Handle));
+return Native.spark_capsule_collider3_d_get_direction(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_capsule_collider3_d_set_radius(InteropPtr.Component(Handle), value);
+                Native.spark_capsule_collider3_d_set_direction(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -45,20 +45,20 @@ return Native.spark_capsule_collider3_d_get_height(InteropPtr.Component(Handle))
         }
     }
 
-    public int Direction
+    public bool IsTrigger
     {
         get
         {
             unsafe
             {
-return Native.spark_capsule_collider3_d_get_direction(InteropPtr.Component(Handle));
+                return Native.spark_capsule_collider3_d_get_is_trigger(InteropPtr.Component(Handle)) != 0;
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_capsule_collider3_d_set_direction(InteropPtr.Component(Handle), value);
+                Native.spark_capsule_collider3_d_set_is_trigger(InteropPtr.Component(Handle), value ? 1 : 0);
             }
         }
     }
@@ -84,20 +84,20 @@ return Native.spark_capsule_collider3_d_get_direction(InteropPtr.Component(Handl
         }
     }
 
-    public bool IsTrigger
+    public float Radius
     {
         get
         {
             unsafe
             {
-                return Native.spark_capsule_collider3_d_get_is_trigger(InteropPtr.Component(Handle)) != 0;
+return Native.spark_capsule_collider3_d_get_radius(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_capsule_collider3_d_set_is_trigger(InteropPtr.Component(Handle), value ? 1 : 0);
+                Native.spark_capsule_collider3_d_set_radius(InteropPtr.Component(Handle), value);
             }
         }
     }

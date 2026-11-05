@@ -9,20 +9,41 @@ public sealed partial class Hurtbox2DComponent : GameComponentHandle
     internal Hurtbox2DComponent(nint handle)
         : base(handle) { }
 
-    public int Shape
+    public Vector2 HalfExtents
     {
         get
         {
             unsafe
             {
-return Native.spark_hurtbox2_d_get_shape(InteropPtr.Component(Handle));
+                SparkVector2 v;
+                Native.spark_hurtbox2_d_get_half_extents(InteropPtr.Component(Handle), &v);
+                return Vector2.FromNative(v);
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_hurtbox2_d_set_shape(InteropPtr.Component(Handle), value);
+                var v = value.ToNative();
+                Native.spark_hurtbox2_d_set_half_extents(InteropPtr.Component(Handle), &v);
+            }
+        }
+    }
+
+    public float InvulnerabilitySeconds
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_hurtbox2_d_get_invulnerability_seconds(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_hurtbox2_d_set_invulnerability_seconds(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -66,50 +87,21 @@ return Native.spark_hurtbox2_d_get_radius(InteropPtr.Component(Handle));
         }
     }
 
-    public Vector2 HalfExtents
+    public int Shape
     {
         get
         {
             unsafe
             {
-                SparkVector2 v;
-                Native.spark_hurtbox2_d_get_half_extents(InteropPtr.Component(Handle), &v);
-                return Vector2.FromNative(v);
+return Native.spark_hurtbox2_d_get_shape(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                var v = value.ToNative();
-                Native.spark_hurtbox2_d_set_half_extents(InteropPtr.Component(Handle), &v);
+                Native.spark_hurtbox2_d_set_shape(InteropPtr.Component(Handle), value);
             }
-        }
-    }
-
-    public float InvulnerabilitySeconds
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_hurtbox2_d_get_invulnerability_seconds(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_hurtbox2_d_set_invulnerability_seconds(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
-    public void SetEnabled(int value)
-    {
-        unsafe
-        {
-                Native.spark_hurtbox2_d_set_enabled(InteropPtr.Component(Handle), value);
         }
     }
 
@@ -118,22 +110,6 @@ return Native.spark_hurtbox2_d_get_invulnerability_seconds(InteropPtr.Component(
         unsafe
         {
                 return Native.spark_hurtbox2_d_is_enabled(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void SetCategoryBits(int bits)
-    {
-        unsafe
-        {
-                Native.spark_hurtbox2_d_set_category_bits(InteropPtr.Component(Handle), bits);
-        }
-    }
-
-    public void SetMaskBits(int bits)
-    {
-        unsafe
-        {
-                Native.spark_hurtbox2_d_set_mask_bits(InteropPtr.Component(Handle), bits);
         }
     }
 
@@ -150,6 +126,30 @@ return Native.spark_hurtbox2_d_get_invulnerability_seconds(InteropPtr.Component(
         unsafe
         {
                 Native.spark_hurtbox2_d_notify_damage_received(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetCategoryBits(int bits)
+    {
+        unsafe
+        {
+                Native.spark_hurtbox2_d_set_category_bits(InteropPtr.Component(Handle), bits);
+        }
+    }
+
+    public void SetEnabled(int value)
+    {
+        unsafe
+        {
+                Native.spark_hurtbox2_d_set_enabled(InteropPtr.Component(Handle), value);
+        }
+    }
+
+    public void SetMaskBits(int bits)
+    {
+        unsafe
+        {
+                Native.spark_hurtbox2_d_set_mask_bits(InteropPtr.Component(Handle), bits);
         }
     }
 }

@@ -35,19 +35,16 @@ return Native.spark_tilemap_get_tile_world_size(InteropPtr.Component(Handle));
         }
     }
 
-    public int GetMapWidth()
+    public int GetAddLayer(string name)
     {
         unsafe
         {
-                return Native.spark_tilemap_get_map_width(InteropPtr.Component(Handle));
-        }
-    }
-
-    public int GetMapHeight()
-    {
-        unsafe
-        {
-                return Native.spark_tilemap_get_map_height(InteropPtr.Component(Handle));
+            int result = default;
+            InteropUtf8.WithUtf8(name, ptr =>
+            {
+                result = Native.spark_tilemap_get_add_layer(InteropPtr.Component(Handle), (sbyte*)ptr);
+            });
+            return result;
         }
     }
 
@@ -67,40 +64,27 @@ return Native.spark_tilemap_get_tile_world_size(InteropPtr.Component(Handle));
         }
     }
 
+    public int GetMapHeight()
+    {
+        unsafe
+        {
+                return Native.spark_tilemap_get_map_height(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetMapWidth()
+    {
+        unsafe
+        {
+                return Native.spark_tilemap_get_map_width(InteropPtr.Component(Handle));
+        }
+    }
+
     public int GetSortOrderBase()
     {
         unsafe
         {
                 return Native.spark_tilemap_get_sort_order_base(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void SetSortOrderBase(int order)
-    {
-        unsafe
-        {
-                Native.spark_tilemap_set_sort_order_base(InteropPtr.Component(Handle), order);
-        }
-    }
-
-    public void Resize(uint mapW, uint mapH)
-    {
-        unsafe
-        {
-                Native.spark_tilemap_resize(InteropPtr.Component(Handle), mapW, mapH);
-        }
-    }
-
-    public int GetAddLayer(string name)
-    {
-        unsafe
-        {
-            int result = default;
-            InteropUtf8.WithUtf8(name, ptr =>
-            {
-                result = Native.spark_tilemap_get_add_layer(InteropPtr.Component(Handle), (sbyte*)ptr);
-            });
-            return result;
         }
     }
 
@@ -112,11 +96,27 @@ return Native.spark_tilemap_get_tile_world_size(InteropPtr.Component(Handle));
         }
     }
 
+    public void Resize(uint mapW, uint mapH)
+    {
+        unsafe
+        {
+                Native.spark_tilemap_resize(InteropPtr.Component(Handle), mapW, mapH);
+        }
+    }
+
     public void SetPaintTile(uint x, uint y, int paintTileId)
     {
         unsafe
         {
                 Native.spark_tilemap_set_paint_tile(InteropPtr.Component(Handle), x, y, paintTileId);
+        }
+    }
+
+    public void SetSortOrderBase(int order)
+    {
+        unsafe
+        {
+                Native.spark_tilemap_set_sort_order_base(InteropPtr.Component(Handle), order);
         }
     }
 }

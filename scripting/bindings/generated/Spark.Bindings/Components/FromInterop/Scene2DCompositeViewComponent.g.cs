@@ -27,19 +27,19 @@ return Native.spark_scene2_d_composite_view_get_feature(InteropPtr.Component(Han
         }
     }
 
-    public void SetEnabled(int value)
-    {
-        unsafe
-        {
-                Native.spark_scene2_d_composite_view_set_enabled(InteropPtr.Component(Handle), value);
-        }
-    }
-
     public int IsEnabled()
     {
         unsafe
         {
                 return Native.spark_scene2_d_composite_view_is_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetEnabled(int value)
+    {
+        unsafe
+        {
+                Native.spark_scene2_d_composite_view_set_enabled(InteropPtr.Component(Handle), value);
         }
     }
 }

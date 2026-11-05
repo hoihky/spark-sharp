@@ -9,27 +9,6 @@ public sealed partial class CameraFollow3DComponent : GameComponentHandle
     internal CameraFollow3DComponent(nint handle)
         : base(handle) { }
 
-    public Vector3 TargetOffset
-    {
-        get
-        {
-            unsafe
-            {
-                SparkVector3 v;
-                Native.spark_camera_follow3_d_get_target_offset(InteropPtr.Component(Handle), &v);
-                return Vector3.FromNative(v);
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                var v = value.ToNative();
-                Native.spark_camera_follow3_d_set_target_offset(InteropPtr.Component(Handle), &v);
-            }
-        }
-    }
-
     public float FollowSmoothRate
     {
         get
@@ -62,6 +41,27 @@ return Native.spark_camera_follow3_d_get_look_at_target(InteropPtr.Component(Han
             unsafe
             {
                 Native.spark_camera_follow3_d_set_look_at_target(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public Vector3 TargetOffset
+    {
+        get
+        {
+            unsafe
+            {
+                SparkVector3 v;
+                Native.spark_camera_follow3_d_get_target_offset(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                var v = value.ToNative();
+                Native.spark_camera_follow3_d_set_target_offset(InteropPtr.Component(Handle), &v);
             }
         }
     }

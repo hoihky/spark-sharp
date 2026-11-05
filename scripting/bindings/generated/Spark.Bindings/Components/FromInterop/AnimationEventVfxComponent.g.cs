@@ -30,14 +30,6 @@ public sealed partial class AnimationEventVfxComponent : GameComponentHandle
         }
     }
 
-    public void ClearBindings()
-    {
-        unsafe
-        {
-                Native.spark_animation_event_vfx_clear_bindings(InteropPtr.Component(Handle));
-        }
-    }
-
     public void AddBinding(string eventName, string vfxAssetKey)
     {
         unsafe
@@ -46,6 +38,14 @@ public sealed partial class AnimationEventVfxComponent : GameComponentHandle
             {
                 Native.spark_animation_event_vfx_add_binding(InteropPtr.Component(Handle), (sbyte*)ptr, (sbyte*)0 /* string vfxAssetKey */);
             });
+        }
+    }
+
+    public void ClearBindings()
+    {
+        unsafe
+        {
+                Native.spark_animation_event_vfx_clear_bindings(InteropPtr.Component(Handle));
         }
     }
 }

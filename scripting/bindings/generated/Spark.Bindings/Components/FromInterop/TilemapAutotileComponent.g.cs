@@ -27,6 +27,14 @@ return Native.spark_tilemap_autotile_get_rebuild_on_update(InteropPtr.Component(
         }
     }
 
+    public void ClearRebuildRequest()
+    {
+        unsafe
+        {
+                Native.spark_tilemap_autotile_clear_rebuild_request(InteropPtr.Component(Handle));
+        }
+    }
+
     public int GetLayerIndex()
     {
         unsafe
@@ -40,14 +48,6 @@ return Native.spark_tilemap_autotile_get_rebuild_on_update(InteropPtr.Component(
         unsafe
         {
                 Native.spark_tilemap_autotile_request_rebuild(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void ClearRebuildRequest()
-    {
-        unsafe
-        {
-                Native.spark_tilemap_autotile_clear_rebuild_request(InteropPtr.Component(Handle));
         }
     }
 }

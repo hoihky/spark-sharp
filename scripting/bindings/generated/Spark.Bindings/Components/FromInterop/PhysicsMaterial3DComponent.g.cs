@@ -9,24 +9,6 @@ public sealed partial class PhysicsMaterial3DComponent : GameComponentHandle
     internal PhysicsMaterial3DComponent(nint handle)
         : base(handle) { }
 
-    public float StaticFriction
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_physics_material3_d_get_static_friction(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_physics_material3_d_set_static_friction(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public float DynamicFriction
     {
         get
@@ -59,6 +41,24 @@ return Native.spark_physics_material3_d_get_restitution(InteropPtr.Component(Han
             unsafe
             {
                 Native.spark_physics_material3_d_set_restitution(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float StaticFriction
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_physics_material3_d_get_static_friction(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_physics_material3_d_set_static_friction(InteropPtr.Component(Handle), value);
             }
         }
     }

@@ -9,6 +9,24 @@ public sealed partial class MeshCollider3DComponent : GameComponentHandle
     internal MeshCollider3DComponent(nint handle)
         : base(handle) { }
 
+    public bool IsTrigger
+    {
+        get
+        {
+            unsafe
+            {
+                return Native.spark_mesh_collider3_d_get_is_trigger(InteropPtr.Component(Handle)) != 0;
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_mesh_collider3_d_set_is_trigger(InteropPtr.Component(Handle), value ? 1 : 0);
+            }
+        }
+    }
+
     public Vector3 LocalOffset
     {
         get
@@ -26,24 +44,6 @@ public sealed partial class MeshCollider3DComponent : GameComponentHandle
             {
                 var v = value.ToNative();
                 Native.spark_mesh_collider3_d_set_local_offset(InteropPtr.Component(Handle), &v);
-            }
-        }
-    }
-
-    public bool IsTrigger
-    {
-        get
-        {
-            unsafe
-            {
-                return Native.spark_mesh_collider3_d_get_is_trigger(InteropPtr.Component(Handle)) != 0;
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_mesh_collider3_d_set_is_trigger(InteropPtr.Component(Handle), value ? 1 : 0);
             }
         }
     }

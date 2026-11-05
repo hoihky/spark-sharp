@@ -118,19 +118,19 @@ return Native.spark_spot_light_get_outer_cone_degrees(InteropPtr.Component(Handl
         }
     }
 
-    public int IsEnabled()
-    {
-        unsafe
-        {
-                return Native.spark_spot_light_is_enabled(InteropPtr.Component(Handle));
-        }
-    }
-
     public int IsCastsShadow()
     {
         unsafe
         {
                 return Native.spark_spot_light_is_casts_shadow(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int IsEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_spot_light_is_enabled(InteropPtr.Component(Handle));
         }
     }
 

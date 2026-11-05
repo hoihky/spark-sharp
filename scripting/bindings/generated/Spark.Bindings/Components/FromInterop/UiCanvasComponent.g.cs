@@ -61,19 +61,11 @@ return Native.spark_ui_canvas_get_modal_input_capture(InteropPtr.Component(Handl
         }
     }
 
-    public void SetCanvasEnabled(int enabled)
+    public void ClearKeyboardFocus()
     {
         unsafe
         {
-                Native.spark_ui_canvas_set_canvas_enabled(InteropPtr.Component(Handle), enabled);
-        }
-    }
-
-    public int IsCanvasEnabled()
-    {
-        unsafe
-        {
-                return Native.spark_ui_canvas_is_canvas_enabled(InteropPtr.Component(Handle));
+                Native.spark_ui_canvas_clear_keyboard_focus(InteropPtr.Component(Handle));
         }
     }
 
@@ -85,11 +77,19 @@ return Native.spark_ui_canvas_get_modal_input_capture(InteropPtr.Component(Handl
         }
     }
 
-    public void ClearKeyboardFocus()
+    public int IsCanvasEnabled()
     {
         unsafe
         {
-                Native.spark_ui_canvas_clear_keyboard_focus(InteropPtr.Component(Handle));
+                return Native.spark_ui_canvas_is_canvas_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetCanvasEnabled(int enabled)
+    {
+        unsafe
+        {
+                Native.spark_ui_canvas_set_canvas_enabled(InteropPtr.Component(Handle), enabled);
         }
     }
 }

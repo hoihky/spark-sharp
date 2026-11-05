@@ -500,7 +500,9 @@ internal static class ComponentMirrorCodegen
             var parameters = _fn.Parameters.Skip(1).ToList();
             var paramDecl = string.Join(", ", parameters.Select(p => $"{MapParamType(p)} {ToCamelCase(p.Name)}"));
             var returnType = _fn.ReturnType == "void" ? "void" : MapReturnType(_fn.ReturnType);
-            if (_fn.ReturnType == "int" && methodName.StartsWith("Set", StringComparison.Ordinal))
+            if (_fn.ReturnType == "int"
+                && (methodName.StartsWith("Set", StringComparison.Ordinal)
+                    || methodName.StartsWith("Try", StringComparison.Ordinal)))
             {
                 returnType = "bool";
             }
@@ -581,6 +583,28 @@ internal static class ComponentMirrorCodegen
 
                 foreach (var p in parameters)
                 {
+                    if (IsOutputParam(p))
+                    {
+                        if (p.Type.Contains("SparkVector3", StringComparison.Ordinal))
+                        {
+                            sb.AppendLine($"            var {ToCamelCase(p.Name)}Native = default(SparkVector3);");
+                        }
+                        else if (p.Type.Contains("SparkVector2", StringComparison.Ordinal))
+                        {
+                            sb.AppendLine($"            var {ToCamelCase(p.Name)}Native = default(SparkVector2);");
+                        }
+                        else if (p.Type.Contains("SparkVector4", StringComparison.Ordinal))
+                        {
+                            sb.AppendLine($"            var {ToCamelCase(p.Name)}Native = default(SparkVector4);");
+                        }
+                        else if (p.Type.Contains("SparkQuaternion", StringComparison.Ordinal))
+                        {
+                            sb.AppendLine($"            var {ToCamelCase(p.Name)}Native = default(SparkQuaternion);");
+                        }
+
+                        continue;
+                    }
+
                     if (p.Type.Contains("SparkQuaternion", StringComparison.Ordinal))
                     {
                         sb.AppendLine($"            var {ToCamelCase(p.Name)}Native = {ToCamelCase(p.Name)};");
@@ -592,6 +616,25 @@ internal static class ComponentMirrorCodegen
                 }
 
                 EmitMethodCallBody(sb, ptr, parameters, null, null, needsBool);
+                foreach (var p in parameters.Where(IsOutputParam))
+                {
+                    if (p.Type.Contains("SparkVector3", StringComparison.Ordinal))
+                    {
+                        sb.AppendLine(
+                            $"            {ToCamelCase(p.Name)} = Vector3.FromNative({ToCamelCase(p.Name)}Native);");
+                    }
+                    else if (p.Type.Contains("SparkVector2", StringComparison.Ordinal))
+                    {
+                        sb.AppendLine(
+                            $"            {ToCamelCase(p.Name)} = Vector2.FromNative({ToCamelCase(p.Name)}Native);");
+                    }
+                    else if (p.Type.Contains("SparkVector4", StringComparison.Ordinal))
+                    {
+                        sb.AppendLine(
+                            $"            {ToCamelCase(p.Name)} = Vector4.FromNative({ToCamelCase(p.Name)}Native);");
+                    }
+                }
+
                 if (needsBool)
                 {
                     sb.AppendLine("            return result != 0;");
@@ -882,8 +925,34 @@ internal static class ComponentMirrorCodegen
         };
     }
 
+    private static bool IsOutputParam(InteropParameter p) =>
+        p.Name.StartsWith("out", StringComparison.OrdinalIgnoreCase) && p.Type.EndsWith("*", StringComparison.Ordinal);
+
     private static string MapParamType(InteropParameter p)
     {
+        if (IsOutputParam(p))
+        {
+            if (p.Type.Contains("SparkVector3", StringComparison.Ordinal))
+            {
+                return "out Vector3";
+            }
+
+            if (p.Type.Contains("SparkVector2", StringComparison.Ordinal))
+            {
+                return "out Vector2";
+            }
+
+            if (p.Type.Contains("SparkVector4", StringComparison.Ordinal))
+            {
+                return "out Vector4";
+            }
+
+            if (p.Type.Contains("SparkQuaternion", StringComparison.Ordinal))
+            {
+                return "out SparkQuaternion";
+            }
+        }
+
         if (p.Type.Contains("SparkGameWorld", StringComparison.Ordinal))
         {
             return "GameWorld";

@@ -56,22 +56,11 @@ return Native.spark_vfx_player_get_play_on_start_once(InteropPtr.Component(Handl
         }
     }
 
-    public void SetVfxAssetKey(string key)
+    public int GetPlaybackState()
     {
         unsafe
         {
-            InteropUtf8.WithUtf8(key, ptr =>
-            {
-                Native.spark_vfx_player_set_vfx_asset_key(InteropPtr.Component(Handle), (sbyte*)ptr);
-            });
-        }
-    }
-
-    public void SetPooledPlayback(int pooled)
-    {
-        unsafe
-        {
-                Native.spark_vfx_player_set_pooled_playback(InteropPtr.Component(Handle), pooled);
+                return Native.spark_vfx_player_get_playback_state(InteropPtr.Component(Handle));
         }
     }
 
@@ -83,11 +72,22 @@ return Native.spark_vfx_player_get_play_on_start_once(InteropPtr.Component(Handl
         }
     }
 
-    public int GetPlaybackState()
+    public void SetPooledPlayback(int pooled)
     {
         unsafe
         {
-                return Native.spark_vfx_player_get_playback_state(InteropPtr.Component(Handle));
+                Native.spark_vfx_player_set_pooled_playback(InteropPtr.Component(Handle), pooled);
+        }
+    }
+
+    public void SetVfxAssetKey(string key)
+    {
+        unsafe
+        {
+            InteropUtf8.WithUtf8(key, ptr =>
+            {
+                Native.spark_vfx_player_set_vfx_asset_key(InteropPtr.Component(Handle), (sbyte*)ptr);
+            });
         }
     }
 }

@@ -48,14 +48,6 @@ return Native.spark_directional_light_get_intensity(InteropPtr.Component(Handle)
         }
     }
 
-    public int IsEnabled()
-    {
-        unsafe
-        {
-                return Native.spark_directional_light_is_enabled(InteropPtr.Component(Handle));
-        }
-    }
-
     public int IsCastsShadow()
     {
         unsafe
@@ -64,11 +56,11 @@ return Native.spark_directional_light_get_intensity(InteropPtr.Component(Handle)
         }
     }
 
-    public void SetEnabled(int e)
+    public int IsEnabled()
     {
         unsafe
         {
-                Native.spark_directional_light_set_enabled(InteropPtr.Component(Handle), e);
+                return Native.spark_directional_light_is_enabled(InteropPtr.Component(Handle));
         }
     }
 
@@ -77,6 +69,14 @@ return Native.spark_directional_light_get_intensity(InteropPtr.Component(Handle)
         unsafe
         {
                 Native.spark_directional_light_set_casts_shadow(InteropPtr.Component(Handle), c);
+        }
+    }
+
+    public void SetEnabled(int e)
+    {
+        unsafe
+        {
+                Native.spark_directional_light_set_enabled(InteropPtr.Component(Handle), e);
         }
     }
 }

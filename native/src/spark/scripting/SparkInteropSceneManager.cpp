@@ -10,11 +10,11 @@
 
 namespace {
 
-struct SparkSceneManager {
+struct SparkSceneManagerImpl {
     Spark::GameWorld* world = nullptr;
-    Spark::SceneManager manager;
+    Spark::SceneManager sceneMgr;
 
-    explicit SparkSceneManager(Spark::GameWorld& inWorld) : world(&inWorld), manager(inWorld) {}
+    explicit SparkSceneManagerImpl(Spark::GameWorld& inWorld) : world(&inWorld), sceneMgr(inWorld) {}
 };
 
 Spark::SceneLoadOptions ToSceneLoadOptions(const SparkSceneLoadOptions* options) {
@@ -25,13 +25,13 @@ Spark::SceneLoadOptions ToSceneLoadOptions(const SparkSceneLoadOptions* options)
     out.assetsRoot = options->assetsRoot;
     out.additive = options->additive != 0;
     if (options->sceneNameUtf8 != nullptr) {
-        out.sceneName = options->sceneNameUtf8;
+        out.sceneName = Spark::Utf8String(options->sceneNameUtf8);
     }
     return out;
 }
 
-SparkSceneManager* AsManager(SparkSceneManager* manager) {
-    return manager;
+SparkSceneManagerImpl* AsManager(SparkSceneManager* manager) {
+    return reinterpret_cast<SparkSceneManagerImpl*>(manager);
 }
 
 }  // namespace
@@ -43,7 +43,7 @@ SparkSceneManager* spark_scene_manager_create(SparkGameWorld* world) {
         return nullptr;
     }
     auto* cppWorld = reinterpret_cast<Spark::GameWorld*>(world);
-    return new (std::nothrow) SparkSceneManager(*cppWorld);
+    return reinterpret_cast<SparkSceneManager*>(new (std::nothrow) SparkSceneManagerImpl(*cppWorld));
 }
 
 void spark_scene_manager_destroy(SparkSceneManager* manager) {
@@ -54,11 +54,11 @@ uint64_t spark_scene_manager_load_from_file(
         SparkSceneManager* manager,
         const char* path,
         const SparkSceneLoadOptions* options) {
-    SparkSceneManager* mgr = AsManager(manager);
+    SparkSceneManagerImpl* mgr = AsManager(manager);
     if (mgr == nullptr || path == nullptr) {
         return static_cast<uint64_t>(Spark::kInvalidSceneInstanceId);
     }
-    const Spark::SceneInstanceId id = mgr->manager.LoadSceneFromFile(path, ToSceneLoadOptions(options));
+    const Spark::SceneInstanceId id = mgr->sceneMgr.LoadSceneFromFile(path, ToSceneLoadOptions(options));
     return static_cast<uint64_t>(id);
 }
 
@@ -66,60 +66,60 @@ uint64_t spark_scene_manager_begin_load_async(
         SparkSceneManager* manager,
         const char* path,
         const SparkSceneLoadOptions* options) {
-    SparkSceneManager* mgr = AsManager(manager);
+    SparkSceneManagerImpl* mgr = AsManager(manager);
     if (mgr == nullptr || path == nullptr) {
         return static_cast<uint64_t>(Spark::kInvalidSceneInstanceId);
     }
-    const Spark::SceneInstanceId id = mgr->manager.BeginLoadSceneAsync(path, ToSceneLoadOptions(options));
+    const Spark::SceneInstanceId id = mgr->sceneMgr.BeginLoadSceneAsync(path, ToSceneLoadOptions(options));
     return static_cast<uint64_t>(id);
 }
 
 void spark_scene_manager_pump(SparkSceneManager* manager) {
-    SparkSceneManager* mgr = AsManager(manager);
+    SparkSceneManagerImpl* mgr = AsManager(manager);
     if (mgr == nullptr) {
         return;
     }
-    mgr->manager.Pump();
+    mgr->sceneMgr.Pump();
 }
 
 int spark_scene_manager_is_scene_ready(SparkSceneManager* manager, const uint64_t instanceId) {
-    SparkSceneManager* mgr = AsManager(manager);
+    SparkSceneManagerImpl* mgr = AsManager(manager);
     if (mgr == nullptr) {
         return 0;
     }
-    return mgr->manager.IsSceneReady(static_cast<Spark::SceneInstanceId>(instanceId)) ? 1 : 0;
+    return mgr->sceneMgr.IsSceneReady(static_cast<Spark::SceneInstanceId>(instanceId)) ? 1 : 0;
 }
 
 int spark_scene_manager_has_scene_failed(SparkSceneManager* manager, const uint64_t instanceId) {
-    SparkSceneManager* mgr = AsManager(manager);
+    SparkSceneManagerImpl* mgr = AsManager(manager);
     if (mgr == nullptr) {
         return 0;
     }
-    return mgr->manager.HasSceneFailed(static_cast<Spark::SceneInstanceId>(instanceId)) ? 1 : 0;
+    return mgr->sceneMgr.HasSceneFailed(static_cast<Spark::SceneInstanceId>(instanceId)) ? 1 : 0;
 }
 
 void spark_scene_manager_unload_scene(SparkSceneManager* manager, const uint64_t instanceId) {
-    SparkSceneManager* mgr = AsManager(manager);
+    SparkSceneManagerImpl* mgr = AsManager(manager);
     if (mgr == nullptr) {
         return;
     }
-    mgr->manager.UnloadScene(static_cast<Spark::SceneInstanceId>(instanceId));
+    mgr->sceneMgr.UnloadScene(static_cast<Spark::SceneInstanceId>(instanceId));
 }
 
 void spark_scene_manager_unload_all_scenes(SparkSceneManager* manager) {
-    SparkSceneManager* mgr = AsManager(manager);
+    SparkSceneManagerImpl* mgr = AsManager(manager);
     if (mgr == nullptr) {
         return;
     }
-    mgr->manager.UnloadAllScenes();
+    mgr->sceneMgr.UnloadAllScenes();
 }
 
 uint32_t spark_scene_manager_get_loaded_scene_count(SparkSceneManager* manager) {
-    SparkSceneManager* mgr = AsManager(manager);
+    SparkSceneManagerImpl* mgr = AsManager(manager);
     if (mgr == nullptr) {
         return 0;
     }
-    return static_cast<uint32_t>(mgr->manager.GetLoadedSceneCount());
+    return static_cast<uint32_t>(mgr->sceneMgr.GetLoadedSceneCount());
 }
 
 uint64_t spark_scene_manager_load_at_spawn_point(
@@ -128,7 +128,7 @@ uint64_t spark_scene_manager_load_at_spawn_point(
         const char* spawnPointName,
         SparkSceneSpawnPose* outSpawnPose,
         const SparkSceneLoadOptions* options) {
-    SparkSceneManager* mgr = AsManager(manager);
+    SparkSceneManagerImpl* mgr = AsManager(manager);
     if (mgr == nullptr || scenePath == nullptr) {
         if (outSpawnPose != nullptr) {
             *outSpawnPose = SparkSceneSpawnPose{};
@@ -136,7 +136,7 @@ uint64_t spark_scene_manager_load_at_spawn_point(
         return static_cast<uint64_t>(Spark::kInvalidSceneInstanceId);
     }
     Spark::SceneSpawnPose cppPose{};
-    const Spark::SceneInstanceId id = mgr->manager.LoadSceneAtSpawnPoint(
+    const Spark::SceneInstanceId id = mgr->sceneMgr.LoadSceneAtSpawnPoint(
             scenePath,
             spawnPointName,
             outSpawnPose != nullptr ? &cppPose : nullptr,
@@ -162,7 +162,7 @@ int spark_scene_manager_instantiate_prefab(
         SparkPrefabInstantiateResult* outResult,
         SparkGameObject** outRoots,
         const uint32_t outRootsCapacity) {
-    SparkSceneManager* mgr = AsManager(manager);
+    SparkSceneManagerImpl* mgr = AsManager(manager);
     if (mgr == nullptr || prefabPath == nullptr) {
         return 0;
     }
@@ -179,7 +179,7 @@ int spark_scene_manager_instantiate_prefab(
     opts.additive = additive != 0;
     opts.pumpUntilReady = pumpUntilReady != 0;
 
-    const Spark::PrefabInstantiateResult result = mgr->manager.InstantiatePrefab(prefabPath, opts);
+    const Spark::PrefabInstantiateResult result = mgr->sceneMgr.InstantiatePrefab(prefabPath, opts);
 
     if (outResult != nullptr) {
         outResult->instanceId = static_cast<uint64_t>(result.instanceId);

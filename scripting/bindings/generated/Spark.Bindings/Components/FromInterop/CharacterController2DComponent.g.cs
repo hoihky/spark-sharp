@@ -9,42 +9,6 @@ public sealed partial class CharacterController2DComponent : GameComponentHandle
     internal CharacterController2DComponent(nint handle)
         : base(handle) { }
 
-    public float MoveSpeed
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_character_controller2_d_get_move_speed(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_character_controller2_d_set_move_speed(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
-    public float JumpSpeed
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_character_controller2_d_get_jump_speed(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_character_controller2_d_set_jump_speed(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public float CoyoteTimeSeconds
     {
         get
@@ -59,6 +23,24 @@ return Native.spark_character_controller2_d_get_coyote_time_seconds(InteropPtr.C
             unsafe
             {
                 Native.spark_character_controller2_d_set_coyote_time_seconds(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public int DropThroughOneWay
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_character_controller2_d_get_drop_through_one_way(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_character_controller2_d_set_drop_through_one_way(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -81,20 +63,38 @@ return Native.spark_character_controller2_d_get_jump_buffer_seconds(InteropPtr.C
         }
     }
 
-    public float SkinWidth
+    public float JumpSpeed
     {
         get
         {
             unsafe
             {
-return Native.spark_character_controller2_d_get_skin_width(InteropPtr.Component(Handle));
+return Native.spark_character_controller2_d_get_jump_speed(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_character_controller2_d_set_skin_width(InteropPtr.Component(Handle), value);
+                Native.spark_character_controller2_d_set_jump_speed(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public int MotorMode
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_character_controller2_d_get_motor_mode(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_character_controller2_d_set_motor_mode(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -135,47 +135,39 @@ return Native.spark_character_controller2_d_get_move_input_y(InteropPtr.Componen
         }
     }
 
-    public int MotorMode
+    public float MoveSpeed
     {
         get
         {
             unsafe
             {
-return Native.spark_character_controller2_d_get_motor_mode(InteropPtr.Component(Handle));
+return Native.spark_character_controller2_d_get_move_speed(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_character_controller2_d_set_motor_mode(InteropPtr.Component(Handle), value);
+                Native.spark_character_controller2_d_set_move_speed(InteropPtr.Component(Handle), value);
             }
         }
     }
 
-    public int DropThroughOneWay
+    public float SkinWidth
     {
         get
         {
             unsafe
             {
-return Native.spark_character_controller2_d_get_drop_through_one_way(InteropPtr.Component(Handle));
+return Native.spark_character_controller2_d_get_skin_width(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_character_controller2_d_set_drop_through_one_way(InteropPtr.Component(Handle), value);
+                Native.spark_character_controller2_d_set_skin_width(InteropPtr.Component(Handle), value);
             }
-        }
-    }
-
-    public float GetSnapToGroundDistance()
-    {
-        unsafe
-        {
-                return Native.spark_character_controller2_d_get_snap_to_ground_distance(InteropPtr.Component(Handle));
         }
     }
 
@@ -187,11 +179,11 @@ return Native.spark_character_controller2_d_get_drop_through_one_way(InteropPtr.
         }
     }
 
-    public void RequestJump()
+    public float GetSnapToGroundDistance()
     {
         unsafe
         {
-                Native.spark_character_controller2_d_request_jump(InteropPtr.Component(Handle));
+                return Native.spark_character_controller2_d_get_snap_to_ground_distance(InteropPtr.Component(Handle));
         }
     }
 
@@ -208,6 +200,14 @@ return Native.spark_character_controller2_d_get_drop_through_one_way(InteropPtr.
         unsafe
         {
                 return Native.spark_character_controller2_d_is_was_grounded_last_frame(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void RequestJump()
+    {
+        unsafe
+        {
+                Native.spark_character_controller2_d_request_jump(InteropPtr.Component(Handle));
         }
     }
 }

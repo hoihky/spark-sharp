@@ -9,27 +9,6 @@ public sealed partial class SkeletonDebugDrawComponent : GameComponentHandle
     internal SkeletonDebugDrawComponent(nint handle)
         : base(handle) { }
 
-    public Vector3 LineColor
-    {
-        get
-        {
-            unsafe
-            {
-                SparkVector3 v;
-                Native.spark_skeleton_debug_draw_get_line_color(InteropPtr.Component(Handle), &v);
-                return Vector3.FromNative(v);
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                var v = value.ToNative();
-                Native.spark_skeleton_debug_draw_set_line_color(InteropPtr.Component(Handle), &v);
-            }
-        }
-    }
-
     public float BoneThickness
     {
         get
@@ -66,6 +45,27 @@ return Native.spark_skeleton_debug_draw_get_joint_marker_scale(InteropPtr.Compon
         }
     }
 
+    public Vector3 LineColor
+    {
+        get
+        {
+            unsafe
+            {
+                SparkVector3 v;
+                Native.spark_skeleton_debug_draw_get_line_color(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                var v = value.ToNative();
+                Native.spark_skeleton_debug_draw_set_line_color(InteropPtr.Component(Handle), &v);
+            }
+        }
+    }
+
     public GameObject GetSourceObject()
     {
         unsafe
@@ -83,19 +83,19 @@ return Native.spark_skeleton_debug_draw_get_joint_marker_scale(InteropPtr.Compon
         }
     }
 
-    public void SetSourceObject(GameObject gameObject)
-    {
-        unsafe
-        {
-                Native.spark_skeleton_debug_draw_set_source_object(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
-        }
-    }
-
     public void SetEnabled(int value)
     {
         unsafe
         {
                 Native.spark_skeleton_debug_draw_set_enabled(InteropPtr.Component(Handle), value);
+        }
+    }
+
+    public void SetSourceObject(GameObject gameObject)
+    {
+        unsafe
+        {
+                Native.spark_skeleton_debug_draw_set_source_object(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
         }
     }
 

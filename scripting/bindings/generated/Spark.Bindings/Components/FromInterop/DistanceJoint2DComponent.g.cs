@@ -9,24 +9,6 @@ public sealed partial class DistanceJoint2DComponent : GameComponentHandle
     internal DistanceJoint2DComponent(nint handle)
         : base(handle) { }
 
-    public float RestLength
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_distance_joint2_d_get_rest_length(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_distance_joint2_d_set_rest_length(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public Vector2 LocalAnchorA
     {
         get
@@ -65,6 +47,24 @@ return Native.spark_distance_joint2_d_get_rest_length(InteropPtr.Component(Handl
             {
                 var v = value.ToNative();
                 Native.spark_distance_joint2_d_set_local_anchor_b(InteropPtr.Component(Handle), &v);
+            }
+        }
+    }
+
+    public float RestLength
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_distance_joint2_d_get_rest_length(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_distance_joint2_d_set_rest_length(InteropPtr.Component(Handle), value);
             }
         }
     }

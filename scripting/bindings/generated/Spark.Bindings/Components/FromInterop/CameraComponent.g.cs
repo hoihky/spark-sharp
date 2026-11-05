@@ -9,20 +9,20 @@ public sealed partial class CameraComponent : GameComponentHandle
     internal CameraComponent(nint handle)
         : base(handle) { }
 
-    public int ProjectionMode
+    public float FarPlane
     {
         get
         {
             unsafe
             {
-return Native.spark_camera_get_projection_mode(InteropPtr.Component(Handle));
+return Native.spark_camera_get_far_plane(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_camera_set_projection_mode(InteropPtr.Component(Handle), value);
+                Native.spark_camera_set_far_plane(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -63,24 +63,6 @@ return Native.spark_camera_get_near_plane(InteropPtr.Component(Handle));
         }
     }
 
-    public float FarPlane
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_camera_get_far_plane(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_camera_set_far_plane(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public float OrthoHalfHeight
     {
         get
@@ -95,6 +77,24 @@ return Native.spark_camera_get_ortho_half_height(InteropPtr.Component(Handle));
             unsafe
             {
                 Native.spark_camera_set_ortho_half_height(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public int ProjectionMode
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_camera_get_projection_mode(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_camera_set_projection_mode(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -115,14 +115,6 @@ return Native.spark_camera_get_ortho_half_height(InteropPtr.Component(Handle));
         }
     }
 
-    public void SetPriority(int p)
-    {
-        unsafe
-        {
-                Native.spark_camera_set_priority(InteropPtr.Component(Handle), p);
-        }
-    }
-
     public void SetEnabled(int e)
     {
         unsafe
@@ -131,12 +123,21 @@ return Native.spark_camera_get_ortho_half_height(InteropPtr.Component(Handle));
         }
     }
 
-    public void WorldPosition(GameObject owner, in Vector3 outWorldPosition)
+    public void SetPriority(int p)
     {
         unsafe
         {
-            var outWorldPositionNative = outWorldPosition.ToNative();
+                Native.spark_camera_set_priority(InteropPtr.Component(Handle), p);
+        }
+    }
+
+    public void WorldPosition(GameObject owner, out Vector3 outWorldPosition)
+    {
+        unsafe
+        {
+            var outWorldPositionNative = default(SparkVector3);
                 Native.spark_camera_world_position(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle), &outWorldPositionNative);
+            outWorldPosition = Vector3.FromNative(outWorldPositionNative);
         }
     }
 }

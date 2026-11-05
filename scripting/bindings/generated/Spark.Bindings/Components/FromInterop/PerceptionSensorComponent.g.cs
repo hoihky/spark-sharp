@@ -9,24 +9,6 @@ public sealed partial class PerceptionSensorComponent : GameComponentHandle
     internal PerceptionSensorComponent(nint handle)
         : base(handle) { }
 
-    public float SightRadius
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_perception_sensor_get_sight_radius(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_perception_sensor_set_sight_radius(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public float HearingRadius
     {
         get
@@ -63,6 +45,32 @@ return Native.spark_perception_sensor_get_sight_fov_degrees(InteropPtr.Component
         }
     }
 
+    public float SightRadius
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_perception_sensor_get_sight_radius(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_perception_sensor_set_sight_radius(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public void ClearDetected()
+    {
+        unsafe
+        {
+                Native.spark_perception_sensor_clear_detected(InteropPtr.Component(Handle));
+        }
+    }
+
     public int IsEnabled()
     {
         unsafe
@@ -84,14 +92,6 @@ return Native.spark_perception_sensor_get_sight_fov_degrees(InteropPtr.Component
         unsafe
         {
                 Native.spark_perception_sensor_set_target_category_mask(InteropPtr.Component(Handle), m);
-        }
-    }
-
-    public void ClearDetected()
-    {
-        unsafe
-        {
-                Native.spark_perception_sensor_clear_detected(InteropPtr.Component(Handle));
         }
     }
 }

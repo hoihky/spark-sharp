@@ -9,20 +9,23 @@ public sealed partial class CharacterController3DComponent : GameComponentHandle
     internal CharacterController3DComponent(nint handle)
         : base(handle) { }
 
-    public float Radius
+    public Vector3 MoveInput
     {
         get
         {
             unsafe
             {
-return Native.spark_character_controller3_d_get_radius(InteropPtr.Component(Handle));
+                SparkVector3 v;
+                Native.spark_character_controller3_d_get_move_input(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_character_controller3_d_set_radius(InteropPtr.Component(Handle), value);
+                var v = value.ToNative();
+                Native.spark_character_controller3_d_set_move_input(InteropPtr.Component(Handle), &v);
             }
         }
     }
@@ -48,20 +51,38 @@ return Native.spark_character_controller3_d_get_radius(InteropPtr.Component(Hand
         }
     }
 
-    public float StepOffset
+    public float GravityScale
     {
         get
         {
             unsafe
             {
-return Native.spark_character_controller3_d_get_step_offset(InteropPtr.Component(Handle));
+return Native.spark_character_controller3_d_get_gravity_scale(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_character_controller3_d_set_step_offset(InteropPtr.Component(Handle), value);
+                Native.spark_character_controller3_d_set_gravity_scale(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float Radius
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_character_controller3_d_get_radius(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_character_controller3_d_set_radius(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -84,20 +105,20 @@ return Native.spark_character_controller3_d_get_skin_width(InteropPtr.Component(
         }
     }
 
-    public float GravityScale
+    public float StepOffset
     {
         get
         {
             unsafe
             {
-return Native.spark_character_controller3_d_get_gravity_scale(InteropPtr.Component(Handle));
+return Native.spark_character_controller3_d_get_step_offset(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_character_controller3_d_set_gravity_scale(InteropPtr.Component(Handle), value);
+                Native.spark_character_controller3_d_set_step_offset(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -107,19 +128,6 @@ return Native.spark_character_controller3_d_get_gravity_scale(InteropPtr.Compone
         unsafe
         {
                 return Native.spark_character_controller3_d_get_slope_limit_degrees(InteropPtr.Component(Handle));
-        }
-    }
-
-    public Vector3 MoveInput
-    {
-        get
-        {
-            unsafe
-            {
-                SparkVector3 v;
-                Native.spark_character_controller3_d_get_move_input(InteropPtr.Component(Handle), &v);
-                return Vector3.FromNative(v);
-            }
         }
     }
 

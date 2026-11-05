@@ -5,13 +5,6 @@ using System.Runtime.InteropServices;
 
 namespace Spark.Bindings;
 
-[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-public unsafe delegate void SparkSignalScriptCallbackFn(
-    void* userData,
-    SparkGameObject* owner,
-    SignalId id,
-    SparkSignalPayload* payload);
-
 internal static unsafe class SignalCallbackRegistry
 {
     private static readonly Dictionary<nint, SignalListenerCallback> Callbacks = new();
@@ -33,7 +26,7 @@ internal static unsafe class SignalCallbackRegistry
     private static void OnNativeCallback(
         void* userData,
         SparkGameObject* owner,
-        SignalId id,
+        SparkSignalId id,
         SparkSignalPayload* payload)
     {
         var listenerHandle = (nint)userData;
@@ -48,12 +41,12 @@ internal static unsafe class SignalCallbackRegistry
         {
             received = new SignalReceivedPayload
             {
-                RawPointer = (nint)payload->Ptr,
-                A = payload->A,
-                B = payload->B,
+                RawPointer = (nint)payload->ptr,
+                A = payload->a,
+                B = payload->b,
             };
         }
 
-        callback(ownerObj, id, in received);
+        callback(ownerObj, (SignalId)(uint)id, in received);
     }
 }

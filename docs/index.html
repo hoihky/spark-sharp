@@ -311,7 +311,8 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
               a stable <strong>C interop</strong> layer (<code>SparkInterop</code>), generated
               <strong>Spark.Bindings</strong>, the <strong>Spark.Scripting</strong> bootstrap, and an optional
               <strong>CoreCLR</strong> host (<code>SparkScriptHost</code>) that loads your game as a .NET 8 class library.
-              The C++ engine keeps only <code>SparkScriptBind.hpp</code> annotation macros; everything else lives here.
+              The C++ engine implements components; scriptable surface is declared in
+              <code>scripting/bindings/component-script-catalog.json</code> (spark-sharp). Interop, bindings, and host live here.
             </p>
             <div class="hero-links">
               <a href="https://github.com/hoihky/spark-sharp" target="_blank" rel="noopener">GitHub repository ↗</a>
@@ -336,8 +337,8 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
             <code>YourGame.dll</code> plus <code>runtimeconfig.json</code>, and the native
             <code>SparkScriptHost</code> loads CoreCLR via <strong>hostfxr</strong>, calls your
             <code>GameEntry.Initialize</code>, and registers <code>Spark.Scripting</code> callbacks that drive the same
-            <code>IGame</code> loop as C++ titles. Component APIs are mirrored from engine headers using
-            <code>SPARK_SCRIPT_BIND</code> and ClangSharp codegen.
+            <code>IGame</code> loop as C++ titles.             Component APIs are mirrored from the catalog + <code>SparkInterop.h</code> via ClangSharp and
+            <code>ComponentMirrorCodegen</code>.
           </p>
 
           <div class="pillar-grid">
@@ -403,7 +404,7 @@ flowchart LR
             </thead>
             <tbody>
               <tr><td><code>native/</code></td><td><code>SparkInterop</code> sources and public C ABI headers.</td></tr>
-              <tr><td><code>scripting/bindings/</code></td><td>Generator, config, generated <code>Spark.Bindings</code>.</td></tr>
+              <tr><td><code>scripting/bindings/</code></td><td>Catalog (<code>component-script-catalog.json</code>), generator, generated <code>Spark.Bindings</code>.</td></tr>
               <tr><td><code>scripting/Spark.Scripting/</code></td><td>Managed bootstrap and <code>SparkGame</code> helpers.</td></tr>
               <tr><td><code>scripting/samples/HelloCsGame/</code></td><td>Reference game DLL for <code>SparkScriptHost</code>.</td></tr>
               <tr><td><code>tools/</code></td><td>Bindgen, C# registry, <code>run-spark-script-host.sh</code>, CLion launcher.</td></tr>
@@ -428,13 +429,13 @@ flowchart LR
 
         <section id="codegen">
           <h2 class="section-title">Bindings pipeline</h2>
-          <p>Regenerate after changing <code>SPARK_SCRIPT_BIND</code> in engine headers or <code>SparkInterop.h</code> in this repo:</p>
+          <p>Regenerate after changing <code>component-script-catalog.json</code>, engine component headers, or <code>SparkInterop.h</code> in this repo:</p>
           <pre><code>export SPARK_ENGINE_ROOT=/path/to/spark
 ./tools/generate-csharp-bindings.sh</code></pre>
           <p>
-            Python bindgen reads component headers from <code>SPARK_ENGINE_ROOT</code>; ClangSharp emits
+            Python tools validate the catalog and emit C thunks; ClangSharp emits
             <code>Native.g.cs</code>; mirror codegen produces <code>Components/FromInterop/*.g.cs</code>.
-            See the Spark engine doc
+            See <code>scripting/bindings/COMPONENT_SCRIPT_CATALOG.md</code> and the Spark engine doc
             <a href="https://github.com/hoihky/spark/blob/main/docs/COMPONENT_SCRIPT_CODEGEN.md" target="_blank" rel="noopener">Component script codegen</a>
             for the full pipeline (paths refer to <strong>spark-sharp</strong> for tools and outputs).
           </p>

@@ -9,24 +9,6 @@ public sealed partial class PickupComponent : GameComponentHandle
     internal PickupComponent(nint handle)
         : base(handle) { }
 
-    public int Quantity
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_pickup_get_quantity(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_pickup_set_quantity(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public int AutoCollectOnTriggerEnter
     {
         get
@@ -63,14 +45,21 @@ return Native.spark_pickup_get_destroy_owner_on_collect(InteropPtr.Component(Han
         }
     }
 
-    public void SetItemId(string id)
+    public int Quantity
     {
-        unsafe
+        get
         {
-            InteropUtf8.WithUtf8(id, ptr =>
+            unsafe
             {
-                Native.spark_pickup_set_item_id(InteropPtr.Component(Handle), (sbyte*)ptr);
-            });
+return Native.spark_pickup_get_quantity(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_pickup_set_quantity(InteropPtr.Component(Handle), value);
+            }
         }
     }
 
@@ -79,6 +68,17 @@ return Native.spark_pickup_get_destroy_owner_on_collect(InteropPtr.Component(Han
         unsafe
         {
                 return Native.spark_pickup_is_collected(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetItemId(string id)
+    {
+        unsafe
+        {
+            InteropUtf8.WithUtf8(id, ptr =>
+            {
+                Native.spark_pickup_set_item_id(InteropPtr.Component(Handle), (sbyte*)ptr);
+            });
         }
     }
 }

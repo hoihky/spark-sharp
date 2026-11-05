@@ -9,19 +9,35 @@ public sealed partial class AnimationLayerStackComponent : GameComponentHandle
     internal AnimationLayerStackComponent(nint handle)
         : base(handle) { }
 
-    public void PlayOverlay(uint clipIndex, int loopMode)
-    {
-        unsafe
-        {
-                Native.spark_animation_layer_stack_play_overlay(InteropPtr.Component(Handle), clipIndex, loopMode);
-        }
-    }
-
     public void ClearOverlay()
     {
         unsafe
         {
                 Native.spark_animation_layer_stack_clear_overlay(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetOverlayClipIndex()
+    {
+        unsafe
+        {
+                return Native.spark_animation_layer_stack_get_overlay_clip_index(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetOverlayLoopMode()
+    {
+        unsafe
+        {
+                return Native.spark_animation_layer_stack_get_overlay_loop_mode(InteropPtr.Component(Handle));
+        }
+    }
+
+    public float GetOverlayTimeSeconds()
+    {
+        unsafe
+        {
+                return Native.spark_animation_layer_stack_get_overlay_time_seconds(InteropPtr.Component(Handle));
         }
     }
 
@@ -41,27 +57,11 @@ public sealed partial class AnimationLayerStackComponent : GameComponentHandle
         }
     }
 
-    public int GetOverlayClipIndex()
+    public void PlayOverlay(uint clipIndex, int loopMode)
     {
         unsafe
         {
-                return Native.spark_animation_layer_stack_get_overlay_clip_index(InteropPtr.Component(Handle));
-        }
-    }
-
-    public float GetOverlayTimeSeconds()
-    {
-        unsafe
-        {
-                return Native.spark_animation_layer_stack_get_overlay_time_seconds(InteropPtr.Component(Handle));
-        }
-    }
-
-    public int GetOverlayLoopMode()
-    {
-        unsafe
-        {
-                return Native.spark_animation_layer_stack_get_overlay_loop_mode(InteropPtr.Component(Handle));
+                Native.spark_animation_layer_stack_play_overlay(InteropPtr.Component(Handle), clipIndex, loopMode);
         }
     }
 }

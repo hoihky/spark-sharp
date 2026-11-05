@@ -9,6 +9,24 @@ public sealed partial class SpringJoint3DComponent : GameComponentHandle
     internal SpringJoint3DComponent(nint handle)
         : base(handle) { }
 
+    public float Damping
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_spring_joint3_d_get_damping(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_spring_joint3_d_set_damping(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
     public float RestLength
     {
         get
@@ -41,24 +59,6 @@ return Native.spark_spring_joint3_d_get_spring_stiffness(InteropPtr.Component(Ha
             unsafe
             {
                 Native.spark_spring_joint3_d_set_spring_stiffness(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
-    public float Damping
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_spring_joint3_d_get_damping(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_spring_joint3_d_set_damping(InteropPtr.Component(Handle), value);
             }
         }
     }

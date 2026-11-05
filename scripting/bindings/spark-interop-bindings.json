@@ -471,6 +471,11 @@
       "namespace": "Spark.Bindings.Components",
       "base": "GameComponentHandle"
     },
+    "scene_manager": {
+      "class": "SceneManagerComponent",
+      "namespace": "Spark.Bindings.Components",
+      "base": "GameComponentHandle"
+    },
     "scene_spatial_policy": {
       "class": "SceneSpatialPolicyComponent",
       "namespace": "Spark.Bindings.Components",
@@ -478,6 +483,11 @@
     },
     "screen_shake": {
       "class": "ScreenShakeComponent",
+      "namespace": "Spark.Bindings.Components",
+      "base": "GameComponentHandle"
+    },
+    "script_signal_listener": {
+      "class": "ScriptSignalListenerComponent",
       "namespace": "Spark.Bindings.Components",
       "base": "GameComponentHandle"
     },

@@ -27,24 +27,6 @@ return Native.spark_camera_2d_get_half_extent_y(InteropPtr.Component(Handle));
         }
     }
 
-    public float ClipNearZ
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_camera_2d_get_clip_near_z(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_camera_2d_set_clip_near_z(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public float ClipFarZ
     {
         get
@@ -59,6 +41,24 @@ return Native.spark_camera_2d_get_clip_far_z(InteropPtr.Component(Handle));
             unsafe
             {
                 Native.spark_camera_2d_set_clip_far_z(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float ClipNearZ
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_camera_2d_get_clip_near_z(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_camera_2d_set_clip_near_z(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -103,12 +103,13 @@ return Native.spark_camera_2d_get_clip_far_z(InteropPtr.Component(Handle));
         }
     }
 
-    public void WorldPosition(GameObject owner, in Vector3 outWorldPosition)
+    public void WorldPosition(GameObject owner, out Vector3 outWorldPosition)
     {
         unsafe
         {
-            var outWorldPositionNative = outWorldPosition.ToNative();
+            var outWorldPositionNative = default(SparkVector3);
                 Native.spark_camera_2d_world_position(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle), &outWorldPositionNative);
+            outWorldPosition = Vector3.FromNative(outWorldPositionNative);
         }
     }
 }

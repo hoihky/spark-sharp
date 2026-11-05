@@ -9,45 +9,6 @@ public sealed partial class PointLight2DComponent : GameComponentHandle
     internal PointLight2DComponent(nint handle)
         : base(handle) { }
 
-    public Vector2 LocalOffset
-    {
-        get
-        {
-            unsafe
-            {
-                SparkVector2 v;
-                Native.spark_point_light2_d_get_local_offset(InteropPtr.Component(Handle), &v);
-                return Vector2.FromNative(v);
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                var v = value.ToNative();
-                Native.spark_point_light2_d_set_local_offset(InteropPtr.Component(Handle), &v);
-            }
-        }
-    }
-
-    public float WorldZ
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_point_light2_d_get_world_z(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_point_light2_d_set_world_z(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public Vector3 Color
     {
         get
@@ -87,6 +48,27 @@ return Native.spark_point_light2_d_get_intensity(InteropPtr.Component(Handle));
         }
     }
 
+    public Vector2 LocalOffset
+    {
+        get
+        {
+            unsafe
+            {
+                SparkVector2 v;
+                Native.spark_point_light2_d_get_local_offset(InteropPtr.Component(Handle), &v);
+                return Vector2.FromNative(v);
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                var v = value.ToNative();
+                Native.spark_point_light2_d_set_local_offset(InteropPtr.Component(Handle), &v);
+            }
+        }
+    }
+
     public float Range
     {
         get
@@ -105,11 +87,53 @@ return Native.spark_point_light2_d_get_range(InteropPtr.Component(Handle));
         }
     }
 
+    public float WorldZ
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_point_light2_d_get_world_z(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_point_light2_d_set_world_z(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
     public float GetEffectiveIntensity()
     {
         unsafe
         {
                 return Native.spark_point_light2_d_get_effective_intensity(InteropPtr.Component(Handle));
+        }
+    }
+
+    public float GetFlickerAmount()
+    {
+        unsafe
+        {
+                return Native.spark_point_light2_d_get_flicker_amount(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetFlickerEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_point_light2_d_get_flicker_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
+    public float GetFlickerHz()
+    {
+        unsafe
+        {
+                return Native.spark_point_light2_d_get_flicker_hz(InteropPtr.Component(Handle));
         }
     }
 
@@ -134,30 +158,6 @@ return Native.spark_point_light2_d_get_range(InteropPtr.Component(Handle));
         unsafe
         {
                 Native.spark_point_light2_d_set_flicker(InteropPtr.Component(Handle), on, amount, frequencyHz);
-        }
-    }
-
-    public int GetFlickerEnabled()
-    {
-        unsafe
-        {
-                return Native.spark_point_light2_d_get_flicker_enabled(InteropPtr.Component(Handle));
-        }
-    }
-
-    public float GetFlickerAmount()
-    {
-        unsafe
-        {
-                return Native.spark_point_light2_d_get_flicker_amount(InteropPtr.Component(Handle));
-        }
-    }
-
-    public float GetFlickerHz()
-    {
-        unsafe
-        {
-                return Native.spark_point_light2_d_get_flicker_hz(InteropPtr.Component(Handle));
         }
     }
 }

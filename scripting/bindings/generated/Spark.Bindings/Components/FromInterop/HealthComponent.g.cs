@@ -9,24 +9,6 @@ public sealed partial class HealthComponent : GameComponentHandle
     internal HealthComponent(nint handle)
         : base(handle) { }
 
-    public float Maximum
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_health_get_maximum(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_health_set_maximum(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public float Current
     {
         get
@@ -45,6 +27,32 @@ return Native.spark_health_get_current(InteropPtr.Component(Handle));
         }
     }
 
+    public float Maximum
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_health_get_maximum(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_health_set_maximum(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float GetApplyDamage(float amount, GameObject instigator)
+    {
+        unsafe
+        {
+                return Native.spark_health_get_apply_damage(InteropPtr.Component(Handle), amount, InteropPtr.Object(instigator.Handle));
+        }
+    }
+
     public int IsAlive()
     {
         unsafe
@@ -58,14 +66,6 @@ return Native.spark_health_get_current(InteropPtr.Component(Handle));
         unsafe
         {
                 Native.spark_health_reset_to_full(InteropPtr.Component(Handle));
-        }
-    }
-
-    public float GetApplyDamage(float amount, GameObject instigator)
-    {
-        unsafe
-        {
-                return Native.spark_health_get_apply_damage(InteropPtr.Component(Handle), amount, InteropPtr.Object(instigator.Handle));
         }
     }
 }

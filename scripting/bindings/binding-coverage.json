@@ -1,30 +1,35 @@
 {
-  "componentsWithPublicMethods": 71,
-  "interopFunctionCount": 1260,
+  "componentsWithPublicMethods": 67,
+  "interopFunctionCount": 1349,
   "kindsWithoutInteropPrefix": [
     {
       "kind": "AnimationEventReceiver",
       "expectedPrefix": "animation_event_receiver",
-      "methodCount": 1,
+      "methodCount": 3,
       "sampleMethods": [
-        "SPARK_SCRIPT_BIND"
+        "AddMarker",
+        "ClearMarkers",
+        "ImportFromSkeleton"
       ]
     },
     {
       "kind": "Character3DAnimFsm",
       "expectedPrefix": "character3_d_anim_fsm",
-      "methodCount": 2,
+      "methodCount": 3,
       "sampleMethods": [
-        "SPARK_SCRIPT_BIND",
-        "SetLocomotionDriverMode"
+        "SetLocomotionDriverMode",
+        "SetUseUpperBodyAttackOverlay",
+        "SetWishFacingYawRadians"
       ]
     },
     {
       "kind": "Character3DBody",
       "expectedPrefix": "character3_d_body",
-      "methodCount": 1,
+      "methodCount": 3,
       "sampleMethods": [
-        "SPARK_SCRIPT_BIND"
+        "BeginSimulationFrame",
+        "SetArbitrationMode",
+        "WireRootMotion"
       ]
     },
     {
@@ -47,12 +52,13 @@
     {
       "kind": "ParallaxLayer",
       "expectedPrefix": "parallax_layer",
-      "methodCount": 5,
+      "methodCount": 6,
       "sampleMethods": [
-        "SPARK_SCRIPT_BIND",
+        "SetDrift",
         "SetDriftAmplitude",
         "SetDriftFrequencyHz",
         "SetDriftPhase",
+        "SetFactorXY",
         "SetFactorY"
       ]
     },

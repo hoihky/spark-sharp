@@ -9,20 +9,20 @@ public sealed partial class FootIkComponent : GameComponentHandle
     internal FootIkComponent(nint handle)
         : base(handle) { }
 
-    public float Weight
+    public float RayMaxDistance
     {
         get
         {
             unsafe
             {
-return Native.spark_foot_ik_get_weight(InteropPtr.Component(Handle));
+return Native.spark_foot_ik_get_ray_max_distance(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_foot_ik_set_weight(InteropPtr.Component(Handle), value);
+                Native.spark_foot_ik_set_ray_max_distance(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -45,20 +45,20 @@ return Native.spark_foot_ik_get_ray_origin_lift(InteropPtr.Component(Handle));
         }
     }
 
-    public float RayMaxDistance
+    public float Weight
     {
         get
         {
             unsafe
             {
-return Native.spark_foot_ik_get_ray_max_distance(InteropPtr.Component(Handle));
+return Native.spark_foot_ik_get_weight(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_foot_ik_set_ray_max_distance(InteropPtr.Component(Handle), value);
+                Native.spark_foot_ik_set_weight(InteropPtr.Component(Handle), value);
             }
         }
     }

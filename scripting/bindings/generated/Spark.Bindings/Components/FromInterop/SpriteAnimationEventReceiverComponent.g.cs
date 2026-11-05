@@ -9,14 +9,6 @@ public sealed partial class SpriteAnimationEventReceiverComponent : GameComponen
     internal SpriteAnimationEventReceiverComponent(nint handle)
         : base(handle) { }
 
-    public void ClearMarkers()
-    {
-        unsafe
-        {
-                Native.spark_sprite_animation_event_receiver_clear_markers(InteropPtr.Component(Handle));
-        }
-    }
-
     public void AddMarker(uint clipIndex, float normalizedTime, string eventName)
     {
         unsafe
@@ -25,6 +17,14 @@ public sealed partial class SpriteAnimationEventReceiverComponent : GameComponen
             {
                 Native.spark_sprite_animation_event_receiver_add_marker(InteropPtr.Component(Handle), clipIndex, normalizedTime, (sbyte*)ptr);
             });
+        }
+    }
+
+    public void ClearMarkers()
+    {
+        unsafe
+        {
+                Native.spark_sprite_animation_event_receiver_clear_markers(InteropPtr.Component(Handle));
         }
     }
 }

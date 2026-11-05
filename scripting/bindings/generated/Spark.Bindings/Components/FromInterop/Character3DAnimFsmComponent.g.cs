@@ -63,24 +63,6 @@ return Native.spark_char_3d_fsm_get_crossfade_duration(InteropPtr.Component(Hand
         }
     }
 
-    public int UseUpperBodyCombatOverlay
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_char_3d_fsm_get_use_upper_body_combat_overlay(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_char_3d_fsm_set_use_upper_body_combat_overlay(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public int UseUpperBodyAttackOverlay
     {
         get
@@ -95,6 +77,24 @@ return Native.spark_char_3d_fsm_get_use_upper_body_attack_overlay(InteropPtr.Com
             unsafe
             {
                 Native.spark_char_3d_fsm_set_use_upper_body_attack_overlay(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public int UseUpperBodyCombatOverlay
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_char_3d_fsm_get_use_upper_body_combat_overlay(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_char_3d_fsm_set_use_upper_body_combat_overlay(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -251,6 +251,78 @@ return Native.spark_char_3d_fsm_get_use_upper_body_attack_overlay(InteropPtr.Com
         }
     }
 
+    public int GetAttackClipIndex()
+    {
+        unsafe
+        {
+                return Native.spark_char_3d_fsm_get_attack_clip_index(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetDeathClipIndex()
+    {
+        unsafe
+        {
+                return Native.spark_char_3d_fsm_get_death_clip_index(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetHurtClipIndex()
+    {
+        unsafe
+        {
+                return Native.spark_char_3d_fsm_get_hurt_clip_index(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetIdleClipIndex()
+    {
+        unsafe
+        {
+                return Native.spark_char_3d_fsm_get_idle_clip_index(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetManualClipIndex()
+    {
+        unsafe
+        {
+                return Native.spark_char_3d_fsm_get_manual_clip_index(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetManualClipLoopMode()
+    {
+        unsafe
+        {
+                return Native.spark_char_3d_fsm_get_manual_clip_loop_mode(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetRunClipIndex()
+    {
+        unsafe
+        {
+                return Native.spark_char_3d_fsm_get_run_clip_index(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetStaggerClipIndex()
+    {
+        unsafe
+        {
+                return Native.spark_char_3d_fsm_get_stagger_clip_index(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetWalkClipIndex()
+    {
+        unsafe
+        {
+                return Native.spark_char_3d_fsm_get_walk_clip_index(InteropPtr.Component(Handle));
+        }
+    }
+
     public int IsLocomotionBlendEnabled()
     {
         unsafe
@@ -272,78 +344,6 @@ return Native.spark_char_3d_fsm_get_use_upper_body_attack_overlay(InteropPtr.Com
         unsafe
         {
                 return Native.spark_char_3d_fsm_is_manual_clip_active(InteropPtr.Component(Handle));
-        }
-    }
-
-    public int GetIdleClipIndex()
-    {
-        unsafe
-        {
-                return Native.spark_char_3d_fsm_get_idle_clip_index(InteropPtr.Component(Handle));
-        }
-    }
-
-    public int GetWalkClipIndex()
-    {
-        unsafe
-        {
-                return Native.spark_char_3d_fsm_get_walk_clip_index(InteropPtr.Component(Handle));
-        }
-    }
-
-    public int GetRunClipIndex()
-    {
-        unsafe
-        {
-                return Native.spark_char_3d_fsm_get_run_clip_index(InteropPtr.Component(Handle));
-        }
-    }
-
-    public int GetAttackClipIndex()
-    {
-        unsafe
-        {
-                return Native.spark_char_3d_fsm_get_attack_clip_index(InteropPtr.Component(Handle));
-        }
-    }
-
-    public int GetHurtClipIndex()
-    {
-        unsafe
-        {
-                return Native.spark_char_3d_fsm_get_hurt_clip_index(InteropPtr.Component(Handle));
-        }
-    }
-
-    public int GetStaggerClipIndex()
-    {
-        unsafe
-        {
-                return Native.spark_char_3d_fsm_get_stagger_clip_index(InteropPtr.Component(Handle));
-        }
-    }
-
-    public int GetDeathClipIndex()
-    {
-        unsafe
-        {
-                return Native.spark_char_3d_fsm_get_death_clip_index(InteropPtr.Component(Handle));
-        }
-    }
-
-    public int GetManualClipIndex()
-    {
-        unsafe
-        {
-                return Native.spark_char_3d_fsm_get_manual_clip_index(InteropPtr.Component(Handle));
-        }
-    }
-
-    public int GetManualClipLoopMode()
-    {
-        unsafe
-        {
-                return Native.spark_char_3d_fsm_get_manual_clip_loop_mode(InteropPtr.Component(Handle));
         }
     }
 

@@ -9,14 +9,6 @@ public sealed partial class Character3DVisualComponent : GameComponentHandle
     internal Character3DVisualComponent(nint handle)
         : base(handle) { }
 
-    public void SetBodyObject(GameObject gameObject)
-    {
-        unsafe
-        {
-                Native.spark_character_3d_visual_set_body_object(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
-        }
-    }
-
     public GameObject GetBodyObject()
     {
         unsafe
@@ -31,6 +23,14 @@ public sealed partial class Character3DVisualComponent : GameComponentHandle
         unsafe
         {
                 return Native.spark_character_3d_visual_is_validate_setup(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetBodyObject(GameObject gameObject)
+    {
+        unsafe
+        {
+                Native.spark_character_3d_visual_set_body_object(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
         }
     }
 }

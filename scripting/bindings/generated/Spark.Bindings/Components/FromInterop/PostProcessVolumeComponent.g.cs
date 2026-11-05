@@ -9,24 +9,6 @@ public sealed partial class PostProcessVolumeComponent : GameComponentHandle
     internal PostProcessVolumeComponent(nint handle)
         : base(handle) { }
 
-    public int Shape
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_post_process_volume_get_shape(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_post_process_volume_set_shape(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public Vector3 HalfExtents
     {
         get
@@ -48,6 +30,80 @@ return Native.spark_post_process_volume_get_shape(InteropPtr.Component(Handle));
         }
     }
 
+    public int Shape
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_post_process_volume_get_shape(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_post_process_volume_set_shape(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float GetAmbientScale()
+    {
+        unsafe
+        {
+                return Native.spark_post_process_volume_get_ambient_scale(InteropPtr.Component(Handle));
+        }
+    }
+
+    public float GetExposure()
+    {
+        unsafe
+        {
+                return Native.spark_post_process_volume_get_exposure(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetPriority()
+    {
+        unsafe
+        {
+                return Native.spark_post_process_volume_get_priority(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int GetSsaoEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_post_process_volume_get_ssao_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int HasSAmbientScaleOverride()
+    {
+        unsafe
+        {
+                return Native.spark_post_process_volume_has_s_ambient_scale_override(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int HasSExposureOverride()
+    {
+        unsafe
+        {
+                return Native.spark_post_process_volume_has_s_exposure_override(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int HasSSsaoOverride()
+    {
+        unsafe
+        {
+                return Native.spark_post_process_volume_has_s_ssao_override(InteropPtr.Component(Handle));
+        }
+    }
+
     public int IsEnabled()
     {
         unsafe
@@ -64,67 +120,11 @@ return Native.spark_post_process_volume_get_shape(InteropPtr.Component(Handle));
         }
     }
 
-    public int GetPriority()
-    {
-        unsafe
-        {
-                return Native.spark_post_process_volume_get_priority(InteropPtr.Component(Handle));
-        }
-    }
-
     public void SetPriority(int p)
     {
         unsafe
         {
                 Native.spark_post_process_volume_set_priority(InteropPtr.Component(Handle), p);
-        }
-    }
-
-    public int HasSSsaoOverride()
-    {
-        unsafe
-        {
-                return Native.spark_post_process_volume_has_s_ssao_override(InteropPtr.Component(Handle));
-        }
-    }
-
-    public int GetSsaoEnabled()
-    {
-        unsafe
-        {
-                return Native.spark_post_process_volume_get_ssao_enabled(InteropPtr.Component(Handle));
-        }
-    }
-
-    public int HasSExposureOverride()
-    {
-        unsafe
-        {
-                return Native.spark_post_process_volume_has_s_exposure_override(InteropPtr.Component(Handle));
-        }
-    }
-
-    public float GetExposure()
-    {
-        unsafe
-        {
-                return Native.spark_post_process_volume_get_exposure(InteropPtr.Component(Handle));
-        }
-    }
-
-    public int HasSAmbientScaleOverride()
-    {
-        unsafe
-        {
-                return Native.spark_post_process_volume_has_s_ambient_scale_override(InteropPtr.Component(Handle));
-        }
-    }
-
-    public float GetAmbientScale()
-    {
-        unsafe
-        {
-                return Native.spark_post_process_volume_get_ambient_scale(InteropPtr.Component(Handle));
         }
     }
 }

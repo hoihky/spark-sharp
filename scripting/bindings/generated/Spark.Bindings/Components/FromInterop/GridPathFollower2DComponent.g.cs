@@ -9,20 +9,20 @@ public sealed partial class GridPathFollower2DComponent : GameComponentHandle
     internal GridPathFollower2DComponent(nint handle)
         : base(handle) { }
 
-    public int Mode
+    public float ArriveRadius
     {
         get
         {
             unsafe
             {
-return Native.spark_grid_path_follower2_d_get_mode(InteropPtr.Component(Handle));
+return Native.spark_grid_path_follower2_d_get_arrive_radius(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_grid_path_follower2_d_set_mode(InteropPtr.Component(Handle), value);
+                Native.spark_grid_path_follower2_d_set_arrive_radius(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -45,20 +45,20 @@ return Native.spark_grid_path_follower2_d_get_max_speed(InteropPtr.Component(Han
         }
     }
 
-    public float ArriveRadius
+    public int Mode
     {
         get
         {
             unsafe
             {
-return Native.spark_grid_path_follower2_d_get_arrive_radius(InteropPtr.Component(Handle));
+return Native.spark_grid_path_follower2_d_get_mode(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_grid_path_follower2_d_set_arrive_radius(InteropPtr.Component(Handle), value);
+                Native.spark_grid_path_follower2_d_set_mode(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -81,19 +81,19 @@ return Native.spark_grid_path_follower2_d_get_stop_on_path_end(InteropPtr.Compon
         }
     }
 
-    public void SetEnabled(int value)
-    {
-        unsafe
-        {
-                Native.spark_grid_path_follower2_d_set_enabled(InteropPtr.Component(Handle), value);
-        }
-    }
-
     public int IsEnabled()
     {
         unsafe
         {
                 return Native.spark_grid_path_follower2_d_is_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetEnabled(int value)
+    {
+        unsafe
+        {
+                Native.spark_grid_path_follower2_d_set_enabled(InteropPtr.Component(Handle), value);
         }
     }
 }

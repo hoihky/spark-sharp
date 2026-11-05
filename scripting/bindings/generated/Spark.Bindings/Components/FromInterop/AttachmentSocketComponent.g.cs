@@ -75,15 +75,6 @@ public sealed partial class AttachmentSocketComponent : GameComponentHandle
         }
     }
 
-    public GameObject GetSourceObject()
-    {
-        unsafe
-        {
-                var raw = Native.spark_attachment_socket_get_source_object(InteropPtr.Component(Handle));
-                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
-        }
-    }
-
     public GameObject GetAttachedObject()
     {
         unsafe
@@ -98,6 +89,15 @@ public sealed partial class AttachmentSocketComponent : GameComponentHandle
         unsafe
         {
                 return Native.spark_attachment_socket_get_joint_index(InteropPtr.Component(Handle));
+        }
+    }
+
+    public GameObject GetSourceObject()
+    {
+        unsafe
+        {
+                var raw = Native.spark_attachment_socket_get_source_object(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 

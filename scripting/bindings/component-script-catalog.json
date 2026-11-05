@@ -1,0 +1,5227 @@
+{
+  "schemaVersion": 1,
+  "components": [
+    {
+      "class": "AiAgentComponent",
+      "prefix": "ai_agent",
+      "header": "spark/ecs/components/ai/AiAgentComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_goap_goal_mask",
+          "member": "GetGoapGoalMask"
+        },
+        {
+          "suffix": "get_goap_goal_value",
+          "member": "GetGoapGoalValue"
+        },
+        {
+          "suffix": "get_goap_world_bits",
+          "member": "GetGoapWorldBits"
+        },
+        {
+          "suffix": "get_max_speed",
+          "member": "GetMaxSpeed"
+        },
+        {
+          "suffix": "get_path_index",
+          "member": "GetPathIndex"
+        },
+        {
+          "suffix": "get_steering_plane",
+          "member": "GetSteeringPlane"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "is_fsm_enabled",
+          "member": "IsFsmEnabled"
+        },
+        {
+          "suffix": "is_fuzzy_enabled",
+          "member": "IsFuzzyEnabled"
+        },
+        {
+          "suffix": "is_goap_enabled",
+          "member": "IsGoapEnabled"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_fsm_enabled",
+          "member": "SetFsmEnabled"
+        },
+        {
+          "suffix": "set_fuzzy_enabled",
+          "member": "SetFuzzyEnabled"
+        },
+        {
+          "suffix": "set_goap_enabled",
+          "member": "SetGoapEnabled"
+        },
+        {
+          "suffix": "set_goap_world_bits",
+          "member": "SetGoapWorldBits"
+        },
+        {
+          "suffix": "set_max_speed",
+          "member": "SetMaxSpeed"
+        },
+        {
+          "suffix": "set_path_index",
+          "member": "SetPathIndex"
+        },
+        {
+          "suffix": "set_steering_plane",
+          "member": "SetSteeringPlane"
+        }
+      ]
+    },
+    {
+      "class": "AimIkComponent",
+      "prefix": "aim_ik",
+      "header": "spark/ecs/components/animation/AimIkComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_target_object",
+          "member": "GetTargetObject"
+        },
+        {
+          "suffix": "get_weight",
+          "member": "GetWeight"
+        },
+        {
+          "suffix": "get_world_target",
+          "member": "GetWorldTarget"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "is_uses_main_camera",
+          "member": "UsesMainCamera"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_target_object",
+          "member": "SetTargetObject"
+        },
+        {
+          "suffix": "set_use_main_camera",
+          "member": "SetUseMainCamera"
+        },
+        {
+          "suffix": "set_weight",
+          "member": "SetWeight"
+        },
+        {
+          "suffix": "set_world_target",
+          "member": "SetWorldTarget"
+        }
+      ]
+    },
+    {
+      "class": "AmbientZoneComponent",
+      "prefix": "ambient_zone",
+      "header": "spark/ecs/components/audio/AmbientZoneComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_half_extents",
+          "member": "GetHalfExtents"
+        },
+        {
+          "suffix": "get_low_pass_amount",
+          "member": "GetLowPassAmount"
+        },
+        {
+          "suffix": "get_priority",
+          "member": "GetPriority"
+        },
+        {
+          "suffix": "get_shape",
+          "member": "GetShape"
+        },
+        {
+          "suffix": "get_volume_scale",
+          "member": "GetVolumeScale"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_half_extents",
+          "member": "SetHalfExtents"
+        },
+        {
+          "suffix": "set_low_pass_amount",
+          "member": "SetLowPassAmount"
+        },
+        {
+          "suffix": "set_priority",
+          "member": "SetPriority"
+        },
+        {
+          "suffix": "set_shape",
+          "member": "SetShape"
+        },
+        {
+          "suffix": "set_volume_scale",
+          "member": "SetVolumeScale"
+        }
+      ]
+    },
+    {
+      "class": "AnimationEventReceiverComponent",
+      "prefix": "anim_event_receiver",
+      "header": "spark/ecs/components/animation/AnimationEventReceiverComponent.hpp",
+      "methods": [
+        {
+          "suffix": "add_marker",
+          "member": "AddMarker"
+        },
+        {
+          "suffix": "clear_markers",
+          "member": "ClearMarkers"
+        }
+      ]
+    },
+    {
+      "class": "AnimationEventVfxComponent",
+      "prefix": "animation_event_vfx",
+      "header": "spark/ecs/components/animation/AnimationEventVfxComponent.hpp",
+      "methods": [
+        {
+          "suffix": "add_binding",
+          "member": "AddBinding"
+        },
+        {
+          "suffix": "clear_bindings",
+          "member": "ClearBindings"
+        },
+        {
+          "suffix": "get_world_offset",
+          "member": "GetWorldOffset"
+        },
+        {
+          "suffix": "set_world_offset",
+          "member": "SetWorldOffset"
+        }
+      ]
+    },
+    {
+      "class": "AnimationHitbox2DComponent",
+      "prefix": "animation_hitbox2_d",
+      "header": "spark/ecs/components/animation/AnimationHitbox2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "add_target",
+          "member": "AddTarget"
+        },
+        {
+          "suffix": "clear_targets",
+          "member": "ClearTargets"
+        },
+        {
+          "suffix": "get_hits_this_swing",
+          "member": "GetHitsThisSwing"
+        },
+        {
+          "suffix": "get_shape",
+          "member": "GetShape"
+        },
+        {
+          "suffix": "is_hit_window_active",
+          "member": "IsHitWindowActive"
+        },
+        {
+          "suffix": "set_arc_half_angle_radians",
+          "member": "SetArcHalfAngleRadians"
+        },
+        {
+          "suffix": "set_clip_index",
+          "member": "SetClipIndex"
+        },
+        {
+          "suffix": "set_damage_per_hit",
+          "member": "SetDamagePerHit"
+        },
+        {
+          "suffix": "set_end_local_frame",
+          "member": "SetEndLocalFrame"
+        },
+        {
+          "suffix": "set_local_offset",
+          "member": "SetLocalOffset"
+        },
+        {
+          "suffix": "set_radius",
+          "member": "SetRadius"
+        },
+        {
+          "suffix": "set_shape",
+          "member": "SetShape"
+        },
+        {
+          "suffix": "set_start_local_frame",
+          "member": "SetStartLocalFrame"
+        }
+      ]
+    },
+    {
+      "class": "AnimationLayerStackComponent",
+      "prefix": "animation_layer_stack",
+      "header": "spark/ecs/components/animation/AnimationLayerStackComponent.hpp",
+      "methods": [
+        {
+          "suffix": "clear_overlay",
+          "member": "ClearOverlay"
+        },
+        {
+          "suffix": "get_overlay_clip_index",
+          "member": "GetOverlayClipIndex"
+        },
+        {
+          "suffix": "get_overlay_loop_mode",
+          "member": "GetOverlayLoopMode"
+        },
+        {
+          "suffix": "get_overlay_time_seconds",
+          "member": "GetOverlayTimeSeconds"
+        },
+        {
+          "suffix": "is_overlay_active",
+          "member": "IsOverlayActive"
+        },
+        {
+          "suffix": "is_overlay_finished",
+          "member": "IsOverlayFinished"
+        },
+        {
+          "suffix": "play_overlay",
+          "member": "PlayOverlay"
+        }
+      ]
+    },
+    {
+      "class": "AnimationMeleeHitComponent",
+      "prefix": "animation_melee_hit",
+      "header": "spark/ecs/components/animation/AnimationMeleeHitComponent.hpp",
+      "methods": [
+        {
+          "suffix": "add_target",
+          "member": "AddTarget"
+        },
+        {
+          "suffix": "clear_targets",
+          "member": "ClearTargets"
+        },
+        {
+          "suffix": "get_hits_this_swing",
+          "member": "GetHitsThisSwing"
+        },
+        {
+          "suffix": "get_total_hits",
+          "member": "GetTotalHits"
+        },
+        {
+          "suffix": "is_hit_window_active",
+          "member": "IsHitWindowActive"
+        },
+        {
+          "suffix": "is_world_hurtbox_query_enabled",
+          "member": "IsWorldHurtboxQueryEnabled"
+        },
+        {
+          "suffix": "set_apply_hurt_reaction",
+          "member": "SetApplyHurtReaction"
+        },
+        {
+          "suffix": "set_damage_per_hit",
+          "member": "SetDamagePerHit"
+        },
+        {
+          "suffix": "set_end_event_name",
+          "member": "SetEndEventName"
+        },
+        {
+          "suffix": "set_facing_object",
+          "member": "SetFacingObject"
+        },
+        {
+          "suffix": "set_hit_radius",
+          "member": "SetHitRadius"
+        },
+        {
+          "suffix": "set_knockback_meters",
+          "member": "SetKnockbackMeters"
+        },
+        {
+          "suffix": "set_origin_local_offset",
+          "member": "SetOriginLocalOffset"
+        },
+        {
+          "suffix": "set_start_event_name",
+          "member": "SetStartEventName"
+        },
+        {
+          "suffix": "set_trace_distance",
+          "member": "SetTraceDistance"
+        },
+        {
+          "suffix": "set_world_hurtbox_query_enabled",
+          "member": "SetWorldHurtboxQueryEnabled"
+        }
+      ]
+    },
+    {
+      "class": "AnimatorComponent",
+      "prefix": "animator",
+      "header": "spark/ecs/components/animation/AnimatorComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_crossfade_from_clip",
+          "member": "GetCrossfadeFromClip"
+        },
+        {
+          "suffix": "get_crossfade_from_time",
+          "member": "GetCrossfadeFromTime"
+        },
+        {
+          "suffix": "restart_current_clip",
+          "member": "RestartCurrentClip"
+        }
+      ]
+    },
+    {
+      "class": "AttachmentSocketComponent",
+      "prefix": "attachment_socket",
+      "header": "spark/ecs/components/animation/AttachmentSocketComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_attached_object",
+          "member": "GetAttachedObject"
+        },
+        {
+          "suffix": "get_joint_index",
+          "member": "GetJointIndex"
+        },
+        {
+          "suffix": "get_local_offset",
+          "member": "GetLocalOffset"
+        },
+        {
+          "suffix": "get_source_object",
+          "member": "GetSourceObject"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        }
+      ]
+    },
+    {
+      "class": "AudioListenerComponent",
+      "prefix": "audio_listener",
+      "header": "spark/ecs/components/audio/AudioListenerComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_priority",
+          "member": "GetPriority"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_priority",
+          "member": "SetPriority"
+        }
+      ]
+    },
+    {
+      "class": "BillboardComponent",
+      "prefix": "billboard",
+      "header": "spark/ecs/components/rendering/BillboardComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_mode",
+          "member": "GetMode"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_mode",
+          "member": "SetMode"
+        }
+      ]
+    },
+    {
+      "class": "BlendModeComponent",
+      "prefix": "blend_mode",
+      "header": "spark/ecs/components/rendering/BlendModeComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_mode",
+          "member": "GetMode"
+        },
+        {
+          "suffix": "set_mode",
+          "member": "SetMode"
+        }
+      ]
+    },
+    {
+      "class": "BoxCollider2DComponent",
+      "prefix": "box_collider_2d",
+      "header": "spark/ecs/components/physics/2d/BoxCollider2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_half_extents",
+          "member": "GetHalfExtents"
+        },
+        {
+          "suffix": "get_is_trigger",
+          "member": "GetIsTrigger"
+        },
+        {
+          "suffix": "get_offset",
+          "member": "GetOffset"
+        },
+        {
+          "suffix": "set_category_bits",
+          "member": "SetCategoryBits"
+        },
+        {
+          "suffix": "set_half_extents",
+          "member": "SetHalfExtents"
+        },
+        {
+          "suffix": "set_is_trigger",
+          "member": "SetIsTrigger"
+        },
+        {
+          "suffix": "set_mask_bits",
+          "member": "SetMaskBits"
+        },
+        {
+          "suffix": "set_offset",
+          "member": "SetOffset"
+        }
+      ]
+    },
+    {
+      "class": "BoxCollider3DComponent",
+      "prefix": "box_collider3_d",
+      "header": "spark/ecs/components/physics/3d/BoxCollider3DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_half_extents",
+          "member": "GetHalfExtents"
+        },
+        {
+          "suffix": "get_is_trigger",
+          "member": "GetIsTrigger"
+        },
+        {
+          "suffix": "get_offset",
+          "member": "GetOffset"
+        },
+        {
+          "suffix": "set_category_bits",
+          "member": "SetCategoryBits"
+        },
+        {
+          "suffix": "set_half_extents",
+          "member": "SetHalfExtents"
+        },
+        {
+          "suffix": "set_is_trigger",
+          "member": "SetIsTrigger"
+        },
+        {
+          "suffix": "set_mask_bits",
+          "member": "SetMaskBits"
+        },
+        {
+          "suffix": "set_offset",
+          "member": "SetOffset"
+        }
+      ]
+    },
+    {
+      "class": "Camera2DComponent",
+      "prefix": "camera_2d",
+      "header": "spark/ecs/components/camera/Camera2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_clip_far_z",
+          "member": "GetClipFarZ"
+        },
+        {
+          "suffix": "get_clip_near_z",
+          "member": "GetClipNearZ"
+        },
+        {
+          "suffix": "get_half_extent_y",
+          "member": "GetHalfExtentY"
+        },
+        {
+          "suffix": "get_priority",
+          "member": "GetPriority"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_clip_far_z",
+          "member": "SetClipFarZ"
+        },
+        {
+          "suffix": "set_clip_near_z",
+          "member": "SetClipNearZ"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_half_extent_y",
+          "member": "SetHalfExtentY"
+        },
+        {
+          "suffix": "set_priority",
+          "member": "SetPriority"
+        },
+        {
+          "suffix": "world_position",
+          "member": "WorldPosition"
+        }
+      ]
+    },
+    {
+      "class": "Camera2DRigComponent",
+      "prefix": "camera_2d_rig",
+      "header": "spark/ecs/components/camera/Camera2DRigComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_bounds_max",
+          "member": "GetBoundsMax"
+        },
+        {
+          "suffix": "get_bounds_min",
+          "member": "GetBoundsMin"
+        },
+        {
+          "suffix": "get_follow_smooth_rate",
+          "member": "GetFollowSmoothRate"
+        },
+        {
+          "suffix": "get_look_ahead_scale",
+          "member": "GetLookAheadScale"
+        },
+        {
+          "suffix": "get_mode",
+          "member": "GetMode"
+        },
+        {
+          "suffix": "get_target",
+          "member": "GetTarget"
+        },
+        {
+          "suffix": "get_target_offset",
+          "member": "GetTargetOffset"
+        },
+        {
+          "suffix": "get_use_bounds",
+          "member": "GetUseBounds"
+        },
+        {
+          "suffix": "get_use_zoom_limits",
+          "member": "GetUseZoomLimits"
+        },
+        {
+          "suffix": "get_zoom_max_half_extent_y",
+          "member": "GetZoomMaxHalfExtentY"
+        },
+        {
+          "suffix": "get_zoom_min_half_extent_y",
+          "member": "GetZoomMinHalfExtentY"
+        },
+        {
+          "suffix": "set_bounds_max",
+          "member": "SetBoundsMax"
+        },
+        {
+          "suffix": "set_bounds_min",
+          "member": "SetBoundsMin"
+        },
+        {
+          "suffix": "set_follow_smooth_rate",
+          "member": "SetFollowSmoothRate"
+        },
+        {
+          "suffix": "set_look_ahead_scale",
+          "member": "SetLookAheadScale"
+        },
+        {
+          "suffix": "set_target",
+          "member": "SetTarget"
+        },
+        {
+          "suffix": "set_target_offset",
+          "member": "SetTargetOffset"
+        },
+        {
+          "suffix": "set_use_bounds",
+          "member": "SetUseBounds"
+        },
+        {
+          "suffix": "set_use_zoom_limits",
+          "member": "SetUseZoomLimits"
+        },
+        {
+          "suffix": "set_zoom_max_half_extent_y",
+          "member": "SetZoomMaxHalfExtentY"
+        },
+        {
+          "suffix": "set_zoom_min_half_extent_y",
+          "member": "SetZoomMinHalfExtentY"
+        }
+      ]
+    },
+    {
+      "class": "CameraBounds2DComponent",
+      "prefix": "camera_bounds2_d",
+      "header": "spark/ecs/components/camera/CameraBounds2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_half_extents",
+          "member": "GetHalfExtents"
+        },
+        {
+          "suffix": "get_local_offset",
+          "member": "GetLocalOffset"
+        },
+        {
+          "suffix": "get_priority",
+          "member": "GetPriority"
+        },
+        {
+          "suffix": "is_contains_world_point",
+          "member": "ContainsWorldPoint"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_half_extents",
+          "member": "SetHalfExtents"
+        },
+        {
+          "suffix": "set_local_offset",
+          "member": "SetLocalOffset"
+        },
+        {
+          "suffix": "set_priority",
+          "member": "SetPriority"
+        }
+      ]
+    },
+    {
+      "class": "CameraComponent",
+      "prefix": "camera",
+      "header": "spark/ecs/components/camera/CameraComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_far_plane",
+          "member": "GetFarPlane"
+        },
+        {
+          "suffix": "get_fov_y_degrees",
+          "member": "GetFovYDegrees"
+        },
+        {
+          "suffix": "get_near_plane",
+          "member": "GetNearPlane"
+        },
+        {
+          "suffix": "get_ortho_half_height",
+          "member": "GetOrthoHalfHeight"
+        },
+        {
+          "suffix": "get_priority",
+          "member": "GetPriority"
+        },
+        {
+          "suffix": "get_projection_mode",
+          "member": "GetProjectionMode"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_far_plane",
+          "member": "SetFarPlane"
+        },
+        {
+          "suffix": "set_fov_y_degrees",
+          "member": "SetFovYDegrees"
+        },
+        {
+          "suffix": "set_near_plane",
+          "member": "SetNearPlane"
+        },
+        {
+          "suffix": "set_ortho_half_height",
+          "member": "SetOrthoHalfHeight"
+        },
+        {
+          "suffix": "set_priority",
+          "member": "SetPriority"
+        },
+        {
+          "suffix": "set_projection_mode",
+          "member": "SetProjectionMode"
+        },
+        {
+          "suffix": "world_position",
+          "member": "WorldPosition"
+        }
+      ]
+    },
+    {
+      "class": "CameraFollow3DComponent",
+      "prefix": "camera_follow3_d",
+      "header": "spark/ecs/components/camera/CameraFollow3DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_follow_smooth_rate",
+          "member": "GetFollowSmoothRate"
+        },
+        {
+          "suffix": "get_look_at_target",
+          "member": "GetLookAtTarget"
+        },
+        {
+          "suffix": "get_target",
+          "member": "GetTarget"
+        },
+        {
+          "suffix": "get_target_offset",
+          "member": "GetTargetOffset"
+        },
+        {
+          "suffix": "set_follow_smooth_rate",
+          "member": "SetFollowSmoothRate"
+        },
+        {
+          "suffix": "set_look_at_target",
+          "member": "SetLookAtTarget"
+        },
+        {
+          "suffix": "set_target",
+          "member": "SetTarget"
+        },
+        {
+          "suffix": "set_target_offset",
+          "member": "SetTargetOffset"
+        }
+      ]
+    },
+    {
+      "class": "CapsuleCollider3DComponent",
+      "prefix": "capsule_collider3_d",
+      "header": "spark/ecs/components/physics/3d/CapsuleCollider3DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_direction",
+          "member": "GetDirection"
+        },
+        {
+          "suffix": "get_height",
+          "member": "GetHeight"
+        },
+        {
+          "suffix": "get_is_trigger",
+          "member": "GetIsTrigger"
+        },
+        {
+          "suffix": "get_offset",
+          "member": "GetOffset"
+        },
+        {
+          "suffix": "get_radius",
+          "member": "GetRadius"
+        },
+        {
+          "suffix": "set_category_bits",
+          "member": "SetCategoryBits"
+        },
+        {
+          "suffix": "set_direction",
+          "member": "SetDirection"
+        },
+        {
+          "suffix": "set_height",
+          "member": "SetHeight"
+        },
+        {
+          "suffix": "set_is_trigger",
+          "member": "SetIsTrigger"
+        },
+        {
+          "suffix": "set_mask_bits",
+          "member": "SetMaskBits"
+        },
+        {
+          "suffix": "set_offset",
+          "member": "SetOffset"
+        },
+        {
+          "suffix": "set_radius",
+          "member": "SetRadius"
+        }
+      ]
+    },
+    {
+      "class": "Character3DAnimFsmComponent",
+      "prefix": "char_3d_fsm",
+      "header": "spark/ecs/components/animation/Character3DAnimFsmComponent.hpp",
+      "methods": [
+        {
+          "suffix": "clear_manual_clip",
+          "member": "ClearManualClip"
+        },
+        {
+          "suffix": "get_attack_clip_index",
+          "member": "GetAttackClipIndex"
+        },
+        {
+          "suffix": "get_crossfade_duration",
+          "member": "GetCrossfadeDuration"
+        },
+        {
+          "suffix": "get_death_clip_index",
+          "member": "GetDeathClipIndex"
+        },
+        {
+          "suffix": "get_hurt_clip_index",
+          "member": "GetHurtClipIndex"
+        },
+        {
+          "suffix": "get_idle_clip_index",
+          "member": "GetIdleClipIndex"
+        },
+        {
+          "suffix": "get_manual_clip_index",
+          "member": "GetManualClipIndex"
+        },
+        {
+          "suffix": "get_manual_clip_loop_mode",
+          "member": "GetManualClipLoopMode"
+        },
+        {
+          "suffix": "get_run_clip_index",
+          "member": "GetRunClipIndex"
+        },
+        {
+          "suffix": "get_run_speed_threshold",
+          "member": "GetRunSpeedThreshold"
+        },
+        {
+          "suffix": "get_stagger_clip_index",
+          "member": "GetStaggerClipIndex"
+        },
+        {
+          "suffix": "get_use_upper_body_attack_overlay",
+          "member": "GetUseUpperBodyAttackOverlay"
+        },
+        {
+          "suffix": "get_use_upper_body_combat_overlay",
+          "member": "GetUseUpperBodyCombatOverlay"
+        },
+        {
+          "suffix": "get_walk_clip_index",
+          "member": "GetWalkClipIndex"
+        },
+        {
+          "suffix": "get_walk_speed_threshold",
+          "member": "GetWalkSpeedThreshold"
+        },
+        {
+          "suffix": "is_dead",
+          "member": "IsDead"
+        },
+        {
+          "suffix": "is_locomotion_blend_enabled",
+          "member": "IsLocomotionBlendEnabled"
+        },
+        {
+          "suffix": "is_locomotion_driving_enabled",
+          "member": "IsLocomotionDrivingEnabled"
+        },
+        {
+          "suffix": "is_manual_clip_active",
+          "member": "IsManualClipActive"
+        },
+        {
+          "suffix": "request_attack",
+          "member": "RequestAttack"
+        },
+        {
+          "suffix": "request_death",
+          "member": "RequestDeath"
+        },
+        {
+          "suffix": "request_hurt",
+          "member": "RequestHurt"
+        },
+        {
+          "suffix": "request_stagger",
+          "member": "RequestStagger"
+        },
+        {
+          "suffix": "set_attack_clip",
+          "member": "SetAttackClip"
+        },
+        {
+          "suffix": "set_combat_blackboard_int_slot",
+          "member": "SetCombatBlackboardIntSlot"
+        },
+        {
+          "suffix": "set_crossfade_duration",
+          "member": "SetCrossfadeDuration"
+        },
+        {
+          "suffix": "set_death_clip",
+          "member": "SetDeathClip"
+        },
+        {
+          "suffix": "set_hurt_clip",
+          "member": "SetHurtClip"
+        },
+        {
+          "suffix": "set_locomotion_analog_speed",
+          "member": "SetLocomotionAnalogSpeed"
+        },
+        {
+          "suffix": "set_locomotion_blend_enabled",
+          "member": "SetLocomotionBlendEnabled"
+        },
+        {
+          "suffix": "set_locomotion_clips",
+          "member": "SetLocomotionClips"
+        },
+        {
+          "suffix": "set_locomotion_driving_enabled",
+          "member": "SetLocomotionDrivingEnabled"
+        },
+        {
+          "suffix": "set_locomotion_input",
+          "member": "SetLocomotionInput"
+        },
+        {
+          "suffix": "set_manual_clip",
+          "member": "SetManualClip"
+        },
+        {
+          "suffix": "set_run_speed_threshold",
+          "member": "SetRunSpeedThreshold"
+        },
+        {
+          "suffix": "set_stagger_clip",
+          "member": "SetStaggerClip"
+        },
+        {
+          "suffix": "set_use_upper_body_attack_overlay",
+          "member": "SetUseUpperBodyAttackOverlay"
+        },
+        {
+          "suffix": "set_use_upper_body_combat_overlay",
+          "member": "SetUseUpperBodyCombatOverlay"
+        },
+        {
+          "suffix": "set_walk_speed_threshold",
+          "member": "SetWalkSpeedThreshold"
+        },
+        {
+          "suffix": "set_wish_facing_yaw_radians",
+          "member": "SetWishFacingYawRadians"
+        }
+      ]
+    },
+    {
+      "class": "Character3DBodyComponent",
+      "prefix": "character_3d_body",
+      "header": "spark/ecs/components/character/Character3DBodyComponent.hpp",
+      "methods": [
+        {
+          "suffix": "begin_attack_root_motion_window",
+          "member": "BeginAttackRootMotionWindow"
+        },
+        {
+          "suffix": "begin_simulation_frame",
+          "member": "BeginSimulationFrame"
+        },
+        {
+          "suffix": "end_attack_root_motion_window",
+          "member": "EndAttackRootMotionWindow"
+        },
+        {
+          "suffix": "get_arbitration_mode",
+          "member": "GetArbitrationMode"
+        },
+        {
+          "suffix": "get_visual_object",
+          "member": "GetVisualObject"
+        },
+        {
+          "suffix": "is_validate_hierarchy",
+          "member": "ValidateHierarchy"
+        },
+        {
+          "suffix": "set_arbitration_mode",
+          "member": "SetArbitrationMode"
+        },
+        {
+          "suffix": "set_visual_object",
+          "member": "SetVisualObject"
+        }
+      ]
+    },
+    {
+      "class": "Character3DVisualComponent",
+      "prefix": "character_3d_visual",
+      "header": "spark/ecs/components/character/Character3DVisualComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_body_object",
+          "member": "GetBodyObject"
+        },
+        {
+          "suffix": "is_validate_setup",
+          "member": "ValidateSetup"
+        },
+        {
+          "suffix": "set_body_object",
+          "member": "SetBodyObject"
+        }
+      ]
+    },
+    {
+      "class": "CharacterController2DComponent",
+      "prefix": "character_controller2_d",
+      "header": "spark/ecs/components/physics/2d/CharacterController2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_coyote_time_seconds",
+          "member": "GetCoyoteTimeSeconds"
+        },
+        {
+          "suffix": "get_drop_through_one_way",
+          "member": "GetDropThroughOneWay"
+        },
+        {
+          "suffix": "get_jump_buffer_seconds",
+          "member": "GetJumpBufferSeconds"
+        },
+        {
+          "suffix": "get_jump_speed",
+          "member": "GetJumpSpeed"
+        },
+        {
+          "suffix": "get_motor_mode",
+          "member": "GetMotorMode"
+        },
+        {
+          "suffix": "get_move_input_x",
+          "member": "GetMoveInputX"
+        },
+        {
+          "suffix": "get_move_input_y",
+          "member": "GetMoveInputY"
+        },
+        {
+          "suffix": "get_move_speed",
+          "member": "GetMoveSpeed"
+        },
+        {
+          "suffix": "get_skin_width",
+          "member": "GetSkinWidth"
+        },
+        {
+          "suffix": "get_slope_limit_degrees",
+          "member": "GetSlopeLimitDegrees"
+        },
+        {
+          "suffix": "get_snap_to_ground_distance",
+          "member": "GetSnapToGroundDistance"
+        },
+        {
+          "suffix": "is_grounded",
+          "member": "IsGrounded"
+        },
+        {
+          "suffix": "is_was_grounded_last_frame",
+          "member": "WasGroundedLastFrame"
+        },
+        {
+          "suffix": "request_jump",
+          "member": "RequestJump"
+        },
+        {
+          "suffix": "set_coyote_time_seconds",
+          "member": "SetCoyoteTimeSeconds"
+        },
+        {
+          "suffix": "set_drop_through_one_way",
+          "member": "SetDropThroughOneWay"
+        },
+        {
+          "suffix": "set_jump_buffer_seconds",
+          "member": "SetJumpBufferSeconds"
+        },
+        {
+          "suffix": "set_jump_speed",
+          "member": "SetJumpSpeed"
+        },
+        {
+          "suffix": "set_motor_mode",
+          "member": "SetMotorMode"
+        },
+        {
+          "suffix": "set_move_input_x",
+          "member": "SetMoveInputX"
+        },
+        {
+          "suffix": "set_move_input_y",
+          "member": "SetMoveInputY"
+        },
+        {
+          "suffix": "set_move_speed",
+          "member": "SetMoveSpeed"
+        },
+        {
+          "suffix": "set_skin_width",
+          "member": "SetSkinWidth"
+        }
+      ]
+    },
+    {
+      "class": "CharacterController3DComponent",
+      "prefix": "character_controller3_d",
+      "header": "spark/ecs/components/physics/3d/CharacterController3DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_center_offset",
+          "member": "GetCenterOffset"
+        },
+        {
+          "suffix": "get_gravity_scale",
+          "member": "GetGravityScale"
+        },
+        {
+          "suffix": "get_move_input",
+          "member": "GetMoveInput"
+        },
+        {
+          "suffix": "get_radius",
+          "member": "GetRadius"
+        },
+        {
+          "suffix": "get_skin_width",
+          "member": "GetSkinWidth"
+        },
+        {
+          "suffix": "get_slope_limit_degrees",
+          "member": "GetSlopeLimitDegrees"
+        },
+        {
+          "suffix": "get_step_offset",
+          "member": "GetStepOffset"
+        },
+        {
+          "suffix": "get_velocity",
+          "member": "GetVelocity"
+        },
+        {
+          "suffix": "is_grounded",
+          "member": "IsGrounded"
+        },
+        {
+          "suffix": "set_category_bits",
+          "member": "SetCategoryBits"
+        },
+        {
+          "suffix": "set_center_offset",
+          "member": "SetCenterOffset"
+        },
+        {
+          "suffix": "set_gravity_scale",
+          "member": "SetGravityScale"
+        },
+        {
+          "suffix": "set_mask_bits",
+          "member": "SetMaskBits"
+        },
+        {
+          "suffix": "set_radius",
+          "member": "SetRadius"
+        },
+        {
+          "suffix": "set_skin_width",
+          "member": "SetSkinWidth"
+        },
+        {
+          "suffix": "set_step_offset",
+          "member": "SetStepOffset"
+        }
+      ]
+    },
+    {
+      "class": "CircleCollider2DComponent",
+      "prefix": "circle_collider_2d",
+      "header": "spark/ecs/components/physics/2d/CircleCollider2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_is_trigger",
+          "member": "GetIsTrigger"
+        },
+        {
+          "suffix": "get_offset",
+          "member": "GetOffset"
+        },
+        {
+          "suffix": "get_radius",
+          "member": "GetRadius"
+        },
+        {
+          "suffix": "set_category_bits",
+          "member": "SetCategoryBits"
+        },
+        {
+          "suffix": "set_is_trigger",
+          "member": "SetIsTrigger"
+        },
+        {
+          "suffix": "set_mask_bits",
+          "member": "SetMaskBits"
+        },
+        {
+          "suffix": "set_offset",
+          "member": "SetOffset"
+        },
+        {
+          "suffix": "set_radius",
+          "member": "SetRadius"
+        }
+      ]
+    },
+    {
+      "class": "CollisionComponent",
+      "prefix": "collision",
+      "header": "spark/ecs/components/physics/CollisionComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_local_center",
+          "member": "GetLocalCenter"
+        },
+        {
+          "suffix": "get_radius",
+          "member": "GetRadius"
+        },
+        {
+          "suffix": "get_world_center",
+          "member": "GetWorldCenter"
+        },
+        {
+          "suffix": "set_local_center",
+          "member": "SetLocalCenter"
+        },
+        {
+          "suffix": "set_radius",
+          "member": "SetRadius"
+        }
+      ]
+    },
+    {
+      "class": "CombatHurtFlash3DComponent",
+      "prefix": "combat_hurt_flash_3d",
+      "header": "spark/ecs/components/gameplay/CombatHurtFlash3DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "set_flash_duration",
+          "member": "SetFlashDuration"
+        },
+        {
+          "suffix": "set_hurt_tint",
+          "member": "SetHurtTint"
+        }
+      ]
+    },
+    {
+      "class": "DamageZone2DComponent",
+      "prefix": "damage_zone2_d",
+      "header": "spark/ecs/components/gameplay/DamageZone2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_damage_per_second",
+          "member": "GetDamagePerSecond"
+        },
+        {
+          "suffix": "get_half_extents",
+          "member": "GetHalfExtents"
+        },
+        {
+          "suffix": "get_instigator",
+          "member": "GetInstigator"
+        },
+        {
+          "suffix": "get_local_offset",
+          "member": "GetLocalOffset"
+        },
+        {
+          "suffix": "get_radius",
+          "member": "GetRadius"
+        },
+        {
+          "suffix": "get_shape",
+          "member": "GetShape"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_category_bits",
+          "member": "SetCategoryBits"
+        },
+        {
+          "suffix": "set_damage_per_second",
+          "member": "SetDamagePerSecond"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_half_extents",
+          "member": "SetHalfExtents"
+        },
+        {
+          "suffix": "set_instigator",
+          "member": "SetInstigator"
+        },
+        {
+          "suffix": "set_local_offset",
+          "member": "SetLocalOffset"
+        },
+        {
+          "suffix": "set_mask_bits",
+          "member": "SetMaskBits"
+        },
+        {
+          "suffix": "set_radius",
+          "member": "SetRadius"
+        },
+        {
+          "suffix": "set_shape",
+          "member": "SetShape"
+        }
+      ]
+    },
+    {
+      "class": "DamageableComponent",
+      "prefix": "damageable",
+      "header": "spark/ecs/components/gameplay/DamageableComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_apply_damage",
+          "member": "ApplyDamage"
+        },
+        {
+          "suffix": "get_damage_multiplier",
+          "member": "GetDamageMultiplier"
+        },
+        {
+          "suffix": "is_invulnerable",
+          "member": "IsInvulnerable"
+        },
+        {
+          "suffix": "set_damage_multiplier",
+          "member": "SetDamageMultiplier"
+        },
+        {
+          "suffix": "set_invulnerable",
+          "member": "SetInvulnerable"
+        }
+      ]
+    },
+    {
+      "class": "DecalProjectorComponent",
+      "prefix": "decal_projector",
+      "header": "spark/ecs/components/rendering/DecalProjectorComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_opacity",
+          "member": "GetOpacity"
+        },
+        {
+          "suffix": "get_size",
+          "member": "GetSize"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_opacity",
+          "member": "SetOpacity"
+        },
+        {
+          "suffix": "set_size",
+          "member": "SetSize"
+        }
+      ]
+    },
+    {
+      "class": "DirectionalLightComponent",
+      "prefix": "directional_light",
+      "header": "spark/ecs/components/lighting/DirectionalLightComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_color",
+          "member": "GetColor"
+        },
+        {
+          "suffix": "get_intensity",
+          "member": "GetIntensity"
+        },
+        {
+          "suffix": "is_casts_shadow",
+          "member": "CastsShadow"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_casts_shadow",
+          "member": "SetCastsShadow"
+        },
+        {
+          "suffix": "set_color",
+          "member": "SetColor"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_intensity",
+          "member": "SetIntensity"
+        }
+      ]
+    },
+    {
+      "class": "DistanceJoint2DComponent",
+      "prefix": "distance_joint2_d",
+      "header": "spark/ecs/components/physics/2d/DistanceJoint2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_connected_body",
+          "member": "GetConnectedBody"
+        },
+        {
+          "suffix": "get_local_anchor_a",
+          "member": "GetLocalAnchorA"
+        },
+        {
+          "suffix": "get_local_anchor_b",
+          "member": "GetLocalAnchorB"
+        },
+        {
+          "suffix": "get_rest_length",
+          "member": "GetRestLength"
+        },
+        {
+          "suffix": "get_stiffness",
+          "member": "GetStiffness"
+        },
+        {
+          "suffix": "set_connected_body",
+          "member": "SetConnectedBody"
+        },
+        {
+          "suffix": "set_local_anchor_a",
+          "member": "SetLocalAnchorA"
+        },
+        {
+          "suffix": "set_local_anchor_b",
+          "member": "SetLocalAnchorB"
+        },
+        {
+          "suffix": "set_rest_length",
+          "member": "SetRestLength"
+        },
+        {
+          "suffix": "set_stiffness",
+          "member": "SetStiffness"
+        }
+      ]
+    },
+    {
+      "class": "DistanceJoint3DComponent",
+      "prefix": "distance_joint3_d",
+      "header": "spark/ecs/components/physics/3d/DistanceJoint3DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_connected_body",
+          "member": "GetConnectedBody"
+        },
+        {
+          "suffix": "get_rest_length",
+          "member": "GetRestLength"
+        },
+        {
+          "suffix": "get_stiffness",
+          "member": "GetStiffness"
+        },
+        {
+          "suffix": "set_connected_body",
+          "member": "SetConnectedBody"
+        },
+        {
+          "suffix": "set_rest_length",
+          "member": "SetRestLength"
+        },
+        {
+          "suffix": "set_stiffness",
+          "member": "SetStiffness"
+        }
+      ]
+    },
+    {
+      "class": "FogOfWar2DComponent",
+      "prefix": "fog_of_war2_d",
+      "header": "spark/ecs/components/gameplay/FogOfWar2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_reveal_target",
+          "member": "GetRevealTarget"
+        },
+        {
+          "suffix": "get_vision_radius_world",
+          "member": "GetVisionRadiusWorld"
+        },
+        {
+          "suffix": "rebuild_mask_texture",
+          "member": "RebuildMaskTexture"
+        },
+        {
+          "suffix": "set_reveal_target",
+          "member": "SetRevealTarget"
+        },
+        {
+          "suffix": "set_vision_radius_world",
+          "member": "SetVisionRadiusWorld"
+        }
+      ]
+    },
+    {
+      "class": "FogVolumeComponent",
+      "prefix": "fog_volume",
+      "header": "spark/ecs/components/rendering/FogVolumeComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_fog_color",
+          "member": "GetFogColor"
+        },
+        {
+          "suffix": "get_fog_density",
+          "member": "GetFogDensity"
+        },
+        {
+          "suffix": "get_fog_end",
+          "member": "GetFogEnd"
+        },
+        {
+          "suffix": "get_fog_start",
+          "member": "GetFogStart"
+        },
+        {
+          "suffix": "get_half_extents",
+          "member": "GetHalfExtents"
+        },
+        {
+          "suffix": "get_priority",
+          "member": "GetPriority"
+        },
+        {
+          "suffix": "get_shape",
+          "member": "GetShape"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_fog_color",
+          "member": "SetFogColor"
+        },
+        {
+          "suffix": "set_fog_density",
+          "member": "SetFogDensity"
+        },
+        {
+          "suffix": "set_fog_end",
+          "member": "SetFogEnd"
+        },
+        {
+          "suffix": "set_fog_start",
+          "member": "SetFogStart"
+        },
+        {
+          "suffix": "set_half_extents",
+          "member": "SetHalfExtents"
+        },
+        {
+          "suffix": "set_priority",
+          "member": "SetPriority"
+        },
+        {
+          "suffix": "set_shape",
+          "member": "SetShape"
+        }
+      ]
+    },
+    {
+      "class": "FoliageInstancedMeshComponent",
+      "prefix": "foliage_instanced",
+      "header": "spark/ecs/components/foliage/FoliageInstancedMeshComponent.hpp",
+      "methods": [
+        {
+          "suffix": "configure_grid",
+          "member": "ConfigureGrid"
+        },
+        {
+          "suffix": "configure_grid_within_square",
+          "member": "ConfigureGridWithinSquare"
+        },
+        {
+          "suffix": "get_albedo_tint",
+          "member": "GetAlbedoTint"
+        },
+        {
+          "suffix": "get_alpha_cutoff",
+          "member": "GetAlphaCutoff"
+        },
+        {
+          "suffix": "get_wind_bend_scale",
+          "member": "GetWindBendScale"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_albedo_tint",
+          "member": "SetAlbedoTint"
+        },
+        {
+          "suffix": "set_alpha_cutoff",
+          "member": "SetAlphaCutoff"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_wind_bend_scale",
+          "member": "SetWindBendScale"
+        }
+      ]
+    },
+    {
+      "class": "FootIkComponent",
+      "prefix": "foot_ik",
+      "header": "spark/ecs/components/animation/FootIkComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_ray_max_distance",
+          "member": "GetRayMaxDistance"
+        },
+        {
+          "suffix": "get_ray_origin_lift",
+          "member": "GetRayOriginLift"
+        },
+        {
+          "suffix": "get_weight",
+          "member": "GetWeight"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_left_foot_patterns",
+          "member": "SetLeftFootPatterns"
+        },
+        {
+          "suffix": "set_ray_max_distance",
+          "member": "SetRayMaxDistance"
+        },
+        {
+          "suffix": "set_ray_origin_lift",
+          "member": "SetRayOriginLift"
+        },
+        {
+          "suffix": "set_right_foot_patterns",
+          "member": "SetRightFootPatterns"
+        },
+        {
+          "suffix": "set_weight",
+          "member": "SetWeight"
+        }
+      ]
+    },
+    {
+      "class": "GameFlowTriggerComponent",
+      "prefix": "game_flow_trigger",
+      "header": "spark/ecs/components/gameplay/GameFlowTriggerComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_source",
+          "member": "GetSource"
+        },
+        {
+          "suffix": "get_state_owner",
+          "member": "GetStateOwner"
+        },
+        {
+          "suffix": "get_target_state",
+          "member": "GetTargetState"
+        },
+        {
+          "suffix": "get_watch_state",
+          "member": "GetWatchState"
+        },
+        {
+          "suffix": "set_instigator_name_filter",
+          "member": "SetInstigatorNameFilter"
+        },
+        {
+          "suffix": "set_source",
+          "member": "SetSource"
+        },
+        {
+          "suffix": "set_state_owner",
+          "member": "SetStateOwner"
+        },
+        {
+          "suffix": "set_target_state",
+          "member": "SetTargetState"
+        },
+        {
+          "suffix": "set_watch_state",
+          "member": "SetWatchState"
+        }
+      ]
+    },
+    {
+      "class": "GameStateComponent",
+      "prefix": "game_state",
+      "header": "spark/ecs/components/gameplay/GameStateComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_previous_state",
+          "member": "GetPreviousState"
+        },
+        {
+          "suffix": "get_state",
+          "member": "GetState"
+        },
+        {
+          "suffix": "is_pop_state",
+          "member": "PopState"
+        },
+        {
+          "suffix": "is_request_state",
+          "member": "RequestState"
+        },
+        {
+          "suffix": "is_state",
+          "member": "IsState"
+        },
+        {
+          "suffix": "pop_state",
+          "member": "PopState"
+        },
+        {
+          "suffix": "push_state",
+          "member": "PushState"
+        },
+        {
+          "suffix": "request_state",
+          "member": "RequestState"
+        }
+      ]
+    },
+    {
+      "class": "GameplayTeamComponent",
+      "prefix": "gameplay_team",
+      "header": "spark/ecs/components/gameplay/GameplayTeamComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_team_id",
+          "member": "GetTeamId"
+        },
+        {
+          "suffix": "set_gameplay_team",
+          "member": "SetGameplayTeam"
+        },
+        {
+          "suffix": "set_team_id",
+          "member": "GetTeamId"
+        }
+      ]
+    },
+    {
+      "class": "GltfInstanceNodeComponent",
+      "prefix": "gltf_instance_node",
+      "header": "spark/ecs/components/rendering/GltfInstanceNodeComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_node_index",
+          "member": "GetNodeIndex"
+        },
+        {
+          "suffix": "set_node_index",
+          "member": "SetNodeIndex"
+        }
+      ]
+    },
+    {
+      "class": "GltfSceneSourceComponent",
+      "prefix": "gltf_scene_source",
+      "header": "spark/ecs/components/rendering/GltfSceneSourceComponent.hpp",
+      "methods": [
+        {
+          "suffix": "set_gltf_asset_rel",
+          "member": "SetGltfAssetRel"
+        }
+      ]
+    },
+    {
+      "class": "GrassFieldComponent",
+      "prefix": "grass_field",
+      "header": "spark/ecs/components/foliage/GrassFieldComponent.hpp",
+      "methods": [
+        {
+          "suffix": "bounds_set_half_extents",
+          "member": "BoundsSetHalfExtents"
+        },
+        {
+          "suffix": "get_alpha_cutoff",
+          "member": "GetAlphaCutoff"
+        },
+        {
+          "suffix": "get_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "get_neighborhood_ring_radius",
+          "member": "GetNeighborhoodRingRadius"
+        },
+        {
+          "suffix": "get_terrain_object",
+          "member": "GetTerrainObject"
+        },
+        {
+          "suffix": "get_view_target_object",
+          "member": "GetViewTargetObject"
+        },
+        {
+          "suffix": "get_wind_bend_scale",
+          "member": "GetWindBendScale"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "scatter_set_albedo_tint",
+          "member": "ScatterSetAlbedoTint"
+        },
+        {
+          "suffix": "scatter_set_chunk_size_meters",
+          "member": "ScatterSetChunkSizeMeters"
+        },
+        {
+          "suffix": "scatter_set_density_per_square_meter",
+          "member": "ScatterSetDensityPerSquareMeter"
+        },
+        {
+          "suffix": "scatter_set_distance_fade_outer_fraction",
+          "member": "ScatterSetDistanceFadeOuterFraction"
+        },
+        {
+          "suffix": "scatter_set_max_cached_instances_per_chunk",
+          "member": "ScatterSetMaxCachedInstancesPerChunk"
+        },
+        {
+          "suffix": "scatter_set_max_slope_degrees",
+          "member": "ScatterSetMaxSlopeDegrees"
+        },
+        {
+          "suffix": "scatter_set_max_view_distance_meters",
+          "member": "ScatterSetMaxViewDistanceMeters"
+        },
+        {
+          "suffix": "scatter_set_max_visible_instances",
+          "member": "ScatterSetMaxVisibleInstances"
+        },
+        {
+          "suffix": "scatter_set_placement_radius_meters",
+          "member": "ScatterSetPlacementRadiusMeters"
+        },
+        {
+          "suffix": "set_alpha_cutoff",
+          "member": "SetAlphaCutoff"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_neighborhood_ring_radius",
+          "member": "SetNeighborhoodRingRadius"
+        },
+        {
+          "suffix": "set_streaming_view_world",
+          "member": "SetStreamingViewWorld"
+        },
+        {
+          "suffix": "set_terrain_object",
+          "member": "SetTerrainObject"
+        },
+        {
+          "suffix": "set_view_target_object",
+          "member": "SetViewTargetObject"
+        },
+        {
+          "suffix": "set_wind_bend_scale",
+          "member": "SetWindBendScale"
+        }
+      ]
+    },
+    {
+      "class": "GridNavAgent2DComponent",
+      "prefix": "grid_nav_agent2_d",
+      "header": "spark/ecs/components/ai/GridNavAgent2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "clear_path",
+          "member": "ClearPath"
+        },
+        {
+          "suffix": "get_goal_mode",
+          "member": "GetGoalMode"
+        },
+        {
+          "suffix": "get_goal_target",
+          "member": "GetGoalTarget"
+        },
+        {
+          "suffix": "get_goal_world_position",
+          "member": "GetGoalWorldPosition"
+        },
+        {
+          "suffix": "get_grid_source_object",
+          "member": "GetGridSourceObject"
+        },
+        {
+          "suffix": "get_path_index",
+          "member": "GetPathIndex"
+        },
+        {
+          "suffix": "get_repath_every_frame",
+          "member": "GetRepathEveryFrame"
+        },
+        {
+          "suffix": "get_repath_interval_seconds",
+          "member": "GetRepathIntervalSeconds"
+        },
+        {
+          "suffix": "get_sync_to_ai_agent",
+          "member": "GetSyncToAiAgent"
+        },
+        {
+          "suffix": "has_s_path",
+          "member": "HasPath"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "request_repath",
+          "member": "RequestRepath"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_goal_mode",
+          "member": "SetGoalMode"
+        },
+        {
+          "suffix": "set_goal_target",
+          "member": "SetGoalTarget"
+        },
+        {
+          "suffix": "set_goal_world_position",
+          "member": "SetGoalWorldPosition"
+        },
+        {
+          "suffix": "set_grid_source_object",
+          "member": "SetGridSourceObject"
+        },
+        {
+          "suffix": "set_path_index",
+          "member": "SetPathIndex"
+        },
+        {
+          "suffix": "set_repath_every_frame",
+          "member": "SetRepathEveryFrame"
+        },
+        {
+          "suffix": "set_repath_interval_seconds",
+          "member": "SetRepathIntervalSeconds"
+        },
+        {
+          "suffix": "set_sync_to_ai_agent",
+          "member": "SetSyncToAiAgent"
+        }
+      ]
+    },
+    {
+      "class": "GridNavTarget2DComponent",
+      "prefix": "grid_nav_target2_d",
+      "header": "spark/ecs/components/ai/GridNavTarget2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_snap_to_walkable_cell",
+          "member": "GetSnapToWalkableCell"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_snap_to_walkable_cell",
+          "member": "SetSnapToWalkableCell"
+        }
+      ]
+    },
+    {
+      "class": "GridPathFollower2DComponent",
+      "prefix": "grid_path_follower2_d",
+      "header": "spark/ecs/components/ai/GridPathFollower2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_arrive_radius",
+          "member": "GetArriveRadius"
+        },
+        {
+          "suffix": "get_max_speed",
+          "member": "GetMaxSpeed"
+        },
+        {
+          "suffix": "get_mode",
+          "member": "GetMode"
+        },
+        {
+          "suffix": "get_stop_on_path_end",
+          "member": "GetStopOnPathEnd"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_arrive_radius",
+          "member": "SetArriveRadius"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_max_speed",
+          "member": "SetMaxSpeed"
+        },
+        {
+          "suffix": "set_mode",
+          "member": "SetMode"
+        },
+        {
+          "suffix": "set_stop_on_path_end",
+          "member": "SetStopOnPathEnd"
+        }
+      ]
+    },
+    {
+      "class": "HealthComponent",
+      "prefix": "health",
+      "header": "spark/ecs/components/gameplay/HealthComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_apply_damage",
+          "member": "ApplyDamage"
+        },
+        {
+          "suffix": "get_current",
+          "member": "GetCurrent"
+        },
+        {
+          "suffix": "get_maximum",
+          "member": "GetMaximum"
+        },
+        {
+          "suffix": "is_alive",
+          "member": "IsAlive"
+        },
+        {
+          "suffix": "reset_to_full",
+          "member": "ResetToFull"
+        },
+        {
+          "suffix": "set_current",
+          "member": "SetCurrent"
+        },
+        {
+          "suffix": "set_maximum",
+          "member": "SetMaximum"
+        }
+      ]
+    },
+    {
+      "class": "HingeJoint2DComponent",
+      "prefix": "hinge_joint2_d",
+      "header": "spark/ecs/components/physics/2d/HingeJoint2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_connected_body",
+          "member": "GetConnectedBody"
+        },
+        {
+          "suffix": "get_local_anchor_a",
+          "member": "GetLocalAnchorA"
+        },
+        {
+          "suffix": "get_local_anchor_b",
+          "member": "GetLocalAnchorB"
+        },
+        {
+          "suffix": "get_stiffness",
+          "member": "GetStiffness"
+        },
+        {
+          "suffix": "set_connected_body",
+          "member": "SetConnectedBody"
+        },
+        {
+          "suffix": "set_local_anchor_a",
+          "member": "SetLocalAnchorA"
+        },
+        {
+          "suffix": "set_local_anchor_b",
+          "member": "SetLocalAnchorB"
+        },
+        {
+          "suffix": "set_stiffness",
+          "member": "SetStiffness"
+        }
+      ]
+    },
+    {
+      "class": "HingeJoint3DComponent",
+      "prefix": "hinge_joint3_d",
+      "header": "spark/ecs/components/physics/3d/HingeJoint3DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_connected_body",
+          "member": "GetConnectedBody"
+        },
+        {
+          "suffix": "get_local_anchor_a",
+          "member": "GetLocalAnchorA"
+        },
+        {
+          "suffix": "get_local_anchor_b",
+          "member": "GetLocalAnchorB"
+        },
+        {
+          "suffix": "get_stiffness",
+          "member": "GetStiffness"
+        },
+        {
+          "suffix": "set_connected_body",
+          "member": "SetConnectedBody"
+        },
+        {
+          "suffix": "set_local_anchor_a",
+          "member": "SetLocalAnchorA"
+        },
+        {
+          "suffix": "set_local_anchor_b",
+          "member": "SetLocalAnchorB"
+        },
+        {
+          "suffix": "set_stiffness",
+          "member": "SetStiffness"
+        }
+      ]
+    },
+    {
+      "class": "Hurtbox2DComponent",
+      "prefix": "hurtbox2_d",
+      "header": "spark/ecs/components/physics/2d/Hurtbox2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_half_extents",
+          "member": "GetHalfExtents"
+        },
+        {
+          "suffix": "get_invulnerability_seconds",
+          "member": "GetInvulnerabilitySeconds"
+        },
+        {
+          "suffix": "get_local_offset",
+          "member": "GetLocalOffset"
+        },
+        {
+          "suffix": "get_radius",
+          "member": "GetRadius"
+        },
+        {
+          "suffix": "get_shape",
+          "member": "GetShape"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "is_invulnerable",
+          "member": "IsInvulnerable"
+        },
+        {
+          "suffix": "notify_damage_received",
+          "member": "NotifyDamageReceived"
+        },
+        {
+          "suffix": "set_category_bits",
+          "member": "SetCategoryBits"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_half_extents",
+          "member": "SetHalfExtents"
+        },
+        {
+          "suffix": "set_invulnerability_seconds",
+          "member": "SetInvulnerabilitySeconds"
+        },
+        {
+          "suffix": "set_local_offset",
+          "member": "SetLocalOffset"
+        },
+        {
+          "suffix": "set_mask_bits",
+          "member": "SetMaskBits"
+        },
+        {
+          "suffix": "set_radius",
+          "member": "SetRadius"
+        },
+        {
+          "suffix": "set_shape",
+          "member": "SetShape"
+        }
+      ]
+    },
+    {
+      "class": "Hurtbox3DComponent",
+      "prefix": "hurtbox3_d",
+      "header": "spark/ecs/components/physics/3d/Hurtbox3DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_invulnerability_seconds",
+          "member": "GetInvulnerabilitySeconds"
+        },
+        {
+          "suffix": "get_local_offset",
+          "member": "GetLocalOffset"
+        },
+        {
+          "suffix": "get_radius",
+          "member": "GetRadius"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "is_invulnerable",
+          "member": "IsInvulnerable"
+        },
+        {
+          "suffix": "notify_damage_received",
+          "member": "NotifyDamageReceived"
+        },
+        {
+          "suffix": "set_category_bits",
+          "member": "SetCategoryBits"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_invulnerability_seconds",
+          "member": "SetInvulnerabilitySeconds"
+        },
+        {
+          "suffix": "set_local_offset",
+          "member": "SetLocalOffset"
+        },
+        {
+          "suffix": "set_mask_bits",
+          "member": "SetMaskBits"
+        },
+        {
+          "suffix": "set_radius",
+          "member": "SetRadius"
+        }
+      ]
+    },
+    {
+      "class": "InputActionMapComponent",
+      "prefix": "input_action_map",
+      "header": "spark/ecs/components/input/InputActionMapComponent.hpp",
+      "methods": [
+        {
+          "suffix": "bind_button",
+          "member": "BindButton"
+        },
+        {
+          "suffix": "bind_gamepad_axis1_d",
+          "member": "BindGamepadAxis1D"
+        },
+        {
+          "suffix": "bind_gamepad_button",
+          "member": "BindGamepadButton"
+        },
+        {
+          "suffix": "clear",
+          "member": "ClearActions"
+        },
+        {
+          "suffix": "clear_actions",
+          "member": "ClearActions"
+        }
+      ]
+    },
+    {
+      "class": "InteractableComponent",
+      "prefix": "interactable",
+      "header": "spark/ecs/components/gameplay/InteractableComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_interaction_radius",
+          "member": "GetInteractionRadius"
+        },
+        {
+          "suffix": "is_can_interact",
+          "member": "CanInteract"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "is_instigator_in_range",
+          "member": "IsInstigatorInRange"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_interaction_radius",
+          "member": "SetInteractionRadius"
+        },
+        {
+          "suffix": "set_prompt_text",
+          "member": "SetPromptText"
+        },
+        {
+          "suffix": "set_required_instigator_tag",
+          "member": "SetRequiredInstigatorTag"
+        }
+      ]
+    },
+    {
+      "class": "MaterialComponent",
+      "prefix": "material",
+      "header": "spark/ecs/components/rendering/MaterialComponent.hpp",
+      "methods": [
+        {
+          "suffix": "clear_shadow_cast_override",
+          "member": "ClearShadowCastOverride"
+        },
+        {
+          "suffix": "clear_shadow_receive_override",
+          "member": "ClearShadowReceiveOverride"
+        },
+        {
+          "suffix": "get_alpha_cutoff",
+          "member": "GetAlphaCutoff"
+        },
+        {
+          "suffix": "get_emissive_color",
+          "member": "GetEmissiveColor"
+        },
+        {
+          "suffix": "get_emissive_factor",
+          "member": "GetEmissiveFactor"
+        },
+        {
+          "suffix": "get_emissive_intensity",
+          "member": "GetEmissiveIntensity"
+        },
+        {
+          "suffix": "get_metallic",
+          "member": "GetMetallic"
+        },
+        {
+          "suffix": "get_metallic_factor",
+          "member": "GetMetallicFactor"
+        },
+        {
+          "suffix": "get_normal_scale",
+          "member": "GetNormalScale"
+        },
+        {
+          "suffix": "get_occlusion_strength",
+          "member": "GetOcclusionStrength"
+        },
+        {
+          "suffix": "get_opacity",
+          "member": "GetOpacity"
+        },
+        {
+          "suffix": "get_roughness",
+          "member": "GetRoughness"
+        },
+        {
+          "suffix": "get_roughness_factor",
+          "member": "GetRoughnessFactor"
+        },
+        {
+          "suffix": "get_tint",
+          "member": "GetTint"
+        },
+        {
+          "suffix": "get_toon_diffuse_bands",
+          "member": "GetToonDiffuseBands"
+        },
+        {
+          "suffix": "get_toon_rim_intensity",
+          "member": "GetToonRimIntensity"
+        },
+        {
+          "suffix": "get_toon_rim_power",
+          "member": "GetToonRimPower"
+        },
+        {
+          "suffix": "has_s_material_asset",
+          "member": "HasMaterialAsset"
+        },
+        {
+          "suffix": "is_alpha_blend",
+          "member": "IsAlphaBlend"
+        },
+        {
+          "suffix": "is_double_sided",
+          "member": "IsDoubleSided"
+        },
+        {
+          "suffix": "set_alpha_blend",
+          "member": "SetAlphaBlend"
+        },
+        {
+          "suffix": "set_alpha_cutoff",
+          "member": "SetAlphaCutoff"
+        },
+        {
+          "suffix": "set_double_sided",
+          "member": "SetDoubleSided"
+        },
+        {
+          "suffix": "set_emissive_factor",
+          "member": "SetEmissiveFactor"
+        },
+        {
+          "suffix": "set_metallic_factor",
+          "member": "SetMetallicFactor"
+        },
+        {
+          "suffix": "set_normal_scale",
+          "member": "SetNormalScale"
+        },
+        {
+          "suffix": "set_occlusion_strength",
+          "member": "SetOcclusionStrength"
+        },
+        {
+          "suffix": "set_opacity",
+          "member": "SetOpacity"
+        },
+        {
+          "suffix": "set_roughness_factor",
+          "member": "SetRoughnessFactor"
+        },
+        {
+          "suffix": "set_shading_model",
+          "member": "SetShadingModel"
+        },
+        {
+          "suffix": "set_shadow_cast_override",
+          "member": "SetShadowCastOverride"
+        },
+        {
+          "suffix": "set_shadow_receive_override",
+          "member": "SetShadowReceiveOverride"
+        },
+        {
+          "suffix": "set_toon_diffuse_bands",
+          "member": "SetToonDiffuseBands"
+        },
+        {
+          "suffix": "set_toon_rim_intensity",
+          "member": "SetToonRimIntensity"
+        },
+        {
+          "suffix": "set_toon_rim_power",
+          "member": "SetToonRimPower"
+        }
+      ]
+    },
+    {
+      "class": "MeshCollider3DComponent",
+      "prefix": "mesh_collider3_d",
+      "header": "spark/ecs/components/physics/3d/MeshCollider3DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_is_trigger",
+          "member": "GetIsTrigger"
+        },
+        {
+          "suffix": "get_local_offset",
+          "member": "GetLocalOffset"
+        },
+        {
+          "suffix": "set_category_bits",
+          "member": "SetCategoryBits"
+        },
+        {
+          "suffix": "set_is_trigger",
+          "member": "SetIsTrigger"
+        },
+        {
+          "suffix": "set_local_offset",
+          "member": "SetLocalOffset"
+        },
+        {
+          "suffix": "set_mask_bits",
+          "member": "SetMaskBits"
+        }
+      ]
+    },
+    {
+      "class": "MultiMaterialComponent",
+      "prefix": "multi_material",
+      "header": "spark/ecs/components/rendering/MultiMaterialComponent.hpp",
+      "methods": [
+        {
+          "suffix": "clear",
+          "member": "Clear"
+        },
+        {
+          "suffix": "cycle_active_variant",
+          "member": "CycleActiveVariant"
+        },
+        {
+          "suffix": "get_active_variant_index",
+          "member": "GetActiveVariantIndex"
+        },
+        {
+          "suffix": "has_s_material_variants",
+          "member": "HasMaterialVariants"
+        },
+        {
+          "suffix": "is_slot_has_material_asset",
+          "member": "SlotHasMaterialAsset"
+        },
+        {
+          "suffix": "resize_slots",
+          "member": "ResizeSlots"
+        },
+        {
+          "suffix": "set_active_variant_index",
+          "member": "SetActiveVariantIndex"
+        }
+      ]
+    },
+    {
+      "class": "NavMeshAgentComponent",
+      "prefix": "nav_mesh_agent",
+      "header": "spark/ecs/components/ai/NavMeshAgentComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_grid_cell_size",
+          "member": "GetGridCellSize"
+        },
+        {
+          "suffix": "get_grid_height",
+          "member": "GetGridHeight"
+        },
+        {
+          "suffix": "get_grid_origin_x_z",
+          "member": "GetGridOriginXZ"
+        },
+        {
+          "suffix": "get_grid_width",
+          "member": "GetGridWidth"
+        },
+        {
+          "suffix": "get_patrol_path_object",
+          "member": "GetPatrolPathObject"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "is_use_grid_pathfinding",
+          "member": "UseGridPathfinding"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_grid_cell_size",
+          "member": "SetGridCellSize"
+        },
+        {
+          "suffix": "set_grid_height",
+          "member": "SetGridHeight"
+        },
+        {
+          "suffix": "set_grid_origin_x_z",
+          "member": "SetGridOriginXZ"
+        },
+        {
+          "suffix": "set_grid_width",
+          "member": "SetGridWidth"
+        },
+        {
+          "suffix": "set_patrol_path_object",
+          "member": "SetPatrolPathObject"
+        },
+        {
+          "suffix": "set_use_grid_pathfinding",
+          "member": "SetUseGridPathfinding"
+        }
+      ]
+    },
+    {
+      "class": "OneWayPlatform2DComponent",
+      "prefix": "one_way_platform_2d",
+      "header": "spark/ecs/components/physics/2d/OneWayPlatform2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "is_one_way_platform",
+          "member": "IsOneWayPlatform"
+        }
+      ]
+    },
+    {
+      "class": "ParallaxLayerComponent",
+      "prefix": "parallax",
+      "header": "spark/ecs/components/rendering/ParallaxLayerComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_anchor_world",
+          "member": "GetAnchorWorld"
+        },
+        {
+          "suffix": "get_axis_mode",
+          "member": "GetAxisMode"
+        },
+        {
+          "suffix": "get_camera_reference",
+          "member": "GetCameraReference"
+        },
+        {
+          "suffix": "get_factor_x",
+          "member": "GetFactorX"
+        },
+        {
+          "suffix": "get_factor_y",
+          "member": "GetFactorY"
+        },
+        {
+          "suffix": "get_rest_offset",
+          "member": "GetRestOffset"
+        },
+        {
+          "suffix": "set_anchor_world",
+          "member": "SetAnchorWorld"
+        },
+        {
+          "suffix": "set_axis_mode",
+          "member": "SetAxisMode"
+        },
+        {
+          "suffix": "set_camera_reference",
+          "member": "SetCameraReference"
+        },
+        {
+          "suffix": "set_drift_amplitude",
+          "member": "SetDriftAmplitude"
+        },
+        {
+          "suffix": "set_drift_frequency_hz",
+          "member": "SetDriftFrequencyHz"
+        },
+        {
+          "suffix": "set_drift_mode",
+          "member": "SetDriftMode"
+        },
+        {
+          "suffix": "set_drift_phase",
+          "member": "SetDriftPhase"
+        },
+        {
+          "suffix": "set_factor_x",
+          "member": "SetFactorX"
+        },
+        {
+          "suffix": "set_factor_x_y",
+          "member": "SetFactorXY"
+        },
+        {
+          "suffix": "set_factor_xy",
+          "member": "SetFactorXY"
+        },
+        {
+          "suffix": "set_factor_y",
+          "member": "SetFactorY"
+        },
+        {
+          "suffix": "set_rest_offset",
+          "member": "SetRestOffset"
+        }
+      ]
+    },
+    {
+      "class": "ParticleEmitterComponent",
+      "prefix": "particle_emitter",
+      "header": "spark/ecs/components/rendering/ParticleEmitterComponent.hpp",
+      "methods": [
+        {
+          "suffix": "clear_particles",
+          "member": "ClearParticles"
+        },
+        {
+          "suffix": "emit_continuous",
+          "member": "EmitContinuous"
+        },
+        {
+          "suffix": "emit_ring",
+          "member": "EmitRing"
+        },
+        {
+          "suffix": "get_alive_particle_count",
+          "member": "GetAliveParticleCount"
+        },
+        {
+          "suffix": "get_emission_direction",
+          "member": "GetEmissionDirection"
+        },
+        {
+          "suffix": "get_emission_rate",
+          "member": "GetEmissionRate"
+        },
+        {
+          "suffix": "get_end_size",
+          "member": "GetEndSize"
+        },
+        {
+          "suffix": "get_gravity",
+          "member": "GetGravity"
+        },
+        {
+          "suffix": "get_lifetime_max",
+          "member": "GetLifetimeMax"
+        },
+        {
+          "suffix": "get_lifetime_min",
+          "member": "GetLifetimeMin"
+        },
+        {
+          "suffix": "get_max_particles",
+          "member": "GetMaxParticles"
+        },
+        {
+          "suffix": "get_ring_radius",
+          "member": "GetRingRadius"
+        },
+        {
+          "suffix": "get_speed_max",
+          "member": "GetSpeedMax"
+        },
+        {
+          "suffix": "get_speed_min",
+          "member": "GetSpeedMin"
+        },
+        {
+          "suffix": "get_spread_angle_radians",
+          "member": "GetSpreadAngleRadians"
+        },
+        {
+          "suffix": "get_sprite_layer_sort_order",
+          "member": "GetSpriteLayerSortOrder"
+        },
+        {
+          "suffix": "get_start_size",
+          "member": "GetStartSize"
+        },
+        {
+          "suffix": "get_use_local_emission",
+          "member": "GetUseLocalEmission"
+        },
+        {
+          "suffix": "is_emitter_enabled",
+          "member": "IsEmitterEnabled"
+        },
+        {
+          "suffix": "set_emission_direction",
+          "member": "SetEmissionDirection"
+        },
+        {
+          "suffix": "set_emission_module_id",
+          "member": "SetEmissionModuleId"
+        },
+        {
+          "suffix": "set_emission_rate",
+          "member": "SetEmissionRate"
+        },
+        {
+          "suffix": "set_emitter_enabled",
+          "member": "SetEmitterEnabled"
+        },
+        {
+          "suffix": "set_gravity",
+          "member": "SetGravity"
+        },
+        {
+          "suffix": "set_lifetime",
+          "member": "SetLifetime"
+        },
+        {
+          "suffix": "set_render_space",
+          "member": "SetRenderSpace"
+        },
+        {
+          "suffix": "set_ring_radius",
+          "member": "SetRingRadius"
+        },
+        {
+          "suffix": "set_speed_range",
+          "member": "SetSpeedRange"
+        },
+        {
+          "suffix": "set_spread_angle_radians",
+          "member": "SetSpreadAngleRadians"
+        },
+        {
+          "suffix": "set_sprite_layer_sort_order",
+          "member": "SetSpriteLayerSortOrder"
+        },
+        {
+          "suffix": "set_start_end_size",
+          "member": "SetStartEndSize"
+        },
+        {
+          "suffix": "set_use_local_emission",
+          "member": "SetUseLocalEmission"
+        }
+      ]
+    },
+    {
+      "class": "PatrolPathComponent",
+      "prefix": "patrol_path",
+      "header": "spark/ecs/components/ai/PatrolPathComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_wait_seconds_per_point",
+          "member": "GetWaitSecondsPerPoint"
+        },
+        {
+          "suffix": "is_looping",
+          "member": "IsLooping"
+        },
+        {
+          "suffix": "set_looping",
+          "member": "SetLooping"
+        },
+        {
+          "suffix": "set_wait_seconds_per_point",
+          "member": "SetWaitSecondsPerPoint"
+        }
+      ]
+    },
+    {
+      "class": "PerceptionSensorComponent",
+      "prefix": "perception_sensor",
+      "header": "spark/ecs/components/ai/PerceptionSensorComponent.hpp",
+      "methods": [
+        {
+          "suffix": "clear_detected",
+          "member": "ClearDetected"
+        },
+        {
+          "suffix": "get_hearing_radius",
+          "member": "GetHearingRadius"
+        },
+        {
+          "suffix": "get_sight_fov_degrees",
+          "member": "GetSightFovDegrees"
+        },
+        {
+          "suffix": "get_sight_radius",
+          "member": "GetSightRadius"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_hearing_radius",
+          "member": "SetHearingRadius"
+        },
+        {
+          "suffix": "set_sight_fov_degrees",
+          "member": "SetSightFovDegrees"
+        },
+        {
+          "suffix": "set_sight_radius",
+          "member": "SetSightRadius"
+        },
+        {
+          "suffix": "set_target_category_mask",
+          "member": "SetTargetCategoryMask"
+        }
+      ]
+    },
+    {
+      "class": "PhysicsAttachedBody3DComponent",
+      "prefix": "physics_attached_body_3d",
+      "header": "spark/ecs/components/physics/3d/PhysicsAttachedBody3DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_carrier",
+          "member": "GetCarrier"
+        },
+        {
+          "suffix": "get_local_offset",
+          "member": "GetLocalOffset"
+        },
+        {
+          "suffix": "is_attached",
+          "member": "IsAttached"
+        }
+      ]
+    },
+    {
+      "class": "PhysicsLayer3DComponent",
+      "prefix": "physics_layer3_d",
+      "header": "spark/ecs/components/physics/3d/PhysicsLayer3DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_is_trigger",
+          "member": "GetIsTrigger"
+        },
+        {
+          "suffix": "set_category_bits",
+          "member": "SetCategoryBits"
+        },
+        {
+          "suffix": "set_is_trigger",
+          "member": "SetIsTrigger"
+        },
+        {
+          "suffix": "set_mask_bits",
+          "member": "SetMaskBits"
+        }
+      ]
+    },
+    {
+      "class": "PhysicsMaterial2DComponent",
+      "prefix": "physics_material2_d",
+      "header": "spark/ecs/components/physics/2d/PhysicsMaterial2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_dynamic_friction",
+          "member": "GetDynamicFriction"
+        },
+        {
+          "suffix": "get_restitution",
+          "member": "GetRestitution"
+        },
+        {
+          "suffix": "set_dynamic_friction",
+          "member": "SetDynamicFriction"
+        },
+        {
+          "suffix": "set_restitution",
+          "member": "SetRestitution"
+        }
+      ]
+    },
+    {
+      "class": "PhysicsMaterial3DComponent",
+      "prefix": "physics_material3_d",
+      "header": "spark/ecs/components/physics/3d/PhysicsMaterial3DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_dynamic_friction",
+          "member": "GetDynamicFriction"
+        },
+        {
+          "suffix": "get_restitution",
+          "member": "GetRestitution"
+        },
+        {
+          "suffix": "get_static_friction",
+          "member": "GetStaticFriction"
+        },
+        {
+          "suffix": "set_dynamic_friction",
+          "member": "SetDynamicFriction"
+        },
+        {
+          "suffix": "set_restitution",
+          "member": "SetRestitution"
+        },
+        {
+          "suffix": "set_static_friction",
+          "member": "SetStaticFriction"
+        }
+      ]
+    },
+    {
+      "class": "PickupComponent",
+      "prefix": "pickup",
+      "header": "spark/ecs/components/gameplay/PickupComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_auto_collect_on_trigger_enter",
+          "member": "GetAutoCollectOnTriggerEnter"
+        },
+        {
+          "suffix": "get_destroy_owner_on_collect",
+          "member": "GetDestroyOwnerOnCollect"
+        },
+        {
+          "suffix": "get_quantity",
+          "member": "GetQuantity"
+        },
+        {
+          "suffix": "is_collected",
+          "member": "IsCollected"
+        },
+        {
+          "suffix": "set_auto_collect_on_trigger_enter",
+          "member": "SetAutoCollectOnTriggerEnter"
+        },
+        {
+          "suffix": "set_destroy_owner_on_collect",
+          "member": "SetDestroyOwnerOnCollect"
+        },
+        {
+          "suffix": "set_item_id",
+          "member": "SetItemId"
+        },
+        {
+          "suffix": "set_quantity",
+          "member": "SetQuantity"
+        }
+      ]
+    },
+    {
+      "class": "PlayerInputComponent",
+      "prefix": "player_input",
+      "header": "spark/ecs/components/input/PlayerInputComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_action_axis1_d",
+          "member": "GetActionAxis1D"
+        },
+        {
+          "suffix": "get_action_axis1d",
+          "member": "GetActionAxis1D"
+        },
+        {
+          "suffix": "is_action_pressed",
+          "member": "IsActionPressed"
+        },
+        {
+          "suffix": "is_was_action_pressed_this_frame",
+          "member": "WasActionPressedThisFrame"
+        },
+        {
+          "suffix": "is_was_action_released_this_frame",
+          "member": "WasActionReleasedThisFrame"
+        },
+        {
+          "suffix": "set_action_map",
+          "member": "SetActionMap"
+        },
+        {
+          "suffix": "was_action_pressed_this_frame",
+          "member": "WasActionPressedThisFrame"
+        }
+      ]
+    },
+    {
+      "class": "PointLight2DComponent",
+      "prefix": "point_light2_d",
+      "header": "spark/ecs/components/lighting/PointLight2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_color",
+          "member": "GetColor"
+        },
+        {
+          "suffix": "get_effective_intensity",
+          "member": "GetEffectiveIntensity"
+        },
+        {
+          "suffix": "get_flicker_amount",
+          "member": "GetFlickerAmount"
+        },
+        {
+          "suffix": "get_flicker_enabled",
+          "member": "GetFlickerEnabled"
+        },
+        {
+          "suffix": "get_flicker_hz",
+          "member": "GetFlickerHz"
+        },
+        {
+          "suffix": "get_intensity",
+          "member": "GetIntensity"
+        },
+        {
+          "suffix": "get_local_offset",
+          "member": "GetLocalOffset"
+        },
+        {
+          "suffix": "get_range",
+          "member": "GetRange"
+        },
+        {
+          "suffix": "get_world_z",
+          "member": "GetWorldZ"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_color",
+          "member": "SetColor"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_flicker",
+          "member": "SetFlicker"
+        },
+        {
+          "suffix": "set_intensity",
+          "member": "SetIntensity"
+        },
+        {
+          "suffix": "set_local_offset",
+          "member": "SetLocalOffset"
+        },
+        {
+          "suffix": "set_range",
+          "member": "SetRange"
+        },
+        {
+          "suffix": "set_world_z",
+          "member": "SetWorldZ"
+        }
+      ]
+    },
+    {
+      "class": "PointLightComponent",
+      "prefix": "point_light",
+      "header": "spark/ecs/components/lighting/PointLightComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_color",
+          "member": "GetColor"
+        },
+        {
+          "suffix": "get_intensity",
+          "member": "GetIntensity"
+        },
+        {
+          "suffix": "get_range",
+          "member": "GetRange"
+        },
+        {
+          "suffix": "is_casts_shadow",
+          "member": "CastsShadow"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_casts_shadow",
+          "member": "SetCastsShadow"
+        }
+      ]
+    },
+    {
+      "class": "PolygonCollider2DComponent",
+      "prefix": "polygon_collider2_d",
+      "header": "spark/ecs/components/physics/2d/PolygonCollider2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "clear_vertices",
+          "member": "ClearVertices"
+        },
+        {
+          "suffix": "get_is_trigger",
+          "member": "GetIsTrigger"
+        },
+        {
+          "suffix": "set_category_bits",
+          "member": "SetCategoryBits"
+        },
+        {
+          "suffix": "set_is_trigger",
+          "member": "SetIsTrigger"
+        },
+        {
+          "suffix": "set_mask_bits",
+          "member": "SetMaskBits"
+        }
+      ]
+    },
+    {
+      "class": "PostProcessVolumeComponent",
+      "prefix": "post_process_volume",
+      "header": "spark/ecs/components/rendering/PostProcessVolumeComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_ambient_scale",
+          "member": "GetAmbientScale"
+        },
+        {
+          "suffix": "get_exposure",
+          "member": "GetExposure"
+        },
+        {
+          "suffix": "get_half_extents",
+          "member": "GetHalfExtents"
+        },
+        {
+          "suffix": "get_priority",
+          "member": "GetPriority"
+        },
+        {
+          "suffix": "get_shape",
+          "member": "GetShape"
+        },
+        {
+          "suffix": "get_ssao_enabled",
+          "member": "GetSsaoEnabled"
+        },
+        {
+          "suffix": "has_s_ambient_scale_override",
+          "member": "HasAmbientScaleOverride"
+        },
+        {
+          "suffix": "has_s_exposure_override",
+          "member": "HasExposureOverride"
+        },
+        {
+          "suffix": "has_s_ssao_override",
+          "member": "HasSsaoOverride"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_half_extents",
+          "member": "SetHalfExtents"
+        },
+        {
+          "suffix": "set_priority",
+          "member": "SetPriority"
+        },
+        {
+          "suffix": "set_shape",
+          "member": "SetShape"
+        }
+      ]
+    },
+    {
+      "class": "Projectile2DComponent",
+      "prefix": "projectile2_d",
+      "header": "spark/ecs/components/physics/2d/Projectile2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "deactivate",
+          "member": "Deactivate"
+        },
+        {
+          "suffix": "get_block_on_solid_hit",
+          "member": "GetBlockOnSolidHit"
+        },
+        {
+          "suffix": "get_damage",
+          "member": "GetDamage"
+        },
+        {
+          "suffix": "get_deactivate_on_first_hit",
+          "member": "GetDeactivateOnFirstHit"
+        },
+        {
+          "suffix": "get_destroy_owner_on_deactivate",
+          "member": "GetDestroyOwnerOnDeactivate"
+        },
+        {
+          "suffix": "get_instigator",
+          "member": "GetInstigator"
+        },
+        {
+          "suffix": "get_lifetime_seconds",
+          "member": "GetLifetimeSeconds"
+        },
+        {
+          "suffix": "get_shape",
+          "member": "GetShape"
+        },
+        {
+          "suffix": "get_velocity",
+          "member": "GetVelocity"
+        },
+        {
+          "suffix": "is_active",
+          "member": "IsActive"
+        },
+        {
+          "suffix": "set_active",
+          "member": "SetActive"
+        },
+        {
+          "suffix": "set_block_on_solid_hit",
+          "member": "SetBlockOnSolidHit"
+        },
+        {
+          "suffix": "set_damage",
+          "member": "SetDamage"
+        },
+        {
+          "suffix": "set_deactivate_on_first_hit",
+          "member": "SetDeactivateOnFirstHit"
+        },
+        {
+          "suffix": "set_destroy_owner_on_deactivate",
+          "member": "SetDestroyOwnerOnDeactivate"
+        },
+        {
+          "suffix": "set_half_extents",
+          "member": "SetHalfExtents"
+        },
+        {
+          "suffix": "set_instigator",
+          "member": "SetInstigator"
+        },
+        {
+          "suffix": "set_lifetime_seconds",
+          "member": "SetLifetimeSeconds"
+        },
+        {
+          "suffix": "set_radius",
+          "member": "SetRadius"
+        },
+        {
+          "suffix": "set_shape",
+          "member": "SetShape"
+        },
+        {
+          "suffix": "set_velocity",
+          "member": "SetVelocity"
+        }
+      ]
+    },
+    {
+      "class": "RenderLayerComponent",
+      "prefix": "render_layer",
+      "header": "spark/ecs/components/rendering/RenderLayerComponent.hpp",
+      "methods": [
+        {
+          "suffix": "clear_explicit_order_in_layer",
+          "member": "ClearExplicitOrderInLayer"
+        },
+        {
+          "suffix": "get_order_in_layer",
+          "member": "GetOrderInLayer"
+        },
+        {
+          "suffix": "has_s_explicit_order_in_layer",
+          "member": "HasExplicitOrderInLayer"
+        },
+        {
+          "suffix": "set_layer_id",
+          "member": "SetLayerId"
+        }
+      ]
+    },
+    {
+      "class": "Rigidbody2DComponent",
+      "prefix": "rigidbody_2d",
+      "header": "spark/ecs/components/physics/2d/Rigidbody2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_body_type",
+          "member": "GetBodyType"
+        },
+        {
+          "suffix": "get_gravity_scale",
+          "member": "GetGravityScale"
+        },
+        {
+          "suffix": "get_velocity",
+          "member": "GetVelocity"
+        },
+        {
+          "suffix": "is_grounded",
+          "member": "IsGrounded"
+        },
+        {
+          "suffix": "set_body_type",
+          "member": "SetBodyType"
+        },
+        {
+          "suffix": "set_gravity_scale",
+          "member": "SetGravityScale"
+        },
+        {
+          "suffix": "set_grounded",
+          "member": "SetGrounded"
+        },
+        {
+          "suffix": "set_velocity",
+          "member": "SetVelocity"
+        },
+        {
+          "suffix": "set_velocity_x",
+          "member": "SetVelocityX"
+        },
+        {
+          "suffix": "set_velocity_y",
+          "member": "SetVelocityY"
+        }
+      ]
+    },
+    {
+      "class": "Rigidbody3DComponent",
+      "prefix": "rigidbody_3d",
+      "header": "spark/ecs/components/physics/3d/Rigidbody3DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_angular_damping",
+          "member": "GetAngularDamping"
+        },
+        {
+          "suffix": "get_angular_velocity",
+          "member": "GetAngularVelocity"
+        },
+        {
+          "suffix": "get_body_type",
+          "member": "GetBodyType"
+        },
+        {
+          "suffix": "get_gravity_scale",
+          "member": "GetGravityScale"
+        },
+        {
+          "suffix": "get_inverse_inertia_tensor_scale",
+          "member": "GetInverseInertiaTensorScale"
+        },
+        {
+          "suffix": "get_inverse_mass",
+          "member": "GetInverseMass"
+        },
+        {
+          "suffix": "get_linear_damping",
+          "member": "GetLinearDamping"
+        },
+        {
+          "suffix": "get_restitution",
+          "member": "GetRestitution"
+        },
+        {
+          "suffix": "get_velocity",
+          "member": "GetVelocity"
+        },
+        {
+          "suffix": "set_angular_damping",
+          "member": "SetAngularDamping"
+        },
+        {
+          "suffix": "set_angular_velocity",
+          "member": "SetAngularVelocity"
+        },
+        {
+          "suffix": "set_body_type",
+          "member": "SetBodyType"
+        },
+        {
+          "suffix": "set_gravity_scale",
+          "member": "SetGravityScale"
+        },
+        {
+          "suffix": "set_inverse_inertia_tensor_scale",
+          "member": "SetInverseInertiaTensorScale"
+        },
+        {
+          "suffix": "set_inverse_mass",
+          "member": "SetInverseMass"
+        },
+        {
+          "suffix": "set_linear_damping",
+          "member": "SetLinearDamping"
+        },
+        {
+          "suffix": "set_restitution",
+          "member": "SetRestitution"
+        },
+        {
+          "suffix": "set_velocity",
+          "member": "SetVelocity"
+        }
+      ]
+    },
+    {
+      "class": "RootMotionComponent",
+      "prefix": "root_motion",
+      "header": "spark/ecs/components/animation/RootMotionComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_animator_object",
+          "member": "GetAnimatorObject"
+        },
+        {
+          "suffix": "get_apply_target",
+          "member": "GetApplyTarget"
+        },
+        {
+          "suffix": "get_facing_object",
+          "member": "GetFacingObject"
+        },
+        {
+          "suffix": "get_last_delta_skeleton_space",
+          "member": "GetLastDeltaSkeletonSpace"
+        },
+        {
+          "suffix": "get_last_delta_world_space",
+          "member": "GetLastDeltaWorldSpace"
+        },
+        {
+          "suffix": "get_skeleton_space_scale",
+          "member": "GetSkeletonSpaceScale"
+        },
+        {
+          "suffix": "get_translation_mask",
+          "member": "GetTranslationMask"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "is_in_place",
+          "member": "IsInPlace"
+        },
+        {
+          "suffix": "set_animator_object",
+          "member": "SetAnimatorObject"
+        },
+        {
+          "suffix": "set_apply_target",
+          "member": "SetApplyTarget"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_facing_object",
+          "member": "SetFacingObject"
+        },
+        {
+          "suffix": "set_in_place",
+          "member": "SetInPlace"
+        },
+        {
+          "suffix": "set_motion_joint_index",
+          "member": "SetMotionJointIndex"
+        },
+        {
+          "suffix": "set_skeleton_space_scale",
+          "member": "SetSkeletonSpaceScale"
+        },
+        {
+          "suffix": "set_translation_mask",
+          "member": "SetTranslationMask"
+        },
+        {
+          "suffix": "use_pattern_motion_joint_resolver",
+          "member": "UsePatternMotionJointResolver"
+        }
+      ]
+    },
+    {
+      "class": "Scene2DCompositeViewComponent",
+      "prefix": "scene2_d_composite_view",
+      "header": "spark/ecs/components/rendering/Scene2DCompositeViewComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_feature",
+          "member": "GetFeature"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_feature",
+          "member": "SetFeature"
+        }
+      ]
+    },
+    {
+      "class": "SceneSpatialPolicyComponent",
+      "prefix": "scene_spatial_policy",
+      "header": "spark/ecs/components/world/SceneSpatialPolicyComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_partition_kind",
+          "member": "GetPartitionKind"
+        },
+        {
+          "suffix": "set_partition_kind",
+          "member": "SetPartitionKind"
+        }
+      ]
+    },
+    {
+      "class": "ScreenShakeComponent",
+      "prefix": "screen_shake",
+      "header": "spark/ecs/components/camera/ScreenShakeComponent.hpp",
+      "methods": [
+        {
+          "suffix": "add_impulse",
+          "member": "AddImpulse"
+        },
+        {
+          "suffix": "add_trauma",
+          "member": "AddTrauma"
+        },
+        {
+          "suffix": "clear",
+          "member": "Clear"
+        },
+        {
+          "suffix": "get_offset",
+          "member": "GetOffset"
+        },
+        {
+          "suffix": "get_trauma",
+          "member": "GetTrauma"
+        },
+        {
+          "suffix": "tick",
+          "member": "Tick"
+        }
+      ]
+    },
+    {
+      "class": "SkeletonDebugDrawComponent",
+      "prefix": "skeleton_debug_draw",
+      "header": "spark/ecs/components/animation/SkeletonDebugDrawComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_bone_thickness",
+          "member": "GetBoneThickness"
+        },
+        {
+          "suffix": "get_joint_marker_scale",
+          "member": "GetJointMarkerScale"
+        },
+        {
+          "suffix": "get_line_color",
+          "member": "GetLineColor"
+        },
+        {
+          "suffix": "get_source_object",
+          "member": "GetSourceObject"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_bone_thickness",
+          "member": "SetBoneThickness"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_joint_marker_scale",
+          "member": "SetJointMarkerScale"
+        },
+        {
+          "suffix": "set_line_color",
+          "member": "SetLineColor"
+        },
+        {
+          "suffix": "set_source_object",
+          "member": "SetSourceObject"
+        },
+        {
+          "suffix": "toggle_enabled",
+          "member": "ToggleEnabled"
+        }
+      ]
+    },
+    {
+      "class": "SkinnedAnimationBudgetComponent",
+      "prefix": "skinned_animation_budget",
+      "header": "spark/ecs/components/animation/SkinnedAnimationBudgetComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_max_palette_updates_per_frame",
+          "member": "GetMaxPaletteUpdatesPerFrame"
+        },
+        {
+          "suffix": "get_max_skinned_draws_per_frame",
+          "member": "GetMaxSkinnedDrawsPerFrame"
+        },
+        {
+          "suffix": "get_palette_quantization_hz",
+          "member": "GetPaletteQuantizationHz"
+        },
+        {
+          "suffix": "is_palette_cache_enabled",
+          "member": "IsPaletteCacheEnabled"
+        },
+        {
+          "suffix": "set_max_palette_updates_per_frame",
+          "member": "SetMaxPaletteUpdatesPerFrame"
+        },
+        {
+          "suffix": "set_max_skinned_draws_per_frame",
+          "member": "SetMaxSkinnedDrawsPerFrame"
+        },
+        {
+          "suffix": "set_palette_cache_enabled",
+          "member": "SetPaletteCacheEnabled"
+        },
+        {
+          "suffix": "set_palette_quantization_hz",
+          "member": "SetPaletteQuantizationHz"
+        }
+      ]
+    },
+    {
+      "class": "SkinnedMeshComponent",
+      "prefix": "skinned_mesh",
+      "header": "spark/ecs/components/rendering/SkinnedMeshComponent.hpp",
+      "methods": [
+        {
+          "suffix": "is_mesh_loaded",
+          "member": "IsMeshLoaded"
+        },
+        {
+          "suffix": "is_skeleton_loaded",
+          "member": "IsSkeletonLoaded"
+        }
+      ]
+    },
+    {
+      "class": "SkyComponent",
+      "prefix": "sky",
+      "header": "spark/ecs/components/rendering/SkyComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_sky_mode",
+          "member": "GetSkyMode"
+        },
+        {
+          "suffix": "get_tint",
+          "member": "GetTint"
+        },
+        {
+          "suffix": "is_sky_enabled",
+          "member": "IsSkyEnabled"
+        },
+        {
+          "suffix": "set_sky_enabled",
+          "member": "SetSkyEnabled"
+        },
+        {
+          "suffix": "set_sky_mode",
+          "member": "SetSkyMode"
+        }
+      ]
+    },
+    {
+      "class": "SortingGroupComponent",
+      "prefix": "sorting_group",
+      "header": "spark/ecs/components/rendering/SortingGroupComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_sorting_order",
+          "member": "GetSortingOrder"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "is_uses_root_world_y",
+          "member": "UsesRootWorldY"
+        }
+      ]
+    },
+    {
+      "class": "SoundCueComponent",
+      "prefix": "sound_cue",
+      "header": "spark/ecs/components/audio/SoundCueComponent.hpp",
+      "methods": [
+        {
+          "suffix": "queue_bundled_clip",
+          "member": "QueueBundledClip"
+        },
+        {
+          "suffix": "queue_preset",
+          "member": "QueuePreset"
+        }
+      ]
+    },
+    {
+      "class": "SpawnPoint2DComponent",
+      "prefix": "spawn_point2_d",
+      "header": "spark/ecs/components/world/SpawnPoint2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_facing_radians",
+          "member": "GetFacingRadians"
+        },
+        {
+          "suffix": "get_team_id",
+          "member": "GetTeamId"
+        },
+        {
+          "suffix": "get_use_transform_facing",
+          "member": "GetUseTransformFacing"
+        },
+        {
+          "suffix": "set_facing_radians",
+          "member": "SetFacingRadians"
+        },
+        {
+          "suffix": "set_spawn_name",
+          "member": "SetSpawnName"
+        },
+        {
+          "suffix": "set_team_id",
+          "member": "SetTeamId"
+        },
+        {
+          "suffix": "set_use_transform_facing",
+          "member": "SetUseTransformFacing"
+        }
+      ]
+    },
+    {
+      "class": "SpawnPointComponent",
+      "prefix": "spawn_point",
+      "header": "spark/ecs/components/world/SpawnPointComponent.hpp",
+      "methods": [
+        {
+          "suffix": "set_spawn_name",
+          "member": "SetSpawnName"
+        }
+      ]
+    },
+    {
+      "class": "SphereCollider3DComponent",
+      "prefix": "sphere_collider3_d",
+      "header": "spark/ecs/components/physics/3d/SphereCollider3DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_is_trigger",
+          "member": "GetIsTrigger"
+        },
+        {
+          "suffix": "get_offset",
+          "member": "GetOffset"
+        },
+        {
+          "suffix": "get_radius",
+          "member": "GetRadius"
+        },
+        {
+          "suffix": "set_category_bits",
+          "member": "SetCategoryBits"
+        },
+        {
+          "suffix": "set_is_trigger",
+          "member": "SetIsTrigger"
+        },
+        {
+          "suffix": "set_mask_bits",
+          "member": "SetMaskBits"
+        },
+        {
+          "suffix": "set_offset",
+          "member": "SetOffset"
+        },
+        {
+          "suffix": "set_radius",
+          "member": "SetRadius"
+        }
+      ]
+    },
+    {
+      "class": "SpotLightComponent",
+      "prefix": "spot_light",
+      "header": "spark/ecs/components/lighting/SpotLightComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_color",
+          "member": "GetColor"
+        },
+        {
+          "suffix": "get_inner_cone_degrees",
+          "member": "GetInnerConeDegrees"
+        },
+        {
+          "suffix": "get_intensity",
+          "member": "GetIntensity"
+        },
+        {
+          "suffix": "get_outer_cone_degrees",
+          "member": "GetOuterConeDegrees"
+        },
+        {
+          "suffix": "get_range",
+          "member": "GetRange"
+        },
+        {
+          "suffix": "is_casts_shadow",
+          "member": "CastsShadow"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "set_casts_shadow",
+          "member": "SetCastsShadow"
+        },
+        {
+          "suffix": "set_inner_cone_degrees",
+          "member": "SetInnerConeDegrees"
+        },
+        {
+          "suffix": "set_outer_cone_degrees",
+          "member": "SetOuterConeDegrees"
+        }
+      ]
+    },
+    {
+      "class": "SpringArm3DComponent",
+      "prefix": "spring_arm3_d",
+      "header": "spark/ecs/components/camera/SpringArm3DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_arm_length",
+          "member": "GetArmLength"
+        },
+        {
+          "suffix": "get_min_arm_length",
+          "member": "GetMinArmLength"
+        },
+        {
+          "suffix": "get_pitch_radians",
+          "member": "GetPitchRadians"
+        },
+        {
+          "suffix": "get_pivot_target",
+          "member": "GetPivotTarget"
+        },
+        {
+          "suffix": "get_probe_radius",
+          "member": "GetProbeRadius"
+        },
+        {
+          "suffix": "get_socket_offset",
+          "member": "GetSocketOffset"
+        },
+        {
+          "suffix": "get_yaw_radians",
+          "member": "GetYawRadians"
+        },
+        {
+          "suffix": "set_arm_length",
+          "member": "SetArmLength"
+        },
+        {
+          "suffix": "set_min_arm_length",
+          "member": "SetMinArmLength"
+        },
+        {
+          "suffix": "set_pitch_radians",
+          "member": "SetPitchRadians"
+        },
+        {
+          "suffix": "set_pivot_target",
+          "member": "SetPivotTarget"
+        },
+        {
+          "suffix": "set_probe_radius",
+          "member": "SetProbeRadius"
+        },
+        {
+          "suffix": "set_socket_offset",
+          "member": "SetSocketOffset"
+        },
+        {
+          "suffix": "set_yaw_radians",
+          "member": "SetYawRadians"
+        }
+      ]
+    },
+    {
+      "class": "SpringJoint3DComponent",
+      "prefix": "spring_joint3_d",
+      "header": "spark/ecs/components/physics/3d/SpringJoint3DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_connected_body",
+          "member": "GetConnectedBody"
+        },
+        {
+          "suffix": "get_damping",
+          "member": "GetDamping"
+        },
+        {
+          "suffix": "get_rest_length",
+          "member": "GetRestLength"
+        },
+        {
+          "suffix": "get_spring_stiffness",
+          "member": "GetSpringStiffness"
+        },
+        {
+          "suffix": "set_connected_body",
+          "member": "SetConnectedBody"
+        },
+        {
+          "suffix": "set_damping",
+          "member": "SetDamping"
+        },
+        {
+          "suffix": "set_rest_length",
+          "member": "SetRestLength"
+        },
+        {
+          "suffix": "set_spring_stiffness",
+          "member": "SetSpringStiffness"
+        }
+      ]
+    },
+    {
+      "class": "Sprite2DCharacterAnimFsmComponent",
+      "prefix": "sprite_2d_fsm",
+      "header": "spark/ecs/components/animation/Sprite2DCharacterAnimFsmComponent.hpp",
+      "methods": [
+        {
+          "suffix": "request_attack",
+          "member": "RequestAttack"
+        },
+        {
+          "suffix": "request_hurt",
+          "member": "RequestHurt"
+        },
+        {
+          "suffix": "set_combat_blackboard_int_slot",
+          "member": "SetCombatBlackboardIntSlot"
+        },
+        {
+          "suffix": "set_combat_clips",
+          "member": "SetCombatClips"
+        },
+        {
+          "suffix": "set_locomotion_clips",
+          "member": "SetLocomotionClips"
+        },
+        {
+          "suffix": "set_locomotion_source",
+          "member": "SetLocomotionSource"
+        },
+        {
+          "suffix": "set_move_speed_threshold",
+          "member": "SetMoveSpeedThreshold"
+        }
+      ]
+    },
+    {
+      "class": "SpriteAnimationEventReceiverComponent",
+      "prefix": "sprite_animation_event_receiver",
+      "header": "spark/ecs/components/animation/SpriteAnimationEventReceiverComponent.hpp",
+      "methods": [
+        {
+          "suffix": "add_marker",
+          "member": "AddMarker"
+        },
+        {
+          "suffix": "clear_markers",
+          "member": "ClearMarkers"
+        }
+      ]
+    },
+    {
+      "class": "SpriteAnimationEventVfxComponent",
+      "prefix": "sprite_animation_event_vfx",
+      "header": "spark/ecs/components/animation/SpriteAnimationEventVfxComponent.hpp",
+      "methods": [
+        {
+          "suffix": "add_binding",
+          "member": "AddBinding"
+        },
+        {
+          "suffix": "clear_bindings",
+          "member": "ClearBindings"
+        },
+        {
+          "suffix": "get_world_offset",
+          "member": "GetWorldOffset"
+        },
+        {
+          "suffix": "set_world_offset",
+          "member": "SetWorldOffset"
+        }
+      ]
+    },
+    {
+      "class": "SpriteAnimatorComponent",
+      "prefix": "sprite_animator",
+      "header": "spark/ecs/components/animation/SpriteAnimatorComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_current_local_frame",
+          "member": "GetCurrentLocalFrame"
+        },
+        {
+          "suffix": "get_time_in_clip_seconds",
+          "member": "GetTimeInClipSeconds"
+        }
+      ]
+    },
+    {
+      "class": "SpriteComponent",
+      "prefix": "sprite",
+      "header": "spark/ecs/components/rendering/SpriteComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_sort_order",
+          "member": "GetSortOrder"
+        }
+      ]
+    },
+    {
+      "class": "SpriteLighting2DComponent",
+      "prefix": "sprite_lighting2_d",
+      "header": "spark/ecs/components/rendering/SpriteLighting2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_mode",
+          "member": "GetMode"
+        },
+        {
+          "suffix": "get_sync_normal_uv_with_sprite",
+          "member": "GetSyncNormalUvWithSprite"
+        },
+        {
+          "suffix": "set_mode",
+          "member": "SetMode"
+        },
+        {
+          "suffix": "set_sync_normal_uv_with_sprite",
+          "member": "SetSyncNormalUvWithSprite"
+        }
+      ]
+    },
+    {
+      "class": "TerrainComponent",
+      "prefix": "terrain",
+      "header": "spark/ecs/components/rendering/TerrainComponent.hpp",
+      "methods": [
+        {
+          "suffix": "apply_height_brush_local",
+          "member": "ApplyHeightBrushLocalOn"
+        },
+        {
+          "suffix": "apply_height_brush_local_on",
+          "member": "ApplyHeightBrushLocalOn"
+        },
+        {
+          "suffix": "apply_height_brush_world",
+          "member": "ApplyHeightBrushWorldOn"
+        },
+        {
+          "suffix": "apply_height_brush_world_on",
+          "member": "ApplyHeightBrushWorldOn"
+        },
+        {
+          "suffix": "get_half_extent_x",
+          "member": "GetHalfExtentX"
+        },
+        {
+          "suffix": "get_half_extent_z",
+          "member": "GetHalfExtentZ"
+        },
+        {
+          "suffix": "get_height_scale",
+          "member": "GetHeightScale"
+        },
+        {
+          "suffix": "get_lacunarity",
+          "member": "GetLacunarity"
+        },
+        {
+          "suffix": "get_mesh_albedo",
+          "member": "GetMeshAlbedoRgb"
+        },
+        {
+          "suffix": "get_mesh_albedo_rgb",
+          "member": "GetMeshAlbedoRgb"
+        },
+        {
+          "suffix": "get_noise_scale",
+          "member": "GetNoiseScale"
+        },
+        {
+          "suffix": "get_octaves",
+          "member": "GetOctaves"
+        },
+        {
+          "suffix": "get_persistence",
+          "member": "GetPersistence"
+        },
+        {
+          "suffix": "get_seed",
+          "member": "GetSeed"
+        },
+        {
+          "suffix": "get_subdiv_x",
+          "member": "GetSubdivX"
+        },
+        {
+          "suffix": "get_subdiv_z",
+          "member": "GetSubdivZ"
+        },
+        {
+          "suffix": "regenerate_mesh",
+          "member": "RegenerateMeshOn"
+        },
+        {
+          "suffix": "regenerate_mesh_on",
+          "member": "RegenerateMeshOn"
+        },
+        {
+          "suffix": "reset_heights_to_procedural",
+          "member": "ResetHeightsToProceduralOn"
+        },
+        {
+          "suffix": "reset_heights_to_procedural_on",
+          "member": "ResetHeightsToProceduralOn"
+        },
+        {
+          "suffix": "set_height_scale",
+          "member": "SetHeightScale"
+        },
+        {
+          "suffix": "set_noise_scale",
+          "member": "SetNoiseScale"
+        },
+        {
+          "suffix": "set_seed",
+          "member": "SetSeed"
+        }
+      ]
+    },
+    {
+      "class": "TextOverlayComponent",
+      "prefix": "text_overlay",
+      "header": "spark/ecs/components/rendering/TextOverlayComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_alpha",
+          "member": "GetAlpha"
+        },
+        {
+          "suffix": "get_color",
+          "member": "GetColor"
+        },
+        {
+          "suffix": "get_font_size_pixels",
+          "member": "GetFontSizePixels"
+        },
+        {
+          "suffix": "get_screen_x",
+          "member": "GetScreenX"
+        },
+        {
+          "suffix": "get_screen_y",
+          "member": "GetScreenY"
+        },
+        {
+          "suffix": "is_visible",
+          "member": "IsVisible"
+        }
+      ]
+    },
+    {
+      "class": "TilemapAutotileComponent",
+      "prefix": "tilemap_autotile",
+      "header": "spark/ecs/components/tilemap/TilemapAutotileComponent.hpp",
+      "methods": [
+        {
+          "suffix": "clear_rebuild_request",
+          "member": "ClearRebuildRequest"
+        },
+        {
+          "suffix": "get_layer_index",
+          "member": "GetLayerIndex"
+        },
+        {
+          "suffix": "get_rebuild_on_update",
+          "member": "GetRebuildOnUpdate"
+        },
+        {
+          "suffix": "request_rebuild",
+          "member": "RequestRebuild"
+        },
+        {
+          "suffix": "set_rebuild_on_update",
+          "member": "SetRebuildOnUpdate"
+        }
+      ]
+    },
+    {
+      "class": "TilemapCollider2DComponent",
+      "prefix": "tilemap_collider2_d",
+      "header": "spark/ecs/components/physics/2d/TilemapCollider2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_is_trigger",
+          "member": "GetIsTrigger"
+        },
+        {
+          "suffix": "set_category_bits",
+          "member": "SetCategoryBits"
+        },
+        {
+          "suffix": "set_is_trigger",
+          "member": "SetIsTrigger"
+        },
+        {
+          "suffix": "set_mask_bits",
+          "member": "SetMaskBits"
+        }
+      ]
+    },
+    {
+      "class": "TilemapComponent",
+      "prefix": "tilemap",
+      "header": "spark/ecs/components/rendering/TilemapComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_add_layer",
+          "member": "AddLayer"
+        },
+        {
+          "suffix": "get_atlas_tiles_u",
+          "member": "GetAtlasTilesU"
+        },
+        {
+          "suffix": "get_atlas_tiles_v",
+          "member": "GetAtlasTilesV"
+        },
+        {
+          "suffix": "get_map_height",
+          "member": "GetMapHeight"
+        },
+        {
+          "suffix": "get_map_width",
+          "member": "GetMapWidth"
+        },
+        {
+          "suffix": "get_sort_order_base",
+          "member": "GetSortOrderBase"
+        },
+        {
+          "suffix": "get_tile_world_size",
+          "member": "GetTileWorldSize"
+        },
+        {
+          "suffix": "remove_layer",
+          "member": "RemoveLayer"
+        },
+        {
+          "suffix": "resize",
+          "member": "Resize"
+        },
+        {
+          "suffix": "set_paint_tile",
+          "member": "SetPaintTile"
+        },
+        {
+          "suffix": "set_sort_order_base",
+          "member": "SetSortOrderBase"
+        },
+        {
+          "suffix": "set_tile_world_size",
+          "member": "SetTileWorldSize"
+        }
+      ]
+    },
+    {
+      "class": "TilemapGameplayGridComponent",
+      "prefix": "tilemap_gameplay_grid",
+      "header": "spark/ecs/components/tilemap/TilemapGameplayGridComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_auto_rebake",
+          "member": "GetAutoRebake"
+        },
+        {
+          "suffix": "rebake_if_needed",
+          "member": "RebakeIfNeeded"
+        },
+        {
+          "suffix": "request_rebake",
+          "member": "RequestRebake"
+        },
+        {
+          "suffix": "set_auto_rebake",
+          "member": "SetAutoRebake"
+        }
+      ]
+    },
+    {
+      "class": "TilemapMapSourceComponent",
+      "prefix": "tilemap_map_source",
+      "header": "spark/ecs/components/tilemap/TilemapMapSourceComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_hot_reload",
+          "member": "GetHotReload"
+        },
+        {
+          "suffix": "get_import_on_attach",
+          "member": "GetImportOnAttach"
+        },
+        {
+          "suffix": "get_pixels_per_world_unit",
+          "member": "GetPixelsPerWorldUnit"
+        },
+        {
+          "suffix": "set_hot_reload",
+          "member": "SetHotReload"
+        },
+        {
+          "suffix": "set_import_on_attach",
+          "member": "SetImportOnAttach"
+        },
+        {
+          "suffix": "set_pixels_per_world_unit",
+          "member": "SetPixelsPerWorldUnit"
+        },
+        {
+          "suffix": "set_spark_map_path",
+          "member": "SetSparkMapPath"
+        },
+        {
+          "suffix": "set_tmx_path",
+          "member": "SetTmxPath"
+        }
+      ]
+    },
+    {
+      "class": "TilemapObjectGizmoComponent",
+      "prefix": "tilemap_object_gizmo",
+      "header": "spark/ecs/components/tilemap/TilemapObjectGizmoComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_draw_gizmos",
+          "member": "GetDrawGizmos"
+        },
+        {
+          "suffix": "get_draw_runtime_markers",
+          "member": "GetDrawRuntimeMarkers"
+        }
+      ]
+    },
+    {
+      "class": "TilemapObjectLayerComponent",
+      "prefix": "tilemap_object_layer",
+      "header": "spark/ecs/components/tilemap/TilemapObjectLayerComponent.hpp",
+      "methods": [
+        {
+          "suffix": "clear_markers",
+          "member": "ClearMarkers"
+        },
+        {
+          "suffix": "get_add_marker",
+          "member": "AddMarker"
+        },
+        {
+          "suffix": "get_add_object_layer",
+          "member": "AddObjectLayer"
+        },
+        {
+          "suffix": "is_remove_marker",
+          "member": "RemoveMarker"
+        },
+        {
+          "suffix": "remove_object_layer",
+          "member": "RemoveObjectLayer"
+        }
+      ]
+    },
+    {
+      "class": "TilemapObjectSpawnComponent",
+      "prefix": "tilemap_object_spawn",
+      "header": "spark/ecs/components/tilemap/TilemapObjectSpawnComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_spawn_on_attach",
+          "member": "GetSpawnOnAttach"
+        },
+        {
+          "suffix": "set_spawn_on_attach",
+          "member": "SetSpawnOnAttach"
+        }
+      ]
+    },
+    {
+      "class": "TilemapTileAnimatorComponent",
+      "prefix": "tilemap_tile_animator",
+      "header": "spark/ecs/components/tilemap/TilemapTileAnimatorComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_animation_time_seconds",
+          "member": "GetAnimationTimeSeconds"
+        },
+        {
+          "suffix": "is_playing",
+          "member": "IsPlaying"
+        },
+        {
+          "suffix": "reset_animation_time",
+          "member": "ResetAnimationTime"
+        },
+        {
+          "suffix": "set_animation_time_seconds",
+          "member": "SetAnimationTimeSeconds"
+        },
+        {
+          "suffix": "set_playing",
+          "member": "SetPlaying"
+        }
+      ]
+    },
+    {
+      "class": "TimeOfDayDriverComponent",
+      "prefix": "time_of_day_driver",
+      "header": "spark/ecs/components/world/TimeOfDayDriverComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_day_length_seconds",
+          "member": "GetDayLengthSeconds"
+        },
+        {
+          "suffix": "get_priority",
+          "member": "GetPriority"
+        },
+        {
+          "suffix": "get_time_of_day",
+          "member": "GetTimeOfDay"
+        },
+        {
+          "suffix": "is_enabled",
+          "member": "IsEnabled"
+        },
+        {
+          "suffix": "is_looping",
+          "member": "IsLooping"
+        },
+        {
+          "suffix": "set_day_length_seconds",
+          "member": "SetDayLengthSeconds"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetEnabled"
+        },
+        {
+          "suffix": "set_looping",
+          "member": "SetLooping"
+        },
+        {
+          "suffix": "set_priority",
+          "member": "SetPriority"
+        },
+        {
+          "suffix": "set_time_of_day",
+          "member": "SetTimeOfDay"
+        }
+      ]
+    },
+    {
+      "class": "TriggerVolume2DComponent",
+      "prefix": "trigger_volume2_d",
+      "header": "spark/ecs/components/physics/2d/TriggerVolume2DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_half_extents",
+          "member": "GetHalfExtents"
+        },
+        {
+          "suffix": "get_offset",
+          "member": "GetOffset"
+        },
+        {
+          "suffix": "get_radius",
+          "member": "GetRadius"
+        },
+        {
+          "suffix": "get_shape",
+          "member": "GetShape"
+        },
+        {
+          "suffix": "is_overlapping",
+          "member": "IsOverlapping"
+        },
+        {
+          "suffix": "set_filter_tag",
+          "member": "SetFilterTag"
+        },
+        {
+          "suffix": "set_half_extents",
+          "member": "SetHalfExtents"
+        },
+        {
+          "suffix": "set_offset",
+          "member": "SetOffset"
+        },
+        {
+          "suffix": "set_radius",
+          "member": "SetRadius"
+        },
+        {
+          "suffix": "set_shape",
+          "member": "SetShape"
+        }
+      ]
+    },
+    {
+      "class": "TriggerVolume3DComponent",
+      "prefix": "trigger_volume3_d",
+      "header": "spark/ecs/components/physics/3d/TriggerVolume3DComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_capsule_direction",
+          "member": "GetCapsuleDirection"
+        },
+        {
+          "suffix": "get_half_extents",
+          "member": "GetHalfExtents"
+        },
+        {
+          "suffix": "get_height",
+          "member": "GetHeight"
+        },
+        {
+          "suffix": "get_offset",
+          "member": "GetOffset"
+        },
+        {
+          "suffix": "get_radius",
+          "member": "GetRadius"
+        },
+        {
+          "suffix": "get_shape",
+          "member": "GetShape"
+        },
+        {
+          "suffix": "is_overlapping",
+          "member": "IsOverlapping"
+        },
+        {
+          "suffix": "set_capsule_direction",
+          "member": "SetCapsuleDirection"
+        },
+        {
+          "suffix": "set_category_bits",
+          "member": "SetCategoryBits"
+        },
+        {
+          "suffix": "set_filter_tag",
+          "member": "SetFilterTag"
+        },
+        {
+          "suffix": "set_half_extents",
+          "member": "SetHalfExtents"
+        },
+        {
+          "suffix": "set_height",
+          "member": "SetHeight"
+        },
+        {
+          "suffix": "set_mask_bits",
+          "member": "SetMaskBits"
+        },
+        {
+          "suffix": "set_offset",
+          "member": "SetOffset"
+        },
+        {
+          "suffix": "set_radius",
+          "member": "SetRadius"
+        },
+        {
+          "suffix": "set_shape",
+          "member": "SetShape"
+        }
+      ]
+    },
+    {
+      "class": "UiCanvasComponent",
+      "prefix": "ui_canvas",
+      "header": "spark/ecs/components/ui/UiCanvasComponent.hpp",
+      "methods": [
+        {
+          "suffix": "clear_keyboard_focus",
+          "member": "ClearKeyboardFocus"
+        },
+        {
+          "suffix": "clear_transient_pointer_state",
+          "member": "ClearTransientPointerState"
+        },
+        {
+          "suffix": "get_modal_input_capture",
+          "member": "GetModalInputCapture"
+        },
+        {
+          "suffix": "get_sort_order",
+          "member": "GetSortOrder"
+        },
+        {
+          "suffix": "is_canvas_enabled",
+          "member": "IsCanvasEnabled"
+        },
+        {
+          "suffix": "set_canvas_enabled",
+          "member": "SetCanvasEnabled"
+        },
+        {
+          "suffix": "set_modal_input_capture",
+          "member": "SetModalInputCapture"
+        },
+        {
+          "suffix": "set_sort_order",
+          "member": "SetSortOrder"
+        }
+      ]
+    },
+    {
+      "class": "VfxPlayerComponent",
+      "prefix": "vfx_player",
+      "header": "spark/ecs/components/rendering/VfxPlayerComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_play_on_start",
+          "member": "GetPlayOnStart"
+        },
+        {
+          "suffix": "get_play_on_start_once",
+          "member": "GetPlayOnStartOnce"
+        },
+        {
+          "suffix": "get_playback_state",
+          "member": "GetPlaybackState"
+        },
+        {
+          "suffix": "is_pooled_playback",
+          "member": "IsPooledPlayback"
+        },
+        {
+          "suffix": "set_play_on_start",
+          "member": "SetPlayOnStart"
+        },
+        {
+          "suffix": "set_play_on_start_once",
+          "member": "SetPlayOnStartOnce"
+        },
+        {
+          "suffix": "set_pooled_playback",
+          "member": "SetPooledPlayback"
+        },
+        {
+          "suffix": "set_vfx_asset_key",
+          "member": "SetVfxAssetKey"
+        }
+      ]
+    },
+    {
+      "class": "WaterBodyComponent",
+      "prefix": "water_body",
+      "header": "spark/ecs/components/water/WaterBodyComponent.hpp",
+      "methods": [
+        {
+          "suffix": "clear_clipmap_camera_override",
+          "member": "ClearClipmapCameraOverride"
+        },
+        {
+          "suffix": "clear_swell_travel_direction_override",
+          "member": "ClearSwellTravelDirectionOverride"
+        },
+        {
+          "suffix": "get_absorption",
+          "member": "GetAbsorption"
+        },
+        {
+          "suffix": "get_deep_color",
+          "member": "GetDeepColor"
+        },
+        {
+          "suffix": "get_detail_normal_strength",
+          "member": "GetDetailNormalStrength"
+        },
+        {
+          "suffix": "get_foam_strength",
+          "member": "GetFoamStrength"
+        },
+        {
+          "suffix": "get_mesh_albedo",
+          "member": "GetMeshAlbedo"
+        },
+        {
+          "suffix": "get_mode",
+          "member": "GetMode"
+        },
+        {
+          "suffix": "get_shoreline_foam_max_depth",
+          "member": "GetShorelineFoamMaxDepth"
+        },
+        {
+          "suffix": "get_shoreline_foam_strength",
+          "member": "GetShorelineFoamStrength"
+        },
+        {
+          "suffix": "get_surface_tile_anchor_x_z",
+          "member": "GetSurfaceTileAnchorXZ"
+        },
+        {
+          "suffix": "get_water_level_y",
+          "member": "GetWaterLevelY"
+        },
+        {
+          "suffix": "get_wave_amplitude_scale",
+          "member": "GetWaveAmplitudeScale"
+        },
+        {
+          "suffix": "get_wave_preset_id",
+          "member": "GetWavePresetId"
+        },
+        {
+          "suffix": "get_wave_speed_scale",
+          "member": "GetWaveSpeedScale"
+        },
+        {
+          "suffix": "get_wave_time_scale",
+          "member": "GetWaveTimeScale"
+        },
+        {
+          "suffix": "get_wave_time_seconds",
+          "member": "GetWaveTimeSeconds"
+        },
+        {
+          "suffix": "set_absorption",
+          "member": "SetAbsorption"
+        },
+        {
+          "suffix": "set_clipmap_camera_world",
+          "member": "SetClipmapCameraWorld"
+        },
+        {
+          "suffix": "set_deep_color",
+          "member": "SetDeepColor"
+        },
+        {
+          "suffix": "set_detail_normal_strength",
+          "member": "SetDetailNormalStrength"
+        },
+        {
+          "suffix": "set_foam_strength",
+          "member": "SetFoamStrength"
+        },
+        {
+          "suffix": "set_mesh_albedo",
+          "member": "SetMeshAlbedo"
+        },
+        {
+          "suffix": "set_mode",
+          "member": "SetMode"
+        },
+        {
+          "suffix": "set_shoreline_foam_max_depth",
+          "member": "SetShorelineFoamMaxDepth"
+        },
+        {
+          "suffix": "set_shoreline_foam_strength",
+          "member": "SetShorelineFoamStrength"
+        },
+        {
+          "suffix": "set_ssr_enabled",
+          "member": "SetSsrEnabled"
+        },
+        {
+          "suffix": "set_swell_travel_direction_world",
+          "member": "SetSwellTravelDirectionWorld"
+        },
+        {
+          "suffix": "set_water_level_y",
+          "member": "SetWaterLevelY"
+        },
+        {
+          "suffix": "set_wave_amplitude_scale",
+          "member": "SetWaveAmplitudeScale"
+        },
+        {
+          "suffix": "set_wave_preset_id",
+          "member": "SetWavePresetId"
+        },
+        {
+          "suffix": "set_wave_speed_scale",
+          "member": "SetWaveSpeedScale"
+        },
+        {
+          "suffix": "set_wave_time_scale",
+          "member": "SetWaveTimeScale"
+        }
+      ]
+    },
+    {
+      "class": "WindEnvironmentComponent",
+      "prefix": "wind_environment",
+      "header": "spark/ecs/components/foliage/WindEnvironmentComponent.hpp",
+      "methods": [
+        {
+          "suffix": "get_base_speed",
+          "member": "GetBaseSpeedMetersPerSecond"
+        },
+        {
+          "suffix": "get_base_speed_meters_per_second",
+          "member": "GetBaseSpeedMetersPerSecond"
+        },
+        {
+          "suffix": "get_direction",
+          "member": "GetDirectionWorld"
+        },
+        {
+          "suffix": "get_direction_world",
+          "member": "GetDirectionWorld"
+        },
+        {
+          "suffix": "get_enabled",
+          "member": "IsWindEnabled"
+        },
+        {
+          "suffix": "get_gust_amplitude",
+          "member": "GetGustAmplitude"
+        },
+        {
+          "suffix": "get_gust_frequency",
+          "member": "GetGustFrequencyHertz"
+        },
+        {
+          "suffix": "get_gust_frequency_hertz",
+          "member": "GetGustFrequencyHertz"
+        },
+        {
+          "suffix": "get_turbulence",
+          "member": "GetTurbulence"
+        },
+        {
+          "suffix": "is_wind_enabled",
+          "member": "IsWindEnabled"
+        },
+        {
+          "suffix": "set_base_speed",
+          "member": "SetBaseSpeedMetersPerSecond"
+        },
+        {
+          "suffix": "set_base_speed_meters_per_second",
+          "member": "SetBaseSpeedMetersPerSecond"
+        },
+        {
+          "suffix": "set_direction",
+          "member": "SetDirectionWorld"
+        },
+        {
+          "suffix": "set_direction_world",
+          "member": "SetDirectionWorld"
+        },
+        {
+          "suffix": "set_enabled",
+          "member": "SetWindEnabled"
+        },
+        {
+          "suffix": "set_gust_amplitude",
+          "member": "SetGustAmplitude"
+        },
+        {
+          "suffix": "set_gust_frequency",
+          "member": "SetGustFrequencyHertz"
+        },
+        {
+          "suffix": "set_gust_frequency_hertz",
+          "member": "SetGustFrequencyHertz"
+        },
+        {
+          "suffix": "set_turbulence",
+          "member": "SetTurbulence"
+        },
+        {
+          "suffix": "set_wind_enabled",
+          "member": "SetWindEnabled"
+        }
+      ]
+    }
+  ]
+}

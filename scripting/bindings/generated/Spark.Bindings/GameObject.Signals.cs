@@ -15,7 +15,7 @@ public sealed partial class GameObject
     {
         Native.spark_object_emit_signal(
             InteropPtr.Object(Handle),
-            id,
+            (SparkSignalId)(uint)id,
             &payload,
             sender == null ? null : InteropPtr.Component(sender.Handle));
     }
@@ -25,9 +25,9 @@ public sealed partial class GameObject
     {
         var payload = new SparkSignalPayload
         {
-            Ptr = other == null ? null : InteropPtr.Object(other.Handle),
-            A = a,
-            B = b,
+            ptr = other == null ? null : InteropPtr.Object(other.Handle),
+            a = a,
+            b = b,
         };
         EmitSignal(id, payload, sender);
     }
@@ -39,7 +39,7 @@ public sealed partial class GameObject
         {
             InteropUtf8.WithUtf8(utf8Payload, ptr =>
             {
-                var payload = new SparkSignalPayload { Ptr = (void*)ptr, A = a, B = b };
+                var payload = new SparkSignalPayload { ptr = (void*)ptr, a = a, b = b };
                 EmitSignal(id, payload, sender);
             });
         }

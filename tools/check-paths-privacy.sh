@@ -19,6 +19,7 @@ GLOB=(
 
 PATH_PATTERN='(/Users/|/home/[^/]+/|\\\\Users\\\\|C:\\\\Users\\\\)'
 ALLOW_PATH_DOC='docs/PATHS_AND_PRIVACY.md'
+ALLOW_PATH_SELF='tools/check-paths-privacy.sh'
 
 SECRET_PATTERN='(api[_-]?key\s*[:=]|password\s*[:=]|secret\s*[:=]|Bearer\s+[A-Za-z0-9._-]{20,})'
 
@@ -30,7 +31,7 @@ while IFS= read -r f; do
   [[ -n "$f" ]] || continue
   COUNT=$((COUNT + 1))
   [[ -f "$f" ]] || continue
-  if [[ "$f" == "$ALLOW_PATH_DOC" ]]; then
+  if [[ "$f" == "$ALLOW_PATH_DOC" || "$f" == "$ALLOW_PATH_SELF" ]]; then
     continue
   fi
   if grep -qE "$PATH_PATTERN" "$f" 2>/dev/null; then
@@ -43,7 +44,17 @@ while IFS= read -r f; do
     grep -niE "$SECRET_PATTERN" "$f" | head -3
     SECRET_HITS=1
   fi
-done < <(git ls-files -- "${GLOB[@]}" 2>/dev/null || true)
+done < <(git ls-files -- "${GLOB[@]}" 2>/dev/null | grep -v '__pycache__/' || true)
+
+# Bytecode can embed absolute paths from the machine that ran Python.
+while IFS= read -r f; do
+  [[ -n "$f" ]] || continue
+  if strings "$f" 2>/dev/null | grep -qE "$PATH_PATTERN"; then
+    echo "absolute path embedded in binary: $f"
+    strings "$f" | grep -E "$PATH_PATTERN" | head -3
+    PATH_HITS=1
+  fi
+done < <(git ls-files -- '*.pyc' '**/__pycache__/**' 2>/dev/null || true)
 
 if ((COUNT == 0)); then
   echo "check-paths-privacy: no tracked files matched"

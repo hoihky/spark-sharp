@@ -167,7 +167,7 @@ public sealed unsafe class WorldScenes : WorldFacet
                         nativeRoots,
                         (uint)maxRoots);
 
-                    var roots = new GameObject[Math.Min((int)nativeResult.RootCount, maxRoots)];
+                    var roots = new GameObject[Math.Min((int)nativeResult.rootCount, maxRoots)];
                     for (int i = 0; i < roots.Length; i++)
                     {
                         roots[i] = new GameObject(InteropPtr.From(nativeRoots[i]));
@@ -175,8 +175,8 @@ public sealed unsafe class WorldScenes : WorldFacet
 
                     result = new PrefabInstantiateResult
                     {
-                        InstanceId = new SceneInstanceId(nativeResult.InstanceId),
-                        Ready = nativeResult.Ready != 0,
+                        InstanceId = new SceneInstanceId(nativeResult.instanceId),
+                        Ready = nativeResult.ready != 0,
                         RootObjects = roots,
                     };
                 });
@@ -242,9 +242,9 @@ public sealed unsafe class WorldScenes : WorldFacet
             {
                 var native = new SparkSceneLoadOptions
                 {
-                    AssetsRoot = (sbyte*)assetsPtr,
-                    Additive = options.Additive ? 1 : 0,
-                    SceneNameUtf8 = (sbyte*)namePtr,
+                    assetsRoot = (sbyte*)assetsPtr,
+                    additive = options.Additive ? 1 : 0,
+                    sceneNameUtf8 = (sbyte*)namePtr,
                 };
                 id = Native.spark_scene_manager_load_at_spawn_point(
                     EnsureManager(),
@@ -260,12 +260,12 @@ public sealed unsafe class WorldScenes : WorldFacet
     private static SceneSpawnPose ToSpawnPose(SparkSceneSpawnPose nativePose)
         => new()
         {
-            Found = nativePose.Found != 0,
-            Position = Vector3.FromNative(nativePose.Position),
-            Rotation = Quaternion.FromNative(nativePose.Rotation),
-            SpawnObject = nativePose.SpawnObject == null
+            Found = nativePose.found != 0,
+            Position = Vector3.FromNative(nativePose.position),
+            Rotation = Quaternion.FromNative(nativePose.rotation),
+            SpawnObject = nativePose.spawnObject == null
                 ? null
-                : new GameObject(InteropPtr.From(nativePose.SpawnObject)),
+                : new GameObject(InteropPtr.From(nativePose.spawnObject)),
         };
 
     private static unsafe T InvokeWithOptions<T>(
@@ -284,9 +284,9 @@ public sealed unsafe class WorldScenes : WorldFacet
             {
                 var native = new SparkSceneLoadOptions
                 {
-                    AssetsRoot = (sbyte*)assetsPtr,
-                    Additive = options.Additive ? 1 : 0,
-                    SceneNameUtf8 = (sbyte*)namePtr,
+                    assetsRoot = (sbyte*)assetsPtr,
+                    additive = options.Additive ? 1 : 0,
+                    sceneNameUtf8 = (sbyte*)namePtr,
                 };
                 value = invoke(&native);
             });

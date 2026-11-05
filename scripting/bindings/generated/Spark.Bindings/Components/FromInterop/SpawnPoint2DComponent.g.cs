@@ -27,24 +27,6 @@ return Native.spark_spawn_point2_d_get_facing_radians(InteropPtr.Component(Handl
         }
     }
 
-    public int UseTransformFacing
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_spawn_point2_d_get_use_transform_facing(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_spawn_point2_d_set_use_transform_facing(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public int TeamId
     {
         get
@@ -59,6 +41,24 @@ return Native.spark_spawn_point2_d_get_team_id(InteropPtr.Component(Handle));
             unsafe
             {
                 Native.spark_spawn_point2_d_set_team_id(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public int UseTransformFacing
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_spawn_point2_d_get_use_transform_facing(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_spawn_point2_d_set_use_transform_facing(InteropPtr.Component(Handle), value);
             }
         }
     }

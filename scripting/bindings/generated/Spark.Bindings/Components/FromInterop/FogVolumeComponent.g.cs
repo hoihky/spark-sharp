@@ -9,45 +9,6 @@ public sealed partial class FogVolumeComponent : GameComponentHandle
     internal FogVolumeComponent(nint handle)
         : base(handle) { }
 
-    public int Shape
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_fog_volume_get_shape(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_fog_volume_set_shape(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
-    public Vector3 HalfExtents
-    {
-        get
-        {
-            unsafe
-            {
-                SparkVector3 v;
-                Native.spark_fog_volume_get_half_extents(InteropPtr.Component(Handle), &v);
-                return Vector3.FromNative(v);
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                var v = value.ToNative();
-                Native.spark_fog_volume_set_half_extents(InteropPtr.Component(Handle), &v);
-            }
-        }
-    }
-
     public Vector3 FogColor
     {
         get
@@ -87,24 +48,6 @@ return Native.spark_fog_volume_get_fog_density(InteropPtr.Component(Handle));
         }
     }
 
-    public float FogStart
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_fog_volume_get_fog_start(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_fog_volume_set_fog_start(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public float FogEnd
     {
         get
@@ -123,6 +66,71 @@ return Native.spark_fog_volume_get_fog_end(InteropPtr.Component(Handle));
         }
     }
 
+    public float FogStart
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_fog_volume_get_fog_start(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_fog_volume_set_fog_start(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public Vector3 HalfExtents
+    {
+        get
+        {
+            unsafe
+            {
+                SparkVector3 v;
+                Native.spark_fog_volume_get_half_extents(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                var v = value.ToNative();
+                Native.spark_fog_volume_set_half_extents(InteropPtr.Component(Handle), &v);
+            }
+        }
+    }
+
+    public int Shape
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_fog_volume_get_shape(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_fog_volume_set_shape(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public int GetPriority()
+    {
+        unsafe
+        {
+                return Native.spark_fog_volume_get_priority(InteropPtr.Component(Handle));
+        }
+    }
+
     public int IsEnabled()
     {
         unsafe
@@ -136,14 +144,6 @@ return Native.spark_fog_volume_get_fog_end(InteropPtr.Component(Handle));
         unsafe
         {
                 Native.spark_fog_volume_set_enabled(InteropPtr.Component(Handle), e);
-        }
-    }
-
-    public int GetPriority()
-    {
-        unsafe
-        {
-                return Native.spark_fog_volume_get_priority(InteropPtr.Component(Handle));
         }
     }
 

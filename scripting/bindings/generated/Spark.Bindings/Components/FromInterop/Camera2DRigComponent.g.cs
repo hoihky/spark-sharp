@@ -84,20 +84,23 @@ return Native.spark_camera_2d_rig_get_look_ahead_scale(InteropPtr.Component(Hand
         }
     }
 
-    public int UseBounds
+    public Vector2 BoundsMax
     {
         get
         {
             unsafe
             {
-return Native.spark_camera_2d_rig_get_use_bounds(InteropPtr.Component(Handle));
+                SparkVector2 v;
+                Native.spark_camera_2d_rig_get_bounds_max(InteropPtr.Component(Handle), &v);
+                return Vector2.FromNative(v);
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_camera_2d_rig_set_use_bounds(InteropPtr.Component(Handle), value);
+                var v = value.ToNative();
+                Native.spark_camera_2d_rig_set_bounds_max(InteropPtr.Component(Handle), &v);
             }
         }
     }
@@ -123,23 +126,20 @@ return Native.spark_camera_2d_rig_get_use_bounds(InteropPtr.Component(Handle));
         }
     }
 
-    public Vector2 BoundsMax
+    public int UseBounds
     {
         get
         {
             unsafe
             {
-                SparkVector2 v;
-                Native.spark_camera_2d_rig_get_bounds_max(InteropPtr.Component(Handle), &v);
-                return Vector2.FromNative(v);
+return Native.spark_camera_2d_rig_get_use_bounds(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                var v = value.ToNative();
-                Native.spark_camera_2d_rig_set_bounds_max(InteropPtr.Component(Handle), &v);
+                Native.spark_camera_2d_rig_set_use_bounds(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -162,24 +162,6 @@ return Native.spark_camera_2d_rig_get_use_zoom_limits(InteropPtr.Component(Handl
         }
     }
 
-    public float ZoomMinHalfExtentY
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_camera_2d_rig_get_zoom_min_half_extent_y(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_camera_2d_rig_set_zoom_min_half_extent_y(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public float ZoomMaxHalfExtentY
     {
         get
@@ -194,6 +176,24 @@ return Native.spark_camera_2d_rig_get_zoom_max_half_extent_y(InteropPtr.Componen
             unsafe
             {
                 Native.spark_camera_2d_rig_set_zoom_max_half_extent_y(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float ZoomMinHalfExtentY
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_camera_2d_rig_get_zoom_min_half_extent_y(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_camera_2d_rig_set_zoom_min_half_extent_y(InteropPtr.Component(Handle), value);
             }
         }
     }

@@ -9,42 +9,6 @@ public sealed partial class AiAgentComponent : GameComponentHandle
     internal AiAgentComponent(nint handle)
         : base(handle) { }
 
-    public float MaxSpeed
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_ai_agent_get_max_speed(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_ai_agent_set_max_speed(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
-    public int SteeringPlane
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_ai_agent_get_steering_plane(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_ai_agent_set_steering_plane(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public ulong GoapWorldBits
     {
         get
@@ -59,6 +23,24 @@ return Native.spark_ai_agent_get_goap_world_bits(InteropPtr.Component(Handle));
             unsafe
             {
                 Native.spark_ai_agent_set_goap_world_bits(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float MaxSpeed
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_ai_agent_get_max_speed(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_ai_agent_set_max_speed(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -81,51 +63,21 @@ return Native.spark_ai_agent_get_path_index(InteropPtr.Component(Handle));
         }
     }
 
-    public int IsEnabled()
+    public int SteeringPlane
     {
-        unsafe
+        get
         {
-                return Native.spark_ai_agent_is_enabled(InteropPtr.Component(Handle));
+            unsafe
+            {
+return Native.spark_ai_agent_get_steering_plane(InteropPtr.Component(Handle));
+            }
         }
-    }
-
-    public void SetEnabled(int e)
-    {
-        unsafe
+        set
         {
-                Native.spark_ai_agent_set_enabled(InteropPtr.Component(Handle), e);
-        }
-    }
-
-    public int IsFsmEnabled()
-    {
-        unsafe
-        {
-                return Native.spark_ai_agent_is_fsm_enabled(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void SetFsmEnabled(int e)
-    {
-        unsafe
-        {
-                Native.spark_ai_agent_set_fsm_enabled(InteropPtr.Component(Handle), e);
-        }
-    }
-
-    public int IsGoapEnabled()
-    {
-        unsafe
-        {
-                return Native.spark_ai_agent_is_goap_enabled(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void SetGoapEnabled(int e)
-    {
-        unsafe
-        {
-                Native.spark_ai_agent_set_goap_enabled(InteropPtr.Component(Handle), e);
+            unsafe
+            {
+                Native.spark_ai_agent_set_steering_plane(InteropPtr.Component(Handle), value);
+            }
         }
     }
 
@@ -145,6 +97,22 @@ return Native.spark_ai_agent_get_path_index(InteropPtr.Component(Handle));
         }
     }
 
+    public int IsEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_ai_agent_is_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int IsFsmEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_ai_agent_is_fsm_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
     public int IsFuzzyEnabled()
     {
         unsafe
@@ -153,11 +121,43 @@ return Native.spark_ai_agent_get_path_index(InteropPtr.Component(Handle));
         }
     }
 
+    public int IsGoapEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_ai_agent_is_goap_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetEnabled(int e)
+    {
+        unsafe
+        {
+                Native.spark_ai_agent_set_enabled(InteropPtr.Component(Handle), e);
+        }
+    }
+
+    public void SetFsmEnabled(int e)
+    {
+        unsafe
+        {
+                Native.spark_ai_agent_set_fsm_enabled(InteropPtr.Component(Handle), e);
+        }
+    }
+
     public void SetFuzzyEnabled(int e)
     {
         unsafe
         {
                 Native.spark_ai_agent_set_fuzzy_enabled(InteropPtr.Component(Handle), e);
+        }
+    }
+
+    public void SetGoapEnabled(int e)
+    {
+        unsafe
+        {
+                Native.spark_ai_agent_set_goap_enabled(InteropPtr.Component(Handle), e);
         }
     }
 }

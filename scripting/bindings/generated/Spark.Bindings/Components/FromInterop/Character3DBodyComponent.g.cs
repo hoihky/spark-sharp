@@ -27,11 +27,27 @@ return Native.spark_character_3d_body_get_arbitration_mode(InteropPtr.Component(
         }
     }
 
-    public void SetVisualObject(GameObject gameObject)
+    public void BeginAttackRootMotionWindow()
     {
         unsafe
         {
-                Native.spark_character_3d_body_set_visual_object(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
+                Native.spark_character_3d_body_begin_attack_root_motion_window(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void BeginSimulationFrame()
+    {
+        unsafe
+        {
+                Native.spark_character_3d_body_begin_simulation_frame(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void EndAttackRootMotionWindow()
+    {
+        unsafe
+        {
+                Native.spark_character_3d_body_end_attack_root_motion_window(InteropPtr.Component(Handle));
         }
     }
 
@@ -44,35 +60,19 @@ return Native.spark_character_3d_body_get_arbitration_mode(InteropPtr.Component(
         }
     }
 
-    public void BeginSimulationFrame()
-    {
-        unsafe
-        {
-                Native.spark_character_3d_body_begin_simulation_frame(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void BeginAttackRootMotionWindow()
-    {
-        unsafe
-        {
-                Native.spark_character_3d_body_begin_attack_root_motion_window(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void EndAttackRootMotionWindow()
-    {
-        unsafe
-        {
-                Native.spark_character_3d_body_end_attack_root_motion_window(InteropPtr.Component(Handle));
-        }
-    }
-
     public int IsValidateHierarchy()
     {
         unsafe
         {
                 return Native.spark_character_3d_body_is_validate_hierarchy(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetVisualObject(GameObject gameObject)
+    {
+        unsafe
+        {
+                Native.spark_character_3d_body_set_visual_object(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
         }
     }
 }

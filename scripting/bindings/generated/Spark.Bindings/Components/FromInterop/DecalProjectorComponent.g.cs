@@ -9,6 +9,24 @@ public sealed partial class DecalProjectorComponent : GameComponentHandle
     internal DecalProjectorComponent(nint handle)
         : base(handle) { }
 
+    public float Opacity
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_decal_projector_get_opacity(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_decal_projector_set_opacity(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
     public Vector3 Size
     {
         get
@@ -26,24 +44,6 @@ public sealed partial class DecalProjectorComponent : GameComponentHandle
             {
                 var v = value.ToNative();
                 Native.spark_decal_projector_set_size(InteropPtr.Component(Handle), &v);
-            }
-        }
-    }
-
-    public float Opacity
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_decal_projector_get_opacity(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_decal_projector_set_opacity(InteropPtr.Component(Handle), value);
             }
         }
     }

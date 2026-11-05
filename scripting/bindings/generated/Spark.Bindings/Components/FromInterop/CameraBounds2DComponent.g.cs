@@ -9,27 +9,6 @@ public sealed partial class CameraBounds2DComponent : GameComponentHandle
     internal CameraBounds2DComponent(nint handle)
         : base(handle) { }
 
-    public Vector2 LocalOffset
-    {
-        get
-        {
-            unsafe
-            {
-                SparkVector2 v;
-                Native.spark_camera_bounds2_d_get_local_offset(InteropPtr.Component(Handle), &v);
-                return Vector2.FromNative(v);
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                var v = value.ToNative();
-                Native.spark_camera_bounds2_d_set_local_offset(InteropPtr.Component(Handle), &v);
-            }
-        }
-    }
-
     public Vector2 HalfExtents
     {
         get
@@ -47,6 +26,27 @@ public sealed partial class CameraBounds2DComponent : GameComponentHandle
             {
                 var v = value.ToNative();
                 Native.spark_camera_bounds2_d_set_half_extents(InteropPtr.Component(Handle), &v);
+            }
+        }
+    }
+
+    public Vector2 LocalOffset
+    {
+        get
+        {
+            unsafe
+            {
+                SparkVector2 v;
+                Native.spark_camera_bounds2_d_get_local_offset(InteropPtr.Component(Handle), &v);
+                return Vector2.FromNative(v);
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                var v = value.ToNative();
+                Native.spark_camera_bounds2_d_set_local_offset(InteropPtr.Component(Handle), &v);
             }
         }
     }
@@ -69,11 +69,11 @@ return Native.spark_camera_bounds2_d_get_priority(InteropPtr.Component(Handle));
         }
     }
 
-    public void SetEnabled(int value)
+    public int IsContainsWorldPoint(GameObject owner, float worldX, float worldY)
     {
         unsafe
         {
-                Native.spark_camera_bounds2_d_set_enabled(InteropPtr.Component(Handle), value);
+                return Native.spark_camera_bounds2_d_is_contains_world_point(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle), worldX, worldY);
         }
     }
 
@@ -85,11 +85,11 @@ return Native.spark_camera_bounds2_d_get_priority(InteropPtr.Component(Handle));
         }
     }
 
-    public int IsContainsWorldPoint(GameObject owner, float worldX, float worldY)
+    public void SetEnabled(int value)
     {
         unsafe
         {
-                return Native.spark_camera_bounds2_d_is_contains_world_point(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle), worldX, worldY);
+                Native.spark_camera_bounds2_d_set_enabled(InteropPtr.Component(Handle), value);
         }
     }
 }

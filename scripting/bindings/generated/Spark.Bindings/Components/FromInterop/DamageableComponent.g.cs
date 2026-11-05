@@ -27,6 +27,14 @@ return Native.spark_damageable_get_damage_multiplier(InteropPtr.Component(Handle
         }
     }
 
+    public float GetApplyDamage(float amount, GameObject instigator)
+    {
+        unsafe
+        {
+                return Native.spark_damageable_get_apply_damage(InteropPtr.Component(Handle), amount, InteropPtr.Object(instigator.Handle));
+        }
+    }
+
     public int IsInvulnerable()
     {
         unsafe
@@ -40,14 +48,6 @@ return Native.spark_damageable_get_damage_multiplier(InteropPtr.Component(Handle
         unsafe
         {
                 Native.spark_damageable_set_invulnerable(InteropPtr.Component(Handle), v);
-        }
-    }
-
-    public float GetApplyDamage(float amount, GameObject instigator)
-    {
-        unsafe
-        {
-                return Native.spark_damageable_get_apply_damage(InteropPtr.Component(Handle), amount, InteropPtr.Object(instigator.Handle));
         }
     }
 }

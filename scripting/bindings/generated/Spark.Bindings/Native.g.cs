@@ -151,14 +151,21 @@ namespace Spark.Bindings
     {
         public int subdivX;
         public int subdivZ;
+
         public float halfExtentX;
+
         public float halfExtentZ;
+
         public float heightScale;
+
         public float noiseScale;
         public int octaves;
+
         public float persistence;
+
         public float lacunarity;
         public uint seed;
+
         public float worldUnitsPerTextureRepeat;
     }
 
@@ -183,6 +190,76 @@ namespace Spark.Bindings
         public SparkGameObject* owner;
     }
 
+    public partial struct SparkCharacterController3DSettings
+    {
+        public float gravityY;
+
+        public float maxFallSpeed;
+
+        public int slideIterations;
+
+        public int sweepBinaryIterations;
+
+        public float broadPhaseCellSize;
+    }
+
+    public unsafe partial struct SparkSignalPayload
+    {
+        public void* ptr;
+        public ulong a;
+        public ulong b;
+    }
+    public enum SparkSignalId : uint
+    {
+        SparkSignalId_None = 0,
+        SparkSignalId_TransformChanged = 1,
+        SparkSignalId_MeshDirty = 2,
+        SparkSignalId_CollisionBoundsDirty = 3,
+        SparkSignalId_Physics2DTriggerOverlap = 4,
+        SparkSignalId_Physics3DTriggerEnter = 5,
+        SparkSignalId_Physics3DTriggerExit = 6,
+        SparkSignalId_AnimationEvent = 7,
+        SparkSignalId_DamageApplied = 8,
+        SparkSignalId_Died = 9,
+        SparkSignalId_Physics2DTriggerEnter = 10,
+        SparkSignalId_Physics2DTriggerExit = 11,
+        SparkSignalId_Physics2DTriggerStay = 12,
+        SparkSignalId_SpriteAnimationEvent = 13,
+        SparkSignalId_InputActionTriggered = 14,
+        SparkSignalId_GameStateChanged = 15,
+        SparkSignalId_ItemCollected = 16,
+        SparkSignalId_Physics3DTriggerStay = 17,
+        SparkSignalId_Physics3DContact = 18,
+        SparkSignalId_UserBase = 0x10000,
+    }
+
+    public unsafe partial struct SparkSceneLoadOptions
+    {
+        public sbyte* assetsRoot;
+
+        public int additive;
+        public sbyte* sceneNameUtf8;
+    }
+
+    public unsafe partial struct SparkSceneSpawnPose
+    {
+        public int found;
+
+        public SparkVector3 position;
+
+        public SparkQuaternion rotation;
+
+        public SparkGameObject* spawnObject;
+    }
+
+    public partial struct SparkPrefabInstantiateResult
+    {
+        public ulong instanceId;
+
+        public int ready;
+        public uint rootCount;
+    }
+
     public partial struct SparkEngineContext
     {
     }
@@ -196,6 +273,10 @@ namespace Spark.Bindings
     }
 
     public partial struct SparkGameComponent
+    {
+    }
+
+    public partial struct SparkSceneManager
     {
     }
 
@@ -215,14 +296,8 @@ namespace Spark.Bindings
         public ulong frameIndex;
     }
 
-    public partial struct SparkCharacterController3DSettings
-    {
-        public float gravityY;
-        public float maxFallSpeed;
-        public int slideIterations;
-        public int sweepBinaryIterations;
-        public float broadPhaseCellSize;
-    }
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public unsafe delegate void SparkSignalScriptCallbackFn(void* userData, SparkGameObject* owner, SparkSignalId id, SparkSignalPayload* payload);
 
     public unsafe partial struct SparkAnimationEventPayload
     {
@@ -310,10 +385,7 @@ namespace Spark.Bindings
         public static extern void spark_world_physics_simulate_3d(SparkGameWorld* world, SparkFrameTiming* timing);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void spark_world_simulate_character_controllers_3d(
-            SparkGameWorld* world,
-            SparkFrameTiming* timing,
-            SparkCharacterController3DSettings* settings);
+        public static extern void spark_world_simulate_character_controllers_3d(SparkGameWorld* world, SparkFrameTiming* timing, SparkCharacterController3DSettings* settings);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern SparkGameObject* spark_world_create_game_object(SparkGameWorld* world, sbyte* utf8Name);
@@ -340,18 +412,10 @@ namespace Spark.Bindings
         public static extern int spark_world_load_texture(SparkGameWorld* world, sbyte* path);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int spark_world_register_sky_sphere_mesh(
-            SparkGameWorld* world,
-            sbyte* cacheKey,
-            float radius,
-            int latitudeSegments,
-            int longitudeSegments);
+        public static extern int spark_world_register_sky_sphere_mesh(SparkGameWorld* world, sbyte* cacheKey, float radius, int latitudeSegments, int longitudeSegments);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int spark_world_register_texture_from_file(
-            SparkGameWorld* world,
-            sbyte* filePath,
-            sbyte* cacheKey);
+        public static extern int spark_world_register_texture_from_file(SparkGameWorld* world, sbyte* filePath, sbyte* cacheKey);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int spark_world_register_checkerboard_texture(SparkGameWorld* world, sbyte* cacheKey, uint size, uint tilePixels, SparkVector3* colorA, SparkVector3* colorB);
@@ -360,79 +424,40 @@ namespace Spark.Bindings
         public static extern int spark_world_register_platformer2d_demo_textures(SparkGameWorld* world, SparkPlatformer2DAssetsInfo* outInfo);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int spark_world_register_three_d_demo_textures(
-            SparkGameWorld* world,
-            sbyte* outBrickTextureKey,
-            int brickKeyCap);
+        public static extern int spark_world_register_three_d_demo_textures(SparkGameWorld* world, sbyte* outBrickTextureKey, int brickKeyCap);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int spark_world_register_sky_demo_ground(
-            SparkGameWorld* world,
-            sbyte* outTextureKey,
-            int textureKeyCap,
-            float* outRoughness);
+        public static extern int spark_world_register_sky_demo_ground(SparkGameWorld* world, sbyte* outTextureKey, int textureKeyCap, float* outRoughness);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int spark_demo_try_register_sky_hdr(SparkGameWorld* world, sbyte* outLabel, int labelCap);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int spark_gltf_try_measure_rigid_layout(
-            SparkGameWorld* world,
-            sbyte* gltfPath,
-            float targetMaxExtent,
-            float defaultUniformScale,
-            float* outUniformScale,
-            float* outBoundsMinY);
+        public static extern int spark_gltf_try_measure_rigid_layout(SparkGameWorld* world, sbyte* gltfPath, float targetMaxExtent, float defaultUniformScale, float* outUniformScale, float* outBoundsMinY);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_object_bind_rigid_gltf_mesh(SparkGameObject* @object, SparkGameWorld* world, sbyte* gltfPath);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_object_bind_skinned_gltf_mesh(SparkGameObject* @object, SparkGameWorld* world, sbyte* gltfPath);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int spark_world_register_terrain_demo_ground(SparkGameWorld* world);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern SparkGameComponent* spark_object_add_terrain_with_settings(
-            SparkGameObject* @object,
-            SparkTerrainGeneratorSettings* settings,
-            SparkVector3* meshAlbedoRgb);
+        public static extern SparkGameComponent* spark_object_add_terrain_with_settings(SparkGameObject* @object, SparkTerrainGeneratorSettings* settings, SparkVector3* meshAlbedoRgb);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void spark_terrain_reset_heights_to_procedural(
-            SparkGameComponent* terrain,
-            SparkGameObject* owner);
+        public static extern void spark_terrain_reset_heights_to_procedural(SparkGameComponent* terrain, SparkGameObject* owner);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int spark_terrain_try_raycast_world(
-            SparkGameComponent* terrain,
-            SparkGameObject* owner,
-            SparkVector3* rayOriginWorld,
-            SparkVector3* rayDirWorld,
-            float maxDistance,
-            SparkVector3* outHitWorld);
+        public static extern int spark_terrain_try_raycast_world(SparkGameComponent* terrain, SparkGameObject* owner, SparkVector3* rayOriginWorld, SparkVector3* rayDirWorld, float maxDistance, SparkVector3* outHitWorld);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int spark_demo_terrain_screen_to_world_ray(
-            int fbW,
-            int fbH,
-            float px,
-            float py,
-            SparkMatrix4* invViewProj,
-            SparkVector3* outOrigin,
-            SparkVector3* outDir);
+        public static extern int spark_demo_terrain_screen_to_world_ray(int fbW, int fbH, float px, float py, SparkMatrix4* invViewProj, SparkVector3* outOrigin, SparkVector3* outDir);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void spark_scene_submit_terrain_demo_from_world(
-            SparkGameWorld* world,
-            SparkEngineContext* context,
-            SparkMatrix4* viewProjection,
-            SparkVector3* cameraPositionWorld,
-            SparkVector3* lightDirectionWorld,
-            SparkVector3* lightColor,
-            float lightIntensity,
-            SparkVector3* ambientColor,
-            int enableParticles,
-            SparkVector3* particleCameraRight,
-            SparkVector3* particleCameraUp,
-            float sceneTimeSeconds,
-            SparkSpriteSortMode spriteSortMode,
-            int ssaoEnabled);
+        public static extern void spark_scene_submit_terrain_demo_from_world(SparkGameWorld* world, SparkEngineContext* context, SparkMatrix4* viewProjection, SparkVector3* cameraPositionWorld, SparkVector3* lightDirectionWorld, SparkVector3* lightColor, float lightIntensity, SparkVector3* ambientColor, int enableParticles, SparkVector3* particleCameraRight, SparkVector3* particleCameraUp, float sceneTimeSeconds, SparkSpriteSortMode spriteSortMode, int ssaoEnabled);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern int spark_world_mount_platformer_ui_font(SparkGameWorld* world);
@@ -484,6 +509,126 @@ namespace Spark.Bindings
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void spark_object_set_name(SparkGameObject* @object, sbyte* utf8Name);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern SparkGameWorld* spark_object_get_world(SparkGameObject* @object);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_object_is_pending_destroy( SparkGameObject* @object);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_object_get_tag( SparkGameObject* @object, sbyte* outUtf8, uint outCapacity);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void spark_object_set_tag(SparkGameObject* @object, sbyte* utf8Tag);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_object_is_active_self( SparkGameObject* @object);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void spark_object_set_active(SparkGameObject* @object, int active);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_object_is_active_in_hierarchy( SparkGameObject* @object);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern SparkGameObject* spark_object_get_parent( SparkGameObject* @object);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_object_set_parent(SparkGameObject* @object, SparkGameObject* newParent);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern uint spark_object_get_child_count( SparkGameObject* @object);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern SparkGameObject* spark_object_get_child( SparkGameObject* @object, uint childIndex);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void spark_object_get_world_matrix( SparkGameObject* @object, SparkMatrix4* @out);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void spark_object_emit_signal(SparkGameObject* @object, SparkSignalId id, SparkSignalPayload* payload, SparkGameComponent* sender);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern SparkGameComponent* spark_object_add_script_signal_listener(SparkGameObject* @object);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern SparkGameComponent* spark_object_get_or_add_script_signal_listener(SparkGameObject* @object);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void spark_script_signal_listener_set_listen_signal(SparkGameComponent* listener, SparkSignalId id);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern SparkSignalId spark_script_signal_listener_get_listen_signal( SparkGameComponent* listener);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void spark_script_signal_listener_set_callback(SparkGameComponent* listener, IntPtr callback, void* userData);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern SparkGameObject* spark_world_find_game_object_with_tag(SparkGameWorld* world, sbyte* tag);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern SparkGameObject* spark_world_find_game_object_with_tag_ex(SparkGameWorld* world, sbyte* tag, int includeInactive);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern SparkGameObject* spark_world_find_game_object_by_name(SparkGameWorld* world, sbyte* utf8Name, int includeInactive);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_world_set_parent(SparkGameWorld* world, SparkGameObject* child, SparkGameObject* newParent);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void spark_world_destroy_game_object_immediate(SparkGameWorld* world, SparkGameObject* @object);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void spark_world_pump_assets(SparkGameWorld* world);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_world_is_gltf_ready(SparkGameWorld* world, sbyte* path);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_world_is_skinned_gltf_ready(SparkGameWorld* world, sbyte* path);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern uint spark_world_get_pending_asset_load_count(SparkGameWorld* world);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern uint spark_world_query_collect_by_tag(SparkGameWorld* world, sbyte* tag, int includeInactive, SparkGameObject** outObjects, uint capacity);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern SparkSceneManager* spark_scene_manager_create(SparkGameWorld* world);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void spark_scene_manager_destroy(SparkSceneManager* manager);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern ulong spark_scene_manager_load_from_file(SparkSceneManager* manager, sbyte* path, SparkSceneLoadOptions* options);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern ulong spark_scene_manager_begin_load_async(SparkSceneManager* manager, sbyte* path, SparkSceneLoadOptions* options);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void spark_scene_manager_pump(SparkSceneManager* manager);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_scene_manager_is_scene_ready(SparkSceneManager* manager, ulong instanceId);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_scene_manager_has_scene_failed(SparkSceneManager* manager, ulong instanceId);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void spark_scene_manager_unload_scene(SparkSceneManager* manager, ulong instanceId);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void spark_scene_manager_unload_all_scenes(SparkSceneManager* manager);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern uint spark_scene_manager_get_loaded_scene_count(SparkSceneManager* manager);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern ulong spark_scene_manager_load_at_spawn_point(SparkSceneManager* manager, sbyte* scenePath, sbyte* spawnPointName, SparkSceneSpawnPose* outSpawnPose, SparkSceneLoadOptions* options);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_scene_manager_instantiate_prefab(SparkSceneManager* manager, sbyte* prefabPath, SparkGameObject* parent, SparkVector3* position, SparkQuaternion* rotation, sbyte* assetsRoot, int additive, int pumpUntilReady, SparkPrefabInstantiateResult* outResult, SparkGameObject** outRoots, uint outRootsCapacity);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern SparkGameComponent* spark_object_try_get_component_by_kind(SparkGameObject* @object, SparkComponentKind kind);
@@ -567,33 +712,10 @@ namespace Spark.Bindings
         public static extern int spark_object_add_skinned_character_from_gltf(SparkGameObject* @object, SparkGameWorld* world, sbyte* gltfPath, SparkGameComponent** outSkinnedMesh, SparkGameComponent** outAnimator, SparkGameComponent** outMaterial);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int spark_object_apply_gltf_prop_material(
-            SparkGameObject* @object,
-            SparkGameWorld* world,
-            sbyte* gltfPath,
-            sbyte* overrideBaseColorTextureKeyOrPath);
+        public static extern int spark_object_apply_gltf_prop_material(SparkGameObject* @object, SparkGameWorld* world, sbyte* gltfPath, sbyte* overrideBaseColorTextureKeyOrPath);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int spark_object_bind_rigid_gltf_mesh(
-            SparkGameObject* @object,
-            SparkGameWorld* world,
-            sbyte* gltfPath);
-
-        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int spark_object_bind_skinned_gltf_mesh(
-            SparkGameObject* @object,
-            SparkGameWorld* world,
-            sbyte* gltfPath);
-
-        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern int spark_skinned_gltf_measure_avatar_layout(
-            SparkGameWorld* world,
-            sbyte* gltfPath,
-            float targetHeightMeters,
-            float* outUniformScale,
-            SparkQuaternion* outBindFix,
-            float* outFacingYawOffset,
-            float* outFittedHeightMeters);
+        public static extern int spark_skinned_gltf_measure_avatar_layout(SparkGameWorld* world, sbyte* gltfPath, float targetHeightMeters, float* outUniformScale, SparkQuaternion* outBindFix, float* outFacingYawOffset, float* outFittedHeightMeters);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void spark_transform_get_translation( SparkGameComponent* transform, SparkVector3* @out);
@@ -611,9 +733,7 @@ namespace Spark.Bindings
         public static extern void spark_transform_set_uniform_scale(SparkGameComponent* transform, float s);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern void spark_character_controller3_d_set_move_input(
-            SparkGameComponent* component,
-            SparkVector3* worldVelocity);
+        public static extern void spark_character_controller3_d_set_move_input(SparkGameComponent* component, SparkVector3* worldVelocity);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void spark_mesh_get_albedo( SparkGameComponent* mesh, SparkVector3* @out);

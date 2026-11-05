@@ -9,6 +9,14 @@ public sealed partial class GameStateComponent : GameComponentHandle
     internal GameStateComponent(nint handle)
         : base(handle) { }
 
+    public SparkGameFlowState GetPreviousState()
+    {
+        unsafe
+        {
+                return Native.spark_game_state_get_previous_state(InteropPtr.Component(Handle));
+        }
+    }
+
     public SparkGameFlowState GetState()
     {
         unsafe
@@ -17,11 +25,19 @@ public sealed partial class GameStateComponent : GameComponentHandle
         }
     }
 
-    public SparkGameFlowState GetPreviousState()
+    public int IsPopState()
     {
         unsafe
         {
-                return Native.spark_game_state_get_previous_state(InteropPtr.Component(Handle));
+                return Native.spark_game_state_is_pop_state(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int IsRequestState(SparkGameFlowState nextState)
+    {
+        unsafe
+        {
+                return Native.spark_game_state_is_request_state(InteropPtr.Component(Handle), (SparkGameFlowState)nextState);
         }
     }
 
@@ -33,11 +49,27 @@ public sealed partial class GameStateComponent : GameComponentHandle
         }
     }
 
+    public int PopState()
+    {
+        unsafe
+        {
+                return Native.spark_game_state_pop_state(InteropPtr.Component(Handle));
+        }
+    }
+
     public void PushState(SparkGameFlowState nextState)
     {
         unsafe
         {
                 Native.spark_game_state_push_state(InteropPtr.Component(Handle), (SparkGameFlowState)nextState);
+        }
+    }
+
+    public int RequestState(SparkGameFlowState nextState)
+    {
+        unsafe
+        {
+                return Native.spark_game_state_request_state(InteropPtr.Component(Handle), (SparkGameFlowState)nextState);
         }
     }
 }

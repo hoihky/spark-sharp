@@ -9,24 +9,6 @@ public sealed partial class GrassFieldComponent : GameComponentHandle
     internal GrassFieldComponent(nint handle)
         : base(handle) { }
 
-    public int NeighborhoodRingRadius
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_grass_field_get_neighborhood_ring_radius(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_grass_field_set_neighborhood_ring_radius(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public float AlphaCutoff
     {
         get
@@ -41,6 +23,42 @@ return Native.spark_grass_field_get_alpha_cutoff(InteropPtr.Component(Handle));
             unsafe
             {
                 Native.spark_grass_field_set_alpha_cutoff(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public bool Enabled
+    {
+        get
+        {
+            unsafe
+            {
+                return Native.spark_grass_field_get_enabled(InteropPtr.Component(Handle)) != 0;
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_grass_field_set_enabled(InteropPtr.Component(Handle), value ? 1 : 0);
+            }
+        }
+    }
+
+    public int NeighborhoodRingRadius
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_grass_field_get_neighborhood_ring_radius(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_grass_field_set_neighborhood_ring_radius(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -89,36 +107,12 @@ return Native.spark_grass_field_get_wind_bend_scale(InteropPtr.Component(Handle)
         }
     }
 
-    public void SetEnabled(int value)
-    {
-        unsafe
-        {
-                Native.spark_grass_field_set_enabled(InteropPtr.Component(Handle), value);
-        }
-    }
-
-    public void SetTerrainObject(GameObject gameObject)
-    {
-        unsafe
-        {
-                Native.spark_grass_field_set_terrain_object(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
-        }
-    }
-
     public GameObject GetTerrainObject()
     {
         unsafe
         {
                 var raw = Native.spark_grass_field_get_terrain_object(InteropPtr.Component(Handle));
                 return raw == null ? null! : new GameObject(InteropPtr.From(raw));
-        }
-    }
-
-    public void SetViewTargetObject(GameObject gameObject)
-    {
-        unsafe
-        {
-                Native.spark_grass_field_set_view_target_object(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
         }
     }
 
@@ -131,6 +125,14 @@ return Native.spark_grass_field_get_wind_bend_scale(InteropPtr.Component(Handle)
         }
     }
 
+    public int IsEnabled()
+    {
+        unsafe
+        {
+                return Native.spark_grass_field_is_enabled(InteropPtr.Component(Handle));
+        }
+    }
+
     public void SetStreamingViewWorld(in Vector3 worldPosition)
     {
         unsafe
@@ -140,12 +142,19 @@ return Native.spark_grass_field_get_wind_bend_scale(InteropPtr.Component(Handle)
         }
     }
 
-    public void PrepareForRender(GameObject owner, in Vector3 viewWorldPosition, uint sceneMaxGrassInstancesPerFrame)
+    public void SetTerrainObject(GameObject gameObject)
     {
         unsafe
         {
-            var viewWorldPositionNative = viewWorldPosition.ToNative();
-                Native.spark_grass_field_prepare_for_render(InteropPtr.Component(Handle), InteropPtr.Object(owner.Handle), &viewWorldPositionNative, sceneMaxGrassInstancesPerFrame);
+                Native.spark_grass_field_set_terrain_object(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
+        }
+    }
+
+    public void SetViewTargetObject(GameObject gameObject)
+    {
+        unsafe
+        {
+                Native.spark_grass_field_set_view_target_object(InteropPtr.Component(Handle), InteropPtr.Object(gameObject.Handle));
         }
     }
 
@@ -154,6 +163,15 @@ return Native.spark_grass_field_get_wind_bend_scale(InteropPtr.Component(Handle)
         unsafe
         {
                 Native.spark_grass_field_bounds_set_half_extents(InteropPtr.Component(Handle), halfX, halfZ);
+        }
+    }
+
+    public void SetAlbedoTint(in Vector3 rgb)
+    {
+        unsafe
+        {
+            var rgbNative = rgb.ToNative();
+                Native.spark_grass_field_scatter_set_albedo_tint(InteropPtr.Component(Handle), &rgbNative);
         }
     }
 
@@ -173,19 +191,11 @@ return Native.spark_grass_field_get_wind_bend_scale(InteropPtr.Component(Handle)
         }
     }
 
-    public void SetMaxViewDistanceMeters(float meters)
+    public void SetDistanceFadeOuterFraction(float fraction)
     {
         unsafe
         {
-                Native.spark_grass_field_scatter_set_max_view_distance_meters(InteropPtr.Component(Handle), meters);
-        }
-    }
-
-    public void SetMaxVisibleInstances(uint count)
-    {
-        unsafe
-        {
-                Native.spark_grass_field_scatter_set_max_visible_instances(InteropPtr.Component(Handle), count);
+                Native.spark_grass_field_scatter_set_distance_fade_outer_fraction(InteropPtr.Component(Handle), fraction);
         }
     }
 
@@ -205,28 +215,27 @@ return Native.spark_grass_field_get_wind_bend_scale(InteropPtr.Component(Handle)
         }
     }
 
+    public void SetMaxViewDistanceMeters(float meters)
+    {
+        unsafe
+        {
+                Native.spark_grass_field_scatter_set_max_view_distance_meters(InteropPtr.Component(Handle), meters);
+        }
+    }
+
+    public void SetMaxVisibleInstances(uint count)
+    {
+        unsafe
+        {
+                Native.spark_grass_field_scatter_set_max_visible_instances(InteropPtr.Component(Handle), count);
+        }
+    }
+
     public void SetPlacementRadiusMeters(float meters)
     {
         unsafe
         {
                 Native.spark_grass_field_scatter_set_placement_radius_meters(InteropPtr.Component(Handle), meters);
-        }
-    }
-
-    public void SetDistanceFadeOuterFraction(float fraction)
-    {
-        unsafe
-        {
-                Native.spark_grass_field_scatter_set_distance_fade_outer_fraction(InteropPtr.Component(Handle), fraction);
-        }
-    }
-
-    public void SetAlbedoTint(in Vector3 rgb)
-    {
-        unsafe
-        {
-            var rgbNative = rgb.ToNative();
-                Native.spark_grass_field_scatter_set_albedo_tint(InteropPtr.Component(Handle), &rgbNative);
         }
     }
 }

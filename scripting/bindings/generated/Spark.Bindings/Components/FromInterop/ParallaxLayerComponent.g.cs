@@ -30,23 +30,20 @@ public sealed partial class ParallaxLayerComponent : GameComponentHandle
         }
     }
 
-    public Vector3 RestOffset
+    public SparkParallaxAxisMode AxisMode
     {
         get
         {
             unsafe
             {
-                SparkVector3 v;
-                Native.spark_parallax_get_rest_offset(InteropPtr.Component(Handle), &v);
-                return Vector3.FromNative(v);
+return Native.spark_parallax_get_axis_mode(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                var v = value.ToNative();
-                Native.spark_parallax_set_rest_offset(InteropPtr.Component(Handle), &v);
+                Native.spark_parallax_set_axis_mode(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -87,29 +84,24 @@ return Native.spark_parallax_get_factor_y(InteropPtr.Component(Handle));
         }
     }
 
-    public SparkParallaxAxisMode AxisMode
+    public Vector3 RestOffset
     {
         get
         {
             unsafe
             {
-return Native.spark_parallax_get_axis_mode(InteropPtr.Component(Handle));
+                SparkVector3 v;
+                Native.spark_parallax_get_rest_offset(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_parallax_set_axis_mode(InteropPtr.Component(Handle), value);
+                var v = value.ToNative();
+                Native.spark_parallax_set_rest_offset(InteropPtr.Component(Handle), &v);
             }
-        }
-    }
-
-    public void SetCameraReference(GameObject camera)
-    {
-        unsafe
-        {
-                Native.spark_parallax_set_camera_reference(InteropPtr.Component(Handle), InteropPtr.Object(camera.Handle));
         }
     }
 
@@ -122,19 +114,11 @@ return Native.spark_parallax_get_axis_mode(InteropPtr.Component(Handle));
         }
     }
 
-    public void SetDrift(SparkParallaxDriftMode mode, float amplitude, float frequencyHz, float phase)
+    public void SetCameraReference(GameObject camera)
     {
         unsafe
         {
-                Native.spark_parallax_set_drift(InteropPtr.Component(Handle), (SparkParallaxDriftMode)mode, amplitude, frequencyHz, phase);
-        }
-    }
-
-    public void SetDriftMode(SparkParallaxDriftMode mode)
-    {
-        unsafe
-        {
-                Native.spark_parallax_set_drift_mode(InteropPtr.Component(Handle), (SparkParallaxDriftMode)mode);
+                Native.spark_parallax_set_camera_reference(InteropPtr.Component(Handle), InteropPtr.Object(camera.Handle));
         }
     }
 
@@ -154,11 +138,35 @@ return Native.spark_parallax_get_axis_mode(InteropPtr.Component(Handle));
         }
     }
 
+    public void SetDriftMode(SparkParallaxDriftMode mode)
+    {
+        unsafe
+        {
+                Native.spark_parallax_set_drift_mode(InteropPtr.Component(Handle), (SparkParallaxDriftMode)mode);
+        }
+    }
+
     public void SetDriftPhase(float value)
     {
         unsafe
         {
                 Native.spark_parallax_set_drift_phase(InteropPtr.Component(Handle), value);
+        }
+    }
+
+    public void SetFactorXY(float factorXIn, float factorYIn)
+    {
+        unsafe
+        {
+                Native.spark_parallax_set_factor_x_y(InteropPtr.Component(Handle), factorXIn, factorYIn);
+        }
+    }
+
+    public void SetFactorXy(float factorXIn, float factorYIn)
+    {
+        unsafe
+        {
+                Native.spark_parallax_set_factor_xy(InteropPtr.Component(Handle), factorXIn, factorYIn);
         }
     }
 }

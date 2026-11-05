@@ -27,19 +27,19 @@ return Native.spark_tilemap_tile_animator_get_animation_time_seconds(InteropPtr.
         }
     }
 
-    public void ResetAnimationTime()
-    {
-        unsafe
-        {
-                Native.spark_tilemap_tile_animator_reset_animation_time(InteropPtr.Component(Handle));
-        }
-    }
-
     public int IsPlaying()
     {
         unsafe
         {
                 return Native.spark_tilemap_tile_animator_is_playing(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void ResetAnimationTime()
+    {
+        unsafe
+        {
+                Native.spark_tilemap_tile_animator_reset_animation_time(InteropPtr.Component(Handle));
         }
     }
 

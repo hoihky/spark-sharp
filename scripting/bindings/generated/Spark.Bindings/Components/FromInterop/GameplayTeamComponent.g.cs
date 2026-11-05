@@ -9,14 +9,6 @@ public sealed partial class GameplayTeamComponent : GameComponentHandle
     internal GameplayTeamComponent(nint handle)
         : base(handle) { }
 
-    public void SetTeamId(int id)
-    {
-        unsafe
-        {
-                Native.spark_gameplay_team_set_team_id(InteropPtr.Component(Handle), id);
-        }
-    }
-
     public int GetTeamId()
     {
         unsafe
@@ -30,6 +22,14 @@ public sealed partial class GameplayTeamComponent : GameComponentHandle
         unsafe
         {
                 Native.spark_gameplay_team_set_gameplay_team(InteropPtr.Component(Handle), id);
+        }
+    }
+
+    public int SetTeamId()
+    {
+        unsafe
+        {
+                return Native.spark_gameplay_team_set_team_id(InteropPtr.Component(Handle));
         }
     }
 }

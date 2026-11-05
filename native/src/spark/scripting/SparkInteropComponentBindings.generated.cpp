@@ -135,60 +135,6 @@ const Spark::AiAgentComponent* AsAiAgentComponent(const SparkGameComponent* c) {
             c, Spark::ComponentKind::AiAgent);
 }
 
-Spark::GridNavAgent2DComponent* AsGridNavAgent2DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::GridNavAgent2DComponent>(
-            c, Spark::ComponentKind::GridNavAgent2D);
-}
-const Spark::GridNavAgent2DComponent* AsGridNavAgent2DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::GridNavAgent2DComponent>(
-            c, Spark::ComponentKind::GridNavAgent2D);
-}
-
-Spark::GridNavTarget2DComponent* AsGridNavTarget2DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::GridNavTarget2DComponent>(
-            c, Spark::ComponentKind::GridNavTarget2D);
-}
-const Spark::GridNavTarget2DComponent* AsGridNavTarget2DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::GridNavTarget2DComponent>(
-            c, Spark::ComponentKind::GridNavTarget2D);
-}
-
-Spark::GridPathFollower2DComponent* AsGridPathFollower2DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::GridPathFollower2DComponent>(
-            c, Spark::ComponentKind::GridPathFollower2D);
-}
-const Spark::GridPathFollower2DComponent* AsGridPathFollower2DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::GridPathFollower2DComponent>(
-            c, Spark::ComponentKind::GridPathFollower2D);
-}
-
-Spark::NavMeshAgentComponent* AsNavMeshAgentComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::NavMeshAgentComponent>(
-            c, Spark::ComponentKind::NavMeshAgent);
-}
-const Spark::NavMeshAgentComponent* AsNavMeshAgentComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::NavMeshAgentComponent>(
-            c, Spark::ComponentKind::NavMeshAgent);
-}
-
-Spark::PatrolPathComponent* AsPatrolPathComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::PatrolPathComponent>(
-            c, Spark::ComponentKind::PatrolPath);
-}
-const Spark::PatrolPathComponent* AsPatrolPathComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::PatrolPathComponent>(
-            c, Spark::ComponentKind::PatrolPath);
-}
-
-Spark::PerceptionSensorComponent* AsPerceptionSensorComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::PerceptionSensorComponent>(
-            c, Spark::ComponentKind::PerceptionSensor);
-}
-const Spark::PerceptionSensorComponent* AsPerceptionSensorComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::PerceptionSensorComponent>(
-            c, Spark::ComponentKind::PerceptionSensor);
-}
-
 Spark::AimIkComponent* AsAimIkComponent(SparkGameComponent* c) {
     return Spark::Scripting::AsComponent<Spark::AimIkComponent>(
             c, Spark::ComponentKind::AimIk);
@@ -196,6 +142,15 @@ Spark::AimIkComponent* AsAimIkComponent(SparkGameComponent* c) {
 const Spark::AimIkComponent* AsAimIkComponent(const SparkGameComponent* c) {
     return Spark::Scripting::AsComponent<const Spark::AimIkComponent>(
             c, Spark::ComponentKind::AimIk);
+}
+
+Spark::AmbientZoneComponent* AsAmbientZoneComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::AmbientZoneComponent>(
+            c, Spark::ComponentKind::AmbientZone);
+}
+const Spark::AmbientZoneComponent* AsAmbientZoneComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::AmbientZoneComponent>(
+            c, Spark::ComponentKind::AmbientZone);
 }
 
 Spark::AnimationEventReceiverComponent* AsAnimationEventReceiverComponent(SparkGameComponent* c) {
@@ -261,96 +216,6 @@ const Spark::AttachmentSocketComponent* AsAttachmentSocketComponent(const SparkG
             c, Spark::ComponentKind::AttachmentSocket);
 }
 
-Spark::Character3DAnimFsmComponent* AsCharacter3DAnimFsmComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::Character3DAnimFsmComponent>(
-            c, Spark::ComponentKind::Character3DAnimFsm);
-}
-const Spark::Character3DAnimFsmComponent* AsCharacter3DAnimFsmComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::Character3DAnimFsmComponent>(
-            c, Spark::ComponentKind::Character3DAnimFsm);
-}
-
-Spark::FootIkComponent* AsFootIkComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::FootIkComponent>(
-            c, Spark::ComponentKind::FootIk);
-}
-const Spark::FootIkComponent* AsFootIkComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::FootIkComponent>(
-            c, Spark::ComponentKind::FootIk);
-}
-
-Spark::RootMotionComponent* AsRootMotionComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::RootMotionComponent>(
-            c, Spark::ComponentKind::RootMotion);
-}
-const Spark::RootMotionComponent* AsRootMotionComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::RootMotionComponent>(
-            c, Spark::ComponentKind::RootMotion);
-}
-
-Spark::SkeletonDebugDrawComponent* AsSkeletonDebugDrawComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::SkeletonDebugDrawComponent>(
-            c, Spark::ComponentKind::SkeletonDebugDraw);
-}
-const Spark::SkeletonDebugDrawComponent* AsSkeletonDebugDrawComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::SkeletonDebugDrawComponent>(
-            c, Spark::ComponentKind::SkeletonDebugDraw);
-}
-
-Spark::SkinnedAnimationBudgetComponent* AsSkinnedAnimationBudgetComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::SkinnedAnimationBudgetComponent>(
-            c, Spark::ComponentKind::SkinnedAnimationBudget);
-}
-const Spark::SkinnedAnimationBudgetComponent* AsSkinnedAnimationBudgetComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::SkinnedAnimationBudgetComponent>(
-            c, Spark::ComponentKind::SkinnedAnimationBudget);
-}
-
-Spark::Sprite2DCharacterAnimFsmComponent* AsSprite2DCharacterAnimFsmComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::Sprite2DCharacterAnimFsmComponent>(
-            c, Spark::ComponentKind::Sprite2DCharacterAnimFsm);
-}
-const Spark::Sprite2DCharacterAnimFsmComponent* AsSprite2DCharacterAnimFsmComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::Sprite2DCharacterAnimFsmComponent>(
-            c, Spark::ComponentKind::Sprite2DCharacterAnimFsm);
-}
-
-Spark::SpriteAnimationEventReceiverComponent* AsSpriteAnimationEventReceiverComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::SpriteAnimationEventReceiverComponent>(
-            c, Spark::ComponentKind::SpriteAnimationEventReceiver);
-}
-const Spark::SpriteAnimationEventReceiverComponent* AsSpriteAnimationEventReceiverComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::SpriteAnimationEventReceiverComponent>(
-            c, Spark::ComponentKind::SpriteAnimationEventReceiver);
-}
-
-Spark::SpriteAnimationEventVfxComponent* AsSpriteAnimationEventVfxComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::SpriteAnimationEventVfxComponent>(
-            c, Spark::ComponentKind::SpriteAnimationEventVfx);
-}
-const Spark::SpriteAnimationEventVfxComponent* AsSpriteAnimationEventVfxComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::SpriteAnimationEventVfxComponent>(
-            c, Spark::ComponentKind::SpriteAnimationEventVfx);
-}
-
-Spark::SpriteAnimatorComponent* AsSpriteAnimatorComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::SpriteAnimatorComponent>(
-            c, Spark::ComponentKind::SpriteAnimator);
-}
-const Spark::SpriteAnimatorComponent* AsSpriteAnimatorComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::SpriteAnimatorComponent>(
-            c, Spark::ComponentKind::SpriteAnimator);
-}
-
-Spark::AmbientZoneComponent* AsAmbientZoneComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::AmbientZoneComponent>(
-            c, Spark::ComponentKind::AmbientZone);
-}
-const Spark::AmbientZoneComponent* AsAmbientZoneComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::AmbientZoneComponent>(
-            c, Spark::ComponentKind::AmbientZone);
-}
-
 Spark::AudioListenerComponent* AsAudioListenerComponent(SparkGameComponent* c) {
     return Spark::Scripting::AsComponent<Spark::AudioListenerComponent>(
             c, Spark::ComponentKind::AudioListener);
@@ -360,13 +225,40 @@ const Spark::AudioListenerComponent* AsAudioListenerComponent(const SparkGameCom
             c, Spark::ComponentKind::AudioListener);
 }
 
-Spark::SoundCueComponent* AsSoundCueComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::SoundCueComponent>(
-            c, Spark::ComponentKind::SoundCue);
+Spark::BillboardComponent* AsBillboardComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::BillboardComponent>(
+            c, Spark::ComponentKind::Billboard);
 }
-const Spark::SoundCueComponent* AsSoundCueComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::SoundCueComponent>(
-            c, Spark::ComponentKind::SoundCue);
+const Spark::BillboardComponent* AsBillboardComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::BillboardComponent>(
+            c, Spark::ComponentKind::Billboard);
+}
+
+Spark::BlendModeComponent* AsBlendModeComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::BlendModeComponent>(
+            c, Spark::ComponentKind::BlendMode);
+}
+const Spark::BlendModeComponent* AsBlendModeComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::BlendModeComponent>(
+            c, Spark::ComponentKind::BlendMode);
+}
+
+Spark::BoxCollider2DComponent* AsBoxCollider2DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::BoxCollider2DComponent>(
+            c, Spark::ComponentKind::BoxCollider2D);
+}
+const Spark::BoxCollider2DComponent* AsBoxCollider2DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::BoxCollider2DComponent>(
+            c, Spark::ComponentKind::BoxCollider2D);
+}
+
+Spark::BoxCollider3DComponent* AsBoxCollider3DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::BoxCollider3DComponent>(
+            c, Spark::ComponentKind::BoxCollider3D);
+}
+const Spark::BoxCollider3DComponent* AsBoxCollider3DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::BoxCollider3DComponent>(
+            c, Spark::ComponentKind::BoxCollider3D);
 }
 
 Spark::Camera2DComponent* AsCamera2DComponent(SparkGameComponent* c) {
@@ -414,22 +306,22 @@ const Spark::CameraFollow3DComponent* AsCameraFollow3DComponent(const SparkGameC
             c, Spark::ComponentKind::CameraFollow3D);
 }
 
-Spark::ScreenShakeComponent* AsScreenShakeComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::ScreenShakeComponent>(
-            c, Spark::ComponentKind::ScreenShake);
+Spark::CapsuleCollider3DComponent* AsCapsuleCollider3DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::CapsuleCollider3DComponent>(
+            c, Spark::ComponentKind::CapsuleCollider3D);
 }
-const Spark::ScreenShakeComponent* AsScreenShakeComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::ScreenShakeComponent>(
-            c, Spark::ComponentKind::ScreenShake);
+const Spark::CapsuleCollider3DComponent* AsCapsuleCollider3DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::CapsuleCollider3DComponent>(
+            c, Spark::ComponentKind::CapsuleCollider3D);
 }
 
-Spark::SpringArm3DComponent* AsSpringArm3DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::SpringArm3DComponent>(
-            c, Spark::ComponentKind::SpringArm3D);
+Spark::Character3DAnimFsmComponent* AsCharacter3DAnimFsmComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::Character3DAnimFsmComponent>(
+            c, Spark::ComponentKind::Character3DAnimFsm);
 }
-const Spark::SpringArm3DComponent* AsSpringArm3DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::SpringArm3DComponent>(
-            c, Spark::ComponentKind::SpringArm3D);
+const Spark::Character3DAnimFsmComponent* AsCharacter3DAnimFsmComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::Character3DAnimFsmComponent>(
+            c, Spark::ComponentKind::Character3DAnimFsm);
 }
 
 Spark::Character3DBodyComponent* AsCharacter3DBodyComponent(SparkGameComponent* c) {
@@ -450,31 +342,40 @@ const Spark::Character3DVisualComponent* AsCharacter3DVisualComponent(const Spar
             c, Spark::ComponentKind::Character3DVisual);
 }
 
-Spark::FoliageInstancedMeshComponent* AsFoliageInstancedMeshComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::FoliageInstancedMeshComponent>(
-            c, Spark::ComponentKind::FoliageInstancedMesh);
+Spark::CharacterController2DComponent* AsCharacterController2DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::CharacterController2DComponent>(
+            c, Spark::ComponentKind::CharacterController2D);
 }
-const Spark::FoliageInstancedMeshComponent* AsFoliageInstancedMeshComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::FoliageInstancedMeshComponent>(
-            c, Spark::ComponentKind::FoliageInstancedMesh);
-}
-
-Spark::GrassFieldComponent* AsGrassFieldComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::GrassFieldComponent>(
-            c, Spark::ComponentKind::GrassField);
-}
-const Spark::GrassFieldComponent* AsGrassFieldComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::GrassFieldComponent>(
-            c, Spark::ComponentKind::GrassField);
+const Spark::CharacterController2DComponent* AsCharacterController2DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::CharacterController2DComponent>(
+            c, Spark::ComponentKind::CharacterController2D);
 }
 
-Spark::WindEnvironmentComponent* AsWindEnvironmentComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::WindEnvironmentComponent>(
-            c, Spark::ComponentKind::WindEnvironment);
+Spark::CharacterController3DComponent* AsCharacterController3DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::CharacterController3DComponent>(
+            c, Spark::ComponentKind::CharacterController3D);
 }
-const Spark::WindEnvironmentComponent* AsWindEnvironmentComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::WindEnvironmentComponent>(
-            c, Spark::ComponentKind::WindEnvironment);
+const Spark::CharacterController3DComponent* AsCharacterController3DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::CharacterController3DComponent>(
+            c, Spark::ComponentKind::CharacterController3D);
+}
+
+Spark::CircleCollider2DComponent* AsCircleCollider2DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::CircleCollider2DComponent>(
+            c, Spark::ComponentKind::CircleCollider2D);
+}
+const Spark::CircleCollider2DComponent* AsCircleCollider2DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::CircleCollider2DComponent>(
+            c, Spark::ComponentKind::CircleCollider2D);
+}
+
+Spark::CollisionComponent* AsCollisionComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::CollisionComponent>(
+            c, Spark::ComponentKind::Collision);
+}
+const Spark::CollisionComponent* AsCollisionComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::CollisionComponent>(
+            c, Spark::ComponentKind::Collision);
 }
 
 Spark::CombatHurtFlash3DComponent* AsCombatHurtFlash3DComponent(SparkGameComponent* c) {
@@ -504,6 +405,42 @@ const Spark::DamageableComponent* AsDamageableComponent(const SparkGameComponent
             c, Spark::ComponentKind::Damageable);
 }
 
+Spark::DecalProjectorComponent* AsDecalProjectorComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::DecalProjectorComponent>(
+            c, Spark::ComponentKind::DecalProjector);
+}
+const Spark::DecalProjectorComponent* AsDecalProjectorComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::DecalProjectorComponent>(
+            c, Spark::ComponentKind::DecalProjector);
+}
+
+Spark::DirectionalLightComponent* AsDirectionalLightComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::DirectionalLightComponent>(
+            c, Spark::ComponentKind::DirectionalLight);
+}
+const Spark::DirectionalLightComponent* AsDirectionalLightComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::DirectionalLightComponent>(
+            c, Spark::ComponentKind::DirectionalLight);
+}
+
+Spark::DistanceJoint2DComponent* AsDistanceJoint2DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::DistanceJoint2DComponent>(
+            c, Spark::ComponentKind::DistanceJoint2D);
+}
+const Spark::DistanceJoint2DComponent* AsDistanceJoint2DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::DistanceJoint2DComponent>(
+            c, Spark::ComponentKind::DistanceJoint2D);
+}
+
+Spark::DistanceJoint3DComponent* AsDistanceJoint3DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::DistanceJoint3DComponent>(
+            c, Spark::ComponentKind::DistanceJoint3D);
+}
+const Spark::DistanceJoint3DComponent* AsDistanceJoint3DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::DistanceJoint3DComponent>(
+            c, Spark::ComponentKind::DistanceJoint3D);
+}
+
 Spark::FogOfWar2DComponent* AsFogOfWar2DComponent(SparkGameComponent* c) {
     return Spark::Scripting::AsComponent<Spark::FogOfWar2DComponent>(
             c, Spark::ComponentKind::FogOfWar2D);
@@ -511,6 +448,33 @@ Spark::FogOfWar2DComponent* AsFogOfWar2DComponent(SparkGameComponent* c) {
 const Spark::FogOfWar2DComponent* AsFogOfWar2DComponent(const SparkGameComponent* c) {
     return Spark::Scripting::AsComponent<const Spark::FogOfWar2DComponent>(
             c, Spark::ComponentKind::FogOfWar2D);
+}
+
+Spark::FogVolumeComponent* AsFogVolumeComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::FogVolumeComponent>(
+            c, Spark::ComponentKind::FogVolume);
+}
+const Spark::FogVolumeComponent* AsFogVolumeComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::FogVolumeComponent>(
+            c, Spark::ComponentKind::FogVolume);
+}
+
+Spark::FoliageInstancedMeshComponent* AsFoliageInstancedMeshComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::FoliageInstancedMeshComponent>(
+            c, Spark::ComponentKind::FoliageInstancedMesh);
+}
+const Spark::FoliageInstancedMeshComponent* AsFoliageInstancedMeshComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::FoliageInstancedMeshComponent>(
+            c, Spark::ComponentKind::FoliageInstancedMesh);
+}
+
+Spark::FootIkComponent* AsFootIkComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::FootIkComponent>(
+            c, Spark::ComponentKind::FootIk);
+}
+const Spark::FootIkComponent* AsFootIkComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::FootIkComponent>(
+            c, Spark::ComponentKind::FootIk);
 }
 
 Spark::GameFlowTriggerComponent* AsGameFlowTriggerComponent(SparkGameComponent* c) {
@@ -540,375 +504,6 @@ const Spark::GameplayTeamComponent* AsGameplayTeamComponent(const SparkGameCompo
             c, Spark::ComponentKind::GameplayTeam);
 }
 
-Spark::HealthComponent* AsHealthComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::HealthComponent>(
-            c, Spark::ComponentKind::Health);
-}
-const Spark::HealthComponent* AsHealthComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::HealthComponent>(
-            c, Spark::ComponentKind::Health);
-}
-
-Spark::InteractableComponent* AsInteractableComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::InteractableComponent>(
-            c, Spark::ComponentKind::Interactable);
-}
-const Spark::InteractableComponent* AsInteractableComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::InteractableComponent>(
-            c, Spark::ComponentKind::Interactable);
-}
-
-Spark::PickupComponent* AsPickupComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::PickupComponent>(
-            c, Spark::ComponentKind::Pickup);
-}
-const Spark::PickupComponent* AsPickupComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::PickupComponent>(
-            c, Spark::ComponentKind::Pickup);
-}
-
-Spark::InputActionMapComponent* AsInputActionMapComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::InputActionMapComponent>(
-            c, Spark::ComponentKind::InputActionMap);
-}
-const Spark::InputActionMapComponent* AsInputActionMapComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::InputActionMapComponent>(
-            c, Spark::ComponentKind::InputActionMap);
-}
-
-Spark::PlayerInputComponent* AsPlayerInputComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::PlayerInputComponent>(
-            c, Spark::ComponentKind::PlayerInput);
-}
-const Spark::PlayerInputComponent* AsPlayerInputComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::PlayerInputComponent>(
-            c, Spark::ComponentKind::PlayerInput);
-}
-
-Spark::DirectionalLightComponent* AsDirectionalLightComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::DirectionalLightComponent>(
-            c, Spark::ComponentKind::DirectionalLight);
-}
-const Spark::DirectionalLightComponent* AsDirectionalLightComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::DirectionalLightComponent>(
-            c, Spark::ComponentKind::DirectionalLight);
-}
-
-Spark::PointLight2DComponent* AsPointLight2DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::PointLight2DComponent>(
-            c, Spark::ComponentKind::PointLight2D);
-}
-const Spark::PointLight2DComponent* AsPointLight2DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::PointLight2DComponent>(
-            c, Spark::ComponentKind::PointLight2D);
-}
-
-Spark::PointLightComponent* AsPointLightComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::PointLightComponent>(
-            c, Spark::ComponentKind::PointLight);
-}
-const Spark::PointLightComponent* AsPointLightComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::PointLightComponent>(
-            c, Spark::ComponentKind::PointLight);
-}
-
-Spark::SpotLightComponent* AsSpotLightComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::SpotLightComponent>(
-            c, Spark::ComponentKind::SpotLight);
-}
-const Spark::SpotLightComponent* AsSpotLightComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::SpotLightComponent>(
-            c, Spark::ComponentKind::SpotLight);
-}
-
-Spark::BoxCollider2DComponent* AsBoxCollider2DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::BoxCollider2DComponent>(
-            c, Spark::ComponentKind::BoxCollider2D);
-}
-const Spark::BoxCollider2DComponent* AsBoxCollider2DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::BoxCollider2DComponent>(
-            c, Spark::ComponentKind::BoxCollider2D);
-}
-
-Spark::CharacterController2DComponent* AsCharacterController2DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::CharacterController2DComponent>(
-            c, Spark::ComponentKind::CharacterController2D);
-}
-const Spark::CharacterController2DComponent* AsCharacterController2DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::CharacterController2DComponent>(
-            c, Spark::ComponentKind::CharacterController2D);
-}
-
-Spark::CircleCollider2DComponent* AsCircleCollider2DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::CircleCollider2DComponent>(
-            c, Spark::ComponentKind::CircleCollider2D);
-}
-const Spark::CircleCollider2DComponent* AsCircleCollider2DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::CircleCollider2DComponent>(
-            c, Spark::ComponentKind::CircleCollider2D);
-}
-
-Spark::DistanceJoint2DComponent* AsDistanceJoint2DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::DistanceJoint2DComponent>(
-            c, Spark::ComponentKind::DistanceJoint2D);
-}
-const Spark::DistanceJoint2DComponent* AsDistanceJoint2DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::DistanceJoint2DComponent>(
-            c, Spark::ComponentKind::DistanceJoint2D);
-}
-
-Spark::HingeJoint2DComponent* AsHingeJoint2DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::HingeJoint2DComponent>(
-            c, Spark::ComponentKind::HingeJoint2D);
-}
-const Spark::HingeJoint2DComponent* AsHingeJoint2DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::HingeJoint2DComponent>(
-            c, Spark::ComponentKind::HingeJoint2D);
-}
-
-Spark::Hurtbox2DComponent* AsHurtbox2DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::Hurtbox2DComponent>(
-            c, Spark::ComponentKind::Hurtbox2D);
-}
-const Spark::Hurtbox2DComponent* AsHurtbox2DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::Hurtbox2DComponent>(
-            c, Spark::ComponentKind::Hurtbox2D);
-}
-
-Spark::OneWayPlatform2DComponent* AsOneWayPlatform2DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::OneWayPlatform2DComponent>(
-            c, Spark::ComponentKind::OneWayPlatform2D);
-}
-const Spark::OneWayPlatform2DComponent* AsOneWayPlatform2DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::OneWayPlatform2DComponent>(
-            c, Spark::ComponentKind::OneWayPlatform2D);
-}
-
-Spark::PhysicsMaterial2DComponent* AsPhysicsMaterial2DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::PhysicsMaterial2DComponent>(
-            c, Spark::ComponentKind::PhysicsMaterial2D);
-}
-const Spark::PhysicsMaterial2DComponent* AsPhysicsMaterial2DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::PhysicsMaterial2DComponent>(
-            c, Spark::ComponentKind::PhysicsMaterial2D);
-}
-
-Spark::PolygonCollider2DComponent* AsPolygonCollider2DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::PolygonCollider2DComponent>(
-            c, Spark::ComponentKind::PolygonCollider2D);
-}
-const Spark::PolygonCollider2DComponent* AsPolygonCollider2DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::PolygonCollider2DComponent>(
-            c, Spark::ComponentKind::PolygonCollider2D);
-}
-
-Spark::Projectile2DComponent* AsProjectile2DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::Projectile2DComponent>(
-            c, Spark::ComponentKind::Projectile2D);
-}
-const Spark::Projectile2DComponent* AsProjectile2DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::Projectile2DComponent>(
-            c, Spark::ComponentKind::Projectile2D);
-}
-
-Spark::Rigidbody2DComponent* AsRigidbody2DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::Rigidbody2DComponent>(
-            c, Spark::ComponentKind::Rigidbody2D);
-}
-const Spark::Rigidbody2DComponent* AsRigidbody2DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::Rigidbody2DComponent>(
-            c, Spark::ComponentKind::Rigidbody2D);
-}
-
-Spark::TilemapCollider2DComponent* AsTilemapCollider2DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::TilemapCollider2DComponent>(
-            c, Spark::ComponentKind::TilemapCollider2D);
-}
-const Spark::TilemapCollider2DComponent* AsTilemapCollider2DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::TilemapCollider2DComponent>(
-            c, Spark::ComponentKind::TilemapCollider2D);
-}
-
-Spark::TriggerVolume2DComponent* AsTriggerVolume2DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::TriggerVolume2DComponent>(
-            c, Spark::ComponentKind::TriggerVolume2D);
-}
-const Spark::TriggerVolume2DComponent* AsTriggerVolume2DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::TriggerVolume2DComponent>(
-            c, Spark::ComponentKind::TriggerVolume2D);
-}
-
-Spark::BoxCollider3DComponent* AsBoxCollider3DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::BoxCollider3DComponent>(
-            c, Spark::ComponentKind::BoxCollider3D);
-}
-const Spark::BoxCollider3DComponent* AsBoxCollider3DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::BoxCollider3DComponent>(
-            c, Spark::ComponentKind::BoxCollider3D);
-}
-
-Spark::CapsuleCollider3DComponent* AsCapsuleCollider3DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::CapsuleCollider3DComponent>(
-            c, Spark::ComponentKind::CapsuleCollider3D);
-}
-const Spark::CapsuleCollider3DComponent* AsCapsuleCollider3DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::CapsuleCollider3DComponent>(
-            c, Spark::ComponentKind::CapsuleCollider3D);
-}
-
-Spark::CharacterController3DComponent* AsCharacterController3DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::CharacterController3DComponent>(
-            c, Spark::ComponentKind::CharacterController3D);
-}
-const Spark::CharacterController3DComponent* AsCharacterController3DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::CharacterController3DComponent>(
-            c, Spark::ComponentKind::CharacterController3D);
-}
-
-Spark::DistanceJoint3DComponent* AsDistanceJoint3DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::DistanceJoint3DComponent>(
-            c, Spark::ComponentKind::DistanceJoint3D);
-}
-const Spark::DistanceJoint3DComponent* AsDistanceJoint3DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::DistanceJoint3DComponent>(
-            c, Spark::ComponentKind::DistanceJoint3D);
-}
-
-Spark::HingeJoint3DComponent* AsHingeJoint3DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::HingeJoint3DComponent>(
-            c, Spark::ComponentKind::HingeJoint3D);
-}
-const Spark::HingeJoint3DComponent* AsHingeJoint3DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::HingeJoint3DComponent>(
-            c, Spark::ComponentKind::HingeJoint3D);
-}
-
-Spark::Hurtbox3DComponent* AsHurtbox3DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::Hurtbox3DComponent>(
-            c, Spark::ComponentKind::Hurtbox3D);
-}
-const Spark::Hurtbox3DComponent* AsHurtbox3DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::Hurtbox3DComponent>(
-            c, Spark::ComponentKind::Hurtbox3D);
-}
-
-Spark::MeshCollider3DComponent* AsMeshCollider3DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::MeshCollider3DComponent>(
-            c, Spark::ComponentKind::MeshCollider3D);
-}
-const Spark::MeshCollider3DComponent* AsMeshCollider3DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::MeshCollider3DComponent>(
-            c, Spark::ComponentKind::MeshCollider3D);
-}
-
-Spark::PhysicsAttachedBody3DComponent* AsPhysicsAttachedBody3DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::PhysicsAttachedBody3DComponent>(
-            c, Spark::ComponentKind::PhysicsAttachedBody3D);
-}
-const Spark::PhysicsAttachedBody3DComponent* AsPhysicsAttachedBody3DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::PhysicsAttachedBody3DComponent>(
-            c, Spark::ComponentKind::PhysicsAttachedBody3D);
-}
-
-Spark::PhysicsLayer3DComponent* AsPhysicsLayer3DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::PhysicsLayer3DComponent>(
-            c, Spark::ComponentKind::PhysicsLayer3D);
-}
-const Spark::PhysicsLayer3DComponent* AsPhysicsLayer3DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::PhysicsLayer3DComponent>(
-            c, Spark::ComponentKind::PhysicsLayer3D);
-}
-
-Spark::PhysicsMaterial3DComponent* AsPhysicsMaterial3DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::PhysicsMaterial3DComponent>(
-            c, Spark::ComponentKind::PhysicsMaterial3D);
-}
-const Spark::PhysicsMaterial3DComponent* AsPhysicsMaterial3DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::PhysicsMaterial3DComponent>(
-            c, Spark::ComponentKind::PhysicsMaterial3D);
-}
-
-Spark::Rigidbody3DComponent* AsRigidbody3DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::Rigidbody3DComponent>(
-            c, Spark::ComponentKind::Rigidbody3D);
-}
-const Spark::Rigidbody3DComponent* AsRigidbody3DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::Rigidbody3DComponent>(
-            c, Spark::ComponentKind::Rigidbody3D);
-}
-
-Spark::SphereCollider3DComponent* AsSphereCollider3DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::SphereCollider3DComponent>(
-            c, Spark::ComponentKind::SphereCollider3D);
-}
-const Spark::SphereCollider3DComponent* AsSphereCollider3DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::SphereCollider3DComponent>(
-            c, Spark::ComponentKind::SphereCollider3D);
-}
-
-Spark::SpringJoint3DComponent* AsSpringJoint3DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::SpringJoint3DComponent>(
-            c, Spark::ComponentKind::SpringJoint3D);
-}
-const Spark::SpringJoint3DComponent* AsSpringJoint3DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::SpringJoint3DComponent>(
-            c, Spark::ComponentKind::SpringJoint3D);
-}
-
-Spark::TriggerVolume3DComponent* AsTriggerVolume3DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::TriggerVolume3DComponent>(
-            c, Spark::ComponentKind::TriggerVolume3D);
-}
-const Spark::TriggerVolume3DComponent* AsTriggerVolume3DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::TriggerVolume3DComponent>(
-            c, Spark::ComponentKind::TriggerVolume3D);
-}
-
-Spark::CollisionComponent* AsCollisionComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::CollisionComponent>(
-            c, Spark::ComponentKind::Collision);
-}
-const Spark::CollisionComponent* AsCollisionComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::CollisionComponent>(
-            c, Spark::ComponentKind::Collision);
-}
-
-Spark::BillboardComponent* AsBillboardComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::BillboardComponent>(
-            c, Spark::ComponentKind::Billboard);
-}
-const Spark::BillboardComponent* AsBillboardComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::BillboardComponent>(
-            c, Spark::ComponentKind::Billboard);
-}
-
-Spark::BlendModeComponent* AsBlendModeComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::BlendModeComponent>(
-            c, Spark::ComponentKind::BlendMode);
-}
-const Spark::BlendModeComponent* AsBlendModeComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::BlendModeComponent>(
-            c, Spark::ComponentKind::BlendMode);
-}
-
-Spark::DecalProjectorComponent* AsDecalProjectorComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::DecalProjectorComponent>(
-            c, Spark::ComponentKind::DecalProjector);
-}
-const Spark::DecalProjectorComponent* AsDecalProjectorComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::DecalProjectorComponent>(
-            c, Spark::ComponentKind::DecalProjector);
-}
-
-Spark::FogVolumeComponent* AsFogVolumeComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::FogVolumeComponent>(
-            c, Spark::ComponentKind::FogVolume);
-}
-const Spark::FogVolumeComponent* AsFogVolumeComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::FogVolumeComponent>(
-            c, Spark::ComponentKind::FogVolume);
-}
-
 Spark::GltfInstanceNodeComponent* AsGltfInstanceNodeComponent(SparkGameComponent* c) {
     return Spark::Scripting::AsComponent<Spark::GltfInstanceNodeComponent>(
             c, Spark::ComponentKind::GltfInstanceNode);
@@ -927,6 +522,105 @@ const Spark::GltfSceneSourceComponent* AsGltfSceneSourceComponent(const SparkGam
             c, Spark::ComponentKind::GltfSceneSource);
 }
 
+Spark::GrassFieldComponent* AsGrassFieldComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::GrassFieldComponent>(
+            c, Spark::ComponentKind::GrassField);
+}
+const Spark::GrassFieldComponent* AsGrassFieldComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::GrassFieldComponent>(
+            c, Spark::ComponentKind::GrassField);
+}
+
+Spark::GridNavAgent2DComponent* AsGridNavAgent2DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::GridNavAgent2DComponent>(
+            c, Spark::ComponentKind::GridNavAgent2D);
+}
+const Spark::GridNavAgent2DComponent* AsGridNavAgent2DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::GridNavAgent2DComponent>(
+            c, Spark::ComponentKind::GridNavAgent2D);
+}
+
+Spark::GridNavTarget2DComponent* AsGridNavTarget2DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::GridNavTarget2DComponent>(
+            c, Spark::ComponentKind::GridNavTarget2D);
+}
+const Spark::GridNavTarget2DComponent* AsGridNavTarget2DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::GridNavTarget2DComponent>(
+            c, Spark::ComponentKind::GridNavTarget2D);
+}
+
+Spark::GridPathFollower2DComponent* AsGridPathFollower2DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::GridPathFollower2DComponent>(
+            c, Spark::ComponentKind::GridPathFollower2D);
+}
+const Spark::GridPathFollower2DComponent* AsGridPathFollower2DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::GridPathFollower2DComponent>(
+            c, Spark::ComponentKind::GridPathFollower2D);
+}
+
+Spark::HealthComponent* AsHealthComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::HealthComponent>(
+            c, Spark::ComponentKind::Health);
+}
+const Spark::HealthComponent* AsHealthComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::HealthComponent>(
+            c, Spark::ComponentKind::Health);
+}
+
+Spark::HingeJoint2DComponent* AsHingeJoint2DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::HingeJoint2DComponent>(
+            c, Spark::ComponentKind::HingeJoint2D);
+}
+const Spark::HingeJoint2DComponent* AsHingeJoint2DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::HingeJoint2DComponent>(
+            c, Spark::ComponentKind::HingeJoint2D);
+}
+
+Spark::HingeJoint3DComponent* AsHingeJoint3DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::HingeJoint3DComponent>(
+            c, Spark::ComponentKind::HingeJoint3D);
+}
+const Spark::HingeJoint3DComponent* AsHingeJoint3DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::HingeJoint3DComponent>(
+            c, Spark::ComponentKind::HingeJoint3D);
+}
+
+Spark::Hurtbox2DComponent* AsHurtbox2DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::Hurtbox2DComponent>(
+            c, Spark::ComponentKind::Hurtbox2D);
+}
+const Spark::Hurtbox2DComponent* AsHurtbox2DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::Hurtbox2DComponent>(
+            c, Spark::ComponentKind::Hurtbox2D);
+}
+
+Spark::Hurtbox3DComponent* AsHurtbox3DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::Hurtbox3DComponent>(
+            c, Spark::ComponentKind::Hurtbox3D);
+}
+const Spark::Hurtbox3DComponent* AsHurtbox3DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::Hurtbox3DComponent>(
+            c, Spark::ComponentKind::Hurtbox3D);
+}
+
+Spark::InputActionMapComponent* AsInputActionMapComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::InputActionMapComponent>(
+            c, Spark::ComponentKind::InputActionMap);
+}
+const Spark::InputActionMapComponent* AsInputActionMapComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::InputActionMapComponent>(
+            c, Spark::ComponentKind::InputActionMap);
+}
+
+Spark::InteractableComponent* AsInteractableComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::InteractableComponent>(
+            c, Spark::ComponentKind::Interactable);
+}
+const Spark::InteractableComponent* AsInteractableComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::InteractableComponent>(
+            c, Spark::ComponentKind::Interactable);
+}
+
 Spark::MaterialComponent* AsMaterialComponent(SparkGameComponent* c) {
     return Spark::Scripting::AsComponent<Spark::MaterialComponent>(
             c, Spark::ComponentKind::Material);
@@ -936,6 +630,15 @@ const Spark::MaterialComponent* AsMaterialComponent(const SparkGameComponent* c)
             c, Spark::ComponentKind::Material);
 }
 
+Spark::MeshCollider3DComponent* AsMeshCollider3DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::MeshCollider3DComponent>(
+            c, Spark::ComponentKind::MeshCollider3D);
+}
+const Spark::MeshCollider3DComponent* AsMeshCollider3DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::MeshCollider3DComponent>(
+            c, Spark::ComponentKind::MeshCollider3D);
+}
+
 Spark::MultiMaterialComponent* AsMultiMaterialComponent(SparkGameComponent* c) {
     return Spark::Scripting::AsComponent<Spark::MultiMaterialComponent>(
             c, Spark::ComponentKind::MultiMaterial);
@@ -943,6 +646,24 @@ Spark::MultiMaterialComponent* AsMultiMaterialComponent(SparkGameComponent* c) {
 const Spark::MultiMaterialComponent* AsMultiMaterialComponent(const SparkGameComponent* c) {
     return Spark::Scripting::AsComponent<const Spark::MultiMaterialComponent>(
             c, Spark::ComponentKind::MultiMaterial);
+}
+
+Spark::NavMeshAgentComponent* AsNavMeshAgentComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::NavMeshAgentComponent>(
+            c, Spark::ComponentKind::NavMeshAgent);
+}
+const Spark::NavMeshAgentComponent* AsNavMeshAgentComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::NavMeshAgentComponent>(
+            c, Spark::ComponentKind::NavMeshAgent);
+}
+
+Spark::OneWayPlatform2DComponent* AsOneWayPlatform2DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::OneWayPlatform2DComponent>(
+            c, Spark::ComponentKind::OneWayPlatform2D);
+}
+const Spark::OneWayPlatform2DComponent* AsOneWayPlatform2DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::OneWayPlatform2DComponent>(
+            c, Spark::ComponentKind::OneWayPlatform2D);
 }
 
 Spark::ParallaxLayerComponent* AsParallaxLayerComponent(SparkGameComponent* c) {
@@ -963,6 +684,105 @@ const Spark::ParticleEmitterComponent* AsParticleEmitterComponent(const SparkGam
             c, Spark::ComponentKind::ParticleEmitter);
 }
 
+Spark::PatrolPathComponent* AsPatrolPathComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::PatrolPathComponent>(
+            c, Spark::ComponentKind::PatrolPath);
+}
+const Spark::PatrolPathComponent* AsPatrolPathComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::PatrolPathComponent>(
+            c, Spark::ComponentKind::PatrolPath);
+}
+
+Spark::PerceptionSensorComponent* AsPerceptionSensorComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::PerceptionSensorComponent>(
+            c, Spark::ComponentKind::PerceptionSensor);
+}
+const Spark::PerceptionSensorComponent* AsPerceptionSensorComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::PerceptionSensorComponent>(
+            c, Spark::ComponentKind::PerceptionSensor);
+}
+
+Spark::PhysicsAttachedBody3DComponent* AsPhysicsAttachedBody3DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::PhysicsAttachedBody3DComponent>(
+            c, Spark::ComponentKind::PhysicsAttachedBody3D);
+}
+const Spark::PhysicsAttachedBody3DComponent* AsPhysicsAttachedBody3DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::PhysicsAttachedBody3DComponent>(
+            c, Spark::ComponentKind::PhysicsAttachedBody3D);
+}
+
+Spark::PhysicsLayer3DComponent* AsPhysicsLayer3DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::PhysicsLayer3DComponent>(
+            c, Spark::ComponentKind::PhysicsLayer3D);
+}
+const Spark::PhysicsLayer3DComponent* AsPhysicsLayer3DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::PhysicsLayer3DComponent>(
+            c, Spark::ComponentKind::PhysicsLayer3D);
+}
+
+Spark::PhysicsMaterial2DComponent* AsPhysicsMaterial2DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::PhysicsMaterial2DComponent>(
+            c, Spark::ComponentKind::PhysicsMaterial2D);
+}
+const Spark::PhysicsMaterial2DComponent* AsPhysicsMaterial2DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::PhysicsMaterial2DComponent>(
+            c, Spark::ComponentKind::PhysicsMaterial2D);
+}
+
+Spark::PhysicsMaterial3DComponent* AsPhysicsMaterial3DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::PhysicsMaterial3DComponent>(
+            c, Spark::ComponentKind::PhysicsMaterial3D);
+}
+const Spark::PhysicsMaterial3DComponent* AsPhysicsMaterial3DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::PhysicsMaterial3DComponent>(
+            c, Spark::ComponentKind::PhysicsMaterial3D);
+}
+
+Spark::PickupComponent* AsPickupComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::PickupComponent>(
+            c, Spark::ComponentKind::Pickup);
+}
+const Spark::PickupComponent* AsPickupComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::PickupComponent>(
+            c, Spark::ComponentKind::Pickup);
+}
+
+Spark::PlayerInputComponent* AsPlayerInputComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::PlayerInputComponent>(
+            c, Spark::ComponentKind::PlayerInput);
+}
+const Spark::PlayerInputComponent* AsPlayerInputComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::PlayerInputComponent>(
+            c, Spark::ComponentKind::PlayerInput);
+}
+
+Spark::PointLight2DComponent* AsPointLight2DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::PointLight2DComponent>(
+            c, Spark::ComponentKind::PointLight2D);
+}
+const Spark::PointLight2DComponent* AsPointLight2DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::PointLight2DComponent>(
+            c, Spark::ComponentKind::PointLight2D);
+}
+
+Spark::PointLightComponent* AsPointLightComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::PointLightComponent>(
+            c, Spark::ComponentKind::PointLight);
+}
+const Spark::PointLightComponent* AsPointLightComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::PointLightComponent>(
+            c, Spark::ComponentKind::PointLight);
+}
+
+Spark::PolygonCollider2DComponent* AsPolygonCollider2DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::PolygonCollider2DComponent>(
+            c, Spark::ComponentKind::PolygonCollider2D);
+}
+const Spark::PolygonCollider2DComponent* AsPolygonCollider2DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::PolygonCollider2DComponent>(
+            c, Spark::ComponentKind::PolygonCollider2D);
+}
+
 Spark::PostProcessVolumeComponent* AsPostProcessVolumeComponent(SparkGameComponent* c) {
     return Spark::Scripting::AsComponent<Spark::PostProcessVolumeComponent>(
             c, Spark::ComponentKind::PostProcessVolume);
@@ -970,6 +790,15 @@ Spark::PostProcessVolumeComponent* AsPostProcessVolumeComponent(SparkGameCompone
 const Spark::PostProcessVolumeComponent* AsPostProcessVolumeComponent(const SparkGameComponent* c) {
     return Spark::Scripting::AsComponent<const Spark::PostProcessVolumeComponent>(
             c, Spark::ComponentKind::PostProcessVolume);
+}
+
+Spark::Projectile2DComponent* AsProjectile2DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::Projectile2DComponent>(
+            c, Spark::ComponentKind::Projectile2D);
+}
+const Spark::Projectile2DComponent* AsProjectile2DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::Projectile2DComponent>(
+            c, Spark::ComponentKind::Projectile2D);
 }
 
 Spark::RenderLayerComponent* AsRenderLayerComponent(SparkGameComponent* c) {
@@ -981,6 +810,33 @@ const Spark::RenderLayerComponent* AsRenderLayerComponent(const SparkGameCompone
             c, Spark::ComponentKind::RenderLayer);
 }
 
+Spark::Rigidbody2DComponent* AsRigidbody2DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::Rigidbody2DComponent>(
+            c, Spark::ComponentKind::Rigidbody2D);
+}
+const Spark::Rigidbody2DComponent* AsRigidbody2DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::Rigidbody2DComponent>(
+            c, Spark::ComponentKind::Rigidbody2D);
+}
+
+Spark::Rigidbody3DComponent* AsRigidbody3DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::Rigidbody3DComponent>(
+            c, Spark::ComponentKind::Rigidbody3D);
+}
+const Spark::Rigidbody3DComponent* AsRigidbody3DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::Rigidbody3DComponent>(
+            c, Spark::ComponentKind::Rigidbody3D);
+}
+
+Spark::RootMotionComponent* AsRootMotionComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::RootMotionComponent>(
+            c, Spark::ComponentKind::RootMotion);
+}
+const Spark::RootMotionComponent* AsRootMotionComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::RootMotionComponent>(
+            c, Spark::ComponentKind::RootMotion);
+}
+
 Spark::Scene2DCompositeViewComponent* AsScene2DCompositeViewComponent(SparkGameComponent* c) {
     return Spark::Scripting::AsComponent<Spark::Scene2DCompositeViewComponent>(
             c, Spark::ComponentKind::Scene2DCompositeView);
@@ -988,6 +844,42 @@ Spark::Scene2DCompositeViewComponent* AsScene2DCompositeViewComponent(SparkGameC
 const Spark::Scene2DCompositeViewComponent* AsScene2DCompositeViewComponent(const SparkGameComponent* c) {
     return Spark::Scripting::AsComponent<const Spark::Scene2DCompositeViewComponent>(
             c, Spark::ComponentKind::Scene2DCompositeView);
+}
+
+Spark::SceneSpatialPolicyComponent* AsSceneSpatialPolicyComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::SceneSpatialPolicyComponent>(
+            c, Spark::ComponentKind::SceneSpatialPolicy);
+}
+const Spark::SceneSpatialPolicyComponent* AsSceneSpatialPolicyComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::SceneSpatialPolicyComponent>(
+            c, Spark::ComponentKind::SceneSpatialPolicy);
+}
+
+Spark::ScreenShakeComponent* AsScreenShakeComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::ScreenShakeComponent>(
+            c, Spark::ComponentKind::ScreenShake);
+}
+const Spark::ScreenShakeComponent* AsScreenShakeComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::ScreenShakeComponent>(
+            c, Spark::ComponentKind::ScreenShake);
+}
+
+Spark::SkeletonDebugDrawComponent* AsSkeletonDebugDrawComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::SkeletonDebugDrawComponent>(
+            c, Spark::ComponentKind::SkeletonDebugDraw);
+}
+const Spark::SkeletonDebugDrawComponent* AsSkeletonDebugDrawComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::SkeletonDebugDrawComponent>(
+            c, Spark::ComponentKind::SkeletonDebugDraw);
+}
+
+Spark::SkinnedAnimationBudgetComponent* AsSkinnedAnimationBudgetComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::SkinnedAnimationBudgetComponent>(
+            c, Spark::ComponentKind::SkinnedAnimationBudget);
+}
+const Spark::SkinnedAnimationBudgetComponent* AsSkinnedAnimationBudgetComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::SkinnedAnimationBudgetComponent>(
+            c, Spark::ComponentKind::SkinnedAnimationBudget);
 }
 
 Spark::SkinnedMeshComponent* AsSkinnedMeshComponent(SparkGameComponent* c) {
@@ -1015,6 +907,105 @@ Spark::SortingGroupComponent* AsSortingGroupComponent(SparkGameComponent* c) {
 const Spark::SortingGroupComponent* AsSortingGroupComponent(const SparkGameComponent* c) {
     return Spark::Scripting::AsComponent<const Spark::SortingGroupComponent>(
             c, Spark::ComponentKind::SortingGroup);
+}
+
+Spark::SoundCueComponent* AsSoundCueComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::SoundCueComponent>(
+            c, Spark::ComponentKind::SoundCue);
+}
+const Spark::SoundCueComponent* AsSoundCueComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::SoundCueComponent>(
+            c, Spark::ComponentKind::SoundCue);
+}
+
+Spark::SpawnPoint2DComponent* AsSpawnPoint2DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::SpawnPoint2DComponent>(
+            c, Spark::ComponentKind::SpawnPoint2D);
+}
+const Spark::SpawnPoint2DComponent* AsSpawnPoint2DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::SpawnPoint2DComponent>(
+            c, Spark::ComponentKind::SpawnPoint2D);
+}
+
+Spark::SpawnPointComponent* AsSpawnPointComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::SpawnPointComponent>(
+            c, Spark::ComponentKind::SpawnPoint);
+}
+const Spark::SpawnPointComponent* AsSpawnPointComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::SpawnPointComponent>(
+            c, Spark::ComponentKind::SpawnPoint);
+}
+
+Spark::SphereCollider3DComponent* AsSphereCollider3DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::SphereCollider3DComponent>(
+            c, Spark::ComponentKind::SphereCollider3D);
+}
+const Spark::SphereCollider3DComponent* AsSphereCollider3DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::SphereCollider3DComponent>(
+            c, Spark::ComponentKind::SphereCollider3D);
+}
+
+Spark::SpotLightComponent* AsSpotLightComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::SpotLightComponent>(
+            c, Spark::ComponentKind::SpotLight);
+}
+const Spark::SpotLightComponent* AsSpotLightComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::SpotLightComponent>(
+            c, Spark::ComponentKind::SpotLight);
+}
+
+Spark::SpringArm3DComponent* AsSpringArm3DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::SpringArm3DComponent>(
+            c, Spark::ComponentKind::SpringArm3D);
+}
+const Spark::SpringArm3DComponent* AsSpringArm3DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::SpringArm3DComponent>(
+            c, Spark::ComponentKind::SpringArm3D);
+}
+
+Spark::SpringJoint3DComponent* AsSpringJoint3DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::SpringJoint3DComponent>(
+            c, Spark::ComponentKind::SpringJoint3D);
+}
+const Spark::SpringJoint3DComponent* AsSpringJoint3DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::SpringJoint3DComponent>(
+            c, Spark::ComponentKind::SpringJoint3D);
+}
+
+Spark::Sprite2DCharacterAnimFsmComponent* AsSprite2DCharacterAnimFsmComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::Sprite2DCharacterAnimFsmComponent>(
+            c, Spark::ComponentKind::Sprite2DCharacterAnimFsm);
+}
+const Spark::Sprite2DCharacterAnimFsmComponent* AsSprite2DCharacterAnimFsmComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::Sprite2DCharacterAnimFsmComponent>(
+            c, Spark::ComponentKind::Sprite2DCharacterAnimFsm);
+}
+
+Spark::SpriteAnimationEventReceiverComponent* AsSpriteAnimationEventReceiverComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::SpriteAnimationEventReceiverComponent>(
+            c, Spark::ComponentKind::SpriteAnimationEventReceiver);
+}
+const Spark::SpriteAnimationEventReceiverComponent* AsSpriteAnimationEventReceiverComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::SpriteAnimationEventReceiverComponent>(
+            c, Spark::ComponentKind::SpriteAnimationEventReceiver);
+}
+
+Spark::SpriteAnimationEventVfxComponent* AsSpriteAnimationEventVfxComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::SpriteAnimationEventVfxComponent>(
+            c, Spark::ComponentKind::SpriteAnimationEventVfx);
+}
+const Spark::SpriteAnimationEventVfxComponent* AsSpriteAnimationEventVfxComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::SpriteAnimationEventVfxComponent>(
+            c, Spark::ComponentKind::SpriteAnimationEventVfx);
+}
+
+Spark::SpriteAnimatorComponent* AsSpriteAnimatorComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::SpriteAnimatorComponent>(
+            c, Spark::ComponentKind::SpriteAnimator);
+}
+const Spark::SpriteAnimatorComponent* AsSpriteAnimatorComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::SpriteAnimatorComponent>(
+            c, Spark::ComponentKind::SpriteAnimator);
 }
 
 Spark::SpriteComponent* AsSpriteComponent(SparkGameComponent* c) {
@@ -1053,24 +1044,6 @@ const Spark::TextOverlayComponent* AsTextOverlayComponent(const SparkGameCompone
             c, Spark::ComponentKind::TextOverlay);
 }
 
-Spark::TilemapComponent* AsTilemapComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::TilemapComponent>(
-            c, Spark::ComponentKind::Tilemap);
-}
-const Spark::TilemapComponent* AsTilemapComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::TilemapComponent>(
-            c, Spark::ComponentKind::Tilemap);
-}
-
-Spark::VfxPlayerComponent* AsVfxPlayerComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::VfxPlayerComponent>(
-            c, Spark::ComponentKind::VfxPlayer);
-}
-const Spark::VfxPlayerComponent* AsVfxPlayerComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::VfxPlayerComponent>(
-            c, Spark::ComponentKind::VfxPlayer);
-}
-
 Spark::TilemapAutotileComponent* AsTilemapAutotileComponent(SparkGameComponent* c) {
     return Spark::Scripting::AsComponent<Spark::TilemapAutotileComponent>(
             c, Spark::ComponentKind::TilemapAutotile);
@@ -1078,6 +1051,24 @@ Spark::TilemapAutotileComponent* AsTilemapAutotileComponent(SparkGameComponent* 
 const Spark::TilemapAutotileComponent* AsTilemapAutotileComponent(const SparkGameComponent* c) {
     return Spark::Scripting::AsComponent<const Spark::TilemapAutotileComponent>(
             c, Spark::ComponentKind::TilemapAutotile);
+}
+
+Spark::TilemapCollider2DComponent* AsTilemapCollider2DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::TilemapCollider2DComponent>(
+            c, Spark::ComponentKind::TilemapCollider2D);
+}
+const Spark::TilemapCollider2DComponent* AsTilemapCollider2DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::TilemapCollider2DComponent>(
+            c, Spark::ComponentKind::TilemapCollider2D);
+}
+
+Spark::TilemapComponent* AsTilemapComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::TilemapComponent>(
+            c, Spark::ComponentKind::Tilemap);
+}
+const Spark::TilemapComponent* AsTilemapComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::TilemapComponent>(
+            c, Spark::ComponentKind::Tilemap);
 }
 
 Spark::TilemapGameplayGridComponent* AsTilemapGameplayGridComponent(SparkGameComponent* c) {
@@ -1134,6 +1125,33 @@ const Spark::TilemapTileAnimatorComponent* AsTilemapTileAnimatorComponent(const 
             c, Spark::ComponentKind::TilemapTileAnimator);
 }
 
+Spark::TimeOfDayDriverComponent* AsTimeOfDayDriverComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::TimeOfDayDriverComponent>(
+            c, Spark::ComponentKind::TimeOfDayDriver);
+}
+const Spark::TimeOfDayDriverComponent* AsTimeOfDayDriverComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::TimeOfDayDriverComponent>(
+            c, Spark::ComponentKind::TimeOfDayDriver);
+}
+
+Spark::TriggerVolume2DComponent* AsTriggerVolume2DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::TriggerVolume2DComponent>(
+            c, Spark::ComponentKind::TriggerVolume2D);
+}
+const Spark::TriggerVolume2DComponent* AsTriggerVolume2DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::TriggerVolume2DComponent>(
+            c, Spark::ComponentKind::TriggerVolume2D);
+}
+
+Spark::TriggerVolume3DComponent* AsTriggerVolume3DComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::TriggerVolume3DComponent>(
+            c, Spark::ComponentKind::TriggerVolume3D);
+}
+const Spark::TriggerVolume3DComponent* AsTriggerVolume3DComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::TriggerVolume3DComponent>(
+            c, Spark::ComponentKind::TriggerVolume3D);
+}
+
 Spark::UiCanvasComponent* AsUiCanvasComponent(SparkGameComponent* c) {
     return Spark::Scripting::AsComponent<Spark::UiCanvasComponent>(
             c, Spark::ComponentKind::UiCanvas);
@@ -1141,6 +1159,15 @@ Spark::UiCanvasComponent* AsUiCanvasComponent(SparkGameComponent* c) {
 const Spark::UiCanvasComponent* AsUiCanvasComponent(const SparkGameComponent* c) {
     return Spark::Scripting::AsComponent<const Spark::UiCanvasComponent>(
             c, Spark::ComponentKind::UiCanvas);
+}
+
+Spark::VfxPlayerComponent* AsVfxPlayerComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::VfxPlayerComponent>(
+            c, Spark::ComponentKind::VfxPlayer);
+}
+const Spark::VfxPlayerComponent* AsVfxPlayerComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::VfxPlayerComponent>(
+            c, Spark::ComponentKind::VfxPlayer);
 }
 
 Spark::WaterBodyComponent* AsWaterBodyComponent(SparkGameComponent* c) {
@@ -1152,40 +1179,13 @@ const Spark::WaterBodyComponent* AsWaterBodyComponent(const SparkGameComponent* 
             c, Spark::ComponentKind::WaterBody);
 }
 
-Spark::SceneSpatialPolicyComponent* AsSceneSpatialPolicyComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::SceneSpatialPolicyComponent>(
-            c, Spark::ComponentKind::SceneSpatialPolicy);
+Spark::WindEnvironmentComponent* AsWindEnvironmentComponent(SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<Spark::WindEnvironmentComponent>(
+            c, Spark::ComponentKind::WindEnvironment);
 }
-const Spark::SceneSpatialPolicyComponent* AsSceneSpatialPolicyComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::SceneSpatialPolicyComponent>(
-            c, Spark::ComponentKind::SceneSpatialPolicy);
-}
-
-Spark::SpawnPoint2DComponent* AsSpawnPoint2DComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::SpawnPoint2DComponent>(
-            c, Spark::ComponentKind::SpawnPoint2D);
-}
-const Spark::SpawnPoint2DComponent* AsSpawnPoint2DComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::SpawnPoint2DComponent>(
-            c, Spark::ComponentKind::SpawnPoint2D);
-}
-
-Spark::SpawnPointComponent* AsSpawnPointComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::SpawnPointComponent>(
-            c, Spark::ComponentKind::SpawnPoint);
-}
-const Spark::SpawnPointComponent* AsSpawnPointComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::SpawnPointComponent>(
-            c, Spark::ComponentKind::SpawnPoint);
-}
-
-Spark::TimeOfDayDriverComponent* AsTimeOfDayDriverComponent(SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<Spark::TimeOfDayDriverComponent>(
-            c, Spark::ComponentKind::TimeOfDayDriver);
-}
-const Spark::TimeOfDayDriverComponent* AsTimeOfDayDriverComponent(const SparkGameComponent* c) {
-    return Spark::Scripting::AsComponent<const Spark::TimeOfDayDriverComponent>(
-            c, Spark::ComponentKind::TimeOfDayDriver);
+const Spark::WindEnvironmentComponent* AsWindEnvironmentComponent(const SparkGameComponent* c) {
+    return Spark::Scripting::AsComponent<const Spark::WindEnvironmentComponent>(
+            c, Spark::ComponentKind::WindEnvironment);
 }
 
 Spark::InputActionMapComponent* ResolveInputActionMap(SparkGameComponent* c) {
@@ -1196,114 +1196,6 @@ Spark::InputActionMapComponent* ResolveInputActionMap(SparkGameComponent* c) {
 }  // namespace
 
 extern "C" {
-
-int spark_ai_agent_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsAiAgentComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-void spark_ai_agent_set_enabled(SparkGameComponent* component, int e) {
-    auto self = AsAiAgentComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(e);
-}
-
-int spark_ai_agent_is_fsm_enabled(const SparkGameComponent* component) {
-    auto* self = AsAiAgentComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsFsmEnabled() ? 1 : 0;
-}
-
-void spark_ai_agent_set_fsm_enabled(SparkGameComponent* component, int e) {
-    auto self = AsAiAgentComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetFsmEnabled(e);
-}
-
-float spark_ai_agent_get_max_speed(const SparkGameComponent* component) {
-    auto* self = AsAiAgentComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetMaxSpeed();
-}
-
-void spark_ai_agent_set_max_speed(SparkGameComponent* component, float s) {
-    auto self = AsAiAgentComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMaxSpeed(s);
-}
-
-int spark_ai_agent_get_steering_plane(const SparkGameComponent* component) {
-    auto* self = AsAiAgentComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetSteeringPlane()));
-}
-
-void spark_ai_agent_set_steering_plane(SparkGameComponent* component, int p) {
-    auto self = AsAiAgentComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSteeringPlane(static_cast<Spark::AiSteeringPlane>(static_cast<std::uint8_t>(p)));
-}
-
-int spark_ai_agent_is_goap_enabled(const SparkGameComponent* component) {
-    auto* self = AsAiAgentComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsGoapEnabled() ? 1 : 0;
-}
-
-void spark_ai_agent_set_goap_enabled(SparkGameComponent* component, int e) {
-    auto self = AsAiAgentComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetGoapEnabled(e);
-}
-
-uint64_t spark_ai_agent_get_goap_world_bits(const SparkGameComponent* component) {
-    auto* self = AsAiAgentComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetGoapWorldBits();
-}
-
-void spark_ai_agent_set_goap_world_bits(SparkGameComponent* component, uint64_t w) {
-    auto self = AsAiAgentComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetGoapWorldBits(w);
-}
 
 uint64_t spark_ai_agent_get_goap_goal_mask(const SparkGameComponent* component) {
     auto* self = AsAiAgentComponent(component);
@@ -1323,6 +1215,24 @@ uint64_t spark_ai_agent_get_goap_goal_value(const SparkGameComponent* component)
     return self->GetGoapGoalValue();
 }
 
+uint64_t spark_ai_agent_get_goap_world_bits(const SparkGameComponent* component) {
+    auto* self = AsAiAgentComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetGoapWorldBits();
+}
+
+float spark_ai_agent_get_max_speed(const SparkGameComponent* component) {
+    auto* self = AsAiAgentComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetMaxSpeed();
+}
+
 int spark_ai_agent_get_path_index(const SparkGameComponent* component) {
     auto* self = AsAiAgentComponent(component);
     if (self == nullptr) {
@@ -1332,13 +1242,31 @@ int spark_ai_agent_get_path_index(const SparkGameComponent* component) {
     return self->GetPathIndex();
 }
 
-void spark_ai_agent_set_path_index(SparkGameComponent* component, int i) {
-    auto self = AsAiAgentComponent(component);
+int spark_ai_agent_get_steering_plane(const SparkGameComponent* component) {
+    auto* self = AsAiAgentComponent(component);
     if (self == nullptr) {
-        return;
+        return 0;
 
     }
-    self->SetPathIndex(i);
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetSteeringPlane()));
+}
+
+int spark_ai_agent_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsAiAgentComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+int spark_ai_agent_is_fsm_enabled(const SparkGameComponent* component) {
+    auto* self = AsAiAgentComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsFsmEnabled() ? 1 : 0;
 }
 
 int spark_ai_agent_is_fuzzy_enabled(const SparkGameComponent* component) {
@@ -1350,6 +1278,33 @@ int spark_ai_agent_is_fuzzy_enabled(const SparkGameComponent* component) {
     return self->IsFuzzyEnabled() ? 1 : 0;
 }
 
+int spark_ai_agent_is_goap_enabled(const SparkGameComponent* component) {
+    auto* self = AsAiAgentComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsGoapEnabled() ? 1 : 0;
+}
+
+void spark_ai_agent_set_enabled(SparkGameComponent* component, int e) {
+    auto self = AsAiAgentComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(e);
+}
+
+void spark_ai_agent_set_fsm_enabled(SparkGameComponent* component, int e) {
+    auto self = AsAiAgentComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetFsmEnabled(e);
+}
+
 void spark_ai_agent_set_fuzzy_enabled(SparkGameComponent* component, int e) {
     auto self = AsAiAgentComponent(component);
     if (self == nullptr) {
@@ -1359,596 +1314,49 @@ void spark_ai_agent_set_fuzzy_enabled(SparkGameComponent* component, int e) {
     self->SetFuzzyEnabled(e);
 }
 
-void spark_grid_nav_agent2_d_set_enabled(SparkGameComponent* component, int value) {
-    auto self = AsGridNavAgent2DComponent(component);
+void spark_ai_agent_set_goap_enabled(SparkGameComponent* component, int e) {
+    auto self = AsAiAgentComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetEnabled(value);
+    self->SetGoapEnabled(e);
 }
 
-int spark_grid_nav_agent2_d_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsGridNavAgent2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-void spark_grid_nav_agent2_d_set_grid_source_object(SparkGameComponent* component, SparkGameObject* object) {
-    auto self = AsGridNavAgent2DComponent(component);
+void spark_ai_agent_set_goap_world_bits(SparkGameComponent* component, uint64_t w) {
+    auto self = AsAiAgentComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetGridSourceObject(reinterpret_cast<Spark::GameObject*>(object));
+    self->SetGoapWorldBits(w);
 }
 
-SparkGameObject* spark_grid_nav_agent2_d_get_grid_source_object(const SparkGameComponent* component) {
-    auto* self = AsGridNavAgent2DComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetGridSourceObject());
-}
-
-void spark_grid_nav_agent2_d_set_goal_mode(SparkGameComponent* component, int mode) {
-    auto self = AsGridNavAgent2DComponent(component);
+void spark_ai_agent_set_max_speed(SparkGameComponent* component, float s) {
+    auto self = AsAiAgentComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetGoalMode(static_cast<Spark::GridNavGoalMode2D>(static_cast<std::uint8_t>(mode)));
+    self->SetMaxSpeed(s);
 }
 
-int spark_grid_nav_agent2_d_get_goal_mode(const SparkGameComponent* component) {
-    auto* self = AsGridNavAgent2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetGoalMode()));
-}
-
-void spark_grid_nav_agent2_d_set_goal_target(SparkGameComponent* component, SparkGameObject* object) {
-    auto self = AsGridNavAgent2DComponent(component);
+void spark_ai_agent_set_path_index(SparkGameComponent* component, int i) {
+    auto self = AsAiAgentComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetGoalTarget(reinterpret_cast<Spark::GameObject*>(object));
+    self->SetPathIndex(i);
 }
 
-SparkGameObject* spark_grid_nav_agent2_d_get_goal_target(const SparkGameComponent* component) {
-    auto* self = AsGridNavAgent2DComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetGoalTarget());
-}
-
-void spark_grid_nav_agent2_d_set_goal_world_position(SparkGameComponent* component, const SparkVector2* position) {
-    auto self = AsGridNavAgent2DComponent(component);
+void spark_ai_agent_set_steering_plane(SparkGameComponent* component, int p) {
+    auto self = AsAiAgentComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetGoalWorldPosition(Spark::Scripting::ToVector2(*position));
-}
-
-void spark_grid_nav_agent2_d_get_goal_world_position(const SparkGameComponent* component, SparkVector2* outGoalWorldPosition) {
-    auto* self = AsGridNavAgent2DComponent(component);
-    if (self == nullptr || outGoalWorldPosition == nullptr) {
-        return;
-    }
-    *outGoalWorldPosition = Spark::Scripting::FromVector2(self->GetGoalWorldPosition());
-}
-
-void spark_grid_nav_agent2_d_set_repath_every_frame(SparkGameComponent* component, int value) {
-    auto self = AsGridNavAgent2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRepathEveryFrame(value);
-}
-
-int spark_grid_nav_agent2_d_get_repath_every_frame(const SparkGameComponent* component) {
-    auto* self = AsGridNavAgent2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetRepathEveryFrame() ? 1 : 0;
-}
-
-void spark_grid_nav_agent2_d_set_repath_interval_seconds(SparkGameComponent* component, float seconds) {
-    auto self = AsGridNavAgent2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRepathIntervalSeconds(seconds);
-}
-
-float spark_grid_nav_agent2_d_get_repath_interval_seconds(const SparkGameComponent* component) {
-    auto* self = AsGridNavAgent2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRepathIntervalSeconds();
-}
-
-void spark_grid_nav_agent2_d_set_sync_to_ai_agent(SparkGameComponent* component, int value) {
-    auto self = AsGridNavAgent2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSyncToAiAgent(value);
-}
-
-int spark_grid_nav_agent2_d_get_sync_to_ai_agent(const SparkGameComponent* component) {
-    auto* self = AsGridNavAgent2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetSyncToAiAgent() ? 1 : 0;
-}
-
-void spark_grid_nav_agent2_d_request_repath(SparkGameComponent* component) {
-    auto self = AsGridNavAgent2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->RequestRepath();
-}
-
-void spark_grid_nav_agent2_d_clear_path(SparkGameComponent* component) {
-    auto self = AsGridNavAgent2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ClearPath();
-}
-
-int spark_grid_nav_agent2_d_has_s_path(const SparkGameComponent* component) {
-    auto* self = AsGridNavAgent2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->HasPath() ? 1 : 0;
-}
-
-int spark_grid_nav_agent2_d_get_path_index(const SparkGameComponent* component) {
-    auto* self = AsGridNavAgent2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetPathIndex();
-}
-
-void spark_grid_nav_agent2_d_set_path_index(SparkGameComponent* component, int index) {
-    auto self = AsGridNavAgent2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetPathIndex(index);
-}
-
-void spark_grid_nav_target2_d_set_enabled(SparkGameComponent* component, int value) {
-    auto self = AsGridNavTarget2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(value);
-}
-
-int spark_grid_nav_target2_d_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsGridNavTarget2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-void spark_grid_nav_target2_d_set_snap_to_walkable_cell(SparkGameComponent* component, int value) {
-    auto self = AsGridNavTarget2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSnapToWalkableCell(value);
-}
-
-int spark_grid_nav_target2_d_get_snap_to_walkable_cell(const SparkGameComponent* component) {
-    auto* self = AsGridNavTarget2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetSnapToWalkableCell() ? 1 : 0;
-}
-
-void spark_grid_path_follower2_d_set_enabled(SparkGameComponent* component, int value) {
-    auto self = AsGridPathFollower2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(value);
-}
-
-int spark_grid_path_follower2_d_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsGridPathFollower2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-void spark_grid_path_follower2_d_set_mode(SparkGameComponent* component, int value) {
-    auto self = AsGridPathFollower2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMode(static_cast<Spark::GridPathFollower2DMode>(static_cast<std::uint8_t>(value)));
-}
-
-int spark_grid_path_follower2_d_get_mode(const SparkGameComponent* component) {
-    auto* self = AsGridPathFollower2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetMode()));
-}
-
-void spark_grid_path_follower2_d_set_max_speed(SparkGameComponent* component, float speed) {
-    auto self = AsGridPathFollower2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMaxSpeed(speed);
-}
-
-float spark_grid_path_follower2_d_get_max_speed(const SparkGameComponent* component) {
-    auto* self = AsGridPathFollower2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetMaxSpeed();
-}
-
-void spark_grid_path_follower2_d_set_arrive_radius(SparkGameComponent* component, float radius) {
-    auto self = AsGridPathFollower2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetArriveRadius(radius);
-}
-
-float spark_grid_path_follower2_d_get_arrive_radius(const SparkGameComponent* component) {
-    auto* self = AsGridPathFollower2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetArriveRadius();
-}
-
-void spark_grid_path_follower2_d_set_stop_on_path_end(SparkGameComponent* component, int value) {
-    auto self = AsGridPathFollower2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetStopOnPathEnd(value);
-}
-
-int spark_grid_path_follower2_d_get_stop_on_path_end(const SparkGameComponent* component) {
-    auto* self = AsGridPathFollower2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetStopOnPathEnd() ? 1 : 0;
-}
-
-int spark_nav_mesh_agent_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsNavMeshAgentComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-void spark_nav_mesh_agent_set_enabled(SparkGameComponent* component, int e) {
-    auto self = AsNavMeshAgentComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(e);
-}
-
-SparkGameObject* spark_nav_mesh_agent_get_patrol_path_object(const SparkGameComponent* component) {
-    auto* self = AsNavMeshAgentComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetPatrolPathObject());
-}
-
-void spark_nav_mesh_agent_set_patrol_path_object(SparkGameComponent* component, SparkGameObject* o) {
-    auto self = AsNavMeshAgentComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetPatrolPathObject(reinterpret_cast<Spark::GameObject*>(o));
-}
-
-int spark_nav_mesh_agent_is_use_grid_pathfinding(const SparkGameComponent* component) {
-    auto* self = AsNavMeshAgentComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->UseGridPathfinding() ? 1 : 0;
-}
-
-void spark_nav_mesh_agent_set_use_grid_pathfinding(SparkGameComponent* component, int u) {
-    auto self = AsNavMeshAgentComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetUseGridPathfinding(u);
-}
-
-void spark_nav_mesh_agent_get_grid_origin_x_z(const SparkGameComponent* component, SparkVector2* outGridOriginXZ) {
-    auto* self = AsNavMeshAgentComponent(component);
-    if (self == nullptr || outGridOriginXZ == nullptr) {
-        return;
-    }
-    *outGridOriginXZ = Spark::Scripting::FromVector2(self->GetGridOriginXZ());
-}
-
-void spark_nav_mesh_agent_set_grid_origin_x_z(SparkGameComponent* component, const SparkVector2* o) {
-    auto self = AsNavMeshAgentComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetGridOriginXZ(Spark::Scripting::ToVector2(*o));
-}
-
-float spark_nav_mesh_agent_get_grid_cell_size(const SparkGameComponent* component) {
-    auto* self = AsNavMeshAgentComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetGridCellSize();
-}
-
-void spark_nav_mesh_agent_set_grid_cell_size(SparkGameComponent* component, float s) {
-    auto self = AsNavMeshAgentComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetGridCellSize(s);
-}
-
-int32_t spark_nav_mesh_agent_get_grid_width(const SparkGameComponent* component) {
-    auto* self = AsNavMeshAgentComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetGridWidth();
-}
-
-void spark_nav_mesh_agent_set_grid_width(SparkGameComponent* component, int32_t w) {
-    auto self = AsNavMeshAgentComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetGridWidth(w);
-}
-
-int32_t spark_nav_mesh_agent_get_grid_height(const SparkGameComponent* component) {
-    auto* self = AsNavMeshAgentComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetGridHeight();
-}
-
-void spark_nav_mesh_agent_set_grid_height(SparkGameComponent* component, int32_t h) {
-    auto self = AsNavMeshAgentComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetGridHeight(h);
-}
-
-int spark_patrol_path_is_looping(const SparkGameComponent* component) {
-    auto* self = AsPatrolPathComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsLooping() ? 1 : 0;
-}
-
-void spark_patrol_path_set_looping(SparkGameComponent* component, int l) {
-    auto self = AsPatrolPathComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetLooping(l);
-}
-
-float spark_patrol_path_get_wait_seconds_per_point(const SparkGameComponent* component) {
-    auto* self = AsPatrolPathComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetWaitSecondsPerPoint();
-}
-
-void spark_patrol_path_set_wait_seconds_per_point(SparkGameComponent* component, float s) {
-    auto self = AsPatrolPathComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetWaitSecondsPerPoint(s);
-}
-
-int spark_perception_sensor_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsPerceptionSensorComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-void spark_perception_sensor_set_enabled(SparkGameComponent* component, int e) {
-    auto self = AsPerceptionSensorComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(e);
-}
-
-float spark_perception_sensor_get_sight_radius(const SparkGameComponent* component) {
-    auto* self = AsPerceptionSensorComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetSightRadius();
-}
-
-void spark_perception_sensor_set_sight_radius(SparkGameComponent* component, float r) {
-    auto self = AsPerceptionSensorComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSightRadius(r);
-}
-
-float spark_perception_sensor_get_hearing_radius(const SparkGameComponent* component) {
-    auto* self = AsPerceptionSensorComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetHearingRadius();
-}
-
-void spark_perception_sensor_set_hearing_radius(SparkGameComponent* component, float r) {
-    auto self = AsPerceptionSensorComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetHearingRadius(r);
-}
-
-float spark_perception_sensor_get_sight_fov_degrees(const SparkGameComponent* component) {
-    auto* self = AsPerceptionSensorComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetSightFovDegrees();
-}
-
-void spark_perception_sensor_set_sight_fov_degrees(SparkGameComponent* component, float d) {
-    auto self = AsPerceptionSensorComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSightFovDegrees(d);
-}
-
-void spark_perception_sensor_set_target_category_mask(SparkGameComponent* component, int m) {
-    auto self = AsPerceptionSensorComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetTargetCategoryMask(m);
-}
-
-void spark_perception_sensor_clear_detected(SparkGameComponent* component) {
-    auto self = AsPerceptionSensorComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ClearDetected();
-}
-
-int spark_aim_ik_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsAimIkComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-float spark_aim_ik_get_weight(const SparkGameComponent* component) {
-    auto* self = AsAimIkComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetWeight();
-}
-
-int spark_aim_ik_is_uses_main_camera(const SparkGameComponent* component) {
-    auto* self = AsAimIkComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->UsesMainCamera() ? 1 : 0;
+    self->SetSteeringPlane(static_cast<Spark::AiSteeringPlane>(static_cast<std::uint8_t>(p)));
 }
 
 SparkGameObject* spark_aim_ik_get_target_object(const SparkGameComponent* component) {
@@ -1960,12 +1368,39 @@ SparkGameObject* spark_aim_ik_get_target_object(const SparkGameComponent* compon
     return reinterpret_cast<SparkGameObject*>(self->GetTargetObject());
 }
 
+float spark_aim_ik_get_weight(const SparkGameComponent* component) {
+    auto* self = AsAimIkComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetWeight();
+}
+
 void spark_aim_ik_get_world_target(const SparkGameComponent* component, SparkVector3* outWorldTarget) {
     auto* self = AsAimIkComponent(component);
     if (self == nullptr || outWorldTarget == nullptr) {
         return;
     }
     *outWorldTarget = Spark::Scripting::FromVector3(self->GetWorldTarget());
+}
+
+int spark_aim_ik_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsAimIkComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+int spark_aim_ik_is_uses_main_camera(const SparkGameComponent* component) {
+    auto* self = AsAimIkComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->UsesMainCamera() ? 1 : 0;
 }
 
 void spark_aim_ik_set_enabled(SparkGameComponent* component, int value) {
@@ -1977,13 +1412,13 @@ void spark_aim_ik_set_enabled(SparkGameComponent* component, int value) {
     self->SetEnabled(value != 0);
 }
 
-void spark_aim_ik_set_weight(SparkGameComponent* component, float value) {
+void spark_aim_ik_set_target_object(SparkGameComponent* component, SparkGameObject* object) {
     auto self = AsAimIkComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetWeight(value);
+    self->SetTargetObject(reinterpret_cast<Spark::GameObject*>(object));
 }
 
 void spark_aim_ik_set_use_main_camera(SparkGameComponent* component, int value) {
@@ -1995,13 +1430,13 @@ void spark_aim_ik_set_use_main_camera(SparkGameComponent* component, int value) 
     self->SetUseMainCamera(value != 0);
 }
 
-void spark_aim_ik_set_target_object(SparkGameComponent* component, SparkGameObject* object) {
+void spark_aim_ik_set_weight(SparkGameComponent* component, float value) {
     auto self = AsAimIkComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetTargetObject(reinterpret_cast<Spark::GameObject*>(object));
+    self->SetWeight(value);
 }
 
 void spark_aim_ik_set_world_target(SparkGameComponent* component, const SparkVector3* target) {
@@ -2013,6 +1448,113 @@ void spark_aim_ik_set_world_target(SparkGameComponent* component, const SparkVec
     self->SetWorldTarget(Spark::Scripting::ToVector3(*target));
 }
 
+void spark_ambient_zone_get_half_extents(const SparkGameComponent* component, SparkVector3* outHalfExtents) {
+    auto* self = AsAmbientZoneComponent(component);
+    if (self == nullptr || outHalfExtents == nullptr) {
+        return;
+    }
+    *outHalfExtents = Spark::Scripting::FromVector3(self->GetHalfExtents());
+}
+
+float spark_ambient_zone_get_low_pass_amount(const SparkGameComponent* component) {
+    auto* self = AsAmbientZoneComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetLowPassAmount();
+}
+
+int32_t spark_ambient_zone_get_priority(const SparkGameComponent* component) {
+    auto* self = AsAmbientZoneComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetPriority();
+}
+
+int spark_ambient_zone_get_shape(const SparkGameComponent* component) {
+    auto* self = AsAmbientZoneComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetShape()));
+}
+
+float spark_ambient_zone_get_volume_scale(const SparkGameComponent* component) {
+    auto* self = AsAmbientZoneComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetVolumeScale();
+}
+
+int spark_ambient_zone_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsAmbientZoneComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+void spark_ambient_zone_set_enabled(SparkGameComponent* component, int e) {
+    auto self = AsAmbientZoneComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(e);
+}
+
+void spark_ambient_zone_set_half_extents(SparkGameComponent* component, const SparkVector3* e) {
+    auto self = AsAmbientZoneComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetHalfExtents(Spark::Scripting::ToVector3(*e));
+}
+
+void spark_ambient_zone_set_low_pass_amount(SparkGameComponent* component, float a) {
+    auto self = AsAmbientZoneComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetLowPassAmount(a);
+}
+
+void spark_ambient_zone_set_priority(SparkGameComponent* component, int32_t p) {
+    auto self = AsAmbientZoneComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetPriority(p);
+}
+
+void spark_ambient_zone_set_shape(SparkGameComponent* component, int s) {
+    auto self = AsAmbientZoneComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetShape(static_cast<Spark::VolumeShape>(static_cast<std::uint8_t>(s)));
+}
+
+void spark_ambient_zone_set_volume_scale(SparkGameComponent* component, float v) {
+    auto self = AsAmbientZoneComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetVolumeScale(v);
+}
+
 void spark_anim_event_receiver_add_marker(SparkGameComponent* component, uint32_t clipIndex, float normalizedTime, const char* eventName) {
     auto self = AsAnimationEventReceiverComponent(component);
     if (self == nullptr) {
@@ -2020,15 +1562,6 @@ void spark_anim_event_receiver_add_marker(SparkGameComponent* component, uint32_
 
     }
     self->AddMarker(clipIndex, normalizedTime, eventName);
-}
-
-void spark_animation_event_vfx_clear_bindings(SparkGameComponent* component) {
-    auto self = AsAnimationEventVfxComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ClearBindings();
 }
 
 void spark_animation_event_vfx_add_binding(SparkGameComponent* component, const char* eventName, const char* vfxAssetKey) {
@@ -2040,13 +1573,13 @@ void spark_animation_event_vfx_add_binding(SparkGameComponent* component, const 
     self->AddBinding(eventName, vfxAssetKey);
 }
 
-void spark_animation_event_vfx_set_world_offset(SparkGameComponent* component, const SparkVector3* offset) {
+void spark_animation_event_vfx_clear_bindings(SparkGameComponent* component) {
     auto self = AsAnimationEventVfxComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetWorldOffset(Spark::Scripting::ToVector3(*offset));
+    self->ClearBindings();
 }
 
 void spark_animation_event_vfx_get_world_offset(const SparkGameComponent* component, SparkVector3* outWorldOffset) {
@@ -2057,13 +1590,40 @@ void spark_animation_event_vfx_get_world_offset(const SparkGameComponent* compon
     *outWorldOffset = Spark::Scripting::FromVector3(self->GetWorldOffset());
 }
 
-void spark_animation_hitbox2_d_set_shape(SparkGameComponent* component, int value) {
+void spark_animation_event_vfx_set_world_offset(SparkGameComponent* component, const SparkVector3* offset) {
+    auto self = AsAnimationEventVfxComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetWorldOffset(Spark::Scripting::ToVector3(*offset));
+}
+
+void spark_animation_hitbox2_d_add_target(SparkGameComponent* component, SparkGameObject* target) {
     auto self = AsAnimationHitbox2DComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetShape(static_cast<Spark::AnimationHitbox2DShape>(static_cast<std::uint8_t>(value)));
+    self->AddTarget(reinterpret_cast<Spark::GameObject*>(target));
+}
+
+void spark_animation_hitbox2_d_clear_targets(SparkGameComponent* component) {
+    auto self = AsAnimationHitbox2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ClearTargets();
+}
+
+int32_t spark_animation_hitbox2_d_get_hits_this_swing(const SparkGameComponent* component) {
+    auto* self = AsAnimationHitbox2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetHitsThisSwing();
 }
 
 int spark_animation_hitbox2_d_get_shape(const SparkGameComponent* component) {
@@ -2075,6 +1635,24 @@ int spark_animation_hitbox2_d_get_shape(const SparkGameComponent* component) {
     return static_cast<int>(static_cast<std::uint8_t>(self->GetShape()));
 }
 
+int spark_animation_hitbox2_d_is_hit_window_active(const SparkGameComponent* component) {
+    auto* self = AsAnimationHitbox2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsHitWindowActive() ? 1 : 0;
+}
+
+void spark_animation_hitbox2_d_set_arc_half_angle_radians(SparkGameComponent* component, float radians) {
+    auto self = AsAnimationHitbox2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetArcHalfAngleRadians(radians);
+}
+
 void spark_animation_hitbox2_d_set_clip_index(SparkGameComponent* component, uint32_t index) {
     auto self = AsAnimationHitbox2DComponent(component);
     if (self == nullptr) {
@@ -2084,13 +1662,13 @@ void spark_animation_hitbox2_d_set_clip_index(SparkGameComponent* component, uin
     self->SetClipIndex(index);
 }
 
-void spark_animation_hitbox2_d_set_start_local_frame(SparkGameComponent* component, uint32_t frame) {
+void spark_animation_hitbox2_d_set_damage_per_hit(SparkGameComponent* component, float amount) {
     auto self = AsAnimationHitbox2DComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetStartLocalFrame(frame);
+    self->SetDamagePerHit(amount);
 }
 
 void spark_animation_hitbox2_d_set_end_local_frame(SparkGameComponent* component, uint32_t frame) {
@@ -2120,67 +1698,22 @@ void spark_animation_hitbox2_d_set_radius(SparkGameComponent* component, float r
     self->SetRadius(radius);
 }
 
-void spark_animation_hitbox2_d_set_arc_half_angle_radians(SparkGameComponent* component, float radians) {
+void spark_animation_hitbox2_d_set_shape(SparkGameComponent* component, int value) {
     auto self = AsAnimationHitbox2DComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetArcHalfAngleRadians(radians);
+    self->SetShape(static_cast<Spark::AnimationHitbox2DShape>(static_cast<std::uint8_t>(value)));
 }
 
-void spark_animation_hitbox2_d_set_damage_per_hit(SparkGameComponent* component, float amount) {
+void spark_animation_hitbox2_d_set_start_local_frame(SparkGameComponent* component, uint32_t frame) {
     auto self = AsAnimationHitbox2DComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetDamagePerHit(amount);
-}
-
-void spark_animation_hitbox2_d_clear_targets(SparkGameComponent* component) {
-    auto self = AsAnimationHitbox2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ClearTargets();
-}
-
-void spark_animation_hitbox2_d_add_target(SparkGameComponent* component, SparkGameObject* target) {
-    auto self = AsAnimationHitbox2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->AddTarget(reinterpret_cast<Spark::GameObject*>(target));
-}
-
-int spark_animation_hitbox2_d_is_hit_window_active(const SparkGameComponent* component) {
-    auto* self = AsAnimationHitbox2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsHitWindowActive() ? 1 : 0;
-}
-
-int32_t spark_animation_hitbox2_d_get_hits_this_swing(const SparkGameComponent* component) {
-    auto* self = AsAnimationHitbox2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetHitsThisSwing();
-}
-
-void spark_animation_layer_stack_play_overlay(SparkGameComponent* component, uint32_t clipIndex, int loopMode) {
-    auto self = AsAnimationLayerStackComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->PlayOverlay(clipIndex, static_cast<Spark::AnimLoopMode>(static_cast<std::uint8_t>(loopMode)));
+    self->SetStartLocalFrame(frame);
 }
 
 void spark_animation_layer_stack_clear_overlay(SparkGameComponent* component) {
@@ -2190,6 +1723,33 @@ void spark_animation_layer_stack_clear_overlay(SparkGameComponent* component) {
 
     }
     self->ClearOverlay();
+}
+
+int32_t spark_animation_layer_stack_get_overlay_clip_index(const SparkGameComponent* component) {
+    auto* self = AsAnimationLayerStackComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetOverlayClipIndex();
+}
+
+int spark_animation_layer_stack_get_overlay_loop_mode(const SparkGameComponent* component) {
+    auto* self = AsAnimationLayerStackComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetOverlayLoopMode()));
+}
+
+float spark_animation_layer_stack_get_overlay_time_seconds(const SparkGameComponent* component) {
+    auto* self = AsAnimationLayerStackComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetOverlayTimeSeconds();
 }
 
 int spark_animation_layer_stack_is_overlay_active(const SparkGameComponent* component) {
@@ -2210,40 +1770,85 @@ int spark_animation_layer_stack_is_overlay_finished(const SparkGameComponent* co
     return self->IsOverlayFinished() ? 1 : 0;
 }
 
-int32_t spark_animation_layer_stack_get_overlay_clip_index(const SparkGameComponent* component) {
-    auto* self = AsAnimationLayerStackComponent(component);
+void spark_animation_layer_stack_play_overlay(SparkGameComponent* component, uint32_t clipIndex, int loopMode) {
+    auto self = AsAnimationLayerStackComponent(component);
     if (self == nullptr) {
-        return 0;
+        return;
 
     }
-    return self->GetOverlayClipIndex();
+    self->PlayOverlay(clipIndex, static_cast<Spark::AnimLoopMode>(static_cast<std::uint8_t>(loopMode)));
 }
 
-float spark_animation_layer_stack_get_overlay_time_seconds(const SparkGameComponent* component) {
-    auto* self = AsAnimationLayerStackComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetOverlayTimeSeconds();
-}
-
-int spark_animation_layer_stack_get_overlay_loop_mode(const SparkGameComponent* component) {
-    auto* self = AsAnimationLayerStackComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetOverlayLoopMode()));
-}
-
-void spark_animation_melee_hit_set_start_event_name(SparkGameComponent* component, const char* name) {
+void spark_animation_melee_hit_add_target(SparkGameComponent* component, SparkGameObject* target) {
     auto self = AsAnimationMeleeHitComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetStartEventName(name);
+    self->AddTarget(reinterpret_cast<Spark::GameObject*>(target));
+}
+
+void spark_animation_melee_hit_clear_targets(SparkGameComponent* component) {
+    auto self = AsAnimationMeleeHitComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ClearTargets();
+}
+
+int32_t spark_animation_melee_hit_get_hits_this_swing(const SparkGameComponent* component) {
+    auto* self = AsAnimationMeleeHitComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetHitsThisSwing();
+}
+
+int32_t spark_animation_melee_hit_get_total_hits(const SparkGameComponent* component) {
+    auto* self = AsAnimationMeleeHitComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetTotalHits();
+}
+
+int spark_animation_melee_hit_is_hit_window_active(const SparkGameComponent* component) {
+    auto* self = AsAnimationMeleeHitComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsHitWindowActive() ? 1 : 0;
+}
+
+int spark_animation_melee_hit_is_world_hurtbox_query_enabled(const SparkGameComponent* component) {
+    auto* self = AsAnimationMeleeHitComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsWorldHurtboxQueryEnabled() ? 1 : 0;
+}
+
+void spark_animation_melee_hit_set_apply_hurt_reaction(SparkGameComponent* component, int enabled) {
+    auto self = AsAnimationMeleeHitComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetApplyHurtReaction(enabled);
+}
+
+void spark_animation_melee_hit_set_damage_per_hit(SparkGameComponent* component, float amount) {
+    auto self = AsAnimationMeleeHitComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetDamagePerHit(amount);
 }
 
 void spark_animation_melee_hit_set_end_event_name(SparkGameComponent* component, const char* name) {
@@ -2264,24 +1869,6 @@ void spark_animation_melee_hit_set_facing_object(SparkGameComponent* component, 
     self->SetFacingObject(reinterpret_cast<Spark::GameObject*>(object));
 }
 
-void spark_animation_melee_hit_set_origin_local_offset(SparkGameComponent* component, const SparkVector3* offset) {
-    auto self = AsAnimationMeleeHitComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetOriginLocalOffset(Spark::Scripting::ToVector3(*offset));
-}
-
-void spark_animation_melee_hit_set_trace_distance(SparkGameComponent* component, float meters) {
-    auto self = AsAnimationMeleeHitComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetTraceDistance(meters);
-}
-
 void spark_animation_melee_hit_set_hit_radius(SparkGameComponent* component, float meters) {
     auto self = AsAnimationMeleeHitComponent(component);
     if (self == nullptr) {
@@ -2289,33 +1876,6 @@ void spark_animation_melee_hit_set_hit_radius(SparkGameComponent* component, flo
 
     }
     self->SetHitRadius(meters);
-}
-
-void spark_animation_melee_hit_set_damage_per_hit(SparkGameComponent* component, float amount) {
-    auto self = AsAnimationMeleeHitComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetDamagePerHit(amount);
-}
-
-void spark_animation_melee_hit_set_world_hurtbox_query_enabled(SparkGameComponent* component, int enabled) {
-    auto self = AsAnimationMeleeHitComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetWorldHurtboxQueryEnabled(enabled);
-}
-
-int spark_animation_melee_hit_is_world_hurtbox_query_enabled(const SparkGameComponent* component) {
-    auto* self = AsAnimationMeleeHitComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsWorldHurtboxQueryEnabled() ? 1 : 0;
 }
 
 void spark_animation_melee_hit_set_knockback_meters(SparkGameComponent* component, float meters) {
@@ -2327,58 +1887,40 @@ void spark_animation_melee_hit_set_knockback_meters(SparkGameComponent* componen
     self->SetKnockbackMeters(meters);
 }
 
-void spark_animation_melee_hit_set_apply_hurt_reaction(SparkGameComponent* component, int enabled) {
+void spark_animation_melee_hit_set_origin_local_offset(SparkGameComponent* component, const SparkVector3* offset) {
     auto self = AsAnimationMeleeHitComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetApplyHurtReaction(enabled);
+    self->SetOriginLocalOffset(Spark::Scripting::ToVector3(*offset));
 }
 
-void spark_animation_melee_hit_clear_targets(SparkGameComponent* component) {
+void spark_animation_melee_hit_set_start_event_name(SparkGameComponent* component, const char* name) {
     auto self = AsAnimationMeleeHitComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->ClearTargets();
+    self->SetStartEventName(name);
 }
 
-void spark_animation_melee_hit_add_target(SparkGameComponent* component, SparkGameObject* target) {
+void spark_animation_melee_hit_set_trace_distance(SparkGameComponent* component, float meters) {
     auto self = AsAnimationMeleeHitComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->AddTarget(reinterpret_cast<Spark::GameObject*>(target));
+    self->SetTraceDistance(meters);
 }
 
-int spark_animation_melee_hit_is_hit_window_active(const SparkGameComponent* component) {
-    auto* self = AsAnimationMeleeHitComponent(component);
+void spark_animation_melee_hit_set_world_hurtbox_query_enabled(SparkGameComponent* component, int enabled) {
+    auto self = AsAnimationMeleeHitComponent(component);
     if (self == nullptr) {
-        return 0;
+        return;
 
     }
-    return self->IsHitWindowActive() ? 1 : 0;
-}
-
-int32_t spark_animation_melee_hit_get_hits_this_swing(const SparkGameComponent* component) {
-    auto* self = AsAnimationMeleeHitComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetHitsThisSwing();
-}
-
-int32_t spark_animation_melee_hit_get_total_hits(const SparkGameComponent* component) {
-    auto* self = AsAnimationMeleeHitComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetTotalHits();
+    self->SetWorldHurtboxQueryEnabled(enabled);
 }
 
 int32_t spark_animator_get_crossfade_from_clip(const SparkGameComponent* component) {
@@ -2408,15 +1950,6 @@ void spark_animator_restart_current_clip(SparkGameComponent* component) {
     self->RestartCurrentClip();
 }
 
-SparkGameObject* spark_attachment_socket_get_source_object(const SparkGameComponent* component) {
-    auto* self = AsAttachmentSocketComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetSourceObject());
-}
-
 SparkGameObject* spark_attachment_socket_get_attached_object(const SparkGameComponent* component) {
     auto* self = AsAttachmentSocketComponent(component);
     if (self == nullptr) {
@@ -2443,6 +1976,15 @@ void spark_attachment_socket_get_local_offset(const SparkGameComponent* componen
     *outLocalOffset = Spark::Scripting::FromVector3(self->GetLocalOffset());
 }
 
+SparkGameObject* spark_attachment_socket_get_source_object(const SparkGameComponent* component) {
+    auto* self = AsAttachmentSocketComponent(component);
+    if (self == nullptr) {
+        return nullptr;
+
+    }
+    return reinterpret_cast<SparkGameObject*>(self->GetSourceObject());
+}
+
 int spark_attachment_socket_is_enabled(const SparkGameComponent* component) {
     auto* self = AsAttachmentSocketComponent(component);
     if (self == nullptr) {
@@ -2450,6 +1992,938 @@ int spark_attachment_socket_is_enabled(const SparkGameComponent* component) {
 
     }
     return self->IsEnabled() ? 1 : 0;
+}
+
+int32_t spark_audio_listener_get_priority(const SparkGameComponent* component) {
+    auto* self = AsAudioListenerComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetPriority();
+}
+
+int spark_audio_listener_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsAudioListenerComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+void spark_audio_listener_set_enabled(SparkGameComponent* component, int e) {
+    auto self = AsAudioListenerComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(e != 0);
+}
+
+void spark_audio_listener_set_priority(SparkGameComponent* component, int32_t p) {
+    auto self = AsAudioListenerComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetPriority(p);
+}
+
+int spark_billboard_get_mode(const SparkGameComponent* component) {
+    auto* self = AsBillboardComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetMode()));
+}
+
+int spark_billboard_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsBillboardComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+void spark_billboard_set_enabled(SparkGameComponent* component, int e) {
+    auto self = AsBillboardComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(e != 0);
+}
+
+void spark_billboard_set_mode(SparkGameComponent* component, int m) {
+    auto self = AsBillboardComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMode(static_cast<Spark::BillboardMode>(static_cast<std::uint8_t>(m)));
+}
+
+int spark_blend_mode_get_mode(const SparkGameComponent* component) {
+    auto* self = AsBlendModeComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetMode()));
+}
+
+void spark_blend_mode_set_mode(SparkGameComponent* component, int m) {
+    auto self = AsBlendModeComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMode(static_cast<Spark::SceneBlendMode>(static_cast<std::uint8_t>(m)));
+}
+
+void spark_box_collider_2d_get_half_extents(const SparkGameComponent* component, SparkVector2* outHalfExtents) {
+    auto* self = AsBoxCollider2DComponent(component);
+    if (self == nullptr || outHalfExtents == nullptr) {
+        return;
+    }
+    *outHalfExtents = Spark::Scripting::FromVector2(self->GetHalfExtents());
+}
+
+int spark_box_collider_2d_get_is_trigger(const SparkGameComponent* component) {
+    auto* self = AsBoxCollider2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetIsTrigger() ? 1 : 0;
+}
+
+void spark_box_collider_2d_get_offset(const SparkGameComponent* component, SparkVector2* outOffset) {
+    auto* self = AsBoxCollider2DComponent(component);
+    if (self == nullptr || outOffset == nullptr) {
+        return;
+    }
+    *outOffset = Spark::Scripting::FromVector2(self->GetOffset());
+}
+
+void spark_box_collider_2d_set_offset(SparkGameComponent* component, const SparkVector2* o) {
+    auto self = AsBoxCollider2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetOffset(Spark::Scripting::ToVector2(*o));
+}
+
+void spark_box_collider3_d_get_half_extents(const SparkGameComponent* component, SparkVector3* outHalfExtents) {
+    auto* self = AsBoxCollider3DComponent(component);
+    if (self == nullptr || outHalfExtents == nullptr) {
+        return;
+    }
+    *outHalfExtents = Spark::Scripting::FromVector3(self->GetHalfExtents());
+}
+
+int spark_box_collider3_d_get_is_trigger(const SparkGameComponent* component) {
+    auto* self = AsBoxCollider3DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetIsTrigger() ? 1 : 0;
+}
+
+void spark_box_collider3_d_get_offset(const SparkGameComponent* component, SparkVector3* outOffset) {
+    auto* self = AsBoxCollider3DComponent(component);
+    if (self == nullptr || outOffset == nullptr) {
+        return;
+    }
+    *outOffset = Spark::Scripting::FromVector3(self->GetOffset());
+}
+
+void spark_box_collider3_d_set_category_bits(SparkGameComponent* component, int bits) {
+    auto self = AsBoxCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetCategoryBits(bits);
+}
+
+void spark_box_collider3_d_set_half_extents(SparkGameComponent* component, const SparkVector3* h) {
+    auto self = AsBoxCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetHalfExtents(Spark::Scripting::ToVector3(*h));
+}
+
+void spark_box_collider3_d_set_is_trigger(SparkGameComponent* component, int value) {
+    auto self = AsBoxCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetIsTrigger(value);
+}
+
+void spark_box_collider3_d_set_mask_bits(SparkGameComponent* component, int bits) {
+    auto self = AsBoxCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMaskBits(bits);
+}
+
+void spark_box_collider3_d_set_offset(SparkGameComponent* component, const SparkVector3* o) {
+    auto self = AsBoxCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetOffset(Spark::Scripting::ToVector3(*o));
+}
+
+float spark_camera_2d_get_clip_far_z(const SparkGameComponent* component) {
+    auto* self = AsCamera2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetClipFarZ();
+}
+
+float spark_camera_2d_get_clip_near_z(const SparkGameComponent* component) {
+    auto* self = AsCamera2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetClipNearZ();
+}
+
+float spark_camera_2d_get_half_extent_y(const SparkGameComponent* component) {
+    auto* self = AsCamera2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetHalfExtentY();
+}
+
+int32_t spark_camera_2d_get_priority(const SparkGameComponent* component) {
+    auto* self = AsCamera2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetPriority();
+}
+
+int spark_camera_2d_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsCamera2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+void spark_camera_2d_set_clip_far_z(SparkGameComponent* component, float z) {
+    auto self = AsCamera2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetClipFarZ(z);
+}
+
+void spark_camera_2d_set_clip_near_z(SparkGameComponent* component, float z) {
+    auto self = AsCamera2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetClipNearZ(z);
+}
+
+void spark_camera_2d_world_position(const SparkGameComponent* component, SparkGameObject* owner, SparkVector3* outWorldPosition) {
+    auto* self = AsCamera2DComponent(component);
+    if (self == nullptr || outWorldPosition == nullptr) {
+        return;
+    }
+    *outWorldPosition = Spark::Scripting::FromVector3(self->WorldPosition(*reinterpret_cast<Spark::GameObject*>(owner)));
+}
+
+void spark_camera_2d_rig_get_bounds_max(const SparkGameComponent* component, SparkVector2* outBoundsMax) {
+    auto* self = AsCamera2DRigComponent(component);
+    if (self == nullptr || outBoundsMax == nullptr) {
+        return;
+    }
+    *outBoundsMax = Spark::Scripting::FromVector2(self->GetBoundsMax());
+}
+
+void spark_camera_2d_rig_get_bounds_min(const SparkGameComponent* component, SparkVector2* outBoundsMin) {
+    auto* self = AsCamera2DRigComponent(component);
+    if (self == nullptr || outBoundsMin == nullptr) {
+        return;
+    }
+    *outBoundsMin = Spark::Scripting::FromVector2(self->GetBoundsMin());
+}
+
+float spark_camera_2d_rig_get_follow_smooth_rate(const SparkGameComponent* component) {
+    auto* self = AsCamera2DRigComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetFollowSmoothRate();
+}
+
+float spark_camera_2d_rig_get_look_ahead_scale(const SparkGameComponent* component) {
+    auto* self = AsCamera2DRigComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetLookAheadScale();
+}
+
+int spark_camera_2d_rig_get_mode(const SparkGameComponent* component) {
+    auto* self = AsCamera2DRigComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetMode()));
+}
+
+SparkGameObject* spark_camera_2d_rig_get_target(const SparkGameComponent* component) {
+    auto* self = AsCamera2DRigComponent(component);
+    if (self == nullptr) {
+        return nullptr;
+
+    }
+    return reinterpret_cast<SparkGameObject*>(self->GetTarget());
+}
+
+void spark_camera_2d_rig_get_target_offset(const SparkGameComponent* component, SparkVector3* outTargetOffset) {
+    auto* self = AsCamera2DRigComponent(component);
+    if (self == nullptr || outTargetOffset == nullptr) {
+        return;
+    }
+    *outTargetOffset = Spark::Scripting::FromVector3(self->GetTargetOffset());
+}
+
+int spark_camera_2d_rig_get_use_bounds(const SparkGameComponent* component) {
+    auto* self = AsCamera2DRigComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetUseBounds() ? 1 : 0;
+}
+
+int spark_camera_2d_rig_get_use_zoom_limits(const SparkGameComponent* component) {
+    auto* self = AsCamera2DRigComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetUseZoomLimits() ? 1 : 0;
+}
+
+float spark_camera_2d_rig_get_zoom_max_half_extent_y(const SparkGameComponent* component) {
+    auto* self = AsCamera2DRigComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetZoomMaxHalfExtentY();
+}
+
+float spark_camera_2d_rig_get_zoom_min_half_extent_y(const SparkGameComponent* component) {
+    auto* self = AsCamera2DRigComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetZoomMinHalfExtentY();
+}
+
+void spark_camera_2d_rig_set_bounds_max(SparkGameComponent* component, const SparkVector2* v) {
+    auto self = AsCamera2DRigComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetBoundsMax(Spark::Scripting::ToVector2(*v));
+}
+
+void spark_camera_2d_rig_set_bounds_min(SparkGameComponent* component, const SparkVector2* v) {
+    auto self = AsCamera2DRigComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetBoundsMin(Spark::Scripting::ToVector2(*v));
+}
+
+void spark_camera_2d_rig_set_use_bounds(SparkGameComponent* component, int b) {
+    auto self = AsCamera2DRigComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetUseBounds(b != 0);
+}
+
+void spark_camera_2d_rig_set_use_zoom_limits(SparkGameComponent* component, int b) {
+    auto self = AsCamera2DRigComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetUseZoomLimits(b != 0);
+}
+
+void spark_camera_2d_rig_set_zoom_max_half_extent_y(SparkGameComponent* component, float h) {
+    auto self = AsCamera2DRigComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetZoomMaxHalfExtentY(h);
+}
+
+void spark_camera_2d_rig_set_zoom_min_half_extent_y(SparkGameComponent* component, float h) {
+    auto self = AsCamera2DRigComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetZoomMinHalfExtentY(h);
+}
+
+void spark_camera_bounds2_d_get_half_extents(const SparkGameComponent* component, SparkVector2* outHalfExtents) {
+    auto* self = AsCameraBounds2DComponent(component);
+    if (self == nullptr || outHalfExtents == nullptr) {
+        return;
+    }
+    *outHalfExtents = Spark::Scripting::FromVector2(self->GetHalfExtents());
+}
+
+void spark_camera_bounds2_d_get_local_offset(const SparkGameComponent* component, SparkVector2* outLocalOffset) {
+    auto* self = AsCameraBounds2DComponent(component);
+    if (self == nullptr || outLocalOffset == nullptr) {
+        return;
+    }
+    *outLocalOffset = Spark::Scripting::FromVector2(self->GetLocalOffset());
+}
+
+int spark_camera_bounds2_d_get_priority(const SparkGameComponent* component) {
+    auto* self = AsCameraBounds2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetPriority();
+}
+
+int spark_camera_bounds2_d_is_contains_world_point(const SparkGameComponent* component, SparkGameObject* owner, float worldX, float worldY) {
+    auto* self = AsCameraBounds2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->ContainsWorldPoint(*reinterpret_cast<Spark::GameObject*>(owner), worldX, worldY) ? 1 : 0;
+}
+
+int spark_camera_bounds2_d_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsCameraBounds2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+void spark_camera_bounds2_d_set_enabled(SparkGameComponent* component, int value) {
+    auto self = AsCameraBounds2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(value);
+}
+
+void spark_camera_bounds2_d_set_half_extents(SparkGameComponent* component, const SparkVector2* value) {
+    auto self = AsCameraBounds2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetHalfExtents(Spark::Scripting::ToVector2(*value));
+}
+
+void spark_camera_bounds2_d_set_local_offset(SparkGameComponent* component, const SparkVector2* offset) {
+    auto self = AsCameraBounds2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetLocalOffset(Spark::Scripting::ToVector2(*offset));
+}
+
+void spark_camera_bounds2_d_set_priority(SparkGameComponent* component, int value) {
+    auto self = AsCameraBounds2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetPriority(value);
+}
+
+float spark_camera_get_far_plane(const SparkGameComponent* component) {
+    auto* self = AsCameraComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetFarPlane();
+}
+
+float spark_camera_get_fov_y_degrees(const SparkGameComponent* component) {
+    auto* self = AsCameraComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetFovYDegrees();
+}
+
+float spark_camera_get_near_plane(const SparkGameComponent* component) {
+    auto* self = AsCameraComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetNearPlane();
+}
+
+float spark_camera_get_ortho_half_height(const SparkGameComponent* component) {
+    auto* self = AsCameraComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetOrthoHalfHeight();
+}
+
+int32_t spark_camera_get_priority(const SparkGameComponent* component) {
+    auto* self = AsCameraComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetPriority();
+}
+
+int spark_camera_get_projection_mode(const SparkGameComponent* component) {
+    auto* self = AsCameraComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetProjectionMode()));
+}
+
+int spark_camera_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsCameraComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+void spark_camera_set_enabled(SparkGameComponent* component, int e) {
+    auto self = AsCameraComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(e != 0);
+}
+
+void spark_camera_set_far_plane(SparkGameComponent* component, float z) {
+    auto self = AsCameraComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetFarPlane(z);
+}
+
+void spark_camera_set_fov_y_degrees(SparkGameComponent* component, float degrees) {
+    auto self = AsCameraComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetFovYDegrees(degrees);
+}
+
+void spark_camera_set_near_plane(SparkGameComponent* component, float z) {
+    auto self = AsCameraComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetNearPlane(z);
+}
+
+void spark_camera_set_ortho_half_height(SparkGameComponent* component, float h) {
+    auto self = AsCameraComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetOrthoHalfHeight(h);
+}
+
+void spark_camera_set_priority(SparkGameComponent* component, int32_t p) {
+    auto self = AsCameraComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetPriority(p);
+}
+
+void spark_camera_set_projection_mode(SparkGameComponent* component, int mode) {
+    auto self = AsCameraComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetProjectionMode(static_cast<Spark::CameraProjectionMode>(static_cast<std::uint8_t>(mode)));
+}
+
+void spark_camera_world_position(const SparkGameComponent* component, SparkGameObject* owner, SparkVector3* outWorldPosition) {
+    auto* self = AsCameraComponent(component);
+    if (self == nullptr || outWorldPosition == nullptr) {
+        return;
+    }
+    *outWorldPosition = Spark::Scripting::FromVector3(self->WorldPosition(*reinterpret_cast<Spark::GameObject*>(owner)));
+}
+
+float spark_camera_follow3_d_get_follow_smooth_rate(const SparkGameComponent* component) {
+    auto* self = AsCameraFollow3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetFollowSmoothRate();
+}
+
+int spark_camera_follow3_d_get_look_at_target(const SparkGameComponent* component) {
+    auto* self = AsCameraFollow3DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetLookAtTarget() ? 1 : 0;
+}
+
+SparkGameObject* spark_camera_follow3_d_get_target(const SparkGameComponent* component) {
+    auto* self = AsCameraFollow3DComponent(component);
+    if (self == nullptr) {
+        return nullptr;
+
+    }
+    return reinterpret_cast<SparkGameObject*>(self->GetTarget());
+}
+
+void spark_camera_follow3_d_get_target_offset(const SparkGameComponent* component, SparkVector3* outTargetOffset) {
+    auto* self = AsCameraFollow3DComponent(component);
+    if (self == nullptr || outTargetOffset == nullptr) {
+        return;
+    }
+    *outTargetOffset = Spark::Scripting::FromVector3(self->GetTargetOffset());
+}
+
+void spark_camera_follow3_d_set_follow_smooth_rate(SparkGameComponent* component, float r) {
+    auto self = AsCameraFollow3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetFollowSmoothRate(r);
+}
+
+void spark_camera_follow3_d_set_look_at_target(SparkGameComponent* component, int v) {
+    auto self = AsCameraFollow3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetLookAtTarget(v != 0);
+}
+
+void spark_camera_follow3_d_set_target(SparkGameComponent* component, SparkGameObject* o) {
+    auto self = AsCameraFollow3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetTarget(reinterpret_cast<Spark::GameObject*>(o));
+}
+
+void spark_camera_follow3_d_set_target_offset(SparkGameComponent* component, const SparkVector3* o) {
+    auto self = AsCameraFollow3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetTargetOffset(Spark::Scripting::ToVector3(*o));
+}
+
+int spark_capsule_collider3_d_get_direction(const SparkGameComponent* component) {
+    auto* self = AsCapsuleCollider3DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetDirection()));
+}
+
+float spark_capsule_collider3_d_get_height(const SparkGameComponent* component) {
+    auto* self = AsCapsuleCollider3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetHeight();
+}
+
+int spark_capsule_collider3_d_get_is_trigger(const SparkGameComponent* component) {
+    auto* self = AsCapsuleCollider3DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetIsTrigger() ? 1 : 0;
+}
+
+void spark_capsule_collider3_d_get_offset(const SparkGameComponent* component, SparkVector3* outOffset) {
+    auto* self = AsCapsuleCollider3DComponent(component);
+    if (self == nullptr || outOffset == nullptr) {
+        return;
+    }
+    *outOffset = Spark::Scripting::FromVector3(self->GetOffset());
+}
+
+float spark_capsule_collider3_d_get_radius(const SparkGameComponent* component) {
+    auto* self = AsCapsuleCollider3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRadius();
+}
+
+void spark_capsule_collider3_d_set_category_bits(SparkGameComponent* component, int bits) {
+    auto self = AsCapsuleCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetCategoryBits(bits);
+}
+
+void spark_capsule_collider3_d_set_direction(SparkGameComponent* component, int axis) {
+    auto self = AsCapsuleCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetDirection(static_cast<Spark::CapsuleDirection3D>(static_cast<std::uint8_t>(axis)));
+}
+
+void spark_capsule_collider3_d_set_height(SparkGameComponent* component, float h) {
+    auto self = AsCapsuleCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetHeight(h);
+}
+
+void spark_capsule_collider3_d_set_is_trigger(SparkGameComponent* component, int value) {
+    auto self = AsCapsuleCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetIsTrigger(value);
+}
+
+void spark_capsule_collider3_d_set_mask_bits(SparkGameComponent* component, int bits) {
+    auto self = AsCapsuleCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMaskBits(bits);
+}
+
+void spark_capsule_collider3_d_set_offset(SparkGameComponent* component, const SparkVector3* o) {
+    auto self = AsCapsuleCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetOffset(Spark::Scripting::ToVector3(*o));
+}
+
+void spark_capsule_collider3_d_set_radius(SparkGameComponent* component, float r) {
+    auto self = AsCapsuleCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRadius(r);
+}
+
+int32_t spark_char_3d_fsm_get_attack_clip_index(const SparkGameComponent* component) {
+    auto* self = AsCharacter3DAnimFsmComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetAttackClipIndex();
+}
+
+float spark_char_3d_fsm_get_crossfade_duration(const SparkGameComponent* component) {
+    auto* self = AsCharacter3DAnimFsmComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetCrossfadeDuration();
+}
+
+int32_t spark_char_3d_fsm_get_death_clip_index(const SparkGameComponent* component) {
+    auto* self = AsCharacter3DAnimFsmComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetDeathClipIndex();
+}
+
+int32_t spark_char_3d_fsm_get_hurt_clip_index(const SparkGameComponent* component) {
+    auto* self = AsCharacter3DAnimFsmComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetHurtClipIndex();
+}
+
+int32_t spark_char_3d_fsm_get_idle_clip_index(const SparkGameComponent* component) {
+    auto* self = AsCharacter3DAnimFsmComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetIdleClipIndex();
+}
+
+int32_t spark_char_3d_fsm_get_manual_clip_index(const SparkGameComponent* component) {
+    auto* self = AsCharacter3DAnimFsmComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetManualClipIndex();
+}
+
+int spark_char_3d_fsm_get_manual_clip_loop_mode(const SparkGameComponent* component) {
+    auto* self = AsCharacter3DAnimFsmComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetManualClipLoopMode()));
+}
+
+int32_t spark_char_3d_fsm_get_run_clip_index(const SparkGameComponent* component) {
+    auto* self = AsCharacter3DAnimFsmComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetRunClipIndex();
+}
+
+float spark_char_3d_fsm_get_run_speed_threshold(const SparkGameComponent* component) {
+    auto* self = AsCharacter3DAnimFsmComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRunSpeedThreshold();
+}
+
+int32_t spark_char_3d_fsm_get_stagger_clip_index(const SparkGameComponent* component) {
+    auto* self = AsCharacter3DAnimFsmComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetStaggerClipIndex();
+}
+
+int spark_char_3d_fsm_get_use_upper_body_attack_overlay(const SparkGameComponent* component) {
+    auto* self = AsCharacter3DAnimFsmComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetUseUpperBodyAttackOverlay() ? 1 : 0;
+}
+
+int spark_char_3d_fsm_get_use_upper_body_combat_overlay(const SparkGameComponent* component) {
+    auto* self = AsCharacter3DAnimFsmComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetUseUpperBodyCombatOverlay() ? 1 : 0;
+}
+
+int32_t spark_char_3d_fsm_get_walk_clip_index(const SparkGameComponent* component) {
+    auto* self = AsCharacter3DAnimFsmComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetWalkClipIndex();
+}
+
+float spark_char_3d_fsm_get_walk_speed_threshold(const SparkGameComponent* component) {
+    auto* self = AsCharacter3DAnimFsmComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetWalkSpeedThreshold();
 }
 
 int spark_char_3d_fsm_is_locomotion_blend_enabled(const SparkGameComponent* component) {
@@ -2479,112 +2953,13 @@ int spark_char_3d_fsm_is_manual_clip_active(const SparkGameComponent* component)
     return self->IsManualClipActive() ? 1 : 0;
 }
 
-int32_t spark_char_3d_fsm_get_idle_clip_index(const SparkGameComponent* component) {
-    auto* self = AsCharacter3DAnimFsmComponent(component);
+void spark_char_3d_fsm_set_use_upper_body_attack_overlay(SparkGameComponent* component, int enabled) {
+    auto self = AsCharacter3DAnimFsmComponent(component);
     if (self == nullptr) {
-        return 0;
+        return;
 
     }
-    return self->GetIdleClipIndex();
-}
-
-int32_t spark_char_3d_fsm_get_walk_clip_index(const SparkGameComponent* component) {
-    auto* self = AsCharacter3DAnimFsmComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetWalkClipIndex();
-}
-
-int32_t spark_char_3d_fsm_get_run_clip_index(const SparkGameComponent* component) {
-    auto* self = AsCharacter3DAnimFsmComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetRunClipIndex();
-}
-
-int32_t spark_char_3d_fsm_get_attack_clip_index(const SparkGameComponent* component) {
-    auto* self = AsCharacter3DAnimFsmComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetAttackClipIndex();
-}
-
-int32_t spark_char_3d_fsm_get_hurt_clip_index(const SparkGameComponent* component) {
-    auto* self = AsCharacter3DAnimFsmComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetHurtClipIndex();
-}
-
-int32_t spark_char_3d_fsm_get_stagger_clip_index(const SparkGameComponent* component) {
-    auto* self = AsCharacter3DAnimFsmComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetStaggerClipIndex();
-}
-
-int32_t spark_char_3d_fsm_get_death_clip_index(const SparkGameComponent* component) {
-    auto* self = AsCharacter3DAnimFsmComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetDeathClipIndex();
-}
-
-float spark_char_3d_fsm_get_walk_speed_threshold(const SparkGameComponent* component) {
-    auto* self = AsCharacter3DAnimFsmComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetWalkSpeedThreshold();
-}
-
-float spark_char_3d_fsm_get_run_speed_threshold(const SparkGameComponent* component) {
-    auto* self = AsCharacter3DAnimFsmComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRunSpeedThreshold();
-}
-
-float spark_char_3d_fsm_get_crossfade_duration(const SparkGameComponent* component) {
-    auto* self = AsCharacter3DAnimFsmComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetCrossfadeDuration();
-}
-
-int32_t spark_char_3d_fsm_get_manual_clip_index(const SparkGameComponent* component) {
-    auto* self = AsCharacter3DAnimFsmComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetManualClipIndex();
-}
-
-int spark_char_3d_fsm_get_manual_clip_loop_mode(const SparkGameComponent* component) {
-    auto* self = AsCharacter3DAnimFsmComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetManualClipLoopMode()));
+    self->SetUseUpperBodyAttackOverlay(enabled);
 }
 
 void spark_char_3d_fsm_set_use_upper_body_combat_overlay(SparkGameComponent* component, int enabled) {
@@ -2596,33 +2971,6 @@ void spark_char_3d_fsm_set_use_upper_body_combat_overlay(SparkGameComponent* com
     self->SetUseUpperBodyCombatOverlay(enabled);
 }
 
-int spark_char_3d_fsm_get_use_upper_body_combat_overlay(const SparkGameComponent* component) {
-    auto* self = AsCharacter3DAnimFsmComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetUseUpperBodyCombatOverlay() ? 1 : 0;
-}
-
-void spark_char_3d_fsm_set_use_upper_body_attack_overlay(SparkGameComponent* component, int enabled) {
-    auto self = AsCharacter3DAnimFsmComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetUseUpperBodyAttackOverlay(enabled);
-}
-
-int spark_char_3d_fsm_get_use_upper_body_attack_overlay(const SparkGameComponent* component) {
-    auto* self = AsCharacter3DAnimFsmComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetUseUpperBodyAttackOverlay() ? 1 : 0;
-}
-
 void spark_char_3d_fsm_set_wish_facing_yaw_radians(SparkGameComponent* component, float radians) {
     auto self = AsCharacter3DAnimFsmComponent(component);
     if (self == nullptr) {
@@ -2630,1412 +2978,6 @@ void spark_char_3d_fsm_set_wish_facing_yaw_radians(SparkGameComponent* component
 
     }
     self->SetWishFacingYawRadians(radians);
-}
-
-int spark_foot_ik_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsFootIkComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-float spark_foot_ik_get_weight(const SparkGameComponent* component) {
-    auto* self = AsFootIkComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetWeight();
-}
-
-float spark_foot_ik_get_ray_origin_lift(const SparkGameComponent* component) {
-    auto* self = AsFootIkComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRayOriginLift();
-}
-
-float spark_foot_ik_get_ray_max_distance(const SparkGameComponent* component) {
-    auto* self = AsFootIkComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRayMaxDistance();
-}
-
-void spark_foot_ik_set_enabled(SparkGameComponent* component, int value) {
-    auto self = AsFootIkComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(value != 0);
-}
-
-void spark_foot_ik_set_weight(SparkGameComponent* component, float value) {
-    auto self = AsFootIkComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetWeight(value);
-}
-
-void spark_foot_ik_set_ray_origin_lift(SparkGameComponent* component, float value) {
-    auto self = AsFootIkComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRayOriginLift(value);
-}
-
-void spark_foot_ik_set_ray_max_distance(SparkGameComponent* component, float value) {
-    auto self = AsFootIkComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRayMaxDistance(value);
-}
-
-void spark_foot_ik_set_left_foot_patterns(SparkGameComponent* component, const char* rootPattern, const char* midPattern, const char* endPattern) {
-    auto self = AsFootIkComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetLeftFootPatterns(rootPattern, midPattern, endPattern);
-}
-
-void spark_foot_ik_set_right_foot_patterns(SparkGameComponent* component, const char* rootPattern, const char* midPattern, const char* endPattern) {
-    auto self = AsFootIkComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRightFootPatterns(rootPattern, midPattern, endPattern);
-}
-
-void spark_root_motion_set_animator_object(SparkGameComponent* component, SparkGameObject* object) {
-    auto self = AsRootMotionComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetAnimatorObject(reinterpret_cast<Spark::GameObject*>(object));
-}
-
-SparkGameObject* spark_root_motion_get_animator_object(const SparkGameComponent* component) {
-    auto* self = AsRootMotionComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetAnimatorObject());
-}
-
-void spark_root_motion_set_apply_target(SparkGameComponent* component, SparkGameObject* object) {
-    auto self = AsRootMotionComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetApplyTarget(reinterpret_cast<Spark::GameObject*>(object));
-}
-
-SparkGameObject* spark_root_motion_get_apply_target(const SparkGameComponent* component) {
-    auto* self = AsRootMotionComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetApplyTarget());
-}
-
-void spark_root_motion_set_facing_object(SparkGameComponent* component, SparkGameObject* object) {
-    auto self = AsRootMotionComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetFacingObject(reinterpret_cast<Spark::GameObject*>(object));
-}
-
-SparkGameObject* spark_root_motion_get_facing_object(const SparkGameComponent* component) {
-    auto* self = AsRootMotionComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetFacingObject());
-}
-
-void spark_root_motion_set_skeleton_space_scale(SparkGameComponent* component, float scale) {
-    auto self = AsRootMotionComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSkeletonSpaceScale(scale);
-}
-
-float spark_root_motion_get_skeleton_space_scale(const SparkGameComponent* component) {
-    auto* self = AsRootMotionComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetSkeletonSpaceScale();
-}
-
-void spark_root_motion_set_in_place(SparkGameComponent* component, int enabled) {
-    auto self = AsRootMotionComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetInPlace(enabled);
-}
-
-int spark_root_motion_is_in_place(const SparkGameComponent* component) {
-    auto* self = AsRootMotionComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsInPlace() ? 1 : 0;
-}
-
-void spark_root_motion_set_enabled(SparkGameComponent* component, int enabled) {
-    auto self = AsRootMotionComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(enabled);
-}
-
-int spark_root_motion_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsRootMotionComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-void spark_root_motion_set_translation_mask(SparkGameComponent* component, int mask) {
-    auto self = AsRootMotionComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetTranslationMask(static_cast<Spark::RootMotionTranslationMask>(static_cast<std::uint8_t>(mask)));
-}
-
-int spark_root_motion_get_translation_mask(const SparkGameComponent* component) {
-    auto* self = AsRootMotionComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetTranslationMask()));
-}
-
-void spark_root_motion_set_motion_joint_index(SparkGameComponent* component, uint32_t jointIndex) {
-    auto self = AsRootMotionComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMotionJointIndex(jointIndex);
-}
-
-void spark_root_motion_use_pattern_motion_joint_resolver(SparkGameComponent* component) {
-    auto self = AsRootMotionComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->UsePatternMotionJointResolver();
-}
-
-void spark_root_motion_get_last_delta_skeleton_space(const SparkGameComponent* component, SparkVector3* outLastDeltaSkeletonSpace) {
-    auto* self = AsRootMotionComponent(component);
-    if (self == nullptr || outLastDeltaSkeletonSpace == nullptr) {
-        return;
-    }
-    *outLastDeltaSkeletonSpace = Spark::Scripting::FromVector3(self->GetLastDeltaSkeletonSpace());
-}
-
-void spark_root_motion_get_last_delta_world_space(const SparkGameComponent* component, SparkVector3* outLastDeltaWorldSpace) {
-    auto* self = AsRootMotionComponent(component);
-    if (self == nullptr || outLastDeltaWorldSpace == nullptr) {
-        return;
-    }
-    *outLastDeltaWorldSpace = Spark::Scripting::FromVector3(self->GetLastDeltaWorldSpace());
-}
-
-SparkGameObject* spark_skeleton_debug_draw_get_source_object(const SparkGameComponent* component) {
-    auto* self = AsSkeletonDebugDrawComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetSourceObject());
-}
-
-int spark_skeleton_debug_draw_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsSkeletonDebugDrawComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-void spark_skeleton_debug_draw_get_line_color(const SparkGameComponent* component, SparkVector3* outLineColor) {
-    auto* self = AsSkeletonDebugDrawComponent(component);
-    if (self == nullptr || outLineColor == nullptr) {
-        return;
-    }
-    *outLineColor = Spark::Scripting::FromVector3(self->GetLineColor());
-}
-
-float spark_skeleton_debug_draw_get_bone_thickness(const SparkGameComponent* component) {
-    auto* self = AsSkeletonDebugDrawComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetBoneThickness();
-}
-
-float spark_skeleton_debug_draw_get_joint_marker_scale(const SparkGameComponent* component) {
-    auto* self = AsSkeletonDebugDrawComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetJointMarkerScale();
-}
-
-void spark_skeleton_debug_draw_set_source_object(SparkGameComponent* component, SparkGameObject* object) {
-    auto self = AsSkeletonDebugDrawComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSourceObject(reinterpret_cast<Spark::GameObject*>(object));
-}
-
-void spark_skeleton_debug_draw_set_enabled(SparkGameComponent* component, int value) {
-    auto self = AsSkeletonDebugDrawComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(value != 0);
-}
-
-void spark_skeleton_debug_draw_toggle_enabled(SparkGameComponent* component) {
-    auto self = AsSkeletonDebugDrawComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ToggleEnabled();
-}
-
-void spark_skeleton_debug_draw_set_line_color(SparkGameComponent* component, const SparkVector3* rgb) {
-    auto self = AsSkeletonDebugDrawComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetLineColor(Spark::Scripting::ToVector3(*rgb));
-}
-
-void spark_skeleton_debug_draw_set_bone_thickness(SparkGameComponent* component, float thickness) {
-    auto self = AsSkeletonDebugDrawComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetBoneThickness(thickness);
-}
-
-void spark_skeleton_debug_draw_set_joint_marker_scale(SparkGameComponent* component, float scale) {
-    auto self = AsSkeletonDebugDrawComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetJointMarkerScale(scale);
-}
-
-int32_t spark_skinned_animation_budget_get_max_palette_updates_per_frame(const SparkGameComponent* component) {
-    auto* self = AsSkinnedAnimationBudgetComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetMaxPaletteUpdatesPerFrame();
-}
-
-int32_t spark_skinned_animation_budget_get_max_skinned_draws_per_frame(const SparkGameComponent* component) {
-    auto* self = AsSkinnedAnimationBudgetComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetMaxSkinnedDrawsPerFrame();
-}
-
-int spark_skinned_animation_budget_is_palette_cache_enabled(const SparkGameComponent* component) {
-    auto* self = AsSkinnedAnimationBudgetComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsPaletteCacheEnabled() ? 1 : 0;
-}
-
-float spark_skinned_animation_budget_get_palette_quantization_hz(const SparkGameComponent* component) {
-    auto* self = AsSkinnedAnimationBudgetComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetPaletteQuantizationHz();
-}
-
-void spark_skinned_animation_budget_set_max_palette_updates_per_frame(SparkGameComponent* component, uint32_t limit) {
-    auto self = AsSkinnedAnimationBudgetComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMaxPaletteUpdatesPerFrame(limit);
-}
-
-void spark_skinned_animation_budget_set_max_skinned_draws_per_frame(SparkGameComponent* component, uint32_t limit) {
-    auto self = AsSkinnedAnimationBudgetComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMaxSkinnedDrawsPerFrame(limit);
-}
-
-void spark_skinned_animation_budget_set_palette_cache_enabled(SparkGameComponent* component, int enabled) {
-    auto self = AsSkinnedAnimationBudgetComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetPaletteCacheEnabled(enabled != 0);
-}
-
-void spark_skinned_animation_budget_set_palette_quantization_hz(SparkGameComponent* component, float hz) {
-    auto self = AsSkinnedAnimationBudgetComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetPaletteQuantizationHz(hz);
-}
-
-void spark_sprite_2d_fsm_set_combat_blackboard_int_slot(SparkGameComponent* component, int slotOrMax) {
-    auto self = AsSprite2DCharacterAnimFsmComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetCombatBlackboardIntSlot(slotOrMax);
-}
-
-void spark_sprite_animation_event_receiver_clear_markers(SparkGameComponent* component) {
-    auto self = AsSpriteAnimationEventReceiverComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ClearMarkers();
-}
-
-void spark_sprite_animation_event_receiver_add_marker(SparkGameComponent* component, uint32_t clipIndex, float normalizedTime, const char* eventName) {
-    auto self = AsSpriteAnimationEventReceiverComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->AddMarker(clipIndex, normalizedTime, eventName);
-}
-
-void spark_sprite_animation_event_vfx_clear_bindings(SparkGameComponent* component) {
-    auto self = AsSpriteAnimationEventVfxComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ClearBindings();
-}
-
-void spark_sprite_animation_event_vfx_add_binding(SparkGameComponent* component, const char* eventName, const char* vfxAssetKey) {
-    auto self = AsSpriteAnimationEventVfxComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->AddBinding(eventName, vfxAssetKey);
-}
-
-void spark_sprite_animation_event_vfx_set_world_offset(SparkGameComponent* component, const SparkVector3* offset) {
-    auto self = AsSpriteAnimationEventVfxComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetWorldOffset(Spark::Scripting::ToVector3(*offset));
-}
-
-void spark_sprite_animation_event_vfx_get_world_offset(const SparkGameComponent* component, SparkVector3* outWorldOffset) {
-    auto* self = AsSpriteAnimationEventVfxComponent(component);
-    if (self == nullptr || outWorldOffset == nullptr) {
-        return;
-    }
-    *outWorldOffset = Spark::Scripting::FromVector3(self->GetWorldOffset());
-}
-
-float spark_sprite_animator_get_time_in_clip_seconds(const SparkGameComponent* component) {
-    auto* self = AsSpriteAnimatorComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetTimeInClipSeconds();
-}
-
-int32_t spark_sprite_animator_get_current_local_frame(const SparkGameComponent* component) {
-    auto* self = AsSpriteAnimatorComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetCurrentLocalFrame();
-}
-
-int spark_ambient_zone_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsAmbientZoneComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-void spark_ambient_zone_set_enabled(SparkGameComponent* component, int e) {
-    auto self = AsAmbientZoneComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(e);
-}
-
-int spark_ambient_zone_get_shape(const SparkGameComponent* component) {
-    auto* self = AsAmbientZoneComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetShape()));
-}
-
-void spark_ambient_zone_set_shape(SparkGameComponent* component, int s) {
-    auto self = AsAmbientZoneComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetShape(static_cast<Spark::VolumeShape>(static_cast<std::uint8_t>(s)));
-}
-
-void spark_ambient_zone_get_half_extents(const SparkGameComponent* component, SparkVector3* outHalfExtents) {
-    auto* self = AsAmbientZoneComponent(component);
-    if (self == nullptr || outHalfExtents == nullptr) {
-        return;
-    }
-    *outHalfExtents = Spark::Scripting::FromVector3(self->GetHalfExtents());
-}
-
-void spark_ambient_zone_set_half_extents(SparkGameComponent* component, const SparkVector3* e) {
-    auto self = AsAmbientZoneComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetHalfExtents(Spark::Scripting::ToVector3(*e));
-}
-
-float spark_ambient_zone_get_volume_scale(const SparkGameComponent* component) {
-    auto* self = AsAmbientZoneComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetVolumeScale();
-}
-
-void spark_ambient_zone_set_volume_scale(SparkGameComponent* component, float v) {
-    auto self = AsAmbientZoneComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetVolumeScale(v);
-}
-
-float spark_ambient_zone_get_low_pass_amount(const SparkGameComponent* component) {
-    auto* self = AsAmbientZoneComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetLowPassAmount();
-}
-
-void spark_ambient_zone_set_low_pass_amount(SparkGameComponent* component, float a) {
-    auto self = AsAmbientZoneComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetLowPassAmount(a);
-}
-
-int32_t spark_ambient_zone_get_priority(const SparkGameComponent* component) {
-    auto* self = AsAmbientZoneComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetPriority();
-}
-
-void spark_ambient_zone_set_priority(SparkGameComponent* component, int32_t p) {
-    auto self = AsAmbientZoneComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetPriority(p);
-}
-
-int32_t spark_audio_listener_get_priority(const SparkGameComponent* component) {
-    auto* self = AsAudioListenerComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetPriority();
-}
-
-int spark_audio_listener_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsAudioListenerComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-void spark_audio_listener_set_priority(SparkGameComponent* component, int32_t p) {
-    auto self = AsAudioListenerComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetPriority(p);
-}
-
-void spark_audio_listener_set_enabled(SparkGameComponent* component, int e) {
-    auto self = AsAudioListenerComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(e != 0);
-}
-
-void spark_sound_cue_queue_preset(SparkGameComponent* component, int preset, float volume) {
-    auto self = AsSoundCueComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->QueuePreset(static_cast<Spark::ProceduralSoundPreset>(static_cast<std::uint8_t>(preset)), volume);
-}
-
-void spark_sound_cue_queue_at_world_preset(SparkGameComponent* component, int preset, float volume, const SparkVector3* worldPosition, float spatialBlend, float minDistance, float maxDistance) {
-    auto self = AsSoundCueComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->QueueAtWorldPreset(static_cast<Spark::ProceduralSoundPreset>(static_cast<std::uint8_t>(preset)), volume, Spark::Scripting::ToVector3(*worldPosition), spatialBlend, minDistance, maxDistance);
-}
-
-void spark_sound_cue_queue_bundled_clip(SparkGameComponent* component, const char* bundledAssetPathUtf8, float volume) {
-    auto self = AsSoundCueComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->QueueBundledClip(bundledAssetPathUtf8, volume);
-}
-
-void spark_sound_cue_queue_at_world_bundled_clip(SparkGameComponent* component, const char* bundledAssetPathUtf8, float volume, const SparkVector3* worldPosition, float spatialBlend, float minDistance, float maxDistance) {
-    auto self = AsSoundCueComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->QueueAtWorldBundledClip(bundledAssetPathUtf8, volume, Spark::Scripting::ToVector3(*worldPosition), spatialBlend, minDistance, maxDistance);
-}
-
-float spark_camera_2d_get_half_extent_y(const SparkGameComponent* component) {
-    auto* self = AsCamera2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetHalfExtentY();
-}
-
-float spark_camera_2d_get_clip_near_z(const SparkGameComponent* component) {
-    auto* self = AsCamera2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetClipNearZ();
-}
-
-float spark_camera_2d_get_clip_far_z(const SparkGameComponent* component) {
-    auto* self = AsCamera2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetClipFarZ();
-}
-
-int32_t spark_camera_2d_get_priority(const SparkGameComponent* component) {
-    auto* self = AsCamera2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetPriority();
-}
-
-int spark_camera_2d_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsCamera2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-void spark_camera_2d_set_clip_near_z(SparkGameComponent* component, float z) {
-    auto self = AsCamera2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetClipNearZ(z);
-}
-
-void spark_camera_2d_set_clip_far_z(SparkGameComponent* component, float z) {
-    auto self = AsCamera2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetClipFarZ(z);
-}
-
-void spark_camera_2d_world_position(const SparkGameComponent* component, SparkGameObject* owner, SparkVector3* outWorldPosition) {
-    auto* self = AsCamera2DComponent(component);
-    if (self == nullptr || outWorldPosition == nullptr) {
-        return;
-    }
-    *outWorldPosition = Spark::Scripting::FromVector3(self->WorldPosition(*reinterpret_cast<Spark::GameObject*>(owner)));
-}
-
-int spark_camera_2d_rig_get_mode(const SparkGameComponent* component) {
-    auto* self = AsCamera2DRigComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetMode()));
-}
-
-SparkGameObject* spark_camera_2d_rig_get_target(const SparkGameComponent* component) {
-    auto* self = AsCamera2DRigComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetTarget());
-}
-
-void spark_camera_2d_rig_get_target_offset(const SparkGameComponent* component, SparkVector3* outTargetOffset) {
-    auto* self = AsCamera2DRigComponent(component);
-    if (self == nullptr || outTargetOffset == nullptr) {
-        return;
-    }
-    *outTargetOffset = Spark::Scripting::FromVector3(self->GetTargetOffset());
-}
-
-float spark_camera_2d_rig_get_follow_smooth_rate(const SparkGameComponent* component) {
-    auto* self = AsCamera2DRigComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetFollowSmoothRate();
-}
-
-float spark_camera_2d_rig_get_look_ahead_scale(const SparkGameComponent* component) {
-    auto* self = AsCamera2DRigComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetLookAheadScale();
-}
-
-int spark_camera_2d_rig_get_use_bounds(const SparkGameComponent* component) {
-    auto* self = AsCamera2DRigComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetUseBounds() ? 1 : 0;
-}
-
-void spark_camera_2d_rig_get_bounds_min(const SparkGameComponent* component, SparkVector2* outBoundsMin) {
-    auto* self = AsCamera2DRigComponent(component);
-    if (self == nullptr || outBoundsMin == nullptr) {
-        return;
-    }
-    *outBoundsMin = Spark::Scripting::FromVector2(self->GetBoundsMin());
-}
-
-void spark_camera_2d_rig_get_bounds_max(const SparkGameComponent* component, SparkVector2* outBoundsMax) {
-    auto* self = AsCamera2DRigComponent(component);
-    if (self == nullptr || outBoundsMax == nullptr) {
-        return;
-    }
-    *outBoundsMax = Spark::Scripting::FromVector2(self->GetBoundsMax());
-}
-
-int spark_camera_2d_rig_get_use_zoom_limits(const SparkGameComponent* component) {
-    auto* self = AsCamera2DRigComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetUseZoomLimits() ? 1 : 0;
-}
-
-float spark_camera_2d_rig_get_zoom_min_half_extent_y(const SparkGameComponent* component) {
-    auto* self = AsCamera2DRigComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetZoomMinHalfExtentY();
-}
-
-float spark_camera_2d_rig_get_zoom_max_half_extent_y(const SparkGameComponent* component) {
-    auto* self = AsCamera2DRigComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetZoomMaxHalfExtentY();
-}
-
-void spark_camera_2d_rig_set_use_bounds(SparkGameComponent* component, int b) {
-    auto self = AsCamera2DRigComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetUseBounds(b != 0);
-}
-
-void spark_camera_2d_rig_set_bounds_min(SparkGameComponent* component, const SparkVector2* v) {
-    auto self = AsCamera2DRigComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetBoundsMin(Spark::Scripting::ToVector2(*v));
-}
-
-void spark_camera_2d_rig_set_bounds_max(SparkGameComponent* component, const SparkVector2* v) {
-    auto self = AsCamera2DRigComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetBoundsMax(Spark::Scripting::ToVector2(*v));
-}
-
-void spark_camera_2d_rig_set_use_zoom_limits(SparkGameComponent* component, int b) {
-    auto self = AsCamera2DRigComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetUseZoomLimits(b != 0);
-}
-
-void spark_camera_2d_rig_set_zoom_min_half_extent_y(SparkGameComponent* component, float h) {
-    auto self = AsCamera2DRigComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetZoomMinHalfExtentY(h);
-}
-
-void spark_camera_2d_rig_set_zoom_max_half_extent_y(SparkGameComponent* component, float h) {
-    auto self = AsCamera2DRigComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetZoomMaxHalfExtentY(h);
-}
-
-void spark_camera_bounds2_d_set_enabled(SparkGameComponent* component, int value) {
-    auto self = AsCameraBounds2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(value);
-}
-
-int spark_camera_bounds2_d_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsCameraBounds2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-void spark_camera_bounds2_d_set_local_offset(SparkGameComponent* component, const SparkVector2* offset) {
-    auto self = AsCameraBounds2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetLocalOffset(Spark::Scripting::ToVector2(*offset));
-}
-
-void spark_camera_bounds2_d_get_local_offset(const SparkGameComponent* component, SparkVector2* outLocalOffset) {
-    auto* self = AsCameraBounds2DComponent(component);
-    if (self == nullptr || outLocalOffset == nullptr) {
-        return;
-    }
-    *outLocalOffset = Spark::Scripting::FromVector2(self->GetLocalOffset());
-}
-
-void spark_camera_bounds2_d_set_half_extents(SparkGameComponent* component, const SparkVector2* value) {
-    auto self = AsCameraBounds2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetHalfExtents(Spark::Scripting::ToVector2(*value));
-}
-
-void spark_camera_bounds2_d_get_half_extents(const SparkGameComponent* component, SparkVector2* outHalfExtents) {
-    auto* self = AsCameraBounds2DComponent(component);
-    if (self == nullptr || outHalfExtents == nullptr) {
-        return;
-    }
-    *outHalfExtents = Spark::Scripting::FromVector2(self->GetHalfExtents());
-}
-
-void spark_camera_bounds2_d_set_priority(SparkGameComponent* component, int value) {
-    auto self = AsCameraBounds2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetPriority(value);
-}
-
-int spark_camera_bounds2_d_get_priority(const SparkGameComponent* component) {
-    auto* self = AsCameraBounds2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetPriority();
-}
-
-int spark_camera_bounds2_d_is_contains_world_point(const SparkGameComponent* component, SparkGameObject* owner, float worldX, float worldY) {
-    auto* self = AsCameraBounds2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->ContainsWorldPoint(*reinterpret_cast<Spark::GameObject*>(owner), worldX, worldY) ? 1 : 0;
-}
-
-int spark_camera_get_projection_mode(const SparkGameComponent* component) {
-    auto* self = AsCameraComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetProjectionMode()));
-}
-
-float spark_camera_get_fov_y_degrees(const SparkGameComponent* component) {
-    auto* self = AsCameraComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetFovYDegrees();
-}
-
-float spark_camera_get_near_plane(const SparkGameComponent* component) {
-    auto* self = AsCameraComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetNearPlane();
-}
-
-float spark_camera_get_far_plane(const SparkGameComponent* component) {
-    auto* self = AsCameraComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetFarPlane();
-}
-
-float spark_camera_get_ortho_half_height(const SparkGameComponent* component) {
-    auto* self = AsCameraComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetOrthoHalfHeight();
-}
-
-int32_t spark_camera_get_priority(const SparkGameComponent* component) {
-    auto* self = AsCameraComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetPriority();
-}
-
-int spark_camera_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsCameraComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-void spark_camera_set_projection_mode(SparkGameComponent* component, int mode) {
-    auto self = AsCameraComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetProjectionMode(static_cast<Spark::CameraProjectionMode>(static_cast<std::uint8_t>(mode)));
-}
-
-void spark_camera_set_fov_y_degrees(SparkGameComponent* component, float degrees) {
-    auto self = AsCameraComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetFovYDegrees(degrees);
-}
-
-void spark_camera_set_near_plane(SparkGameComponent* component, float z) {
-    auto self = AsCameraComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetNearPlane(z);
-}
-
-void spark_camera_set_far_plane(SparkGameComponent* component, float z) {
-    auto self = AsCameraComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetFarPlane(z);
-}
-
-void spark_camera_set_ortho_half_height(SparkGameComponent* component, float h) {
-    auto self = AsCameraComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetOrthoHalfHeight(h);
-}
-
-void spark_camera_set_priority(SparkGameComponent* component, int32_t p) {
-    auto self = AsCameraComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetPriority(p);
-}
-
-void spark_camera_set_enabled(SparkGameComponent* component, int e) {
-    auto self = AsCameraComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(e != 0);
-}
-
-void spark_camera_world_position(const SparkGameComponent* component, SparkGameObject* owner, SparkVector3* outWorldPosition) {
-    auto* self = AsCameraComponent(component);
-    if (self == nullptr || outWorldPosition == nullptr) {
-        return;
-    }
-    *outWorldPosition = Spark::Scripting::FromVector3(self->WorldPosition(*reinterpret_cast<Spark::GameObject*>(owner)));
-}
-
-SparkGameObject* spark_camera_follow3_d_get_target(const SparkGameComponent* component) {
-    auto* self = AsCameraFollow3DComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetTarget());
-}
-
-void spark_camera_follow3_d_get_target_offset(const SparkGameComponent* component, SparkVector3* outTargetOffset) {
-    auto* self = AsCameraFollow3DComponent(component);
-    if (self == nullptr || outTargetOffset == nullptr) {
-        return;
-    }
-    *outTargetOffset = Spark::Scripting::FromVector3(self->GetTargetOffset());
-}
-
-float spark_camera_follow3_d_get_follow_smooth_rate(const SparkGameComponent* component) {
-    auto* self = AsCameraFollow3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetFollowSmoothRate();
-}
-
-int spark_camera_follow3_d_get_look_at_target(const SparkGameComponent* component) {
-    auto* self = AsCameraFollow3DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetLookAtTarget() ? 1 : 0;
-}
-
-void spark_camera_follow3_d_set_target(SparkGameComponent* component, SparkGameObject* o) {
-    auto self = AsCameraFollow3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetTarget(reinterpret_cast<Spark::GameObject*>(o));
-}
-
-void spark_camera_follow3_d_set_target_offset(SparkGameComponent* component, const SparkVector3* o) {
-    auto self = AsCameraFollow3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetTargetOffset(Spark::Scripting::ToVector3(*o));
-}
-
-void spark_camera_follow3_d_set_follow_smooth_rate(SparkGameComponent* component, float r) {
-    auto self = AsCameraFollow3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetFollowSmoothRate(r);
-}
-
-void spark_camera_follow3_d_set_look_at_target(SparkGameComponent* component, int v) {
-    auto self = AsCameraFollow3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetLookAtTarget(v != 0);
-}
-
-void spark_screen_shake_add_impulse(SparkGameComponent* component, const SparkVector2* amplitude, float durationSeconds, float frequencyHz) {
-    auto self = AsScreenShakeComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->AddImpulse(Spark::Scripting::ToVector2(*amplitude), durationSeconds, frequencyHz);
-}
-
-void spark_screen_shake_add_trauma(SparkGameComponent* component, float amount) {
-    auto self = AsScreenShakeComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->AddTrauma(amount);
-}
-
-void spark_screen_shake_get_offset(const SparkGameComponent* component, SparkVector2* outOffset) {
-    auto* self = AsScreenShakeComponent(component);
-    if (self == nullptr || outOffset == nullptr) {
-        return;
-    }
-    *outOffset = Spark::Scripting::FromVector2(self->GetOffset());
-}
-
-float spark_screen_shake_get_trauma(const SparkGameComponent* component) {
-    auto* self = AsScreenShakeComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetTrauma();
-}
-
-void spark_screen_shake_clear(SparkGameComponent* component) {
-    auto self = AsScreenShakeComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->Clear();
-}
-
-void spark_screen_shake_tick(SparkGameComponent* component, float deltaSeconds, SparkVector2* outTick) {
-    auto self = AsScreenShakeComponent(component);
-    if (self == nullptr || outTick == nullptr) {
-        return;
-    }
-    *outTick = Spark::Scripting::FromVector2(self->Tick(deltaSeconds));
-}
-
-SparkGameObject* spark_spring_arm3_d_get_pivot_target(const SparkGameComponent* component) {
-    auto* self = AsSpringArm3DComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetPivotTarget());
-}
-
-void spark_spring_arm3_d_get_socket_offset(const SparkGameComponent* component, SparkVector3* outSocketOffset) {
-    auto* self = AsSpringArm3DComponent(component);
-    if (self == nullptr || outSocketOffset == nullptr) {
-        return;
-    }
-    *outSocketOffset = Spark::Scripting::FromVector3(self->GetSocketOffset());
-}
-
-float spark_spring_arm3_d_get_arm_length(const SparkGameComponent* component) {
-    auto* self = AsSpringArm3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetArmLength();
-}
-
-float spark_spring_arm3_d_get_yaw_radians(const SparkGameComponent* component) {
-    auto* self = AsSpringArm3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetYawRadians();
-}
-
-float spark_spring_arm3_d_get_pitch_radians(const SparkGameComponent* component) {
-    auto* self = AsSpringArm3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetPitchRadians();
-}
-
-float spark_spring_arm3_d_get_probe_radius(const SparkGameComponent* component) {
-    auto* self = AsSpringArm3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetProbeRadius();
-}
-
-float spark_spring_arm3_d_get_min_arm_length(const SparkGameComponent* component) {
-    auto* self = AsSpringArm3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetMinArmLength();
-}
-
-void spark_spring_arm3_d_set_pivot_target(SparkGameComponent* component, SparkGameObject* o) {
-    auto self = AsSpringArm3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetPivotTarget(reinterpret_cast<Spark::GameObject*>(o));
-}
-
-void spark_spring_arm3_d_set_socket_offset(SparkGameComponent* component, const SparkVector3* o) {
-    auto self = AsSpringArm3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSocketOffset(Spark::Scripting::ToVector3(*o));
-}
-
-void spark_spring_arm3_d_set_arm_length(SparkGameComponent* component, float l) {
-    auto self = AsSpringArm3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetArmLength(l);
-}
-
-void spark_spring_arm3_d_set_yaw_radians(SparkGameComponent* component, float y) {
-    auto self = AsSpringArm3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetYawRadians(y);
-}
-
-void spark_spring_arm3_d_set_pitch_radians(SparkGameComponent* component, float p) {
-    auto self = AsSpringArm3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetPitchRadians(p);
-}
-
-void spark_spring_arm3_d_set_probe_radius(SparkGameComponent* component, float r) {
-    auto self = AsSpringArm3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetProbeRadius(r);
-}
-
-void spark_spring_arm3_d_set_min_arm_length(SparkGameComponent* component, float l) {
-    auto self = AsSpringArm3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMinArmLength(l);
-}
-
-void spark_character_3d_body_set_visual_object(SparkGameComponent* component, SparkGameObject* object) {
-    auto self = AsCharacter3DBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetVisualObject(reinterpret_cast<Spark::GameObject*>(object));
-}
-
-SparkGameObject* spark_character_3d_body_get_visual_object(const SparkGameComponent* component) {
-    auto* self = AsCharacter3DBodyComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetVisualObject());
-}
-
-void spark_character_3d_body_set_arbitration_mode(SparkGameComponent* component, int mode) {
-    auto self = AsCharacter3DBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetArbitrationMode(static_cast<Spark::MotionArbitrationMode>(static_cast<std::uint8_t>(mode)));
-}
-
-int spark_character_3d_body_get_arbitration_mode(const SparkGameComponent* component) {
-    auto* self = AsCharacter3DBodyComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetArbitrationMode()));
-}
-
-void spark_character_3d_body_begin_simulation_frame(SparkGameComponent* component) {
-    auto self = AsCharacter3DBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->BeginSimulationFrame();
 }
 
 void spark_character_3d_body_begin_attack_root_motion_window(SparkGameComponent* component) {
@@ -4047,6 +2989,15 @@ void spark_character_3d_body_begin_attack_root_motion_window(SparkGameComponent*
     self->BeginAttackRootMotionWindow();
 }
 
+void spark_character_3d_body_begin_simulation_frame(SparkGameComponent* component) {
+    auto self = AsCharacter3DBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->BeginSimulationFrame();
+}
+
 void spark_character_3d_body_end_attack_root_motion_window(SparkGameComponent* component) {
     auto self = AsCharacter3DBodyComponent(component);
     if (self == nullptr) {
@@ -4054,6 +3005,24 @@ void spark_character_3d_body_end_attack_root_motion_window(SparkGameComponent* c
 
     }
     self->EndAttackRootMotionWindow();
+}
+
+int spark_character_3d_body_get_arbitration_mode(const SparkGameComponent* component) {
+    auto* self = AsCharacter3DBodyComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetArbitrationMode()));
+}
+
+SparkGameObject* spark_character_3d_body_get_visual_object(const SparkGameComponent* component) {
+    auto* self = AsCharacter3DBodyComponent(component);
+    if (self == nullptr) {
+        return nullptr;
+
+    }
+    return reinterpret_cast<SparkGameObject*>(self->GetVisualObject());
 }
 
 int spark_character_3d_body_is_validate_hierarchy(const SparkGameComponent* component) {
@@ -4065,13 +3034,22 @@ int spark_character_3d_body_is_validate_hierarchy(const SparkGameComponent* comp
     return self->ValidateHierarchy() ? 1 : 0;
 }
 
-void spark_character_3d_visual_set_body_object(SparkGameComponent* component, SparkGameObject* object) {
-    auto self = AsCharacter3DVisualComponent(component);
+void spark_character_3d_body_set_arbitration_mode(SparkGameComponent* component, int mode) {
+    auto self = AsCharacter3DBodyComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetBodyObject(reinterpret_cast<Spark::GameObject*>(object));
+    self->SetArbitrationMode(static_cast<Spark::MotionArbitrationMode>(static_cast<std::uint8_t>(mode)));
+}
+
+void spark_character_3d_body_set_visual_object(SparkGameComponent* component, SparkGameObject* object) {
+    auto self = AsCharacter3DBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetVisualObject(reinterpret_cast<Spark::GameObject*>(object));
 }
 
 SparkGameObject* spark_character_3d_visual_get_body_object(const SparkGameComponent* component) {
@@ -4092,256 +3070,439 @@ int spark_character_3d_visual_is_validate_setup(const SparkGameComponent* compon
     return self->ValidateSetup() ? 1 : 0;
 }
 
-int spark_foliage_instanced_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsFoliageInstancedMeshComponent(component);
+void spark_character_3d_visual_set_body_object(SparkGameComponent* component, SparkGameObject* object) {
+    auto self = AsCharacter3DVisualComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetBodyObject(reinterpret_cast<Spark::GameObject*>(object));
+}
+
+float spark_character_controller2_d_get_coyote_time_seconds(const SparkGameComponent* component) {
+    auto* self = AsCharacterController2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetCoyoteTimeSeconds();
+}
+
+int spark_character_controller2_d_get_drop_through_one_way(const SparkGameComponent* component) {
+    auto* self = AsCharacterController2DComponent(component);
     if (self == nullptr) {
         return 0;
 
     }
-    return self->IsEnabled() ? 1 : 0;
+    return self->GetDropThroughOneWay() ? 1 : 0;
 }
 
-void spark_grass_field_set_enabled(SparkGameComponent* component, int value) {
-    auto self = AsGrassFieldComponent(component);
+float spark_character_controller2_d_get_jump_buffer_seconds(const SparkGameComponent* component) {
+    auto* self = AsCharacterController2DComponent(component);
     if (self == nullptr) {
-        return;
+        return 0.0F;
 
     }
-    self->SetEnabled(value != 0);
+    return self->GetJumpBufferSeconds();
 }
 
-void spark_grass_field_set_terrain_object(SparkGameComponent* component, SparkGameObject* object) {
-    auto self = AsGrassFieldComponent(component);
+float spark_character_controller2_d_get_jump_speed(const SparkGameComponent* component) {
+    auto* self = AsCharacterController2DComponent(component);
     if (self == nullptr) {
-        return;
+        return 0.0F;
 
     }
-    self->SetTerrainObject(reinterpret_cast<Spark::GameObject*>(object));
+    return self->GetJumpSpeed();
 }
 
-SparkGameObject* spark_grass_field_get_terrain_object(const SparkGameComponent* component) {
-    auto* self = AsGrassFieldComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetTerrainObject());
-}
-
-void spark_grass_field_set_view_target_object(SparkGameComponent* component, SparkGameObject* object) {
-    auto self = AsGrassFieldComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetViewTargetObject(reinterpret_cast<Spark::GameObject*>(object));
-}
-
-SparkGameObject* spark_grass_field_get_view_target_object(const SparkGameComponent* component) {
-    auto* self = AsGrassFieldComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetViewTargetObject());
-}
-
-void spark_grass_field_set_streaming_view_world(SparkGameComponent* component, const SparkVector3* worldPosition) {
-    auto self = AsGrassFieldComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetStreamingViewWorld(Spark::Scripting::ToVector3(*worldPosition));
-}
-
-void spark_grass_field_prepare_for_render(SparkGameComponent* component, SparkGameObject* owner, const SparkVector3* viewWorldPosition, uint32_t sceneMaxGrassInstancesPerFrame) {
-    auto self = AsGrassFieldComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->PrepareForRenderInterop(reinterpret_cast<Spark::GameObject*>(owner), Spark::Scripting::ToVector3(*viewWorldPosition), sceneMaxGrassInstancesPerFrame);
-}
-
-void spark_grass_field_set_neighborhood_ring_radius(SparkGameComponent* component, int radiusChunks) {
-    auto self = AsGrassFieldComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetNeighborhoodRingRadius(radiusChunks);
-}
-
-int spark_grass_field_get_neighborhood_ring_radius(const SparkGameComponent* component) {
-    auto* self = AsGrassFieldComponent(component);
+int spark_character_controller2_d_get_motor_mode(const SparkGameComponent* component) {
+    auto* self = AsCharacterController2DComponent(component);
     if (self == nullptr) {
         return 0;
 
     }
-    return self->GetNeighborhoodRingRadius();
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetMotorMode()));
 }
 
-void spark_grass_field_set_alpha_cutoff(SparkGameComponent* component, float value) {
-    auto self = AsGrassFieldComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetAlphaCutoff(value);
-}
-
-float spark_grass_field_get_alpha_cutoff(const SparkGameComponent* component) {
-    auto* self = AsGrassFieldComponent(component);
+float spark_character_controller2_d_get_move_input_x(const SparkGameComponent* component) {
+    auto* self = AsCharacterController2DComponent(component);
     if (self == nullptr) {
         return 0.0F;
 
     }
-    return self->GetAlphaCutoff();
+    return self->GetMoveInputX();
 }
 
-void spark_grass_field_set_wind_bend_scale(SparkGameComponent* component, float scale) {
-    auto self = AsGrassFieldComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetWindBendScale(scale);
-}
-
-float spark_grass_field_get_wind_bend_scale(const SparkGameComponent* component) {
-    auto* self = AsGrassFieldComponent(component);
+float spark_character_controller2_d_get_move_input_y(const SparkGameComponent* component) {
+    auto* self = AsCharacterController2DComponent(component);
     if (self == nullptr) {
         return 0.0F;
 
     }
-    return self->GetWindBendScale();
+    return self->GetMoveInputY();
 }
 
-void spark_grass_field_bounds_set_half_extents(SparkGameComponent* component, float halfX, float halfZ) {
-    auto self = AsGrassFieldComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->BoundsSetHalfExtents(halfX, halfZ);
-}
-
-void spark_grass_field_scatter_set_chunk_size_meters(SparkGameComponent* component, float meters) {
-    auto self = AsGrassFieldComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ScatterSetChunkSizeMeters(meters);
-}
-
-void spark_grass_field_scatter_set_density_per_square_meter(SparkGameComponent* component, float density) {
-    auto self = AsGrassFieldComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ScatterSetDensityPerSquareMeter(density);
-}
-
-void spark_grass_field_scatter_set_max_view_distance_meters(SparkGameComponent* component, float meters) {
-    auto self = AsGrassFieldComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ScatterSetMaxViewDistanceMeters(meters);
-}
-
-void spark_grass_field_scatter_set_max_visible_instances(SparkGameComponent* component, uint32_t count) {
-    auto self = AsGrassFieldComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ScatterSetMaxVisibleInstances(count);
-}
-
-void spark_grass_field_scatter_set_max_cached_instances_per_chunk(SparkGameComponent* component, uint32_t count) {
-    auto self = AsGrassFieldComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ScatterSetMaxCachedInstancesPerChunk(count);
-}
-
-void spark_grass_field_scatter_set_max_slope_degrees(SparkGameComponent* component, float degrees) {
-    auto self = AsGrassFieldComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ScatterSetMaxSlopeDegrees(degrees);
-}
-
-void spark_grass_field_scatter_set_placement_radius_meters(SparkGameComponent* component, float meters) {
-    auto self = AsGrassFieldComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ScatterSetPlacementRadiusMeters(meters);
-}
-
-void spark_grass_field_scatter_set_distance_fade_outer_fraction(SparkGameComponent* component, float fraction) {
-    auto self = AsGrassFieldComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ScatterSetDistanceFadeOuterFraction(fraction);
-}
-
-void spark_grass_field_scatter_set_albedo_tint(SparkGameComponent* component, const SparkVector3* rgb) {
-    auto self = AsGrassFieldComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ScatterSetAlbedoTint(Spark::Scripting::ToVector3(*rgb));
-}
-
-void spark_wind_environment_set_gust_amplitude(SparkGameComponent* component, float value) {
-    auto self = AsWindEnvironmentComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetGustAmplitude(value);
-}
-
-float spark_wind_environment_get_gust_amplitude(const SparkGameComponent* component) {
-    auto* self = AsWindEnvironmentComponent(component);
+float spark_character_controller2_d_get_move_speed(const SparkGameComponent* component) {
+    auto* self = AsCharacterController2DComponent(component);
     if (self == nullptr) {
         return 0.0F;
 
     }
-    return self->GetGustAmplitude();
+    return self->GetMoveSpeed();
 }
 
-void spark_wind_environment_set_turbulence(SparkGameComponent* component, float value) {
-    auto self = AsWindEnvironmentComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetTurbulence(value);
-}
-
-float spark_wind_environment_get_turbulence(const SparkGameComponent* component) {
-    auto* self = AsWindEnvironmentComponent(component);
+float spark_character_controller2_d_get_skin_width(const SparkGameComponent* component) {
+    auto* self = AsCharacterController2DComponent(component);
     if (self == nullptr) {
         return 0.0F;
 
     }
-    return self->GetTurbulence();
+    return self->GetSkinWidth();
+}
+
+float spark_character_controller2_d_get_slope_limit_degrees(const SparkGameComponent* component) {
+    auto* self = AsCharacterController2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetSlopeLimitDegrees();
+}
+
+float spark_character_controller2_d_get_snap_to_ground_distance(const SparkGameComponent* component) {
+    auto* self = AsCharacterController2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetSnapToGroundDistance();
+}
+
+int spark_character_controller2_d_is_grounded(const SparkGameComponent* component) {
+    auto* self = AsCharacterController2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsGrounded() ? 1 : 0;
+}
+
+int spark_character_controller2_d_is_was_grounded_last_frame(const SparkGameComponent* component) {
+    auto* self = AsCharacterController2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->WasGroundedLastFrame() ? 1 : 0;
+}
+
+void spark_character_controller2_d_request_jump(SparkGameComponent* component) {
+    auto self = AsCharacterController2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->RequestJump();
+}
+
+void spark_character_controller2_d_set_coyote_time_seconds(SparkGameComponent* component, float seconds) {
+    auto self = AsCharacterController2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetCoyoteTimeSeconds(seconds);
+}
+
+void spark_character_controller2_d_set_drop_through_one_way(SparkGameComponent* component, int drop) {
+    auto self = AsCharacterController2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetDropThroughOneWay(drop);
+}
+
+void spark_character_controller2_d_set_jump_buffer_seconds(SparkGameComponent* component, float seconds) {
+    auto self = AsCharacterController2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetJumpBufferSeconds(seconds);
+}
+
+void spark_character_controller2_d_set_jump_speed(SparkGameComponent* component, float speed) {
+    auto self = AsCharacterController2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetJumpSpeed(speed);
+}
+
+void spark_character_controller2_d_set_motor_mode(SparkGameComponent* component, int mode) {
+    auto self = AsCharacterController2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMotorMode(static_cast<Spark::CharacterController2DMotorMode>(static_cast<std::uint8_t>(mode)));
+}
+
+void spark_character_controller2_d_set_move_input_x(SparkGameComponent* component, float normalized) {
+    auto self = AsCharacterController2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMoveInputX(normalized);
+}
+
+void spark_character_controller2_d_set_move_input_y(SparkGameComponent* component, float normalized) {
+    auto self = AsCharacterController2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMoveInputY(normalized);
+}
+
+void spark_character_controller2_d_set_move_speed(SparkGameComponent* component, float speed) {
+    auto self = AsCharacterController2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMoveSpeed(speed);
+}
+
+void spark_character_controller2_d_set_skin_width(SparkGameComponent* component, float width) {
+    auto self = AsCharacterController2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSkinWidth(width);
+}
+
+void spark_character_controller3_d_get_center_offset(const SparkGameComponent* component, SparkVector3* outCenterOffset) {
+    auto* self = AsCharacterController3DComponent(component);
+    if (self == nullptr || outCenterOffset == nullptr) {
+        return;
+    }
+    *outCenterOffset = Spark::Scripting::FromVector3(self->GetCenterOffset());
+}
+
+float spark_character_controller3_d_get_gravity_scale(const SparkGameComponent* component) {
+    auto* self = AsCharacterController3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetGravityScale();
+}
+
+void spark_character_controller3_d_get_move_input(const SparkGameComponent* component, SparkVector3* outMoveInput) {
+    auto* self = AsCharacterController3DComponent(component);
+    if (self == nullptr || outMoveInput == nullptr) {
+        return;
+    }
+    *outMoveInput = Spark::Scripting::FromVector3(self->GetMoveInput());
+}
+
+float spark_character_controller3_d_get_radius(const SparkGameComponent* component) {
+    auto* self = AsCharacterController3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRadius();
+}
+
+float spark_character_controller3_d_get_skin_width(const SparkGameComponent* component) {
+    auto* self = AsCharacterController3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetSkinWidth();
+}
+
+float spark_character_controller3_d_get_slope_limit_degrees(const SparkGameComponent* component) {
+    auto* self = AsCharacterController3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetSlopeLimitDegrees();
+}
+
+float spark_character_controller3_d_get_step_offset(const SparkGameComponent* component) {
+    auto* self = AsCharacterController3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetStepOffset();
+}
+
+void spark_character_controller3_d_get_velocity(const SparkGameComponent* component, SparkVector3* outVelocity) {
+    auto* self = AsCharacterController3DComponent(component);
+    if (self == nullptr || outVelocity == nullptr) {
+        return;
+    }
+    *outVelocity = Spark::Scripting::FromVector3(self->GetVelocity());
+}
+
+int spark_character_controller3_d_is_grounded(const SparkGameComponent* component) {
+    auto* self = AsCharacterController3DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsGrounded() ? 1 : 0;
+}
+
+void spark_character_controller3_d_set_category_bits(SparkGameComponent* component, int bits) {
+    auto self = AsCharacterController3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetCategoryBits(bits);
+}
+
+void spark_character_controller3_d_set_center_offset(SparkGameComponent* component, const SparkVector3* o) {
+    auto self = AsCharacterController3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetCenterOffset(Spark::Scripting::ToVector3(*o));
+}
+
+void spark_character_controller3_d_set_gravity_scale(SparkGameComponent* component, float g) {
+    auto self = AsCharacterController3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetGravityScale(g);
+}
+
+void spark_character_controller3_d_set_mask_bits(SparkGameComponent* component, int bits) {
+    auto self = AsCharacterController3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMaskBits(bits);
+}
+
+void spark_character_controller3_d_set_radius(SparkGameComponent* component, float r) {
+    auto self = AsCharacterController3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRadius(r);
+}
+
+void spark_character_controller3_d_set_skin_width(SparkGameComponent* component, float w) {
+    auto self = AsCharacterController3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSkinWidth(w);
+}
+
+void spark_character_controller3_d_set_step_offset(SparkGameComponent* component, float meters) {
+    auto self = AsCharacterController3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetStepOffset(meters);
+}
+
+int spark_circle_collider_2d_get_is_trigger(const SparkGameComponent* component) {
+    auto* self = AsCircleCollider2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetIsTrigger() ? 1 : 0;
+}
+
+void spark_circle_collider_2d_get_offset(const SparkGameComponent* component, SparkVector2* outOffset) {
+    auto* self = AsCircleCollider2DComponent(component);
+    if (self == nullptr || outOffset == nullptr) {
+        return;
+    }
+    *outOffset = Spark::Scripting::FromVector2(self->GetOffset());
+}
+
+float spark_circle_collider_2d_get_radius(const SparkGameComponent* component) {
+    auto* self = AsCircleCollider2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRadius();
+}
+
+void spark_circle_collider_2d_set_offset(SparkGameComponent* component, const SparkVector2* o) {
+    auto self = AsCircleCollider2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetOffset(Spark::Scripting::ToVector2(*o));
+}
+
+void spark_collision_get_local_center(const SparkGameComponent* component, SparkVector3* outLocalCenter) {
+    auto* self = AsCollisionComponent(component);
+    if (self == nullptr || outLocalCenter == nullptr) {
+        return;
+    }
+    *outLocalCenter = Spark::Scripting::FromVector3(self->GetLocalCenter());
+}
+
+float spark_collision_get_radius(const SparkGameComponent* component) {
+    auto* self = AsCollisionComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRadius();
+}
+
+void spark_collision_get_world_center(const SparkGameComponent* component, SparkVector3* outWorldCenter) {
+    auto* self = AsCollisionComponent(component);
+    if (self == nullptr || outWorldCenter == nullptr) {
+        return;
+    }
+    *outWorldCenter = Spark::Scripting::FromVector3(self->GetWorldCenter());
+}
+
+void spark_collision_set_local_center(SparkGameComponent* component, const SparkVector3* c) {
+    auto self = AsCollisionComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetLocalCenter(Spark::Scripting::ToVector3(*c));
+}
+
+void spark_collision_set_radius(SparkGameComponent* component, float r) {
+    auto self = AsCollisionComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRadius(r);
 }
 
 void spark_combat_hurt_flash_3d_set_flash_duration(SparkGameComponent* component, float seconds) {
@@ -4362,49 +3523,30 @@ void spark_combat_hurt_flash_3d_set_hurt_tint(SparkGameComponent* component, con
     self->SetHurtTint(Spark::Scripting::ToVector3(*tint));
 }
 
-void spark_damage_zone2_d_set_enabled(SparkGameComponent* component, int value) {
-    auto self = AsDamageZone2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(value);
-}
-
-int spark_damage_zone2_d_is_enabled(const SparkGameComponent* component) {
+float spark_damage_zone2_d_get_damage_per_second(const SparkGameComponent* component) {
     auto* self = AsDamageZone2DComponent(component);
     if (self == nullptr) {
-        return 0;
+        return 0.0F;
 
     }
-    return self->IsEnabled() ? 1 : 0;
+    return self->GetDamagePerSecond();
 }
 
-void spark_damage_zone2_d_set_shape(SparkGameComponent* component, int value) {
-    auto self = AsDamageZone2DComponent(component);
-    if (self == nullptr) {
+void spark_damage_zone2_d_get_half_extents(const SparkGameComponent* component, SparkVector2* outHalfExtents) {
+    auto* self = AsDamageZone2DComponent(component);
+    if (self == nullptr || outHalfExtents == nullptr) {
         return;
-
     }
-    self->SetShape(static_cast<Spark::DamageZone2DShape>(static_cast<std::uint8_t>(value)));
+    *outHalfExtents = Spark::Scripting::FromVector2(self->GetHalfExtents());
 }
 
-int spark_damage_zone2_d_get_shape(const SparkGameComponent* component) {
+SparkGameObject* spark_damage_zone2_d_get_instigator(const SparkGameComponent* component) {
     auto* self = AsDamageZone2DComponent(component);
     if (self == nullptr) {
-        return 0;
+        return nullptr;
 
     }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetShape()));
-}
-
-void spark_damage_zone2_d_set_local_offset(SparkGameComponent* component, const SparkVector2* offset) {
-    auto self = AsDamageZone2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetLocalOffset(Spark::Scripting::ToVector2(*offset));
+    return reinterpret_cast<SparkGameObject*>(self->GetInstigator());
 }
 
 void spark_damage_zone2_d_get_local_offset(const SparkGameComponent* component, SparkVector2* outLocalOffset) {
@@ -4413,15 +3555,6 @@ void spark_damage_zone2_d_get_local_offset(const SparkGameComponent* component, 
         return;
     }
     *outLocalOffset = Spark::Scripting::FromVector2(self->GetLocalOffset());
-}
-
-void spark_damage_zone2_d_set_radius(SparkGameComponent* component, float value) {
-    auto self = AsDamageZone2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRadius(value);
 }
 
 float spark_damage_zone2_d_get_radius(const SparkGameComponent* component) {
@@ -4433,39 +3566,22 @@ float spark_damage_zone2_d_get_radius(const SparkGameComponent* component) {
     return self->GetRadius();
 }
 
-void spark_damage_zone2_d_set_half_extents(SparkGameComponent* component, const SparkVector2* value) {
-    auto self = AsDamageZone2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetHalfExtents(Spark::Scripting::ToVector2(*value));
-}
-
-void spark_damage_zone2_d_get_half_extents(const SparkGameComponent* component, SparkVector2* outHalfExtents) {
-    auto* self = AsDamageZone2DComponent(component);
-    if (self == nullptr || outHalfExtents == nullptr) {
-        return;
-    }
-    *outHalfExtents = Spark::Scripting::FromVector2(self->GetHalfExtents());
-}
-
-void spark_damage_zone2_d_set_damage_per_second(SparkGameComponent* component, float value) {
-    auto self = AsDamageZone2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetDamagePerSecond(value);
-}
-
-float spark_damage_zone2_d_get_damage_per_second(const SparkGameComponent* component) {
+int spark_damage_zone2_d_get_shape(const SparkGameComponent* component) {
     auto* self = AsDamageZone2DComponent(component);
     if (self == nullptr) {
-        return 0.0F;
+        return 0;
 
     }
-    return self->GetDamagePerSecond();
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetShape()));
+}
+
+int spark_damage_zone2_d_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsDamageZone2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
 }
 
 void spark_damage_zone2_d_set_category_bits(SparkGameComponent* component, int bits) {
@@ -4477,13 +3593,31 @@ void spark_damage_zone2_d_set_category_bits(SparkGameComponent* component, int b
     self->SetCategoryBits(bits);
 }
 
-void spark_damage_zone2_d_set_mask_bits(SparkGameComponent* component, int bits) {
+void spark_damage_zone2_d_set_damage_per_second(SparkGameComponent* component, float value) {
     auto self = AsDamageZone2DComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetMaskBits(bits);
+    self->SetDamagePerSecond(value);
+}
+
+void spark_damage_zone2_d_set_enabled(SparkGameComponent* component, int value) {
+    auto self = AsDamageZone2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(value);
+}
+
+void spark_damage_zone2_d_set_half_extents(SparkGameComponent* component, const SparkVector2* value) {
+    auto self = AsDamageZone2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetHalfExtents(Spark::Scripting::ToVector2(*value));
 }
 
 void spark_damage_zone2_d_set_instigator(SparkGameComponent* component, SparkGameObject* object) {
@@ -4495,13 +3629,49 @@ void spark_damage_zone2_d_set_instigator(SparkGameComponent* component, SparkGam
     self->SetInstigator(reinterpret_cast<Spark::GameObject*>(object));
 }
 
-SparkGameObject* spark_damage_zone2_d_get_instigator(const SparkGameComponent* component) {
-    auto* self = AsDamageZone2DComponent(component);
+void spark_damage_zone2_d_set_local_offset(SparkGameComponent* component, const SparkVector2* offset) {
+    auto self = AsDamageZone2DComponent(component);
     if (self == nullptr) {
-        return nullptr;
+        return;
 
     }
-    return reinterpret_cast<SparkGameObject*>(self->GetInstigator());
+    self->SetLocalOffset(Spark::Scripting::ToVector2(*offset));
+}
+
+void spark_damage_zone2_d_set_mask_bits(SparkGameComponent* component, int bits) {
+    auto self = AsDamageZone2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMaskBits(bits);
+}
+
+void spark_damage_zone2_d_set_radius(SparkGameComponent* component, float value) {
+    auto self = AsDamageZone2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRadius(value);
+}
+
+void spark_damage_zone2_d_set_shape(SparkGameComponent* component, int value) {
+    auto self = AsDamageZone2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetShape(static_cast<Spark::DamageZone2DShape>(static_cast<std::uint8_t>(value)));
+}
+
+float spark_damageable_get_apply_damage(SparkGameComponent* component, float amount, SparkGameObject* instigator) {
+    auto self = AsDamageableComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->ApplyDamage(amount, reinterpret_cast<Spark::GameObject*>(instigator));
 }
 
 float spark_damageable_get_damage_multiplier(const SparkGameComponent* component) {
@@ -4540,314 +3710,25 @@ void spark_damageable_set_invulnerable(SparkGameComponent* component, int v) {
     self->SetInvulnerable(v != 0);
 }
 
-float spark_damageable_get_apply_damage(SparkGameComponent* component, float amount, SparkGameObject* instigator) {
-    auto self = AsDamageableComponent(component);
+float spark_decal_projector_get_opacity(const SparkGameComponent* component) {
+    auto* self = AsDecalProjectorComponent(component);
     if (self == nullptr) {
         return 0.0F;
 
     }
-    return self->ApplyDamage(amount, reinterpret_cast<Spark::GameObject*>(instigator));
+    return self->GetOpacity();
 }
 
-void spark_fog_of_war2_d_set_vision_radius_world(SparkGameComponent* component, float radius) {
-    auto self = AsFogOfWar2DComponent(component);
-    if (self == nullptr) {
+void spark_decal_projector_get_size(const SparkGameComponent* component, SparkVector3* outSize) {
+    auto* self = AsDecalProjectorComponent(component);
+    if (self == nullptr || outSize == nullptr) {
         return;
-
     }
-    self->SetVisionRadiusWorld(radius);
+    *outSize = Spark::Scripting::FromVector3(self->GetSize());
 }
 
-float spark_fog_of_war2_d_get_vision_radius_world(const SparkGameComponent* component) {
-    auto* self = AsFogOfWar2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetVisionRadiusWorld();
-}
-
-void spark_fog_of_war2_d_set_reveal_target(SparkGameComponent* component, SparkGameObject* target) {
-    auto self = AsFogOfWar2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRevealTarget(reinterpret_cast<Spark::GameObject*>(target));
-}
-
-SparkGameObject* spark_fog_of_war2_d_get_reveal_target(const SparkGameComponent* component) {
-    auto* self = AsFogOfWar2DComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetRevealTarget());
-}
-
-void spark_fog_of_war2_d_rebuild_mask_texture(SparkGameComponent* component) {
-    auto self = AsFogOfWar2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->RebuildMaskTexture();
-}
-
-void spark_game_flow_trigger_set_source(SparkGameComponent* component, SparkGameFlowTriggerSource value) {
-    auto self = AsGameFlowTriggerComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSource(static_cast<Spark::GameFlowTriggerSource>(static_cast<std::uint8_t>(value)));
-}
-
-SparkGameFlowTriggerSource spark_game_flow_trigger_get_source(const SparkGameComponent* component) {
-    auto* self = AsGameFlowTriggerComponent(component);
-    if (self == nullptr) {
-        return SparkGameFlowTriggerSource_TriggerEnter;
-
-    }
-    return static_cast<SparkGameFlowTriggerSource>(static_cast<std::uint8_t>(self->GetSource()));
-}
-
-void spark_game_flow_trigger_set_target_state(SparkGameComponent* component, SparkGameFlowState state) {
-    auto self = AsGameFlowTriggerComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetTargetState(static_cast<Spark::GameFlowState>(static_cast<std::uint8_t>(state)));
-}
-
-SparkGameFlowState spark_game_flow_trigger_get_target_state(const SparkGameComponent* component) {
-    auto* self = AsGameFlowTriggerComponent(component);
-    if (self == nullptr) {
-        return SparkGameFlowState_Playing;
-
-    }
-    return static_cast<SparkGameFlowState>(static_cast<std::uint8_t>(self->GetTargetState()));
-}
-
-void spark_game_flow_trigger_set_instigator_name_filter(SparkGameComponent* component, const char* filter) {
-    auto self = AsGameFlowTriggerComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetInstigatorNameFilter(filter);
-}
-
-void spark_game_flow_trigger_set_watch_state(SparkGameComponent* component, SparkGameFlowState state) {
-    auto self = AsGameFlowTriggerComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetWatchState(static_cast<Spark::GameFlowState>(static_cast<std::uint8_t>(state)));
-}
-
-SparkGameFlowState spark_game_flow_trigger_get_watch_state(const SparkGameComponent* component) {
-    auto* self = AsGameFlowTriggerComponent(component);
-    if (self == nullptr) {
-        return SparkGameFlowState_Playing;
-
-    }
-    return static_cast<SparkGameFlowState>(static_cast<std::uint8_t>(self->GetWatchState()));
-}
-
-void spark_game_flow_trigger_set_state_owner(SparkGameComponent* component, SparkGameObject* owner) {
-    auto self = AsGameFlowTriggerComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetStateOwner(reinterpret_cast<Spark::GameObject*>(owner));
-}
-
-SparkGameObject* spark_game_flow_trigger_get_state_owner(const SparkGameComponent* component) {
-    auto* self = AsGameFlowTriggerComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetStateOwner());
-}
-
-SparkGameFlowState spark_game_state_get_state(const SparkGameComponent* component) {
-    auto* self = AsGameStateComponent(component);
-    if (self == nullptr) {
-        return SparkGameFlowState_Playing;
-
-    }
-    return static_cast<SparkGameFlowState>(static_cast<std::uint8_t>(self->GetState()));
-}
-
-SparkGameFlowState spark_game_state_get_previous_state(const SparkGameComponent* component) {
-    auto* self = AsGameStateComponent(component);
-    if (self == nullptr) {
-        return SparkGameFlowState_Playing;
-
-    }
-    return static_cast<SparkGameFlowState>(static_cast<std::uint8_t>(self->GetPreviousState()));
-}
-
-int spark_game_state_is_state(const SparkGameComponent* component, SparkGameFlowState state) {
-    auto* self = AsGameStateComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsState(static_cast<Spark::GameFlowState>(static_cast<std::uint8_t>(state))) ? 1 : 0;
-}
-
-void spark_game_state_push_state(SparkGameComponent* component, SparkGameFlowState nextState) {
-    auto self = AsGameStateComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->PushState(static_cast<Spark::GameFlowState>(static_cast<std::uint8_t>(nextState)));
-}
-
-void spark_gameplay_team_set_team_id(SparkGameComponent* component, int32_t id) {
-    auto self = AsGameplayTeamComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetTeamId(id);
-}
-
-int32_t spark_gameplay_team_get_team_id(const SparkGameComponent* component) {
-    auto* self = AsGameplayTeamComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetTeamId();
-}
-
-void spark_gameplay_team_set_gameplay_team(SparkGameComponent* component, int32_t id) {
-    auto self = AsGameplayTeamComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetGameplayTeam(Spark::GameplayTeamId{static_cast<std::int32_t>(id)});
-}
-
-float spark_health_get_maximum(const SparkGameComponent* component) {
-    auto* self = AsHealthComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetMaximum();
-}
-
-float spark_health_get_current(const SparkGameComponent* component) {
-    auto* self = AsHealthComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetCurrent();
-}
-
-int spark_health_is_alive(const SparkGameComponent* component) {
-    auto* self = AsHealthComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsAlive() ? 1 : 0;
-}
-
-void spark_health_set_maximum(SparkGameComponent* component, float value) {
-    auto self = AsHealthComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMaximum(value);
-}
-
-void spark_health_set_current(SparkGameComponent* component, float value) {
-    auto self = AsHealthComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetCurrent(value);
-}
-
-void spark_health_reset_to_full(SparkGameComponent* component) {
-    auto self = AsHealthComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ResetToFull();
-}
-
-float spark_health_get_apply_damage(SparkGameComponent* component, float amount, SparkGameObject* instigator) {
-    auto self = AsHealthComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->ApplyDamage(amount, reinterpret_cast<Spark::GameObject*>(instigator));
-}
-
-void spark_interactable_set_prompt_text(SparkGameComponent* component, const char* text) {
-    auto self = AsInteractableComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetPromptText(text);
-}
-
-void spark_interactable_set_interaction_radius(SparkGameComponent* component, float radius) {
-    auto self = AsInteractableComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetInteractionRadius(radius);
-}
-
-float spark_interactable_get_interaction_radius(const SparkGameComponent* component) {
-    auto* self = AsInteractableComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetInteractionRadius();
-}
-
-void spark_interactable_set_required_instigator_tag(SparkGameComponent* component, const char* tag) {
-    auto self = AsInteractableComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRequiredInstigatorTag(tag);
-}
-
-void spark_interactable_set_enabled(SparkGameComponent* component, int value) {
-    auto self = AsInteractableComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(value);
-}
-
-int spark_interactable_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsInteractableComponent(component);
+int spark_decal_projector_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsDecalProjectorComponent(component);
     if (self == nullptr) {
         return 0;
 
@@ -4855,157 +3736,31 @@ int spark_interactable_is_enabled(const SparkGameComponent* component) {
     return self->IsEnabled() ? 1 : 0;
 }
 
-int spark_interactable_is_instigator_in_range(const SparkGameComponent* component, SparkGameObject* instigator) {
-    auto* self = AsInteractableComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsInstigatorInRange(*reinterpret_cast<Spark::GameObject*>(instigator)) ? 1 : 0;
-}
-
-int spark_interactable_is_can_interact(const SparkGameComponent* component, SparkGameObject* instigator) {
-    auto* self = AsInteractableComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->CanInteract(*reinterpret_cast<Spark::GameObject*>(instigator)) ? 1 : 0;
-}
-
-void spark_pickup_set_item_id(SparkGameComponent* component, const char* id) {
-    auto self = AsPickupComponent(component);
+void spark_decal_projector_set_enabled(SparkGameComponent* component, int e) {
+    auto self = AsDecalProjectorComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetItemId(id);
+    self->SetEnabled(e != 0);
 }
 
-void spark_pickup_set_quantity(SparkGameComponent* component, int value) {
-    auto self = AsPickupComponent(component);
+void spark_decal_projector_set_opacity(SparkGameComponent* component, float o) {
+    auto self = AsDecalProjectorComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetQuantity(value);
+    self->SetOpacity(o);
 }
 
-int spark_pickup_get_quantity(const SparkGameComponent* component) {
-    auto* self = AsPickupComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetQuantity();
-}
-
-void spark_pickup_set_auto_collect_on_trigger_enter(SparkGameComponent* component, int value) {
-    auto self = AsPickupComponent(component);
+void spark_decal_projector_set_size(SparkGameComponent* component, const SparkVector3* s) {
+    auto self = AsDecalProjectorComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetAutoCollectOnTriggerEnter(value);
-}
-
-int spark_pickup_get_auto_collect_on_trigger_enter(const SparkGameComponent* component) {
-    auto* self = AsPickupComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetAutoCollectOnTriggerEnter() ? 1 : 0;
-}
-
-void spark_pickup_set_destroy_owner_on_collect(SparkGameComponent* component, int value) {
-    auto self = AsPickupComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetDestroyOwnerOnCollect(value);
-}
-
-int spark_pickup_get_destroy_owner_on_collect(const SparkGameComponent* component) {
-    auto* self = AsPickupComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetDestroyOwnerOnCollect() ? 1 : 0;
-}
-
-int spark_pickup_is_collected(const SparkGameComponent* component) {
-    auto* self = AsPickupComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsCollected() ? 1 : 0;
-}
-
-void spark_input_action_map_bind_button(SparkGameComponent* component, const char* actionName, int primaryKey, int secondaryKey) {
-    auto self = AsInputActionMapComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->BindButton(actionName, primaryKey, secondaryKey);
-}
-
-void spark_input_action_map_bind_axis1d(SparkGameComponent* component, const char* actionName, int negativeKey, int positiveKey, int secondaryNegativeKey, int secondaryPositiveKey) {
-    auto self = AsInputActionMapComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->BindAxis1D(actionName, negativeKey, positiveKey, secondaryNegativeKey, secondaryPositiveKey);
-}
-
-void spark_input_action_map_bind_gamepad_button(SparkGameComponent* component, const char* actionName, int gamepadButton) {
-    auto self = AsInputActionMapComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->BindGamepadButton(actionName, gamepadButton);
-}
-
-void spark_input_action_map_bind_gamepad_axis1_d(SparkGameComponent* component, const char* actionName, int gamepadAxis, float axisScale) {
-    auto self = AsInputActionMapComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->BindGamepadAxis1D(actionName, gamepadAxis, axisScale);
-}
-
-void spark_player_input_set_action_map(SparkGameComponent* component, SparkGameComponent* mapIn) {
-    auto self = AsPlayerInputComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetActionMap(ResolveInputActionMap(mapIn));
-}
-
-int spark_player_input_is_action_pressed(const SparkGameComponent* component, const char* actionName) {
-    auto* self = AsPlayerInputComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsActionPressed(actionName) ? 1 : 0;
-}
-
-int spark_player_input_is_was_action_released_this_frame(const SparkGameComponent* component, const char* actionName) {
-    auto* self = AsPlayerInputComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->WasActionReleasedThisFrame(actionName) ? 1 : 0;
+    self->SetSize(Spark::Scripting::ToVector3(*s));
 }
 
 void spark_directional_light_get_color(const SparkGameComponent* component, SparkVector3* outColor) {
@@ -5025,15 +3780,6 @@ float spark_directional_light_get_intensity(const SparkGameComponent* component)
     return self->GetIntensity();
 }
 
-int spark_directional_light_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsDirectionalLightComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
 int spark_directional_light_is_casts_shadow(const SparkGameComponent* component) {
     auto* self = AsDirectionalLightComponent(component);
     if (self == nullptr) {
@@ -5043,31 +3789,13 @@ int spark_directional_light_is_casts_shadow(const SparkGameComponent* component)
     return self->CastsShadow() ? 1 : 0;
 }
 
-void spark_directional_light_set_color(SparkGameComponent* component, const SparkVector3* c) {
-    auto self = AsDirectionalLightComponent(component);
+int spark_directional_light_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsDirectionalLightComponent(component);
     if (self == nullptr) {
-        return;
+        return 0;
 
     }
-    self->SetColor(Spark::Scripting::ToVector3(*c));
-}
-
-void spark_directional_light_set_intensity(SparkGameComponent* component, float v) {
-    auto self = AsDirectionalLightComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetIntensity(v);
-}
-
-void spark_directional_light_set_enabled(SparkGameComponent* component, int e) {
-    auto self = AsDirectionalLightComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(e != 0);
+    return self->IsEnabled() ? 1 : 0;
 }
 
 void spark_directional_light_set_casts_shadow(SparkGameComponent* component, int c) {
@@ -5079,87 +3807,8 @@ void spark_directional_light_set_casts_shadow(SparkGameComponent* component, int
     self->SetCastsShadow(c != 0);
 }
 
-void spark_point_light2_d_get_local_offset(const SparkGameComponent* component, SparkVector2* outLocalOffset) {
-    auto* self = AsPointLight2DComponent(component);
-    if (self == nullptr || outLocalOffset == nullptr) {
-        return;
-    }
-    *outLocalOffset = Spark::Scripting::FromVector2(self->GetLocalOffset());
-}
-
-float spark_point_light2_d_get_world_z(const SparkGameComponent* component) {
-    auto* self = AsPointLight2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetWorldZ();
-}
-
-void spark_point_light2_d_get_color(const SparkGameComponent* component, SparkVector3* outColor) {
-    auto* self = AsPointLight2DComponent(component);
-    if (self == nullptr || outColor == nullptr) {
-        return;
-    }
-    *outColor = Spark::Scripting::FromVector3(self->GetColor());
-}
-
-float spark_point_light2_d_get_intensity(const SparkGameComponent* component) {
-    auto* self = AsPointLight2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetIntensity();
-}
-
-float spark_point_light2_d_get_effective_intensity(const SparkGameComponent* component) {
-    auto* self = AsPointLight2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetEffectiveIntensity();
-}
-
-float spark_point_light2_d_get_range(const SparkGameComponent* component) {
-    auto* self = AsPointLight2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRange();
-}
-
-int spark_point_light2_d_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsPointLight2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-void spark_point_light2_d_set_local_offset(SparkGameComponent* component, const SparkVector2* offset) {
-    auto self = AsPointLight2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetLocalOffset(Spark::Scripting::ToVector2(*offset));
-}
-
-void spark_point_light2_d_set_world_z(SparkGameComponent* component, float z) {
-    auto self = AsPointLight2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetWorldZ(z);
-}
-
-void spark_point_light2_d_set_color(SparkGameComponent* component, const SparkVector3* c) {
-    auto self = AsPointLight2DComponent(component);
+void spark_directional_light_set_color(SparkGameComponent* component, const SparkVector3* c) {
+    auto self = AsDirectionalLightComponent(component);
     if (self == nullptr) {
         return;
 
@@ -5167,485 +3816,22 @@ void spark_point_light2_d_set_color(SparkGameComponent* component, const SparkVe
     self->SetColor(Spark::Scripting::ToVector3(*c));
 }
 
-void spark_point_light2_d_set_intensity(SparkGameComponent* component, float v) {
-    auto self = AsPointLight2DComponent(component);
+void spark_directional_light_set_enabled(SparkGameComponent* component, int e) {
+    auto self = AsDirectionalLightComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(e != 0);
+}
+
+void spark_directional_light_set_intensity(SparkGameComponent* component, float v) {
+    auto self = AsDirectionalLightComponent(component);
     if (self == nullptr) {
         return;
 
     }
     self->SetIntensity(v);
-}
-
-void spark_point_light2_d_set_range(SparkGameComponent* component, float r) {
-    auto self = AsPointLight2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRange(r);
-}
-
-void spark_point_light2_d_set_enabled(SparkGameComponent* component, int e) {
-    auto self = AsPointLight2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(e);
-}
-
-void spark_point_light2_d_set_flicker(SparkGameComponent* component, int on, float amount, float frequencyHz) {
-    auto self = AsPointLight2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetFlicker(on, amount, frequencyHz);
-}
-
-int spark_point_light2_d_get_flicker_enabled(const SparkGameComponent* component) {
-    auto* self = AsPointLight2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetFlickerEnabled() ? 1 : 0;
-}
-
-float spark_point_light2_d_get_flicker_amount(const SparkGameComponent* component) {
-    auto* self = AsPointLight2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetFlickerAmount();
-}
-
-float spark_point_light2_d_get_flicker_hz(const SparkGameComponent* component) {
-    auto* self = AsPointLight2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetFlickerHz();
-}
-
-void spark_point_light_get_color(const SparkGameComponent* component, SparkVector3* outColor) {
-    auto* self = AsPointLightComponent(component);
-    if (self == nullptr || outColor == nullptr) {
-        return;
-    }
-    *outColor = Spark::Scripting::FromVector3(self->GetColor());
-}
-
-float spark_point_light_get_intensity(const SparkGameComponent* component) {
-    auto* self = AsPointLightComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetIntensity();
-}
-
-float spark_point_light_get_range(const SparkGameComponent* component) {
-    auto* self = AsPointLightComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRange();
-}
-
-int spark_point_light_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsPointLightComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-int spark_point_light_is_casts_shadow(const SparkGameComponent* component) {
-    auto* self = AsPointLightComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->CastsShadow() ? 1 : 0;
-}
-
-void spark_point_light_set_casts_shadow(SparkGameComponent* component, int c) {
-    auto self = AsPointLightComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetCastsShadow(c != 0);
-}
-
-void spark_spot_light_get_color(const SparkGameComponent* component, SparkVector3* outColor) {
-    auto* self = AsSpotLightComponent(component);
-    if (self == nullptr || outColor == nullptr) {
-        return;
-    }
-    *outColor = Spark::Scripting::FromVector3(self->GetColor());
-}
-
-float spark_spot_light_get_intensity(const SparkGameComponent* component) {
-    auto* self = AsSpotLightComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetIntensity();
-}
-
-float spark_spot_light_get_range(const SparkGameComponent* component) {
-    auto* self = AsSpotLightComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRange();
-}
-
-float spark_spot_light_get_inner_cone_degrees(const SparkGameComponent* component) {
-    auto* self = AsSpotLightComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetInnerConeDegrees();
-}
-
-float spark_spot_light_get_outer_cone_degrees(const SparkGameComponent* component) {
-    auto* self = AsSpotLightComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetOuterConeDegrees();
-}
-
-int spark_spot_light_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsSpotLightComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-int spark_spot_light_is_casts_shadow(const SparkGameComponent* component) {
-    auto* self = AsSpotLightComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->CastsShadow() ? 1 : 0;
-}
-
-void spark_spot_light_set_inner_cone_degrees(SparkGameComponent* component, float deg) {
-    auto self = AsSpotLightComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetInnerConeDegrees(deg);
-}
-
-void spark_spot_light_set_outer_cone_degrees(SparkGameComponent* component, float deg) {
-    auto self = AsSpotLightComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetOuterConeDegrees(deg);
-}
-
-void spark_spot_light_set_casts_shadow(SparkGameComponent* component, int c) {
-    auto self = AsSpotLightComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetCastsShadow(c != 0);
-}
-
-void spark_box_collider_2d_get_half_extents(const SparkGameComponent* component, SparkVector2* outHalfExtents) {
-    auto* self = AsBoxCollider2DComponent(component);
-    if (self == nullptr || outHalfExtents == nullptr) {
-        return;
-    }
-    *outHalfExtents = Spark::Scripting::FromVector2(self->GetHalfExtents());
-}
-
-void spark_box_collider_2d_get_offset(const SparkGameComponent* component, SparkVector2* outOffset) {
-    auto* self = AsBoxCollider2DComponent(component);
-    if (self == nullptr || outOffset == nullptr) {
-        return;
-    }
-    *outOffset = Spark::Scripting::FromVector2(self->GetOffset());
-}
-
-void spark_box_collider_2d_set_offset(SparkGameComponent* component, const SparkVector2* o) {
-    auto self = AsBoxCollider2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetOffset(Spark::Scripting::ToVector2(*o));
-}
-
-int spark_box_collider_2d_get_is_trigger(const SparkGameComponent* component) {
-    auto* self = AsBoxCollider2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetIsTrigger() ? 1 : 0;
-}
-
-float spark_character_controller2_d_get_move_speed(const SparkGameComponent* component) {
-    auto* self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetMoveSpeed();
-}
-
-void spark_character_controller2_d_set_move_speed(SparkGameComponent* component, float speed) {
-    auto self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMoveSpeed(speed);
-}
-
-float spark_character_controller2_d_get_jump_speed(const SparkGameComponent* component) {
-    auto* self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetJumpSpeed();
-}
-
-void spark_character_controller2_d_set_jump_speed(SparkGameComponent* component, float speed) {
-    auto self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetJumpSpeed(speed);
-}
-
-float spark_character_controller2_d_get_coyote_time_seconds(const SparkGameComponent* component) {
-    auto* self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetCoyoteTimeSeconds();
-}
-
-void spark_character_controller2_d_set_coyote_time_seconds(SparkGameComponent* component, float seconds) {
-    auto self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetCoyoteTimeSeconds(seconds);
-}
-
-float spark_character_controller2_d_get_jump_buffer_seconds(const SparkGameComponent* component) {
-    auto* self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetJumpBufferSeconds();
-}
-
-void spark_character_controller2_d_set_jump_buffer_seconds(SparkGameComponent* component, float seconds) {
-    auto self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetJumpBufferSeconds(seconds);
-}
-
-float spark_character_controller2_d_get_snap_to_ground_distance(const SparkGameComponent* component) {
-    auto* self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetSnapToGroundDistance();
-}
-
-float spark_character_controller2_d_get_slope_limit_degrees(const SparkGameComponent* component) {
-    auto* self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetSlopeLimitDegrees();
-}
-
-float spark_character_controller2_d_get_skin_width(const SparkGameComponent* component) {
-    auto* self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetSkinWidth();
-}
-
-void spark_character_controller2_d_set_skin_width(SparkGameComponent* component, float width) {
-    auto self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSkinWidth(width);
-}
-
-void spark_character_controller2_d_set_move_input_x(SparkGameComponent* component, float normalized) {
-    auto self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMoveInputX(normalized);
-}
-
-float spark_character_controller2_d_get_move_input_x(const SparkGameComponent* component) {
-    auto* self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetMoveInputX();
-}
-
-void spark_character_controller2_d_set_move_input_y(SparkGameComponent* component, float normalized) {
-    auto self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMoveInputY(normalized);
-}
-
-float spark_character_controller2_d_get_move_input_y(const SparkGameComponent* component) {
-    auto* self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetMoveInputY();
-}
-
-void spark_character_controller2_d_set_motor_mode(SparkGameComponent* component, int mode) {
-    auto self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMotorMode(static_cast<Spark::CharacterController2DMotorMode>(static_cast<std::uint8_t>(mode)));
-}
-
-int spark_character_controller2_d_get_motor_mode(const SparkGameComponent* component) {
-    auto* self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetMotorMode()));
-}
-
-void spark_character_controller2_d_request_jump(SparkGameComponent* component) {
-    auto self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->RequestJump();
-}
-
-void spark_character_controller2_d_set_drop_through_one_way(SparkGameComponent* component, int drop) {
-    auto self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetDropThroughOneWay(drop);
-}
-
-int spark_character_controller2_d_get_drop_through_one_way(const SparkGameComponent* component) {
-    auto* self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetDropThroughOneWay() ? 1 : 0;
-}
-
-int spark_character_controller2_d_is_grounded(const SparkGameComponent* component) {
-    auto* self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsGrounded() ? 1 : 0;
-}
-
-int spark_character_controller2_d_is_was_grounded_last_frame(const SparkGameComponent* component) {
-    auto* self = AsCharacterController2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->WasGroundedLastFrame() ? 1 : 0;
-}
-
-float spark_circle_collider_2d_get_radius(const SparkGameComponent* component) {
-    auto* self = AsCircleCollider2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRadius();
-}
-
-void spark_circle_collider_2d_get_offset(const SparkGameComponent* component, SparkVector2* outOffset) {
-    auto* self = AsCircleCollider2DComponent(component);
-    if (self == nullptr || outOffset == nullptr) {
-        return;
-    }
-    *outOffset = Spark::Scripting::FromVector2(self->GetOffset());
-}
-
-void spark_circle_collider_2d_set_offset(SparkGameComponent* component, const SparkVector2* o) {
-    auto self = AsCircleCollider2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetOffset(Spark::Scripting::ToVector2(*o));
-}
-
-int spark_circle_collider_2d_get_is_trigger(const SparkGameComponent* component) {
-    auto* self = AsCircleCollider2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetIsTrigger() ? 1 : 0;
 }
 
 SparkGameObject* spark_distance_joint2_d_get_connected_body(const SparkGameComponent* component) {
@@ -5657,13 +3843,20 @@ SparkGameObject* spark_distance_joint2_d_get_connected_body(const SparkGameCompo
     return reinterpret_cast<SparkGameObject*>(self->GetConnectedBody());
 }
 
-void spark_distance_joint2_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o) {
-    auto self = AsDistanceJoint2DComponent(component);
-    if (self == nullptr) {
+void spark_distance_joint2_d_get_local_anchor_a(const SparkGameComponent* component, SparkVector2* outLocalAnchorA) {
+    auto* self = AsDistanceJoint2DComponent(component);
+    if (self == nullptr || outLocalAnchorA == nullptr) {
         return;
-
     }
-    self->SetConnectedBody(reinterpret_cast<Spark::GameObject*>(o));
+    *outLocalAnchorA = Spark::Scripting::FromVector2(self->GetLocalAnchorA());
+}
+
+void spark_distance_joint2_d_get_local_anchor_b(const SparkGameComponent* component, SparkVector2* outLocalAnchorB) {
+    auto* self = AsDistanceJoint2DComponent(component);
+    if (self == nullptr || outLocalAnchorB == nullptr) {
+        return;
+    }
+    *outLocalAnchorB = Spark::Scripting::FromVector2(self->GetLocalAnchorB());
 }
 
 float spark_distance_joint2_d_get_rest_length(const SparkGameComponent* component) {
@@ -5675,21 +3868,22 @@ float spark_distance_joint2_d_get_rest_length(const SparkGameComponent* componen
     return self->GetRestLength();
 }
 
-void spark_distance_joint2_d_set_rest_length(SparkGameComponent* component, float r) {
+float spark_distance_joint2_d_get_stiffness(const SparkGameComponent* component) {
+    auto* self = AsDistanceJoint2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetStiffness();
+}
+
+void spark_distance_joint2_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o) {
     auto self = AsDistanceJoint2DComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetRestLength(r);
-}
-
-void spark_distance_joint2_d_get_local_anchor_a(const SparkGameComponent* component, SparkVector2* outLocalAnchorA) {
-    auto* self = AsDistanceJoint2DComponent(component);
-    if (self == nullptr || outLocalAnchorA == nullptr) {
-        return;
-    }
-    *outLocalAnchorA = Spark::Scripting::FromVector2(self->GetLocalAnchorA());
+    self->SetConnectedBody(reinterpret_cast<Spark::GameObject*>(o));
 }
 
 void spark_distance_joint2_d_set_local_anchor_a(SparkGameComponent* component, const SparkVector2* a) {
@@ -5701,14 +3895,6 @@ void spark_distance_joint2_d_set_local_anchor_a(SparkGameComponent* component, c
     self->SetLocalAnchorA(Spark::Scripting::ToVector2(*a));
 }
 
-void spark_distance_joint2_d_get_local_anchor_b(const SparkGameComponent* component, SparkVector2* outLocalAnchorB) {
-    auto* self = AsDistanceJoint2DComponent(component);
-    if (self == nullptr || outLocalAnchorB == nullptr) {
-        return;
-    }
-    *outLocalAnchorB = Spark::Scripting::FromVector2(self->GetLocalAnchorB());
-}
-
 void spark_distance_joint2_d_set_local_anchor_b(SparkGameComponent* component, const SparkVector2* b) {
     auto self = AsDistanceJoint2DComponent(component);
     if (self == nullptr) {
@@ -5718,13 +3904,13 @@ void spark_distance_joint2_d_set_local_anchor_b(SparkGameComponent* component, c
     self->SetLocalAnchorB(Spark::Scripting::ToVector2(*b));
 }
 
-float spark_distance_joint2_d_get_stiffness(const SparkGameComponent* component) {
-    auto* self = AsDistanceJoint2DComponent(component);
+void spark_distance_joint2_d_set_rest_length(SparkGameComponent* component, float r) {
+    auto self = AsDistanceJoint2DComponent(component);
     if (self == nullptr) {
-        return 0.0F;
+        return;
 
     }
-    return self->GetStiffness();
+    self->SetRestLength(r);
 }
 
 void spark_distance_joint2_d_set_stiffness(SparkGameComponent* component, float s) {
@@ -5736,1001 +3922,6 @@ void spark_distance_joint2_d_set_stiffness(SparkGameComponent* component, float 
     self->SetStiffness(s);
 }
 
-SparkGameObject* spark_hinge_joint2_d_get_connected_body(const SparkGameComponent* component) {
-    auto* self = AsHingeJoint2DComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetConnectedBody());
-}
-
-void spark_hinge_joint2_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o) {
-    auto self = AsHingeJoint2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetConnectedBody(reinterpret_cast<Spark::GameObject*>(o));
-}
-
-void spark_hinge_joint2_d_get_local_anchor_a(const SparkGameComponent* component, SparkVector2* outLocalAnchorA) {
-    auto* self = AsHingeJoint2DComponent(component);
-    if (self == nullptr || outLocalAnchorA == nullptr) {
-        return;
-    }
-    *outLocalAnchorA = Spark::Scripting::FromVector2(self->GetLocalAnchorA());
-}
-
-void spark_hinge_joint2_d_set_local_anchor_a(SparkGameComponent* component, const SparkVector2* a) {
-    auto self = AsHingeJoint2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetLocalAnchorA(Spark::Scripting::ToVector2(*a));
-}
-
-void spark_hinge_joint2_d_get_local_anchor_b(const SparkGameComponent* component, SparkVector2* outLocalAnchorB) {
-    auto* self = AsHingeJoint2DComponent(component);
-    if (self == nullptr || outLocalAnchorB == nullptr) {
-        return;
-    }
-    *outLocalAnchorB = Spark::Scripting::FromVector2(self->GetLocalAnchorB());
-}
-
-void spark_hinge_joint2_d_set_local_anchor_b(SparkGameComponent* component, const SparkVector2* b) {
-    auto self = AsHingeJoint2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetLocalAnchorB(Spark::Scripting::ToVector2(*b));
-}
-
-float spark_hinge_joint2_d_get_stiffness(const SparkGameComponent* component) {
-    auto* self = AsHingeJoint2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetStiffness();
-}
-
-void spark_hinge_joint2_d_set_stiffness(SparkGameComponent* component, float s) {
-    auto self = AsHingeJoint2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetStiffness(s);
-}
-
-void spark_hurtbox2_d_set_enabled(SparkGameComponent* component, int value) {
-    auto self = AsHurtbox2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(value);
-}
-
-int spark_hurtbox2_d_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsHurtbox2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-void spark_hurtbox2_d_set_shape(SparkGameComponent* component, int value) {
-    auto self = AsHurtbox2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetShape(static_cast<Spark::Hurtbox2DShape>(static_cast<std::uint8_t>(value)));
-}
-
-int spark_hurtbox2_d_get_shape(const SparkGameComponent* component) {
-    auto* self = AsHurtbox2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetShape()));
-}
-
-void spark_hurtbox2_d_set_local_offset(SparkGameComponent* component, const SparkVector2* offset) {
-    auto self = AsHurtbox2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetLocalOffset(Spark::Scripting::ToVector2(*offset));
-}
-
-void spark_hurtbox2_d_get_local_offset(const SparkGameComponent* component, SparkVector2* outLocalOffset) {
-    auto* self = AsHurtbox2DComponent(component);
-    if (self == nullptr || outLocalOffset == nullptr) {
-        return;
-    }
-    *outLocalOffset = Spark::Scripting::FromVector2(self->GetLocalOffset());
-}
-
-void spark_hurtbox2_d_set_radius(SparkGameComponent* component, float value) {
-    auto self = AsHurtbox2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRadius(value);
-}
-
-float spark_hurtbox2_d_get_radius(const SparkGameComponent* component) {
-    auto* self = AsHurtbox2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRadius();
-}
-
-void spark_hurtbox2_d_set_half_extents(SparkGameComponent* component, const SparkVector2* value) {
-    auto self = AsHurtbox2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetHalfExtents(Spark::Scripting::ToVector2(*value));
-}
-
-void spark_hurtbox2_d_get_half_extents(const SparkGameComponent* component, SparkVector2* outHalfExtents) {
-    auto* self = AsHurtbox2DComponent(component);
-    if (self == nullptr || outHalfExtents == nullptr) {
-        return;
-    }
-    *outHalfExtents = Spark::Scripting::FromVector2(self->GetHalfExtents());
-}
-
-void spark_hurtbox2_d_set_category_bits(SparkGameComponent* component, int bits) {
-    auto self = AsHurtbox2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetCategoryBits(bits);
-}
-
-void spark_hurtbox2_d_set_mask_bits(SparkGameComponent* component, int bits) {
-    auto self = AsHurtbox2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMaskBits(bits);
-}
-
-void spark_hurtbox2_d_set_invulnerability_seconds(SparkGameComponent* component, float seconds) {
-    auto self = AsHurtbox2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetInvulnerabilitySeconds(seconds);
-}
-
-float spark_hurtbox2_d_get_invulnerability_seconds(const SparkGameComponent* component) {
-    auto* self = AsHurtbox2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetInvulnerabilitySeconds();
-}
-
-int spark_hurtbox2_d_is_invulnerable(const SparkGameComponent* component) {
-    auto* self = AsHurtbox2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsInvulnerable() ? 1 : 0;
-}
-
-void spark_hurtbox2_d_notify_damage_received(SparkGameComponent* component) {
-    auto self = AsHurtbox2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->NotifyDamageReceived();
-}
-
-int spark_one_way_platform_2d_is_one_way_platform(const SparkGameComponent* component) {
-    auto* self = AsOneWayPlatform2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsOneWayPlatform() ? 1 : 0;
-}
-
-float spark_physics_material2_d_get_dynamic_friction(const SparkGameComponent* component) {
-    auto* self = AsPhysicsMaterial2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetDynamicFriction();
-}
-
-void spark_physics_material2_d_set_dynamic_friction(SparkGameComponent* component, float v) {
-    auto self = AsPhysicsMaterial2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetDynamicFriction(v);
-}
-
-float spark_physics_material2_d_get_restitution(const SparkGameComponent* component) {
-    auto* self = AsPhysicsMaterial2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRestitution();
-}
-
-void spark_physics_material2_d_set_restitution(SparkGameComponent* component, float v) {
-    auto self = AsPhysicsMaterial2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRestitution(v);
-}
-
-void spark_polygon_collider2_d_clear_vertices(SparkGameComponent* component) {
-    auto self = AsPolygonCollider2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ClearVertices();
-}
-
-void spark_polygon_collider2_d_set_category_bits(SparkGameComponent* component, int bits) {
-    auto self = AsPolygonCollider2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetCategoryBits(bits);
-}
-
-void spark_polygon_collider2_d_set_mask_bits(SparkGameComponent* component, int bits) {
-    auto self = AsPolygonCollider2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMaskBits(bits);
-}
-
-int spark_polygon_collider2_d_get_is_trigger(const SparkGameComponent* component) {
-    auto* self = AsPolygonCollider2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetIsTrigger() ? 1 : 0;
-}
-
-void spark_polygon_collider2_d_set_is_trigger(SparkGameComponent* component, int value) {
-    auto self = AsPolygonCollider2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetIsTrigger(value != 0);
-}
-
-void spark_projectile2_d_set_active(SparkGameComponent* component, int value) {
-    auto self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetActive(value);
-}
-
-int spark_projectile2_d_is_active(const SparkGameComponent* component) {
-    auto* self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsActive() ? 1 : 0;
-}
-
-void spark_projectile2_d_deactivate(SparkGameComponent* component) {
-    auto self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->Deactivate();
-}
-
-void spark_projectile2_d_set_shape(SparkGameComponent* component, int value) {
-    auto self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetShape(static_cast<Spark::Projectile2DShape>(static_cast<std::uint8_t>(value)));
-}
-
-int spark_projectile2_d_get_shape(const SparkGameComponent* component) {
-    auto* self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetShape()));
-}
-
-void spark_projectile2_d_set_radius(SparkGameComponent* component, float value) {
-    auto self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRadius(value);
-}
-
-void spark_projectile2_d_set_half_extents(SparkGameComponent* component, const SparkVector2* value) {
-    auto self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetHalfExtents(Spark::Scripting::ToVector2(*value));
-}
-
-void spark_projectile2_d_set_damage(SparkGameComponent* component, float value) {
-    auto self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetDamage(value);
-}
-
-float spark_projectile2_d_get_damage(const SparkGameComponent* component) {
-    auto* self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetDamage();
-}
-
-void spark_projectile2_d_set_lifetime_seconds(SparkGameComponent* component, float seconds) {
-    auto self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetLifetimeSeconds(seconds);
-}
-
-float spark_projectile2_d_get_lifetime_seconds(const SparkGameComponent* component) {
-    auto* self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetLifetimeSeconds();
-}
-
-void spark_projectile2_d_set_instigator(SparkGameComponent* component, SparkGameObject* object) {
-    auto self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetInstigator(reinterpret_cast<Spark::GameObject*>(object));
-}
-
-SparkGameObject* spark_projectile2_d_get_instigator(const SparkGameComponent* component) {
-    auto* self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetInstigator());
-}
-
-void spark_projectile2_d_set_block_on_solid_hit(SparkGameComponent* component, int value) {
-    auto self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetBlockOnSolidHit(value);
-}
-
-int spark_projectile2_d_get_block_on_solid_hit(const SparkGameComponent* component) {
-    auto* self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetBlockOnSolidHit() ? 1 : 0;
-}
-
-void spark_projectile2_d_set_destroy_owner_on_deactivate(SparkGameComponent* component, int value) {
-    auto self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetDestroyOwnerOnDeactivate(value);
-}
-
-int spark_projectile2_d_get_destroy_owner_on_deactivate(const SparkGameComponent* component) {
-    auto* self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetDestroyOwnerOnDeactivate() ? 1 : 0;
-}
-
-void spark_projectile2_d_set_deactivate_on_first_hit(SparkGameComponent* component, int value) {
-    auto self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetDeactivateOnFirstHit(value);
-}
-
-int spark_projectile2_d_get_deactivate_on_first_hit(const SparkGameComponent* component) {
-    auto* self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetDeactivateOnFirstHit() ? 1 : 0;
-}
-
-void spark_projectile2_d_get_velocity(const SparkGameComponent* component, SparkVector2* outVelocity) {
-    auto* self = AsProjectile2DComponent(component);
-    if (self == nullptr || outVelocity == nullptr) {
-        return;
-    }
-    *outVelocity = Spark::Scripting::FromVector2(self->GetVelocity());
-}
-
-void spark_projectile2_d_set_velocity(SparkGameComponent* component, const SparkVector2* value) {
-    auto self = AsProjectile2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetVelocity(Spark::Scripting::ToVector2(*value));
-}
-
-int spark_rigidbody_2d_get_body_type(const SparkGameComponent* component) {
-    auto* self = AsRigidbody2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetBodyType()));
-}
-
-void spark_rigidbody_2d_set_body_type(SparkGameComponent* component, int t) {
-    auto self = AsRigidbody2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetBodyType(static_cast<Spark::RigidbodyBodyType2D>(static_cast<std::uint8_t>(t)));
-}
-
-float spark_rigidbody_2d_get_gravity_scale(const SparkGameComponent* component) {
-    auto* self = AsRigidbody2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetGravityScale();
-}
-
-void spark_rigidbody_2d_set_gravity_scale(SparkGameComponent* component, float g) {
-    auto self = AsRigidbody2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetGravityScale(g);
-}
-
-void spark_rigidbody_2d_set_velocity_x(SparkGameComponent* component, float x) {
-    auto self = AsRigidbody2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetVelocityX(x);
-}
-
-void spark_rigidbody_2d_set_velocity_y(SparkGameComponent* component, float y) {
-    auto self = AsRigidbody2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetVelocityY(y);
-}
-
-void spark_rigidbody_2d_set_grounded(SparkGameComponent* component, int g) {
-    auto self = AsRigidbody2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetGrounded(g != 0);
-}
-
-void spark_tilemap_collider2_d_set_category_bits(SparkGameComponent* component, int bits) {
-    auto self = AsTilemapCollider2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetCategoryBits(bits);
-}
-
-void spark_tilemap_collider2_d_set_mask_bits(SparkGameComponent* component, int bits) {
-    auto self = AsTilemapCollider2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMaskBits(bits);
-}
-
-int spark_tilemap_collider2_d_get_is_trigger(const SparkGameComponent* component) {
-    auto* self = AsTilemapCollider2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetIsTrigger() ? 1 : 0;
-}
-
-void spark_tilemap_collider2_d_set_is_trigger(SparkGameComponent* component, int value) {
-    auto self = AsTilemapCollider2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetIsTrigger(value);
-}
-
-int spark_trigger_volume2_d_get_shape(const SparkGameComponent* component) {
-    auto* self = AsTriggerVolume2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetShape()));
-}
-
-void spark_trigger_volume2_d_set_shape(SparkGameComponent* component, int value) {
-    auto self = AsTriggerVolume2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetShape(static_cast<Spark::TriggerVolume2DShape>(static_cast<std::uint8_t>(value)));
-}
-
-void spark_trigger_volume2_d_get_half_extents(const SparkGameComponent* component, SparkVector2* outHalfExtents) {
-    auto* self = AsTriggerVolume2DComponent(component);
-    if (self == nullptr || outHalfExtents == nullptr) {
-        return;
-    }
-    *outHalfExtents = Spark::Scripting::FromVector2(self->GetHalfExtents());
-}
-
-void spark_trigger_volume2_d_set_half_extents(SparkGameComponent* component, const SparkVector2* value) {
-    auto self = AsTriggerVolume2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetHalfExtents(Spark::Scripting::ToVector2(*value));
-}
-
-float spark_trigger_volume2_d_get_radius(const SparkGameComponent* component) {
-    auto* self = AsTriggerVolume2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRadius();
-}
-
-void spark_trigger_volume2_d_set_radius(SparkGameComponent* component, float value) {
-    auto self = AsTriggerVolume2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRadius(value);
-}
-
-void spark_trigger_volume2_d_get_offset(const SparkGameComponent* component, SparkVector2* outOffset) {
-    auto* self = AsTriggerVolume2DComponent(component);
-    if (self == nullptr || outOffset == nullptr) {
-        return;
-    }
-    *outOffset = Spark::Scripting::FromVector2(self->GetOffset());
-}
-
-void spark_trigger_volume2_d_set_offset(SparkGameComponent* component, const SparkVector2* value) {
-    auto self = AsTriggerVolume2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetOffset(Spark::Scripting::ToVector2(*value));
-}
-
-void spark_trigger_volume2_d_set_filter_tag(SparkGameComponent* component, const char* tag) {
-    auto self = AsTriggerVolume2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetFilterTag(tag);
-}
-
-int spark_trigger_volume2_d_is_overlapping(const SparkGameComponent* component, SparkGameObject* other) {
-    auto* self = AsTriggerVolume2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsOverlapping(*reinterpret_cast<Spark::GameObject*>(other)) ? 1 : 0;
-}
-
-void spark_box_collider3_d_get_half_extents(const SparkGameComponent* component, SparkVector3* outHalfExtents) {
-    auto* self = AsBoxCollider3DComponent(component);
-    if (self == nullptr || outHalfExtents == nullptr) {
-        return;
-    }
-    *outHalfExtents = Spark::Scripting::FromVector3(self->GetHalfExtents());
-}
-
-void spark_box_collider3_d_get_offset(const SparkGameComponent* component, SparkVector3* outOffset) {
-    auto* self = AsBoxCollider3DComponent(component);
-    if (self == nullptr || outOffset == nullptr) {
-        return;
-    }
-    *outOffset = Spark::Scripting::FromVector3(self->GetOffset());
-}
-
-void spark_box_collider3_d_set_half_extents(SparkGameComponent* component, const SparkVector3* h) {
-    auto self = AsBoxCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetHalfExtents(Spark::Scripting::ToVector3(*h));
-}
-
-void spark_box_collider3_d_set_offset(SparkGameComponent* component, const SparkVector3* o) {
-    auto self = AsBoxCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetOffset(Spark::Scripting::ToVector3(*o));
-}
-
-void spark_box_collider3_d_set_category_bits(SparkGameComponent* component, int bits) {
-    auto self = AsBoxCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetCategoryBits(bits);
-}
-
-void spark_box_collider3_d_set_mask_bits(SparkGameComponent* component, int bits) {
-    auto self = AsBoxCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMaskBits(bits);
-}
-
-int spark_box_collider3_d_get_is_trigger(const SparkGameComponent* component) {
-    auto* self = AsBoxCollider3DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetIsTrigger() ? 1 : 0;
-}
-
-void spark_box_collider3_d_set_is_trigger(SparkGameComponent* component, int value) {
-    auto self = AsBoxCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetIsTrigger(value);
-}
-
-float spark_capsule_collider3_d_get_radius(const SparkGameComponent* component) {
-    auto* self = AsCapsuleCollider3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRadius();
-}
-
-void spark_capsule_collider3_d_set_radius(SparkGameComponent* component, float r) {
-    auto self = AsCapsuleCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRadius(r);
-}
-
-float spark_capsule_collider3_d_get_height(const SparkGameComponent* component) {
-    auto* self = AsCapsuleCollider3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetHeight();
-}
-
-void spark_capsule_collider3_d_set_height(SparkGameComponent* component, float h) {
-    auto self = AsCapsuleCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetHeight(h);
-}
-
-int spark_capsule_collider3_d_get_direction(const SparkGameComponent* component) {
-    auto* self = AsCapsuleCollider3DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetDirection()));
-}
-
-void spark_capsule_collider3_d_set_direction(SparkGameComponent* component, int axis) {
-    auto self = AsCapsuleCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetDirection(static_cast<Spark::CapsuleDirection3D>(static_cast<std::uint8_t>(axis)));
-}
-
-void spark_capsule_collider3_d_get_offset(const SparkGameComponent* component, SparkVector3* outOffset) {
-    auto* self = AsCapsuleCollider3DComponent(component);
-    if (self == nullptr || outOffset == nullptr) {
-        return;
-    }
-    *outOffset = Spark::Scripting::FromVector3(self->GetOffset());
-}
-
-void spark_capsule_collider3_d_set_offset(SparkGameComponent* component, const SparkVector3* o) {
-    auto self = AsCapsuleCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetOffset(Spark::Scripting::ToVector3(*o));
-}
-
-void spark_capsule_collider3_d_set_category_bits(SparkGameComponent* component, int bits) {
-    auto self = AsCapsuleCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetCategoryBits(bits);
-}
-
-void spark_capsule_collider3_d_set_mask_bits(SparkGameComponent* component, int bits) {
-    auto self = AsCapsuleCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMaskBits(bits);
-}
-
-int spark_capsule_collider3_d_get_is_trigger(const SparkGameComponent* component) {
-    auto* self = AsCapsuleCollider3DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetIsTrigger() ? 1 : 0;
-}
-
-void spark_capsule_collider3_d_set_is_trigger(SparkGameComponent* component, int value) {
-    auto self = AsCapsuleCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetIsTrigger(value);
-}
-
-float spark_character_controller3_d_get_radius(const SparkGameComponent* component) {
-    auto* self = AsCharacterController3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRadius();
-}
-
-void spark_character_controller3_d_set_radius(SparkGameComponent* component, float r) {
-    auto self = AsCharacterController3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRadius(r);
-}
-
-void spark_character_controller3_d_get_center_offset(const SparkGameComponent* component, SparkVector3* outCenterOffset) {
-    auto* self = AsCharacterController3DComponent(component);
-    if (self == nullptr || outCenterOffset == nullptr) {
-        return;
-    }
-    *outCenterOffset = Spark::Scripting::FromVector3(self->GetCenterOffset());
-}
-
-void spark_character_controller3_d_set_center_offset(SparkGameComponent* component, const SparkVector3* o) {
-    auto self = AsCharacterController3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetCenterOffset(Spark::Scripting::ToVector3(*o));
-}
-
-float spark_character_controller3_d_get_slope_limit_degrees(const SparkGameComponent* component) {
-    auto* self = AsCharacterController3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetSlopeLimitDegrees();
-}
-
-float spark_character_controller3_d_get_step_offset(const SparkGameComponent* component) {
-    auto* self = AsCharacterController3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetStepOffset();
-}
-
-void spark_character_controller3_d_set_step_offset(SparkGameComponent* component, float meters) {
-    auto self = AsCharacterController3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetStepOffset(meters);
-}
-
-float spark_character_controller3_d_get_skin_width(const SparkGameComponent* component) {
-    auto* self = AsCharacterController3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetSkinWidth();
-}
-
-void spark_character_controller3_d_set_skin_width(SparkGameComponent* component, float w) {
-    auto self = AsCharacterController3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSkinWidth(w);
-}
-
-float spark_character_controller3_d_get_gravity_scale(const SparkGameComponent* component) {
-    auto* self = AsCharacterController3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetGravityScale();
-}
-
-void spark_character_controller3_d_set_gravity_scale(SparkGameComponent* component, float g) {
-    auto self = AsCharacterController3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetGravityScale(g);
-}
-
-void spark_character_controller3_d_get_move_input(const SparkGameComponent* component, SparkVector3* outMoveInput) {
-    auto* self = AsCharacterController3DComponent(component);
-    if (self == nullptr || outMoveInput == nullptr) {
-        return;
-    }
-    *outMoveInput = Spark::Scripting::FromVector3(self->GetMoveInput());
-}
-
-void spark_character_controller3_d_get_velocity(const SparkGameComponent* component, SparkVector3* outVelocity) {
-    auto* self = AsCharacterController3DComponent(component);
-    if (self == nullptr || outVelocity == nullptr) {
-        return;
-    }
-    *outVelocity = Spark::Scripting::FromVector3(self->GetVelocity());
-}
-
-int spark_character_controller3_d_is_grounded(const SparkGameComponent* component) {
-    auto* self = AsCharacterController3DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsGrounded() ? 1 : 0;
-}
-
-void spark_character_controller3_d_set_category_bits(SparkGameComponent* component, int bits) {
-    auto self = AsCharacterController3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetCategoryBits(bits);
-}
-
-void spark_character_controller3_d_set_mask_bits(SparkGameComponent* component, int bits) {
-    auto self = AsCharacterController3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMaskBits(bits);
-}
-
 SparkGameObject* spark_distance_joint3_d_get_connected_body(const SparkGameComponent* component) {
     auto* self = AsDistanceJoint3DComponent(component);
     if (self == nullptr) {
@@ -6738,15 +3929,6 @@ SparkGameObject* spark_distance_joint3_d_get_connected_body(const SparkGameCompo
 
     }
     return reinterpret_cast<SparkGameObject*>(self->GetConnectedBody());
-}
-
-void spark_distance_joint3_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o) {
-    auto self = AsDistanceJoint3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetConnectedBody(reinterpret_cast<Spark::GameObject*>(o));
 }
 
 float spark_distance_joint3_d_get_rest_length(const SparkGameComponent* component) {
@@ -6758,15 +3940,6 @@ float spark_distance_joint3_d_get_rest_length(const SparkGameComponent* componen
     return self->GetRestLength();
 }
 
-void spark_distance_joint3_d_set_rest_length(SparkGameComponent* component, float r) {
-    auto self = AsDistanceJoint3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRestLength(r);
-}
-
 float spark_distance_joint3_d_get_stiffness(const SparkGameComponent* component) {
     auto* self = AsDistanceJoint3DComponent(component);
     if (self == nullptr) {
@@ -6774,6 +3947,24 @@ float spark_distance_joint3_d_get_stiffness(const SparkGameComponent* component)
 
     }
     return self->GetStiffness();
+}
+
+void spark_distance_joint3_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o) {
+    auto self = AsDistanceJoint3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetConnectedBody(reinterpret_cast<Spark::GameObject*>(o));
+}
+
+void spark_distance_joint3_d_set_rest_length(SparkGameComponent* component, float r) {
+    auto self = AsDistanceJoint3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRestLength(r);
 }
 
 void spark_distance_joint3_d_set_stiffness(SparkGameComponent* component, float s) {
@@ -6785,875 +3976,110 @@ void spark_distance_joint3_d_set_stiffness(SparkGameComponent* component, float 
     self->SetStiffness(s);
 }
 
-SparkGameObject* spark_hinge_joint3_d_get_connected_body(const SparkGameComponent* component) {
-    auto* self = AsHingeJoint3DComponent(component);
+SparkGameObject* spark_fog_of_war2_d_get_reveal_target(const SparkGameComponent* component) {
+    auto* self = AsFogOfWar2DComponent(component);
     if (self == nullptr) {
         return nullptr;
 
     }
-    return reinterpret_cast<SparkGameObject*>(self->GetConnectedBody());
+    return reinterpret_cast<SparkGameObject*>(self->GetRevealTarget());
 }
 
-void spark_hinge_joint3_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o) {
-    auto self = AsHingeJoint3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetConnectedBody(reinterpret_cast<Spark::GameObject*>(o));
-}
-
-void spark_hinge_joint3_d_get_local_anchor_a(const SparkGameComponent* component, SparkVector3* outLocalAnchorA) {
-    auto* self = AsHingeJoint3DComponent(component);
-    if (self == nullptr || outLocalAnchorA == nullptr) {
-        return;
-    }
-    *outLocalAnchorA = Spark::Scripting::FromVector3(self->GetLocalAnchorA());
-}
-
-void spark_hinge_joint3_d_set_local_anchor_a(SparkGameComponent* component, const SparkVector3* a) {
-    auto self = AsHingeJoint3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetLocalAnchorA(Spark::Scripting::ToVector3(*a));
-}
-
-void spark_hinge_joint3_d_get_local_anchor_b(const SparkGameComponent* component, SparkVector3* outLocalAnchorB) {
-    auto* self = AsHingeJoint3DComponent(component);
-    if (self == nullptr || outLocalAnchorB == nullptr) {
-        return;
-    }
-    *outLocalAnchorB = Spark::Scripting::FromVector3(self->GetLocalAnchorB());
-}
-
-void spark_hinge_joint3_d_set_local_anchor_b(SparkGameComponent* component, const SparkVector3* b) {
-    auto self = AsHingeJoint3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetLocalAnchorB(Spark::Scripting::ToVector3(*b));
-}
-
-float spark_hinge_joint3_d_get_stiffness(const SparkGameComponent* component) {
-    auto* self = AsHingeJoint3DComponent(component);
+float spark_fog_of_war2_d_get_vision_radius_world(const SparkGameComponent* component) {
+    auto* self = AsFogOfWar2DComponent(component);
     if (self == nullptr) {
         return 0.0F;
 
     }
-    return self->GetStiffness();
+    return self->GetVisionRadiusWorld();
 }
 
-void spark_hinge_joint3_d_set_stiffness(SparkGameComponent* component, float s) {
-    auto self = AsHingeJoint3DComponent(component);
+void spark_fog_of_war2_d_rebuild_mask_texture(SparkGameComponent* component) {
+    auto self = AsFogOfWar2DComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetStiffness(s);
+    self->RebuildMaskTexture();
 }
 
-void spark_hurtbox3_d_set_enabled(SparkGameComponent* component, int value) {
-    auto self = AsHurtbox3DComponent(component);
+void spark_fog_of_war2_d_set_reveal_target(SparkGameComponent* component, SparkGameObject* target) {
+    auto self = AsFogOfWar2DComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetEnabled(value);
+    self->SetRevealTarget(reinterpret_cast<Spark::GameObject*>(target));
 }
 
-int spark_hurtbox3_d_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsHurtbox3DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-void spark_hurtbox3_d_set_local_offset(SparkGameComponent* component, const SparkVector3* offset) {
-    auto self = AsHurtbox3DComponent(component);
+void spark_fog_of_war2_d_set_vision_radius_world(SparkGameComponent* component, float radius) {
+    auto self = AsFogOfWar2DComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetLocalOffset(Spark::Scripting::ToVector3(*offset));
+    self->SetVisionRadiusWorld(radius);
 }
 
-void spark_hurtbox3_d_get_local_offset(const SparkGameComponent* component, SparkVector3* outLocalOffset) {
-    auto* self = AsHurtbox3DComponent(component);
-    if (self == nullptr || outLocalOffset == nullptr) {
+void spark_fog_volume_get_fog_color(const SparkGameComponent* component, SparkVector3* outFogColor) {
+    auto* self = AsFogVolumeComponent(component);
+    if (self == nullptr || outFogColor == nullptr) {
         return;
     }
-    *outLocalOffset = Spark::Scripting::FromVector3(self->GetLocalOffset());
+    *outFogColor = Spark::Scripting::FromVector3(self->GetFogColor());
 }
 
-void spark_hurtbox3_d_set_radius(SparkGameComponent* component, float value) {
-    auto self = AsHurtbox3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRadius(value);
-}
-
-float spark_hurtbox3_d_get_radius(const SparkGameComponent* component) {
-    auto* self = AsHurtbox3DComponent(component);
+float spark_fog_volume_get_fog_density(const SparkGameComponent* component) {
+    auto* self = AsFogVolumeComponent(component);
     if (self == nullptr) {
         return 0.0F;
 
     }
-    return self->GetRadius();
+    return self->GetFogDensity();
 }
 
-void spark_hurtbox3_d_set_category_bits(SparkGameComponent* component, int bits) {
-    auto self = AsHurtbox3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetCategoryBits(bits);
-}
-
-void spark_hurtbox3_d_set_mask_bits(SparkGameComponent* component, int bits) {
-    auto self = AsHurtbox3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMaskBits(bits);
-}
-
-void spark_hurtbox3_d_set_invulnerability_seconds(SparkGameComponent* component, float seconds) {
-    auto self = AsHurtbox3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetInvulnerabilitySeconds(seconds);
-}
-
-float spark_hurtbox3_d_get_invulnerability_seconds(const SparkGameComponent* component) {
-    auto* self = AsHurtbox3DComponent(component);
+float spark_fog_volume_get_fog_end(const SparkGameComponent* component) {
+    auto* self = AsFogVolumeComponent(component);
     if (self == nullptr) {
         return 0.0F;
 
     }
-    return self->GetInvulnerabilitySeconds();
+    return self->GetFogEnd();
 }
 
-int spark_hurtbox3_d_is_invulnerable(const SparkGameComponent* component) {
-    auto* self = AsHurtbox3DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsInvulnerable() ? 1 : 0;
-}
-
-void spark_hurtbox3_d_notify_damage_received(SparkGameComponent* component) {
-    auto self = AsHurtbox3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->NotifyDamageReceived();
-}
-
-void spark_mesh_collider3_d_get_local_offset(const SparkGameComponent* component, SparkVector3* outLocalOffset) {
-    auto* self = AsMeshCollider3DComponent(component);
-    if (self == nullptr || outLocalOffset == nullptr) {
-        return;
-    }
-    *outLocalOffset = Spark::Scripting::FromVector3(self->GetLocalOffset());
-}
-
-void spark_mesh_collider3_d_set_local_offset(SparkGameComponent* component, const SparkVector3* o) {
-    auto self = AsMeshCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetLocalOffset(Spark::Scripting::ToVector3(*o));
-}
-
-int spark_mesh_collider3_d_get_is_trigger(const SparkGameComponent* component) {
-    auto* self = AsMeshCollider3DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetIsTrigger() ? 1 : 0;
-}
-
-void spark_mesh_collider3_d_set_is_trigger(SparkGameComponent* component, int t) {
-    auto self = AsMeshCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetIsTrigger(t);
-}
-
-void spark_mesh_collider3_d_set_category_bits(SparkGameComponent* component, int bits) {
-    auto self = AsMeshCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetCategoryBits(bits);
-}
-
-void spark_mesh_collider3_d_set_mask_bits(SparkGameComponent* component, int bits) {
-    auto self = AsMeshCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMaskBits(bits);
-}
-
-SparkGameObject* spark_physics_attached_body_3d_get_carrier(const SparkGameComponent* component) {
-    auto* self = AsPhysicsAttachedBody3DComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetCarrier());
-}
-
-void spark_physics_attached_body_3d_get_local_offset(const SparkGameComponent* component, SparkVector3* outLocalOffset) {
-    auto* self = AsPhysicsAttachedBody3DComponent(component);
-    if (self == nullptr || outLocalOffset == nullptr) {
-        return;
-    }
-    *outLocalOffset = Spark::Scripting::FromVector3(self->GetLocalOffset());
-}
-
-int spark_physics_attached_body_3d_is_attached(const SparkGameComponent* component) {
-    auto* self = AsPhysicsAttachedBody3DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsAttached() ? 1 : 0;
-}
-
-void spark_physics_layer3_d_set_category_bits(SparkGameComponent* component, int bits) {
-    auto self = AsPhysicsLayer3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetCategoryBits(bits);
-}
-
-void spark_physics_layer3_d_set_mask_bits(SparkGameComponent* component, int bits) {
-    auto self = AsPhysicsLayer3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMaskBits(bits);
-}
-
-int spark_physics_layer3_d_get_is_trigger(const SparkGameComponent* component) {
-    auto* self = AsPhysicsLayer3DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetIsTrigger() ? 1 : 0;
-}
-
-void spark_physics_layer3_d_set_is_trigger(SparkGameComponent* component, int value) {
-    auto self = AsPhysicsLayer3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetIsTrigger(value);
-}
-
-float spark_physics_material3_d_get_static_friction(const SparkGameComponent* component) {
-    auto* self = AsPhysicsMaterial3DComponent(component);
+float spark_fog_volume_get_fog_start(const SparkGameComponent* component) {
+    auto* self = AsFogVolumeComponent(component);
     if (self == nullptr) {
         return 0.0F;
 
     }
-    return self->GetStaticFriction();
+    return self->GetFogStart();
 }
 
-void spark_physics_material3_d_set_static_friction(SparkGameComponent* component, float v) {
-    auto self = AsPhysicsMaterial3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetStaticFriction(v);
-}
-
-float spark_physics_material3_d_get_dynamic_friction(const SparkGameComponent* component) {
-    auto* self = AsPhysicsMaterial3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetDynamicFriction();
-}
-
-void spark_physics_material3_d_set_dynamic_friction(SparkGameComponent* component, float v) {
-    auto self = AsPhysicsMaterial3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetDynamicFriction(v);
-}
-
-float spark_physics_material3_d_get_restitution(const SparkGameComponent* component) {
-    auto* self = AsPhysicsMaterial3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRestitution();
-}
-
-void spark_physics_material3_d_set_restitution(SparkGameComponent* component, float v) {
-    auto self = AsPhysicsMaterial3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRestitution(v);
-}
-
-float spark_rigidbody_3d_get_linear_damping(const SparkGameComponent* component) {
-    auto* self = AsRigidbody3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetLinearDamping();
-}
-
-float spark_rigidbody_3d_get_angular_damping(const SparkGameComponent* component) {
-    auto* self = AsRigidbody3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetAngularDamping();
-}
-
-float spark_rigidbody_3d_get_inverse_inertia_tensor_scale(const SparkGameComponent* component) {
-    auto* self = AsRigidbody3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetInverseInertiaTensorScale();
-}
-
-void spark_rigidbody_3d_set_inverse_inertia_tensor_scale(SparkGameComponent* component, float invI) {
-    auto self = AsRigidbody3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetInverseInertiaTensorScale(invI);
-}
-
-float spark_rigidbody_3d_get_inverse_mass(const SparkGameComponent* component) {
-    auto* self = AsRigidbody3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetInverseMass();
-}
-
-int spark_rigidbody_3d_get_body_type(const SparkGameComponent* component) {
-    auto* self = AsRigidbody3DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetBodyType()));
-}
-
-void spark_rigidbody_3d_set_body_type(SparkGameComponent* component, int t) {
-    auto self = AsRigidbody3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetBodyType(static_cast<Spark::RigidbodyBodyType3D>(static_cast<std::uint8_t>(t)));
-}
-
-float spark_rigidbody_3d_get_gravity_scale(const SparkGameComponent* component) {
-    auto* self = AsRigidbody3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetGravityScale();
-}
-
-void spark_rigidbody_3d_set_gravity_scale(SparkGameComponent* component, float g) {
-    auto self = AsRigidbody3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetGravityScale(g);
-}
-
-float spark_rigidbody_3d_get_restitution(const SparkGameComponent* component) {
-    auto* self = AsRigidbody3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRestitution();
-}
-
-float spark_sphere_collider3_d_get_radius(const SparkGameComponent* component) {
-    auto* self = AsSphereCollider3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRadius();
-}
-
-void spark_sphere_collider3_d_get_offset(const SparkGameComponent* component, SparkVector3* outOffset) {
-    auto* self = AsSphereCollider3DComponent(component);
-    if (self == nullptr || outOffset == nullptr) {
-        return;
-    }
-    *outOffset = Spark::Scripting::FromVector3(self->GetOffset());
-}
-
-void spark_sphere_collider3_d_set_radius(SparkGameComponent* component, float r) {
-    auto self = AsSphereCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRadius(r);
-}
-
-void spark_sphere_collider3_d_set_offset(SparkGameComponent* component, const SparkVector3* o) {
-    auto self = AsSphereCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetOffset(Spark::Scripting::ToVector3(*o));
-}
-
-void spark_sphere_collider3_d_set_category_bits(SparkGameComponent* component, int bits) {
-    auto self = AsSphereCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetCategoryBits(bits);
-}
-
-void spark_sphere_collider3_d_set_mask_bits(SparkGameComponent* component, int bits) {
-    auto self = AsSphereCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMaskBits(bits);
-}
-
-int spark_sphere_collider3_d_get_is_trigger(const SparkGameComponent* component) {
-    auto* self = AsSphereCollider3DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetIsTrigger() ? 1 : 0;
-}
-
-void spark_sphere_collider3_d_set_is_trigger(SparkGameComponent* component, int value) {
-    auto self = AsSphereCollider3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetIsTrigger(value);
-}
-
-SparkGameObject* spark_spring_joint3_d_get_connected_body(const SparkGameComponent* component) {
-    auto* self = AsSpringJoint3DComponent(component);
-    if (self == nullptr) {
-        return nullptr;
-
-    }
-    return reinterpret_cast<SparkGameObject*>(self->GetConnectedBody());
-}
-
-void spark_spring_joint3_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o) {
-    auto self = AsSpringJoint3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetConnectedBody(reinterpret_cast<Spark::GameObject*>(o));
-}
-
-float spark_spring_joint3_d_get_rest_length(const SparkGameComponent* component) {
-    auto* self = AsSpringJoint3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRestLength();
-}
-
-void spark_spring_joint3_d_set_rest_length(SparkGameComponent* component, float r) {
-    auto self = AsSpringJoint3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRestLength(r);
-}
-
-float spark_spring_joint3_d_get_spring_stiffness(const SparkGameComponent* component) {
-    auto* self = AsSpringJoint3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetSpringStiffness();
-}
-
-void spark_spring_joint3_d_set_spring_stiffness(SparkGameComponent* component, float k) {
-    auto self = AsSpringJoint3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSpringStiffness(k);
-}
-
-float spark_spring_joint3_d_get_damping(const SparkGameComponent* component) {
-    auto* self = AsSpringJoint3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetDamping();
-}
-
-void spark_spring_joint3_d_set_damping(SparkGameComponent* component, float d) {
-    auto self = AsSpringJoint3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetDamping(d);
-}
-
-int spark_trigger_volume3_d_get_shape(const SparkGameComponent* component) {
-    auto* self = AsTriggerVolume3DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetShape()));
-}
-
-void spark_trigger_volume3_d_set_shape(SparkGameComponent* component, int value) {
-    auto self = AsTriggerVolume3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetShape(static_cast<Spark::TriggerVolume3DShape>(static_cast<std::uint8_t>(value)));
-}
-
-void spark_trigger_volume3_d_get_half_extents(const SparkGameComponent* component, SparkVector3* outHalfExtents) {
-    auto* self = AsTriggerVolume3DComponent(component);
+void spark_fog_volume_get_half_extents(const SparkGameComponent* component, SparkVector3* outHalfExtents) {
+    auto* self = AsFogVolumeComponent(component);
     if (self == nullptr || outHalfExtents == nullptr) {
         return;
     }
     *outHalfExtents = Spark::Scripting::FromVector3(self->GetHalfExtents());
 }
 
-void spark_trigger_volume3_d_set_half_extents(SparkGameComponent* component, const SparkVector3* value) {
-    auto self = AsTriggerVolume3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetHalfExtents(Spark::Scripting::ToVector3(*value));
-}
-
-float spark_trigger_volume3_d_get_radius(const SparkGameComponent* component) {
-    auto* self = AsTriggerVolume3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRadius();
-}
-
-void spark_trigger_volume3_d_set_radius(SparkGameComponent* component, float value) {
-    auto self = AsTriggerVolume3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRadius(value);
-}
-
-float spark_trigger_volume3_d_get_height(const SparkGameComponent* component) {
-    auto* self = AsTriggerVolume3DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetHeight();
-}
-
-void spark_trigger_volume3_d_set_height(SparkGameComponent* component, float value) {
-    auto self = AsTriggerVolume3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetHeight(value);
-}
-
-int spark_trigger_volume3_d_get_capsule_direction(const SparkGameComponent* component) {
-    auto* self = AsTriggerVolume3DComponent(component);
+int32_t spark_fog_volume_get_priority(const SparkGameComponent* component) {
+    auto* self = AsFogVolumeComponent(component);
     if (self == nullptr) {
         return 0;
 
     }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetCapsuleDirection()));
+    return self->GetPriority();
 }
 
-void spark_trigger_volume3_d_set_capsule_direction(SparkGameComponent* component, int axis) {
-    auto self = AsTriggerVolume3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetCapsuleDirection(static_cast<Spark::CapsuleDirection3D>(static_cast<std::uint8_t>(axis)));
-}
-
-void spark_trigger_volume3_d_get_offset(const SparkGameComponent* component, SparkVector3* outOffset) {
-    auto* self = AsTriggerVolume3DComponent(component);
-    if (self == nullptr || outOffset == nullptr) {
-        return;
-    }
-    *outOffset = Spark::Scripting::FromVector3(self->GetOffset());
-}
-
-void spark_trigger_volume3_d_set_offset(SparkGameComponent* component, const SparkVector3* value) {
-    auto self = AsTriggerVolume3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetOffset(Spark::Scripting::ToVector3(*value));
-}
-
-void spark_trigger_volume3_d_set_filter_tag(SparkGameComponent* component, const char* tag) {
-    auto self = AsTriggerVolume3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetFilterTag(tag);
-}
-
-void spark_trigger_volume3_d_set_category_bits(SparkGameComponent* component, int bits) {
-    auto self = AsTriggerVolume3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetCategoryBits(bits);
-}
-
-void spark_trigger_volume3_d_set_mask_bits(SparkGameComponent* component, int bits) {
-    auto self = AsTriggerVolume3DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMaskBits(bits);
-}
-
-int spark_trigger_volume3_d_is_overlapping(const SparkGameComponent* component, SparkGameObject* other) {
-    auto* self = AsTriggerVolume3DComponent(component);
+int spark_fog_volume_get_shape(const SparkGameComponent* component) {
+    auto* self = AsFogVolumeComponent(component);
     if (self == nullptr) {
         return 0;
 
     }
-    return self->IsOverlapping(*reinterpret_cast<Spark::GameObject*>(other)) ? 1 : 0;
-}
-
-float spark_collision_get_radius(const SparkGameComponent* component) {
-    auto* self = AsCollisionComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRadius();
-}
-
-void spark_collision_get_local_center(const SparkGameComponent* component, SparkVector3* outLocalCenter) {
-    auto* self = AsCollisionComponent(component);
-    if (self == nullptr || outLocalCenter == nullptr) {
-        return;
-    }
-    *outLocalCenter = Spark::Scripting::FromVector3(self->GetLocalCenter());
-}
-
-void spark_collision_get_world_center(const SparkGameComponent* component, SparkVector3* outWorldCenter) {
-    auto* self = AsCollisionComponent(component);
-    if (self == nullptr || outWorldCenter == nullptr) {
-        return;
-    }
-    *outWorldCenter = Spark::Scripting::FromVector3(self->GetWorldCenter());
-}
-
-void spark_collision_set_radius(SparkGameComponent* component, float r) {
-    auto self = AsCollisionComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRadius(r);
-}
-
-void spark_collision_set_local_center(SparkGameComponent* component, const SparkVector3* c) {
-    auto self = AsCollisionComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetLocalCenter(Spark::Scripting::ToVector3(*c));
-}
-
-int spark_billboard_get_mode(const SparkGameComponent* component) {
-    auto* self = AsBillboardComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetMode()));
-}
-
-int spark_billboard_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsBillboardComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-void spark_billboard_set_mode(SparkGameComponent* component, int m) {
-    auto self = AsBillboardComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMode(static_cast<Spark::BillboardMode>(static_cast<std::uint8_t>(m)));
-}
-
-void spark_billboard_set_enabled(SparkGameComponent* component, int e) {
-    auto self = AsBillboardComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(e != 0);
-}
-
-int spark_blend_mode_get_mode(const SparkGameComponent* component) {
-    auto* self = AsBlendModeComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetMode()));
-}
-
-void spark_blend_mode_set_mode(SparkGameComponent* component, int m) {
-    auto self = AsBlendModeComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMode(static_cast<Spark::SceneBlendMode>(static_cast<std::uint8_t>(m)));
-}
-
-void spark_decal_projector_get_size(const SparkGameComponent* component, SparkVector3* outSize) {
-    auto* self = AsDecalProjectorComponent(component);
-    if (self == nullptr || outSize == nullptr) {
-        return;
-    }
-    *outSize = Spark::Scripting::FromVector3(self->GetSize());
-}
-
-float spark_decal_projector_get_opacity(const SparkGameComponent* component) {
-    auto* self = AsDecalProjectorComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetOpacity();
-}
-
-int spark_decal_projector_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsDecalProjectorComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-void spark_decal_projector_set_size(SparkGameComponent* component, const SparkVector3* s) {
-    auto self = AsDecalProjectorComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSize(Spark::Scripting::ToVector3(*s));
-}
-
-void spark_decal_projector_set_opacity(SparkGameComponent* component, float o) {
-    auto self = AsDecalProjectorComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetOpacity(o);
-}
-
-void spark_decal_projector_set_enabled(SparkGameComponent* component, int e) {
-    auto self = AsDecalProjectorComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(e != 0);
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetShape()));
 }
 
 int spark_fog_volume_is_enabled(const SparkGameComponent* component) {
@@ -7674,49 +4100,6 @@ void spark_fog_volume_set_enabled(SparkGameComponent* component, int e) {
     self->SetEnabled(e);
 }
 
-int spark_fog_volume_get_shape(const SparkGameComponent* component) {
-    auto* self = AsFogVolumeComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetShape()));
-}
-
-void spark_fog_volume_set_shape(SparkGameComponent* component, int s) {
-    auto self = AsFogVolumeComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetShape(static_cast<Spark::VolumeShape>(static_cast<std::uint8_t>(s)));
-}
-
-void spark_fog_volume_get_half_extents(const SparkGameComponent* component, SparkVector3* outHalfExtents) {
-    auto* self = AsFogVolumeComponent(component);
-    if (self == nullptr || outHalfExtents == nullptr) {
-        return;
-    }
-    *outHalfExtents = Spark::Scripting::FromVector3(self->GetHalfExtents());
-}
-
-void spark_fog_volume_set_half_extents(SparkGameComponent* component, const SparkVector3* e) {
-    auto self = AsFogVolumeComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetHalfExtents(Spark::Scripting::ToVector3(*e));
-}
-
-void spark_fog_volume_get_fog_color(const SparkGameComponent* component, SparkVector3* outFogColor) {
-    auto* self = AsFogVolumeComponent(component);
-    if (self == nullptr || outFogColor == nullptr) {
-        return;
-    }
-    *outFogColor = Spark::Scripting::FromVector3(self->GetFogColor());
-}
-
 void spark_fog_volume_set_fog_color(SparkGameComponent* component, const SparkVector3* c) {
     auto self = AsFogVolumeComponent(component);
     if (self == nullptr) {
@@ -7724,15 +4107,6 @@ void spark_fog_volume_set_fog_color(SparkGameComponent* component, const SparkVe
 
     }
     self->SetFogColor(Spark::Scripting::ToVector3(*c));
-}
-
-float spark_fog_volume_get_fog_density(const SparkGameComponent* component) {
-    auto* self = AsFogVolumeComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetFogDensity();
 }
 
 void spark_fog_volume_set_fog_density(SparkGameComponent* component, float d) {
@@ -7744,13 +4118,13 @@ void spark_fog_volume_set_fog_density(SparkGameComponent* component, float d) {
     self->SetFogDensity(d);
 }
 
-float spark_fog_volume_get_fog_start(const SparkGameComponent* component) {
-    auto* self = AsFogVolumeComponent(component);
+void spark_fog_volume_set_fog_end(SparkGameComponent* component, float e) {
+    auto self = AsFogVolumeComponent(component);
     if (self == nullptr) {
-        return 0.0F;
+        return;
 
     }
-    return self->GetFogStart();
+    self->SetFogEnd(e);
 }
 
 void spark_fog_volume_set_fog_start(SparkGameComponent* component, float s) {
@@ -7762,31 +4136,13 @@ void spark_fog_volume_set_fog_start(SparkGameComponent* component, float s) {
     self->SetFogStart(s);
 }
 
-float spark_fog_volume_get_fog_end(const SparkGameComponent* component) {
-    auto* self = AsFogVolumeComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetFogEnd();
-}
-
-void spark_fog_volume_set_fog_end(SparkGameComponent* component, float e) {
+void spark_fog_volume_set_half_extents(SparkGameComponent* component, const SparkVector3* e) {
     auto self = AsFogVolumeComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetFogEnd(e);
-}
-
-int32_t spark_fog_volume_get_priority(const SparkGameComponent* component) {
-    auto* self = AsFogVolumeComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetPriority();
+    self->SetHalfExtents(Spark::Scripting::ToVector3(*e));
 }
 
 void spark_fog_volume_set_priority(SparkGameComponent* component, int32_t p) {
@@ -7796,6 +4152,294 @@ void spark_fog_volume_set_priority(SparkGameComponent* component, int32_t p) {
 
     }
     self->SetPriority(p);
+}
+
+void spark_fog_volume_set_shape(SparkGameComponent* component, int s) {
+    auto self = AsFogVolumeComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetShape(static_cast<Spark::VolumeShape>(static_cast<std::uint8_t>(s)));
+}
+
+int spark_foliage_instanced_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsFoliageInstancedMeshComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+float spark_foot_ik_get_ray_max_distance(const SparkGameComponent* component) {
+    auto* self = AsFootIkComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRayMaxDistance();
+}
+
+float spark_foot_ik_get_ray_origin_lift(const SparkGameComponent* component) {
+    auto* self = AsFootIkComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRayOriginLift();
+}
+
+float spark_foot_ik_get_weight(const SparkGameComponent* component) {
+    auto* self = AsFootIkComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetWeight();
+}
+
+int spark_foot_ik_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsFootIkComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+void spark_foot_ik_set_enabled(SparkGameComponent* component, int value) {
+    auto self = AsFootIkComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(value != 0);
+}
+
+void spark_foot_ik_set_left_foot_patterns(SparkGameComponent* component, const char* rootPattern, const char* midPattern, const char* endPattern) {
+    auto self = AsFootIkComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetLeftFootPatterns(rootPattern, midPattern, endPattern);
+}
+
+void spark_foot_ik_set_ray_max_distance(SparkGameComponent* component, float value) {
+    auto self = AsFootIkComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRayMaxDistance(value);
+}
+
+void spark_foot_ik_set_ray_origin_lift(SparkGameComponent* component, float value) {
+    auto self = AsFootIkComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRayOriginLift(value);
+}
+
+void spark_foot_ik_set_right_foot_patterns(SparkGameComponent* component, const char* rootPattern, const char* midPattern, const char* endPattern) {
+    auto self = AsFootIkComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRightFootPatterns(rootPattern, midPattern, endPattern);
+}
+
+void spark_foot_ik_set_weight(SparkGameComponent* component, float value) {
+    auto self = AsFootIkComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetWeight(value);
+}
+
+SparkGameFlowTriggerSource spark_game_flow_trigger_get_source(const SparkGameComponent* component) {
+    auto* self = AsGameFlowTriggerComponent(component);
+    if (self == nullptr) {
+        return SparkGameFlowTriggerSource_TriggerEnter;
+
+    }
+    return static_cast<SparkGameFlowTriggerSource>(static_cast<std::uint8_t>(self->GetSource()));
+}
+
+SparkGameObject* spark_game_flow_trigger_get_state_owner(const SparkGameComponent* component) {
+    auto* self = AsGameFlowTriggerComponent(component);
+    if (self == nullptr) {
+        return nullptr;
+
+    }
+    return reinterpret_cast<SparkGameObject*>(self->GetStateOwner());
+}
+
+SparkGameFlowState spark_game_flow_trigger_get_target_state(const SparkGameComponent* component) {
+    auto* self = AsGameFlowTriggerComponent(component);
+    if (self == nullptr) {
+        return SparkGameFlowState_Playing;
+
+    }
+    return static_cast<SparkGameFlowState>(static_cast<std::uint8_t>(self->GetTargetState()));
+}
+
+SparkGameFlowState spark_game_flow_trigger_get_watch_state(const SparkGameComponent* component) {
+    auto* self = AsGameFlowTriggerComponent(component);
+    if (self == nullptr) {
+        return SparkGameFlowState_Playing;
+
+    }
+    return static_cast<SparkGameFlowState>(static_cast<std::uint8_t>(self->GetWatchState()));
+}
+
+void spark_game_flow_trigger_set_instigator_name_filter(SparkGameComponent* component, const char* filter) {
+    auto self = AsGameFlowTriggerComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetInstigatorNameFilter(filter);
+}
+
+void spark_game_flow_trigger_set_source(SparkGameComponent* component, SparkGameFlowTriggerSource value) {
+    auto self = AsGameFlowTriggerComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSource(static_cast<Spark::GameFlowTriggerSource>(static_cast<std::uint8_t>(value)));
+}
+
+void spark_game_flow_trigger_set_state_owner(SparkGameComponent* component, SparkGameObject* owner) {
+    auto self = AsGameFlowTriggerComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetStateOwner(reinterpret_cast<Spark::GameObject*>(owner));
+}
+
+void spark_game_flow_trigger_set_target_state(SparkGameComponent* component, SparkGameFlowState state) {
+    auto self = AsGameFlowTriggerComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetTargetState(static_cast<Spark::GameFlowState>(static_cast<std::uint8_t>(state)));
+}
+
+void spark_game_flow_trigger_set_watch_state(SparkGameComponent* component, SparkGameFlowState state) {
+    auto self = AsGameFlowTriggerComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetWatchState(static_cast<Spark::GameFlowState>(static_cast<std::uint8_t>(state)));
+}
+
+SparkGameFlowState spark_game_state_get_previous_state(const SparkGameComponent* component) {
+    auto* self = AsGameStateComponent(component);
+    if (self == nullptr) {
+        return SparkGameFlowState_Playing;
+
+    }
+    return static_cast<SparkGameFlowState>(static_cast<std::uint8_t>(self->GetPreviousState()));
+}
+
+SparkGameFlowState spark_game_state_get_state(const SparkGameComponent* component) {
+    auto* self = AsGameStateComponent(component);
+    if (self == nullptr) {
+        return SparkGameFlowState_Playing;
+
+    }
+    return static_cast<SparkGameFlowState>(static_cast<std::uint8_t>(self->GetState()));
+}
+
+int spark_game_state_is_pop_state(SparkGameComponent* component) {
+    auto self = AsGameStateComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->PopState() ? 1 : 0;
+}
+
+int spark_game_state_is_request_state(SparkGameComponent* component, SparkGameFlowState nextState) {
+    auto self = AsGameStateComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->RequestState(static_cast<Spark::GameFlowState>(static_cast<std::uint8_t>(nextState))) ? 1 : 0;
+}
+
+int spark_game_state_is_state(const SparkGameComponent* component, SparkGameFlowState state) {
+    auto* self = AsGameStateComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsState(static_cast<Spark::GameFlowState>(static_cast<std::uint8_t>(state))) ? 1 : 0;
+}
+
+int spark_game_state_pop_state(SparkGameComponent* component) {
+    auto self = AsGameStateComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->PopState() ? 1 : 0;
+}
+
+void spark_game_state_push_state(SparkGameComponent* component, SparkGameFlowState nextState) {
+    auto self = AsGameStateComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->PushState(static_cast<Spark::GameFlowState>(static_cast<std::uint8_t>(nextState)));
+}
+
+int spark_game_state_request_state(SparkGameComponent* component, SparkGameFlowState nextState) {
+    auto self = AsGameStateComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->RequestState(static_cast<Spark::GameFlowState>(static_cast<std::uint8_t>(nextState))) ? 1 : 0;
+}
+
+int32_t spark_gameplay_team_get_team_id(const SparkGameComponent* component) {
+    auto* self = AsGameplayTeamComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetTeamId();
+}
+
+void spark_gameplay_team_set_gameplay_team(SparkGameComponent* component, int32_t id) {
+    auto self = AsGameplayTeamComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetGameplayTeam(Spark::GameplayTeamId{static_cast<std::int32_t>(id)});
+}
+
+int32_t spark_gameplay_team_set_team_id(const SparkGameComponent* component) {
+    auto* self = AsGameplayTeamComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetTeamId();
 }
 
 int32_t spark_gltf_instance_node_get_node_index(const SparkGameComponent* component) {
@@ -7825,221 +4469,17 @@ void spark_gltf_scene_source_set_gltf_asset_rel(SparkGameComponent* component, c
     self->SetGltfAssetRel(path);
 }
 
-void spark_material_get_tint(const SparkGameComponent* component, SparkVector3* outTint) {
-    auto* self = AsMaterialComponent(component);
-    if (self == nullptr || outTint == nullptr) {
-        return;
-    }
-    *outTint = Spark::Scripting::FromVector3(self->GetTint());
-}
-
-float spark_material_get_metallic(const SparkGameComponent* component) {
-    auto* self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetMetallic();
-}
-
-float spark_material_get_roughness(const SparkGameComponent* component) {
-    auto* self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRoughness();
-}
-
-float spark_material_get_metallic_factor(const SparkGameComponent* component) {
-    auto* self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetMetallicFactor();
-}
-
-float spark_material_get_roughness_factor(const SparkGameComponent* component) {
-    auto* self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRoughnessFactor();
-}
-
-float spark_material_get_occlusion_strength(const SparkGameComponent* component) {
-    auto* self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetOcclusionStrength();
-}
-
-void spark_material_get_emissive_color(const SparkGameComponent* component, SparkVector3* outEmissiveColor) {
-    auto* self = AsMaterialComponent(component);
-    if (self == nullptr || outEmissiveColor == nullptr) {
-        return;
-    }
-    *outEmissiveColor = Spark::Scripting::FromVector3(self->GetEmissiveColor());
-}
-
-float spark_material_get_emissive_intensity(const SparkGameComponent* component) {
-    auto* self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetEmissiveIntensity();
-}
-
-void spark_material_get_emissive_factor(const SparkGameComponent* component, SparkVector3* outEmissiveFactor) {
-    auto* self = AsMaterialComponent(component);
-    if (self == nullptr || outEmissiveFactor == nullptr) {
-        return;
-    }
-    *outEmissiveFactor = Spark::Scripting::FromVector3(self->GetEmissiveFactor());
-}
-
-void spark_material_set_metallic_factor(SparkGameComponent* component, float f) {
-    auto self = AsMaterialComponent(component);
+void spark_grass_field_bounds_set_half_extents(SparkGameComponent* component, float halfX, float halfZ) {
+    auto self = AsGrassFieldComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetMetallicFactor(f);
+    self->BoundsSetHalfExtents(halfX, halfZ);
 }
 
-void spark_material_set_roughness_factor(SparkGameComponent* component, float f) {
-    auto self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRoughnessFactor(f);
-}
-
-void spark_material_set_occlusion_strength(SparkGameComponent* component, float s) {
-    auto self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetOcclusionStrength(s);
-}
-
-void spark_material_set_emissive_factor(SparkGameComponent* component, const SparkVector3* f) {
-    auto self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEmissiveFactor(Spark::Scripting::ToVector3(*f));
-}
-
-void spark_material_set_shading_model(SparkGameComponent* component, int s) {
-    auto self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetShadingModel(static_cast<Spark::SceneShadingModel>(static_cast<std::uint8_t>(s)));
-}
-
-int32_t spark_material_get_toon_diffuse_bands(const SparkGameComponent* component) {
-    auto* self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetToonDiffuseBands();
-}
-
-void spark_material_set_toon_diffuse_bands(SparkGameComponent* component, int32_t bands) {
-    auto self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetToonDiffuseBands(bands);
-}
-
-float spark_material_get_toon_rim_intensity(const SparkGameComponent* component) {
-    auto* self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetToonRimIntensity();
-}
-
-void spark_material_set_toon_rim_intensity(SparkGameComponent* component, float v) {
-    auto self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetToonRimIntensity(v);
-}
-
-float spark_material_get_toon_rim_power(const SparkGameComponent* component) {
-    auto* self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetToonRimPower();
-}
-
-void spark_material_set_toon_rim_power(SparkGameComponent* component, float v) {
-    auto self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetToonRimPower(v);
-}
-
-int spark_material_is_double_sided(const SparkGameComponent* component) {
-    auto* self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsDoubleSided() ? 1 : 0;
-}
-
-void spark_material_set_double_sided(SparkGameComponent* component, int v) {
-    auto self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetDoubleSided(v != 0);
-}
-
-float spark_material_get_opacity(const SparkGameComponent* component) {
-    auto* self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetOpacity();
-}
-
-void spark_material_set_opacity(SparkGameComponent* component, float a) {
-    auto self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetOpacity(a);
-}
-
-float spark_material_get_alpha_cutoff(const SparkGameComponent* component) {
-    auto* self = AsMaterialComponent(component);
+float spark_grass_field_get_alpha_cutoff(const SparkGameComponent* component) {
+    auto* self = AsGrassFieldComponent(component);
     if (self == nullptr) {
         return 0.0F;
 
@@ -8047,67 +4487,1085 @@ float spark_material_get_alpha_cutoff(const SparkGameComponent* component) {
     return self->GetAlphaCutoff();
 }
 
-void spark_material_set_alpha_cutoff(SparkGameComponent* component, float cutoff) {
-    auto self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetAlphaCutoff(cutoff);
-}
-
-int spark_material_is_alpha_blend(const SparkGameComponent* component) {
-    auto* self = AsMaterialComponent(component);
+int spark_grass_field_get_enabled(const SparkGameComponent* component) {
+    auto* self = AsGrassFieldComponent(component);
     if (self == nullptr) {
         return 0;
 
     }
-    return self->IsAlphaBlend() ? 1 : 0;
+    return self->IsEnabled() ? 1 : 0;
 }
 
-void spark_material_set_alpha_blend(SparkGameComponent* component, int blend) {
-    auto self = AsMaterialComponent(component);
+int spark_grass_field_get_neighborhood_ring_radius(const SparkGameComponent* component) {
+    auto* self = AsGrassFieldComponent(component);
     if (self == nullptr) {
-        return;
+        return 0;
 
     }
-    self->SetAlphaBlend(blend != 0);
+    return self->GetNeighborhoodRingRadius();
 }
 
-float spark_material_get_normal_scale(const SparkGameComponent* component) {
-    auto* self = AsMaterialComponent(component);
+SparkGameObject* spark_grass_field_get_terrain_object(const SparkGameComponent* component) {
+    auto* self = AsGrassFieldComponent(component);
+    if (self == nullptr) {
+        return nullptr;
+
+    }
+    return reinterpret_cast<SparkGameObject*>(self->GetTerrainObject());
+}
+
+SparkGameObject* spark_grass_field_get_view_target_object(const SparkGameComponent* component) {
+    auto* self = AsGrassFieldComponent(component);
+    if (self == nullptr) {
+        return nullptr;
+
+    }
+    return reinterpret_cast<SparkGameObject*>(self->GetViewTargetObject());
+}
+
+float spark_grass_field_get_wind_bend_scale(const SparkGameComponent* component) {
+    auto* self = AsGrassFieldComponent(component);
     if (self == nullptr) {
         return 0.0F;
 
     }
-    return self->GetNormalScale();
+    return self->GetWindBendScale();
 }
 
-void spark_material_set_normal_scale(SparkGameComponent* component, float scale) {
-    auto self = AsMaterialComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetNormalScale(scale);
-}
-
-int spark_material_has_s_material_asset(const SparkGameComponent* component) {
-    auto* self = AsMaterialComponent(component);
+int spark_grass_field_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsGrassFieldComponent(component);
     if (self == nullptr) {
         return 0;
 
     }
-    return self->HasMaterialAsset() ? 1 : 0;
+    return self->IsEnabled() ? 1 : 0;
 }
 
-void spark_material_set_shadow_cast_override(SparkGameComponent* component, int casts) {
-    auto self = AsMaterialComponent(component);
+void spark_grass_field_scatter_set_albedo_tint(SparkGameComponent* component, const SparkVector3* rgb) {
+    auto self = AsGrassFieldComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetShadowCastOverride(casts);
+    self->ScatterSetAlbedoTint(Spark::Scripting::ToVector3(*rgb));
+}
+
+void spark_grass_field_scatter_set_chunk_size_meters(SparkGameComponent* component, float meters) {
+    auto self = AsGrassFieldComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ScatterSetChunkSizeMeters(meters);
+}
+
+void spark_grass_field_scatter_set_density_per_square_meter(SparkGameComponent* component, float density) {
+    auto self = AsGrassFieldComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ScatterSetDensityPerSquareMeter(density);
+}
+
+void spark_grass_field_scatter_set_distance_fade_outer_fraction(SparkGameComponent* component, float fraction) {
+    auto self = AsGrassFieldComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ScatterSetDistanceFadeOuterFraction(fraction);
+}
+
+void spark_grass_field_scatter_set_max_cached_instances_per_chunk(SparkGameComponent* component, uint32_t count) {
+    auto self = AsGrassFieldComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ScatterSetMaxCachedInstancesPerChunk(count);
+}
+
+void spark_grass_field_scatter_set_max_slope_degrees(SparkGameComponent* component, float degrees) {
+    auto self = AsGrassFieldComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ScatterSetMaxSlopeDegrees(degrees);
+}
+
+void spark_grass_field_scatter_set_max_view_distance_meters(SparkGameComponent* component, float meters) {
+    auto self = AsGrassFieldComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ScatterSetMaxViewDistanceMeters(meters);
+}
+
+void spark_grass_field_scatter_set_max_visible_instances(SparkGameComponent* component, uint32_t count) {
+    auto self = AsGrassFieldComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ScatterSetMaxVisibleInstances(count);
+}
+
+void spark_grass_field_scatter_set_placement_radius_meters(SparkGameComponent* component, float meters) {
+    auto self = AsGrassFieldComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ScatterSetPlacementRadiusMeters(meters);
+}
+
+void spark_grass_field_set_alpha_cutoff(SparkGameComponent* component, float value) {
+    auto self = AsGrassFieldComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetAlphaCutoff(value);
+}
+
+void spark_grass_field_set_enabled(SparkGameComponent* component, int value) {
+    auto self = AsGrassFieldComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(value != 0);
+}
+
+void spark_grass_field_set_neighborhood_ring_radius(SparkGameComponent* component, int radiusChunks) {
+    auto self = AsGrassFieldComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetNeighborhoodRingRadius(radiusChunks);
+}
+
+void spark_grass_field_set_streaming_view_world(SparkGameComponent* component, const SparkVector3* worldPosition) {
+    auto self = AsGrassFieldComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetStreamingViewWorld(Spark::Scripting::ToVector3(*worldPosition));
+}
+
+void spark_grass_field_set_terrain_object(SparkGameComponent* component, SparkGameObject* object) {
+    auto self = AsGrassFieldComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetTerrainObject(reinterpret_cast<Spark::GameObject*>(object));
+}
+
+void spark_grass_field_set_view_target_object(SparkGameComponent* component, SparkGameObject* object) {
+    auto self = AsGrassFieldComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetViewTargetObject(reinterpret_cast<Spark::GameObject*>(object));
+}
+
+void spark_grass_field_set_wind_bend_scale(SparkGameComponent* component, float scale) {
+    auto self = AsGrassFieldComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetWindBendScale(scale);
+}
+
+void spark_grid_nav_agent2_d_clear_path(SparkGameComponent* component) {
+    auto self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ClearPath();
+}
+
+int spark_grid_nav_agent2_d_get_goal_mode(const SparkGameComponent* component) {
+    auto* self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetGoalMode()));
+}
+
+SparkGameObject* spark_grid_nav_agent2_d_get_goal_target(const SparkGameComponent* component) {
+    auto* self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return nullptr;
+
+    }
+    return reinterpret_cast<SparkGameObject*>(self->GetGoalTarget());
+}
+
+void spark_grid_nav_agent2_d_get_goal_world_position(const SparkGameComponent* component, SparkVector2* outGoalWorldPosition) {
+    auto* self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr || outGoalWorldPosition == nullptr) {
+        return;
+    }
+    *outGoalWorldPosition = Spark::Scripting::FromVector2(self->GetGoalWorldPosition());
+}
+
+SparkGameObject* spark_grid_nav_agent2_d_get_grid_source_object(const SparkGameComponent* component) {
+    auto* self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return nullptr;
+
+    }
+    return reinterpret_cast<SparkGameObject*>(self->GetGridSourceObject());
+}
+
+int spark_grid_nav_agent2_d_get_path_index(const SparkGameComponent* component) {
+    auto* self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetPathIndex();
+}
+
+int spark_grid_nav_agent2_d_get_repath_every_frame(const SparkGameComponent* component) {
+    auto* self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetRepathEveryFrame() ? 1 : 0;
+}
+
+float spark_grid_nav_agent2_d_get_repath_interval_seconds(const SparkGameComponent* component) {
+    auto* self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRepathIntervalSeconds();
+}
+
+int spark_grid_nav_agent2_d_get_sync_to_ai_agent(const SparkGameComponent* component) {
+    auto* self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetSyncToAiAgent() ? 1 : 0;
+}
+
+int spark_grid_nav_agent2_d_has_s_path(const SparkGameComponent* component) {
+    auto* self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->HasPath() ? 1 : 0;
+}
+
+int spark_grid_nav_agent2_d_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+void spark_grid_nav_agent2_d_request_repath(SparkGameComponent* component) {
+    auto self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->RequestRepath();
+}
+
+void spark_grid_nav_agent2_d_set_enabled(SparkGameComponent* component, int value) {
+    auto self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(value);
+}
+
+void spark_grid_nav_agent2_d_set_goal_mode(SparkGameComponent* component, int mode) {
+    auto self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetGoalMode(static_cast<Spark::GridNavGoalMode2D>(static_cast<std::uint8_t>(mode)));
+}
+
+void spark_grid_nav_agent2_d_set_goal_target(SparkGameComponent* component, SparkGameObject* object) {
+    auto self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetGoalTarget(reinterpret_cast<Spark::GameObject*>(object));
+}
+
+void spark_grid_nav_agent2_d_set_goal_world_position(SparkGameComponent* component, const SparkVector2* position) {
+    auto self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetGoalWorldPosition(Spark::Scripting::ToVector2(*position));
+}
+
+void spark_grid_nav_agent2_d_set_grid_source_object(SparkGameComponent* component, SparkGameObject* object) {
+    auto self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetGridSourceObject(reinterpret_cast<Spark::GameObject*>(object));
+}
+
+void spark_grid_nav_agent2_d_set_path_index(SparkGameComponent* component, int index) {
+    auto self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetPathIndex(index);
+}
+
+void spark_grid_nav_agent2_d_set_repath_every_frame(SparkGameComponent* component, int value) {
+    auto self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRepathEveryFrame(value);
+}
+
+void spark_grid_nav_agent2_d_set_repath_interval_seconds(SparkGameComponent* component, float seconds) {
+    auto self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRepathIntervalSeconds(seconds);
+}
+
+void spark_grid_nav_agent2_d_set_sync_to_ai_agent(SparkGameComponent* component, int value) {
+    auto self = AsGridNavAgent2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSyncToAiAgent(value);
+}
+
+int spark_grid_nav_target2_d_get_snap_to_walkable_cell(const SparkGameComponent* component) {
+    auto* self = AsGridNavTarget2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetSnapToWalkableCell() ? 1 : 0;
+}
+
+int spark_grid_nav_target2_d_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsGridNavTarget2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+void spark_grid_nav_target2_d_set_enabled(SparkGameComponent* component, int value) {
+    auto self = AsGridNavTarget2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(value);
+}
+
+void spark_grid_nav_target2_d_set_snap_to_walkable_cell(SparkGameComponent* component, int value) {
+    auto self = AsGridNavTarget2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSnapToWalkableCell(value);
+}
+
+float spark_grid_path_follower2_d_get_arrive_radius(const SparkGameComponent* component) {
+    auto* self = AsGridPathFollower2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetArriveRadius();
+}
+
+float spark_grid_path_follower2_d_get_max_speed(const SparkGameComponent* component) {
+    auto* self = AsGridPathFollower2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetMaxSpeed();
+}
+
+int spark_grid_path_follower2_d_get_mode(const SparkGameComponent* component) {
+    auto* self = AsGridPathFollower2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetMode()));
+}
+
+int spark_grid_path_follower2_d_get_stop_on_path_end(const SparkGameComponent* component) {
+    auto* self = AsGridPathFollower2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetStopOnPathEnd() ? 1 : 0;
+}
+
+int spark_grid_path_follower2_d_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsGridPathFollower2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+void spark_grid_path_follower2_d_set_arrive_radius(SparkGameComponent* component, float radius) {
+    auto self = AsGridPathFollower2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetArriveRadius(radius);
+}
+
+void spark_grid_path_follower2_d_set_enabled(SparkGameComponent* component, int value) {
+    auto self = AsGridPathFollower2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(value);
+}
+
+void spark_grid_path_follower2_d_set_max_speed(SparkGameComponent* component, float speed) {
+    auto self = AsGridPathFollower2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMaxSpeed(speed);
+}
+
+void spark_grid_path_follower2_d_set_mode(SparkGameComponent* component, int value) {
+    auto self = AsGridPathFollower2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMode(static_cast<Spark::GridPathFollower2DMode>(static_cast<std::uint8_t>(value)));
+}
+
+void spark_grid_path_follower2_d_set_stop_on_path_end(SparkGameComponent* component, int value) {
+    auto self = AsGridPathFollower2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetStopOnPathEnd(value);
+}
+
+float spark_health_get_apply_damage(SparkGameComponent* component, float amount, SparkGameObject* instigator) {
+    auto self = AsHealthComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->ApplyDamage(amount, reinterpret_cast<Spark::GameObject*>(instigator));
+}
+
+float spark_health_get_current(const SparkGameComponent* component) {
+    auto* self = AsHealthComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetCurrent();
+}
+
+float spark_health_get_maximum(const SparkGameComponent* component) {
+    auto* self = AsHealthComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetMaximum();
+}
+
+int spark_health_is_alive(const SparkGameComponent* component) {
+    auto* self = AsHealthComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsAlive() ? 1 : 0;
+}
+
+void spark_health_reset_to_full(SparkGameComponent* component) {
+    auto self = AsHealthComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ResetToFull();
+}
+
+void spark_health_set_current(SparkGameComponent* component, float value) {
+    auto self = AsHealthComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetCurrent(value);
+}
+
+void spark_health_set_maximum(SparkGameComponent* component, float value) {
+    auto self = AsHealthComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMaximum(value);
+}
+
+SparkGameObject* spark_hinge_joint2_d_get_connected_body(const SparkGameComponent* component) {
+    auto* self = AsHingeJoint2DComponent(component);
+    if (self == nullptr) {
+        return nullptr;
+
+    }
+    return reinterpret_cast<SparkGameObject*>(self->GetConnectedBody());
+}
+
+void spark_hinge_joint2_d_get_local_anchor_a(const SparkGameComponent* component, SparkVector2* outLocalAnchorA) {
+    auto* self = AsHingeJoint2DComponent(component);
+    if (self == nullptr || outLocalAnchorA == nullptr) {
+        return;
+    }
+    *outLocalAnchorA = Spark::Scripting::FromVector2(self->GetLocalAnchorA());
+}
+
+void spark_hinge_joint2_d_get_local_anchor_b(const SparkGameComponent* component, SparkVector2* outLocalAnchorB) {
+    auto* self = AsHingeJoint2DComponent(component);
+    if (self == nullptr || outLocalAnchorB == nullptr) {
+        return;
+    }
+    *outLocalAnchorB = Spark::Scripting::FromVector2(self->GetLocalAnchorB());
+}
+
+float spark_hinge_joint2_d_get_stiffness(const SparkGameComponent* component) {
+    auto* self = AsHingeJoint2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetStiffness();
+}
+
+void spark_hinge_joint2_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o) {
+    auto self = AsHingeJoint2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetConnectedBody(reinterpret_cast<Spark::GameObject*>(o));
+}
+
+void spark_hinge_joint2_d_set_local_anchor_a(SparkGameComponent* component, const SparkVector2* a) {
+    auto self = AsHingeJoint2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetLocalAnchorA(Spark::Scripting::ToVector2(*a));
+}
+
+void spark_hinge_joint2_d_set_local_anchor_b(SparkGameComponent* component, const SparkVector2* b) {
+    auto self = AsHingeJoint2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetLocalAnchorB(Spark::Scripting::ToVector2(*b));
+}
+
+void spark_hinge_joint2_d_set_stiffness(SparkGameComponent* component, float s) {
+    auto self = AsHingeJoint2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetStiffness(s);
+}
+
+SparkGameObject* spark_hinge_joint3_d_get_connected_body(const SparkGameComponent* component) {
+    auto* self = AsHingeJoint3DComponent(component);
+    if (self == nullptr) {
+        return nullptr;
+
+    }
+    return reinterpret_cast<SparkGameObject*>(self->GetConnectedBody());
+}
+
+void spark_hinge_joint3_d_get_local_anchor_a(const SparkGameComponent* component, SparkVector3* outLocalAnchorA) {
+    auto* self = AsHingeJoint3DComponent(component);
+    if (self == nullptr || outLocalAnchorA == nullptr) {
+        return;
+    }
+    *outLocalAnchorA = Spark::Scripting::FromVector3(self->GetLocalAnchorA());
+}
+
+void spark_hinge_joint3_d_get_local_anchor_b(const SparkGameComponent* component, SparkVector3* outLocalAnchorB) {
+    auto* self = AsHingeJoint3DComponent(component);
+    if (self == nullptr || outLocalAnchorB == nullptr) {
+        return;
+    }
+    *outLocalAnchorB = Spark::Scripting::FromVector3(self->GetLocalAnchorB());
+}
+
+float spark_hinge_joint3_d_get_stiffness(const SparkGameComponent* component) {
+    auto* self = AsHingeJoint3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetStiffness();
+}
+
+void spark_hinge_joint3_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o) {
+    auto self = AsHingeJoint3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetConnectedBody(reinterpret_cast<Spark::GameObject*>(o));
+}
+
+void spark_hinge_joint3_d_set_local_anchor_a(SparkGameComponent* component, const SparkVector3* a) {
+    auto self = AsHingeJoint3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetLocalAnchorA(Spark::Scripting::ToVector3(*a));
+}
+
+void spark_hinge_joint3_d_set_local_anchor_b(SparkGameComponent* component, const SparkVector3* b) {
+    auto self = AsHingeJoint3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetLocalAnchorB(Spark::Scripting::ToVector3(*b));
+}
+
+void spark_hinge_joint3_d_set_stiffness(SparkGameComponent* component, float s) {
+    auto self = AsHingeJoint3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetStiffness(s);
+}
+
+void spark_hurtbox2_d_get_half_extents(const SparkGameComponent* component, SparkVector2* outHalfExtents) {
+    auto* self = AsHurtbox2DComponent(component);
+    if (self == nullptr || outHalfExtents == nullptr) {
+        return;
+    }
+    *outHalfExtents = Spark::Scripting::FromVector2(self->GetHalfExtents());
+}
+
+float spark_hurtbox2_d_get_invulnerability_seconds(const SparkGameComponent* component) {
+    auto* self = AsHurtbox2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetInvulnerabilitySeconds();
+}
+
+void spark_hurtbox2_d_get_local_offset(const SparkGameComponent* component, SparkVector2* outLocalOffset) {
+    auto* self = AsHurtbox2DComponent(component);
+    if (self == nullptr || outLocalOffset == nullptr) {
+        return;
+    }
+    *outLocalOffset = Spark::Scripting::FromVector2(self->GetLocalOffset());
+}
+
+float spark_hurtbox2_d_get_radius(const SparkGameComponent* component) {
+    auto* self = AsHurtbox2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRadius();
+}
+
+int spark_hurtbox2_d_get_shape(const SparkGameComponent* component) {
+    auto* self = AsHurtbox2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetShape()));
+}
+
+int spark_hurtbox2_d_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsHurtbox2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+int spark_hurtbox2_d_is_invulnerable(const SparkGameComponent* component) {
+    auto* self = AsHurtbox2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsInvulnerable() ? 1 : 0;
+}
+
+void spark_hurtbox2_d_notify_damage_received(SparkGameComponent* component) {
+    auto self = AsHurtbox2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->NotifyDamageReceived();
+}
+
+void spark_hurtbox2_d_set_category_bits(SparkGameComponent* component, int bits) {
+    auto self = AsHurtbox2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetCategoryBits(bits);
+}
+
+void spark_hurtbox2_d_set_enabled(SparkGameComponent* component, int value) {
+    auto self = AsHurtbox2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(value);
+}
+
+void spark_hurtbox2_d_set_half_extents(SparkGameComponent* component, const SparkVector2* value) {
+    auto self = AsHurtbox2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetHalfExtents(Spark::Scripting::ToVector2(*value));
+}
+
+void spark_hurtbox2_d_set_invulnerability_seconds(SparkGameComponent* component, float seconds) {
+    auto self = AsHurtbox2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetInvulnerabilitySeconds(seconds);
+}
+
+void spark_hurtbox2_d_set_local_offset(SparkGameComponent* component, const SparkVector2* offset) {
+    auto self = AsHurtbox2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetLocalOffset(Spark::Scripting::ToVector2(*offset));
+}
+
+void spark_hurtbox2_d_set_mask_bits(SparkGameComponent* component, int bits) {
+    auto self = AsHurtbox2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMaskBits(bits);
+}
+
+void spark_hurtbox2_d_set_radius(SparkGameComponent* component, float value) {
+    auto self = AsHurtbox2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRadius(value);
+}
+
+void spark_hurtbox2_d_set_shape(SparkGameComponent* component, int value) {
+    auto self = AsHurtbox2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetShape(static_cast<Spark::Hurtbox2DShape>(static_cast<std::uint8_t>(value)));
+}
+
+float spark_hurtbox3_d_get_invulnerability_seconds(const SparkGameComponent* component) {
+    auto* self = AsHurtbox3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetInvulnerabilitySeconds();
+}
+
+void spark_hurtbox3_d_get_local_offset(const SparkGameComponent* component, SparkVector3* outLocalOffset) {
+    auto* self = AsHurtbox3DComponent(component);
+    if (self == nullptr || outLocalOffset == nullptr) {
+        return;
+    }
+    *outLocalOffset = Spark::Scripting::FromVector3(self->GetLocalOffset());
+}
+
+float spark_hurtbox3_d_get_radius(const SparkGameComponent* component) {
+    auto* self = AsHurtbox3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRadius();
+}
+
+int spark_hurtbox3_d_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsHurtbox3DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+int spark_hurtbox3_d_is_invulnerable(const SparkGameComponent* component) {
+    auto* self = AsHurtbox3DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsInvulnerable() ? 1 : 0;
+}
+
+void spark_hurtbox3_d_notify_damage_received(SparkGameComponent* component) {
+    auto self = AsHurtbox3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->NotifyDamageReceived();
+}
+
+void spark_hurtbox3_d_set_category_bits(SparkGameComponent* component, int bits) {
+    auto self = AsHurtbox3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetCategoryBits(bits);
+}
+
+void spark_hurtbox3_d_set_enabled(SparkGameComponent* component, int value) {
+    auto self = AsHurtbox3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(value);
+}
+
+void spark_hurtbox3_d_set_invulnerability_seconds(SparkGameComponent* component, float seconds) {
+    auto self = AsHurtbox3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetInvulnerabilitySeconds(seconds);
+}
+
+void spark_hurtbox3_d_set_local_offset(SparkGameComponent* component, const SparkVector3* offset) {
+    auto self = AsHurtbox3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetLocalOffset(Spark::Scripting::ToVector3(*offset));
+}
+
+void spark_hurtbox3_d_set_mask_bits(SparkGameComponent* component, int bits) {
+    auto self = AsHurtbox3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMaskBits(bits);
+}
+
+void spark_hurtbox3_d_set_radius(SparkGameComponent* component, float value) {
+    auto self = AsHurtbox3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRadius(value);
+}
+
+void spark_input_action_map_bind_button(SparkGameComponent* component, const char* actionName, int primaryKey, int secondaryKey) {
+    auto self = AsInputActionMapComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->BindButton(actionName, primaryKey, secondaryKey);
+}
+
+void spark_input_action_map_bind_gamepad_axis1_d(SparkGameComponent* component, const char* actionName, int gamepadAxis, float axisScale) {
+    auto self = AsInputActionMapComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->BindGamepadAxis1D(actionName, gamepadAxis, axisScale);
+}
+
+void spark_input_action_map_bind_gamepad_button(SparkGameComponent* component, const char* actionName, int gamepadButton) {
+    auto self = AsInputActionMapComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->BindGamepadButton(actionName, gamepadButton);
+}
+
+void spark_input_action_map_clear(SparkGameComponent* component) {
+    auto self = AsInputActionMapComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ClearActions();
+}
+
+void spark_input_action_map_clear_actions(SparkGameComponent* component) {
+    auto self = AsInputActionMapComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ClearActions();
+}
+
+float spark_interactable_get_interaction_radius(const SparkGameComponent* component) {
+    auto* self = AsInteractableComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetInteractionRadius();
+}
+
+int spark_interactable_is_can_interact(const SparkGameComponent* component, SparkGameObject* instigator) {
+    auto* self = AsInteractableComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->CanInteract(*reinterpret_cast<Spark::GameObject*>(instigator)) ? 1 : 0;
+}
+
+int spark_interactable_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsInteractableComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+int spark_interactable_is_instigator_in_range(const SparkGameComponent* component, SparkGameObject* instigator) {
+    auto* self = AsInteractableComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsInstigatorInRange(*reinterpret_cast<Spark::GameObject*>(instigator)) ? 1 : 0;
+}
+
+void spark_interactable_set_enabled(SparkGameComponent* component, int value) {
+    auto self = AsInteractableComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(value);
+}
+
+void spark_interactable_set_interaction_radius(SparkGameComponent* component, float radius) {
+    auto self = AsInteractableComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetInteractionRadius(radius);
+}
+
+void spark_interactable_set_prompt_text(SparkGameComponent* component, const char* text) {
+    auto self = AsInteractableComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetPromptText(text);
+}
+
+void spark_interactable_set_required_instigator_tag(SparkGameComponent* component, const char* tag) {
+    auto self = AsInteractableComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRequiredInstigatorTag(tag);
 }
 
 void spark_material_clear_shadow_cast_override(SparkGameComponent* component) {
@@ -8119,6 +5577,273 @@ void spark_material_clear_shadow_cast_override(SparkGameComponent* component) {
     self->ClearShadowCastOverride();
 }
 
+void spark_material_clear_shadow_receive_override(SparkGameComponent* component) {
+    auto self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ClearShadowReceiveOverride();
+}
+
+float spark_material_get_alpha_cutoff(const SparkGameComponent* component) {
+    auto* self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetAlphaCutoff();
+}
+
+void spark_material_get_emissive_color(const SparkGameComponent* component, SparkVector3* outEmissiveColor) {
+    auto* self = AsMaterialComponent(component);
+    if (self == nullptr || outEmissiveColor == nullptr) {
+        return;
+    }
+    *outEmissiveColor = Spark::Scripting::FromVector3(self->GetEmissiveColor());
+}
+
+void spark_material_get_emissive_factor(const SparkGameComponent* component, SparkVector3* outEmissiveFactor) {
+    auto* self = AsMaterialComponent(component);
+    if (self == nullptr || outEmissiveFactor == nullptr) {
+        return;
+    }
+    *outEmissiveFactor = Spark::Scripting::FromVector3(self->GetEmissiveFactor());
+}
+
+float spark_material_get_emissive_intensity(const SparkGameComponent* component) {
+    auto* self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetEmissiveIntensity();
+}
+
+float spark_material_get_metallic(const SparkGameComponent* component) {
+    auto* self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetMetallic();
+}
+
+float spark_material_get_metallic_factor(const SparkGameComponent* component) {
+    auto* self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetMetallicFactor();
+}
+
+float spark_material_get_normal_scale(const SparkGameComponent* component) {
+    auto* self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetNormalScale();
+}
+
+float spark_material_get_occlusion_strength(const SparkGameComponent* component) {
+    auto* self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetOcclusionStrength();
+}
+
+float spark_material_get_opacity(const SparkGameComponent* component) {
+    auto* self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetOpacity();
+}
+
+float spark_material_get_roughness(const SparkGameComponent* component) {
+    auto* self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRoughness();
+}
+
+float spark_material_get_roughness_factor(const SparkGameComponent* component) {
+    auto* self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRoughnessFactor();
+}
+
+void spark_material_get_tint(const SparkGameComponent* component, SparkVector3* outTint) {
+    auto* self = AsMaterialComponent(component);
+    if (self == nullptr || outTint == nullptr) {
+        return;
+    }
+    *outTint = Spark::Scripting::FromVector3(self->GetTint());
+}
+
+int32_t spark_material_get_toon_diffuse_bands(const SparkGameComponent* component) {
+    auto* self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetToonDiffuseBands();
+}
+
+float spark_material_get_toon_rim_intensity(const SparkGameComponent* component) {
+    auto* self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetToonRimIntensity();
+}
+
+float spark_material_get_toon_rim_power(const SparkGameComponent* component) {
+    auto* self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetToonRimPower();
+}
+
+int spark_material_has_s_material_asset(const SparkGameComponent* component) {
+    auto* self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->HasMaterialAsset() ? 1 : 0;
+}
+
+int spark_material_is_alpha_blend(const SparkGameComponent* component) {
+    auto* self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsAlphaBlend() ? 1 : 0;
+}
+
+int spark_material_is_double_sided(const SparkGameComponent* component) {
+    auto* self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsDoubleSided() ? 1 : 0;
+}
+
+void spark_material_set_alpha_blend(SparkGameComponent* component, int blend) {
+    auto self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetAlphaBlend(blend != 0);
+}
+
+void spark_material_set_alpha_cutoff(SparkGameComponent* component, float cutoff) {
+    auto self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetAlphaCutoff(cutoff);
+}
+
+void spark_material_set_double_sided(SparkGameComponent* component, int v) {
+    auto self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetDoubleSided(v != 0);
+}
+
+void spark_material_set_emissive_factor(SparkGameComponent* component, const SparkVector3* f) {
+    auto self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEmissiveFactor(Spark::Scripting::ToVector3(*f));
+}
+
+void spark_material_set_metallic_factor(SparkGameComponent* component, float f) {
+    auto self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMetallicFactor(f);
+}
+
+void spark_material_set_normal_scale(SparkGameComponent* component, float scale) {
+    auto self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetNormalScale(scale);
+}
+
+void spark_material_set_occlusion_strength(SparkGameComponent* component, float s) {
+    auto self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetOcclusionStrength(s);
+}
+
+void spark_material_set_opacity(SparkGameComponent* component, float a) {
+    auto self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetOpacity(a);
+}
+
+void spark_material_set_roughness_factor(SparkGameComponent* component, float f) {
+    auto self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRoughnessFactor(f);
+}
+
+void spark_material_set_shading_model(SparkGameComponent* component, int s) {
+    auto self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetShadingModel(static_cast<Spark::SceneShadingModel>(static_cast<std::uint8_t>(s)));
+}
+
+void spark_material_set_shadow_cast_override(SparkGameComponent* component, int casts) {
+    auto self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetShadowCastOverride(casts);
+}
+
 void spark_material_set_shadow_receive_override(SparkGameComponent* component, int receives) {
     auto self = AsMaterialComponent(component);
     if (self == nullptr) {
@@ -8128,13 +5853,84 @@ void spark_material_set_shadow_receive_override(SparkGameComponent* component, i
     self->SetShadowReceiveOverride(receives);
 }
 
-void spark_material_clear_shadow_receive_override(SparkGameComponent* component) {
+void spark_material_set_toon_diffuse_bands(SparkGameComponent* component, int32_t bands) {
     auto self = AsMaterialComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->ClearShadowReceiveOverride();
+    self->SetToonDiffuseBands(bands);
+}
+
+void spark_material_set_toon_rim_intensity(SparkGameComponent* component, float v) {
+    auto self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetToonRimIntensity(v);
+}
+
+void spark_material_set_toon_rim_power(SparkGameComponent* component, float v) {
+    auto self = AsMaterialComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetToonRimPower(v);
+}
+
+int spark_mesh_collider3_d_get_is_trigger(const SparkGameComponent* component) {
+    auto* self = AsMeshCollider3DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetIsTrigger() ? 1 : 0;
+}
+
+void spark_mesh_collider3_d_get_local_offset(const SparkGameComponent* component, SparkVector3* outLocalOffset) {
+    auto* self = AsMeshCollider3DComponent(component);
+    if (self == nullptr || outLocalOffset == nullptr) {
+        return;
+    }
+    *outLocalOffset = Spark::Scripting::FromVector3(self->GetLocalOffset());
+}
+
+void spark_mesh_collider3_d_set_category_bits(SparkGameComponent* component, int bits) {
+    auto self = AsMeshCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetCategoryBits(bits);
+}
+
+void spark_mesh_collider3_d_set_is_trigger(SparkGameComponent* component, int t) {
+    auto self = AsMeshCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetIsTrigger(t);
+}
+
+void spark_mesh_collider3_d_set_local_offset(SparkGameComponent* component, const SparkVector3* o) {
+    auto self = AsMeshCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetLocalOffset(Spark::Scripting::ToVector3(*o));
+}
+
+void spark_mesh_collider3_d_set_mask_bits(SparkGameComponent* component, int bits) {
+    auto self = AsMeshCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMaskBits(bits);
 }
 
 void spark_multi_material_clear(SparkGameComponent* component) {
@@ -8146,22 +5942,13 @@ void spark_multi_material_clear(SparkGameComponent* component) {
     self->Clear();
 }
 
-void spark_multi_material_resize_slots(SparkGameComponent* component, int count) {
+void spark_multi_material_cycle_active_variant(SparkGameComponent* component) {
     auto self = AsMultiMaterialComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->ResizeSlots(count);
-}
-
-int spark_multi_material_is_slot_has_material_asset(const SparkGameComponent* component, int index) {
-    auto* self = AsMultiMaterialComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->SlotHasMaterialAsset(index) ? 1 : 0;
+    self->CycleActiveVariant();
 }
 
 int32_t spark_multi_material_get_active_variant_index(const SparkGameComponent* component) {
@@ -8182,6 +5969,24 @@ int spark_multi_material_has_s_material_variants(const SparkGameComponent* compo
     return self->HasMaterialVariants() ? 1 : 0;
 }
 
+int spark_multi_material_is_slot_has_material_asset(const SparkGameComponent* component, int index) {
+    auto* self = AsMultiMaterialComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->SlotHasMaterialAsset(index) ? 1 : 0;
+}
+
+void spark_multi_material_resize_slots(SparkGameComponent* component, int count) {
+    auto self = AsMultiMaterialComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ResizeSlots(count);
+}
+
 void spark_multi_material_set_active_variant_index(SparkGameComponent* component, uint32_t index) {
     auto self = AsMultiMaterialComponent(component);
     if (self == nullptr) {
@@ -8191,40 +5996,138 @@ void spark_multi_material_set_active_variant_index(SparkGameComponent* component
     self->SetActiveVariantIndex(index);
 }
 
-void spark_multi_material_cycle_active_variant(SparkGameComponent* component) {
-    auto self = AsMultiMaterialComponent(component);
+float spark_nav_mesh_agent_get_grid_cell_size(const SparkGameComponent* component) {
+    auto* self = AsNavMeshAgentComponent(component);
     if (self == nullptr) {
-        return;
+        return 0.0F;
 
     }
-    self->CycleActiveVariant();
+    return self->GetGridCellSize();
 }
 
-void spark_parallax_set_camera_reference(SparkGameComponent* component, SparkGameObject* camera) {
-    auto self = AsParallaxLayerComponent(component);
+int32_t spark_nav_mesh_agent_get_grid_height(const SparkGameComponent* component) {
+    auto* self = AsNavMeshAgentComponent(component);
     if (self == nullptr) {
-        return;
+        return 0;
 
     }
-    self->SetCameraReference(reinterpret_cast<Spark::GameObject*>(camera));
+    return self->GetGridHeight();
 }
 
-SparkGameObject* spark_parallax_get_camera_reference(const SparkGameComponent* component) {
-    auto* self = AsParallaxLayerComponent(component);
+void spark_nav_mesh_agent_get_grid_origin_x_z(const SparkGameComponent* component, SparkVector2* outGridOriginXZ) {
+    auto* self = AsNavMeshAgentComponent(component);
+    if (self == nullptr || outGridOriginXZ == nullptr) {
+        return;
+    }
+    *outGridOriginXZ = Spark::Scripting::FromVector2(self->GetGridOriginXZ());
+}
+
+int32_t spark_nav_mesh_agent_get_grid_width(const SparkGameComponent* component) {
+    auto* self = AsNavMeshAgentComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetGridWidth();
+}
+
+SparkGameObject* spark_nav_mesh_agent_get_patrol_path_object(const SparkGameComponent* component) {
+    auto* self = AsNavMeshAgentComponent(component);
     if (self == nullptr) {
         return nullptr;
 
     }
-    return reinterpret_cast<SparkGameObject*>(self->GetCameraReference());
+    return reinterpret_cast<SparkGameObject*>(self->GetPatrolPathObject());
 }
 
-void spark_parallax_set_anchor_world(SparkGameComponent* component, const SparkVector3* anchor) {
-    auto self = AsParallaxLayerComponent(component);
+int spark_nav_mesh_agent_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsNavMeshAgentComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+int spark_nav_mesh_agent_is_use_grid_pathfinding(const SparkGameComponent* component) {
+    auto* self = AsNavMeshAgentComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->UseGridPathfinding() ? 1 : 0;
+}
+
+void spark_nav_mesh_agent_set_enabled(SparkGameComponent* component, int e) {
+    auto self = AsNavMeshAgentComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetAnchorWorld(Spark::Scripting::ToVector3(*anchor));
+    self->SetEnabled(e);
+}
+
+void spark_nav_mesh_agent_set_grid_cell_size(SparkGameComponent* component, float s) {
+    auto self = AsNavMeshAgentComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetGridCellSize(s);
+}
+
+void spark_nav_mesh_agent_set_grid_height(SparkGameComponent* component, int32_t h) {
+    auto self = AsNavMeshAgentComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetGridHeight(h);
+}
+
+void spark_nav_mesh_agent_set_grid_origin_x_z(SparkGameComponent* component, const SparkVector2* o) {
+    auto self = AsNavMeshAgentComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetGridOriginXZ(Spark::Scripting::ToVector2(*o));
+}
+
+void spark_nav_mesh_agent_set_grid_width(SparkGameComponent* component, int32_t w) {
+    auto self = AsNavMeshAgentComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetGridWidth(w);
+}
+
+void spark_nav_mesh_agent_set_patrol_path_object(SparkGameComponent* component, SparkGameObject* o) {
+    auto self = AsNavMeshAgentComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetPatrolPathObject(reinterpret_cast<Spark::GameObject*>(o));
+}
+
+void spark_nav_mesh_agent_set_use_grid_pathfinding(SparkGameComponent* component, int u) {
+    auto self = AsNavMeshAgentComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetUseGridPathfinding(u);
+}
+
+int spark_one_way_platform_2d_is_one_way_platform(const SparkGameComponent* component) {
+    auto* self = AsOneWayPlatform2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsOneWayPlatform() ? 1 : 0;
 }
 
 void spark_parallax_get_anchor_world(const SparkGameComponent* component, SparkVector3* outAnchor) {
@@ -8235,39 +6138,22 @@ void spark_parallax_get_anchor_world(const SparkGameComponent* component, SparkV
     *outAnchor = Spark::Scripting::FromVector3(self->GetAnchorWorld());
 }
 
-void spark_parallax_set_rest_offset(SparkGameComponent* component, const SparkVector3* offset) {
-    auto self = AsParallaxLayerComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRestOffset(Spark::Scripting::ToVector3(*offset));
-}
-
-void spark_parallax_get_rest_offset(const SparkGameComponent* component, SparkVector3* outRestOffset) {
+SparkParallaxAxisMode spark_parallax_get_axis_mode(const SparkGameComponent* component) {
     auto* self = AsParallaxLayerComponent(component);
-    if (self == nullptr || outRestOffset == nullptr) {
-        return;
+    if (self == nullptr) {
+        return SparkParallaxAxisMode_Horizontal;
+
     }
-    *outRestOffset = Spark::Scripting::FromVector3(self->GetRestOffset());
+    return static_cast<SparkParallaxAxisMode>(static_cast<std::uint8_t>(self->GetAxisMode()));
 }
 
-void spark_parallax_set_factor_x(SparkGameComponent* component, float factor) {
-    auto self = AsParallaxLayerComponent(component);
+SparkGameObject* spark_parallax_get_camera_reference(const SparkGameComponent* component) {
+    auto* self = AsParallaxLayerComponent(component);
     if (self == nullptr) {
-        return;
+        return nullptr;
 
     }
-    self->SetFactorX(factor);
-}
-
-void spark_parallax_set_factor_y(SparkGameComponent* component, float factor) {
-    auto self = AsParallaxLayerComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetFactorY(factor);
+    return reinterpret_cast<SparkGameObject*>(self->GetCameraReference());
 }
 
 float spark_parallax_get_factor_x(const SparkGameComponent* component) {
@@ -8288,6 +6174,23 @@ float spark_parallax_get_factor_y(const SparkGameComponent* component) {
     return self->GetFactorY();
 }
 
+void spark_parallax_get_rest_offset(const SparkGameComponent* component, SparkVector3* outRestOffset) {
+    auto* self = AsParallaxLayerComponent(component);
+    if (self == nullptr || outRestOffset == nullptr) {
+        return;
+    }
+    *outRestOffset = Spark::Scripting::FromVector3(self->GetRestOffset());
+}
+
+void spark_parallax_set_anchor_world(SparkGameComponent* component, const SparkVector3* anchor) {
+    auto self = AsParallaxLayerComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetAnchorWorld(Spark::Scripting::ToVector3(*anchor));
+}
+
 void spark_parallax_set_axis_mode(SparkGameComponent* component, SparkParallaxAxisMode mode) {
     auto self = AsParallaxLayerComponent(component);
     if (self == nullptr) {
@@ -8297,31 +6200,13 @@ void spark_parallax_set_axis_mode(SparkGameComponent* component, SparkParallaxAx
     self->SetAxisMode(static_cast<Spark::ParallaxAxisMode>(static_cast<std::uint8_t>(mode)));
 }
 
-SparkParallaxAxisMode spark_parallax_get_axis_mode(const SparkGameComponent* component) {
-    auto* self = AsParallaxLayerComponent(component);
-    if (self == nullptr) {
-        return SparkParallaxAxisMode_Horizontal;
-
-    }
-    return static_cast<SparkParallaxAxisMode>(static_cast<std::uint8_t>(self->GetAxisMode()));
-}
-
-void spark_parallax_set_drift(SparkGameComponent* component, SparkParallaxDriftMode mode, float amplitude, float frequencyHz, float phase) {
+void spark_parallax_set_camera_reference(SparkGameComponent* component, SparkGameObject* camera) {
     auto self = AsParallaxLayerComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetDrift(static_cast<Spark::ParallaxDriftMode>(static_cast<std::uint8_t>(mode)), amplitude, frequencyHz, phase);
-}
-
-void spark_parallax_set_drift_mode(SparkGameComponent* component, SparkParallaxDriftMode mode) {
-    auto self = AsParallaxLayerComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetDriftMode(static_cast<Spark::ParallaxDriftMode>(static_cast<std::uint8_t>(mode)));
+    self->SetCameraReference(reinterpret_cast<Spark::GameObject*>(camera));
 }
 
 void spark_parallax_set_drift_amplitude(SparkGameComponent* component, float value) {
@@ -8342,6 +6227,15 @@ void spark_parallax_set_drift_frequency_hz(SparkGameComponent* component, float 
     self->SetDriftFrequencyHz(value);
 }
 
+void spark_parallax_set_drift_mode(SparkGameComponent* component, SparkParallaxDriftMode mode) {
+    auto self = AsParallaxLayerComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetDriftMode(static_cast<Spark::ParallaxDriftMode>(static_cast<std::uint8_t>(mode)));
+}
+
 void spark_parallax_set_drift_phase(SparkGameComponent* component, float value) {
     auto self = AsParallaxLayerComponent(component);
     if (self == nullptr) {
@@ -8351,254 +6245,49 @@ void spark_parallax_set_drift_phase(SparkGameComponent* component, float value) 
     self->SetDriftPhase(value);
 }
 
-int spark_particle_emitter_is_emitter_enabled(const SparkGameComponent* component) {
-    auto* self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEmitterEnabled() ? 1 : 0;
-}
-
-void spark_particle_emitter_set_emitter_enabled(SparkGameComponent* component, int e) {
-    auto self = AsParticleEmitterComponent(component);
+void spark_parallax_set_factor_x(SparkGameComponent* component, float factor) {
+    auto self = AsParallaxLayerComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetEmitterEnabled(e != 0);
+    self->SetFactorX(factor);
 }
 
-int32_t spark_particle_emitter_get_max_particles(const SparkGameComponent* component) {
-    auto* self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetMaxParticles();
-}
-
-void spark_particle_emitter_set_emission_rate(SparkGameComponent* component, float rate) {
-    auto self = AsParticleEmitterComponent(component);
+void spark_parallax_set_factor_x_y(SparkGameComponent* component, float factorXIn, float factorYIn) {
+    auto self = AsParallaxLayerComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetEmissionRate(rate);
+    self->SetFactorXY(factorXIn, factorYIn);
 }
 
-float spark_particle_emitter_get_emission_rate(const SparkGameComponent* component) {
-    auto* self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetEmissionRate();
-}
-
-void spark_particle_emitter_set_lifetime(SparkGameComponent* component, float minSec, float maxSec) {
-    auto self = AsParticleEmitterComponent(component);
+void spark_parallax_set_factor_xy(SparkGameComponent* component, float factorXIn, float factorYIn) {
+    auto self = AsParallaxLayerComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetLifetime(minSec, maxSec);
+    self->SetFactorXY(factorXIn, factorYIn);
 }
 
-void spark_particle_emitter_set_start_end_size(SparkGameComponent* component, float start, float end) {
-    auto self = AsParticleEmitterComponent(component);
+void spark_parallax_set_factor_y(SparkGameComponent* component, float factor) {
+    auto self = AsParallaxLayerComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetStartEndSize(start, end);
+    self->SetFactorY(factor);
 }
 
-void spark_particle_emitter_set_gravity(SparkGameComponent* component, const SparkVector3* g) {
-    auto self = AsParticleEmitterComponent(component);
+void spark_parallax_set_rest_offset(SparkGameComponent* component, const SparkVector3* offset) {
+    auto self = AsParallaxLayerComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetGravity(Spark::Scripting::ToVector3(*g));
-}
-
-void spark_particle_emitter_set_emission_direction(SparkGameComponent* component, const SparkVector3* dir) {
-    auto self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEmissionDirection(Spark::Scripting::ToVector3(*dir));
-}
-
-void spark_particle_emitter_get_emission_direction(const SparkGameComponent* component, SparkVector3* outEmissionDirection) {
-    auto* self = AsParticleEmitterComponent(component);
-    if (self == nullptr || outEmissionDirection == nullptr) {
-        return;
-    }
-    *outEmissionDirection = Spark::Scripting::FromVector3(self->GetEmissionDirection());
-}
-
-void spark_particle_emitter_set_use_local_emission(SparkGameComponent* component, int local) {
-    auto self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetUseLocalEmission(local != 0);
-}
-
-int spark_particle_emitter_get_use_local_emission(const SparkGameComponent* component) {
-    auto* self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetUseLocalEmission() ? 1 : 0;
-}
-
-void spark_particle_emitter_set_spread_angle_radians(SparkGameComponent* component, float rad) {
-    auto self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSpreadAngleRadians(rad);
-}
-
-void spark_particle_emitter_set_speed_range(SparkGameComponent* component, float minS, float maxS) {
-    auto self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSpeedRange(minS, maxS);
-}
-
-float spark_particle_emitter_get_lifetime_min(const SparkGameComponent* component) {
-    auto* self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetLifetimeMin();
-}
-
-float spark_particle_emitter_get_lifetime_max(const SparkGameComponent* component) {
-    auto* self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetLifetimeMax();
-}
-
-float spark_particle_emitter_get_start_size(const SparkGameComponent* component) {
-    auto* self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetStartSize();
-}
-
-float spark_particle_emitter_get_end_size(const SparkGameComponent* component) {
-    auto* self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetEndSize();
-}
-
-void spark_particle_emitter_get_gravity(const SparkGameComponent* component, SparkVector3* outGravity) {
-    auto* self = AsParticleEmitterComponent(component);
-    if (self == nullptr || outGravity == nullptr) {
-        return;
-    }
-    *outGravity = Spark::Scripting::FromVector3(self->GetGravity());
-}
-
-float spark_particle_emitter_get_spread_angle_radians(const SparkGameComponent* component) {
-    auto* self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetSpreadAngleRadians();
-}
-
-float spark_particle_emitter_get_speed_min(const SparkGameComponent* component) {
-    auto* self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetSpeedMin();
-}
-
-float spark_particle_emitter_get_speed_max(const SparkGameComponent* component) {
-    auto* self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetSpeedMax();
-}
-
-void spark_particle_emitter_set_emission_module_id(SparkGameComponent* component, const char* moduleId) {
-    auto self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEmissionModuleId(moduleId);
-}
-
-void spark_particle_emitter_set_ring_radius(SparkGameComponent* component, float radius) {
-    auto self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRingRadius(radius);
-}
-
-float spark_particle_emitter_get_ring_radius(const SparkGameComponent* component) {
-    auto* self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetRingRadius();
-}
-
-void spark_particle_emitter_set_render_space(SparkGameComponent* component, int space) {
-    auto self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRenderSpace(static_cast<Spark::ParticleRenderSpace>(static_cast<std::uint8_t>(space)));
-}
-
-void spark_particle_emitter_set_sprite_layer_sort_order(SparkGameComponent* component, int32_t order) {
-    auto self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSpriteLayerSortOrder(order);
-}
-
-int32_t spark_particle_emitter_get_sprite_layer_sort_order(const SparkGameComponent* component) {
-    auto* self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetSpriteLayerSortOrder();
+    self->SetRestOffset(Spark::Scripting::ToVector3(*offset));
 }
 
 void spark_particle_emitter_clear_particles(SparkGameComponent* component) {
@@ -8608,15 +6297,6 @@ void spark_particle_emitter_clear_particles(SparkGameComponent* component) {
 
     }
     self->ClearParticles();
-}
-
-int32_t spark_particle_emitter_get_alive_particle_count(const SparkGameComponent* component) {
-    auto* self = AsParticleEmitterComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetAliveParticleCount();
 }
 
 void spark_particle_emitter_emit_continuous(SparkGameComponent* component, const SparkVector3* origin, const SparkVector3* worldEmissionDir, float deltaTimeSeconds) {
@@ -8637,6 +6317,1007 @@ void spark_particle_emitter_emit_ring(SparkGameComponent* component, const Spark
     self->EmitRing(Spark::Scripting::ToVector3(*origin), Spark::Scripting::ToVector3(*worldEmissionDir), deltaTimeSeconds);
 }
 
+int32_t spark_particle_emitter_get_alive_particle_count(const SparkGameComponent* component) {
+    auto* self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetAliveParticleCount();
+}
+
+void spark_particle_emitter_get_emission_direction(const SparkGameComponent* component, SparkVector3* outEmissionDirection) {
+    auto* self = AsParticleEmitterComponent(component);
+    if (self == nullptr || outEmissionDirection == nullptr) {
+        return;
+    }
+    *outEmissionDirection = Spark::Scripting::FromVector3(self->GetEmissionDirection());
+}
+
+float spark_particle_emitter_get_emission_rate(const SparkGameComponent* component) {
+    auto* self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetEmissionRate();
+}
+
+float spark_particle_emitter_get_end_size(const SparkGameComponent* component) {
+    auto* self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetEndSize();
+}
+
+void spark_particle_emitter_get_gravity(const SparkGameComponent* component, SparkVector3* outGravity) {
+    auto* self = AsParticleEmitterComponent(component);
+    if (self == nullptr || outGravity == nullptr) {
+        return;
+    }
+    *outGravity = Spark::Scripting::FromVector3(self->GetGravity());
+}
+
+float spark_particle_emitter_get_lifetime_max(const SparkGameComponent* component) {
+    auto* self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetLifetimeMax();
+}
+
+float spark_particle_emitter_get_lifetime_min(const SparkGameComponent* component) {
+    auto* self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetLifetimeMin();
+}
+
+int32_t spark_particle_emitter_get_max_particles(const SparkGameComponent* component) {
+    auto* self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetMaxParticles();
+}
+
+float spark_particle_emitter_get_ring_radius(const SparkGameComponent* component) {
+    auto* self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRingRadius();
+}
+
+float spark_particle_emitter_get_speed_max(const SparkGameComponent* component) {
+    auto* self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetSpeedMax();
+}
+
+float spark_particle_emitter_get_speed_min(const SparkGameComponent* component) {
+    auto* self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetSpeedMin();
+}
+
+float spark_particle_emitter_get_spread_angle_radians(const SparkGameComponent* component) {
+    auto* self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetSpreadAngleRadians();
+}
+
+int32_t spark_particle_emitter_get_sprite_layer_sort_order(const SparkGameComponent* component) {
+    auto* self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetSpriteLayerSortOrder();
+}
+
+float spark_particle_emitter_get_start_size(const SparkGameComponent* component) {
+    auto* self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetStartSize();
+}
+
+int spark_particle_emitter_get_use_local_emission(const SparkGameComponent* component) {
+    auto* self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetUseLocalEmission() ? 1 : 0;
+}
+
+int spark_particle_emitter_is_emitter_enabled(const SparkGameComponent* component) {
+    auto* self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEmitterEnabled() ? 1 : 0;
+}
+
+void spark_particle_emitter_set_emission_direction(SparkGameComponent* component, const SparkVector3* dir) {
+    auto self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEmissionDirection(Spark::Scripting::ToVector3(*dir));
+}
+
+void spark_particle_emitter_set_emission_module_id(SparkGameComponent* component, const char* moduleId) {
+    auto self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEmissionModuleId(moduleId);
+}
+
+void spark_particle_emitter_set_emission_rate(SparkGameComponent* component, float rate) {
+    auto self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEmissionRate(rate);
+}
+
+void spark_particle_emitter_set_emitter_enabled(SparkGameComponent* component, int e) {
+    auto self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEmitterEnabled(e != 0);
+}
+
+void spark_particle_emitter_set_gravity(SparkGameComponent* component, const SparkVector3* g) {
+    auto self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetGravity(Spark::Scripting::ToVector3(*g));
+}
+
+void spark_particle_emitter_set_lifetime(SparkGameComponent* component, float minSec, float maxSec) {
+    auto self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetLifetime(minSec, maxSec);
+}
+
+void spark_particle_emitter_set_render_space(SparkGameComponent* component, int space) {
+    auto self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRenderSpace(static_cast<Spark::ParticleRenderSpace>(static_cast<std::uint8_t>(space)));
+}
+
+void spark_particle_emitter_set_ring_radius(SparkGameComponent* component, float radius) {
+    auto self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRingRadius(radius);
+}
+
+void spark_particle_emitter_set_speed_range(SparkGameComponent* component, float minS, float maxS) {
+    auto self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSpeedRange(minS, maxS);
+}
+
+void spark_particle_emitter_set_spread_angle_radians(SparkGameComponent* component, float rad) {
+    auto self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSpreadAngleRadians(rad);
+}
+
+void spark_particle_emitter_set_sprite_layer_sort_order(SparkGameComponent* component, int32_t order) {
+    auto self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSpriteLayerSortOrder(order);
+}
+
+void spark_particle_emitter_set_start_end_size(SparkGameComponent* component, float start, float end) {
+    auto self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetStartEndSize(start, end);
+}
+
+void spark_particle_emitter_set_use_local_emission(SparkGameComponent* component, int local) {
+    auto self = AsParticleEmitterComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetUseLocalEmission(local != 0);
+}
+
+float spark_patrol_path_get_wait_seconds_per_point(const SparkGameComponent* component) {
+    auto* self = AsPatrolPathComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetWaitSecondsPerPoint();
+}
+
+int spark_patrol_path_is_looping(const SparkGameComponent* component) {
+    auto* self = AsPatrolPathComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsLooping() ? 1 : 0;
+}
+
+void spark_patrol_path_set_looping(SparkGameComponent* component, int l) {
+    auto self = AsPatrolPathComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetLooping(l);
+}
+
+void spark_patrol_path_set_wait_seconds_per_point(SparkGameComponent* component, float s) {
+    auto self = AsPatrolPathComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetWaitSecondsPerPoint(s);
+}
+
+void spark_perception_sensor_clear_detected(SparkGameComponent* component) {
+    auto self = AsPerceptionSensorComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ClearDetected();
+}
+
+float spark_perception_sensor_get_hearing_radius(const SparkGameComponent* component) {
+    auto* self = AsPerceptionSensorComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetHearingRadius();
+}
+
+float spark_perception_sensor_get_sight_fov_degrees(const SparkGameComponent* component) {
+    auto* self = AsPerceptionSensorComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetSightFovDegrees();
+}
+
+float spark_perception_sensor_get_sight_radius(const SparkGameComponent* component) {
+    auto* self = AsPerceptionSensorComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetSightRadius();
+}
+
+int spark_perception_sensor_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsPerceptionSensorComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+void spark_perception_sensor_set_enabled(SparkGameComponent* component, int e) {
+    auto self = AsPerceptionSensorComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(e);
+}
+
+void spark_perception_sensor_set_hearing_radius(SparkGameComponent* component, float r) {
+    auto self = AsPerceptionSensorComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetHearingRadius(r);
+}
+
+void spark_perception_sensor_set_sight_fov_degrees(SparkGameComponent* component, float d) {
+    auto self = AsPerceptionSensorComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSightFovDegrees(d);
+}
+
+void spark_perception_sensor_set_sight_radius(SparkGameComponent* component, float r) {
+    auto self = AsPerceptionSensorComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSightRadius(r);
+}
+
+void spark_perception_sensor_set_target_category_mask(SparkGameComponent* component, int m) {
+    auto self = AsPerceptionSensorComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetTargetCategoryMask(m);
+}
+
+SparkGameObject* spark_physics_attached_body_3d_get_carrier(const SparkGameComponent* component) {
+    auto* self = AsPhysicsAttachedBody3DComponent(component);
+    if (self == nullptr) {
+        return nullptr;
+
+    }
+    return reinterpret_cast<SparkGameObject*>(self->GetCarrier());
+}
+
+void spark_physics_attached_body_3d_get_local_offset(const SparkGameComponent* component, SparkVector3* outLocalOffset) {
+    auto* self = AsPhysicsAttachedBody3DComponent(component);
+    if (self == nullptr || outLocalOffset == nullptr) {
+        return;
+    }
+    *outLocalOffset = Spark::Scripting::FromVector3(self->GetLocalOffset());
+}
+
+int spark_physics_attached_body_3d_is_attached(const SparkGameComponent* component) {
+    auto* self = AsPhysicsAttachedBody3DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsAttached() ? 1 : 0;
+}
+
+int spark_physics_layer3_d_get_is_trigger(const SparkGameComponent* component) {
+    auto* self = AsPhysicsLayer3DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetIsTrigger() ? 1 : 0;
+}
+
+void spark_physics_layer3_d_set_category_bits(SparkGameComponent* component, int bits) {
+    auto self = AsPhysicsLayer3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetCategoryBits(bits);
+}
+
+void spark_physics_layer3_d_set_is_trigger(SparkGameComponent* component, int value) {
+    auto self = AsPhysicsLayer3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetIsTrigger(value);
+}
+
+void spark_physics_layer3_d_set_mask_bits(SparkGameComponent* component, int bits) {
+    auto self = AsPhysicsLayer3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMaskBits(bits);
+}
+
+float spark_physics_material2_d_get_dynamic_friction(const SparkGameComponent* component) {
+    auto* self = AsPhysicsMaterial2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetDynamicFriction();
+}
+
+float spark_physics_material2_d_get_restitution(const SparkGameComponent* component) {
+    auto* self = AsPhysicsMaterial2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRestitution();
+}
+
+void spark_physics_material2_d_set_dynamic_friction(SparkGameComponent* component, float v) {
+    auto self = AsPhysicsMaterial2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetDynamicFriction(v);
+}
+
+void spark_physics_material2_d_set_restitution(SparkGameComponent* component, float v) {
+    auto self = AsPhysicsMaterial2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRestitution(v);
+}
+
+float spark_physics_material3_d_get_dynamic_friction(const SparkGameComponent* component) {
+    auto* self = AsPhysicsMaterial3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetDynamicFriction();
+}
+
+float spark_physics_material3_d_get_restitution(const SparkGameComponent* component) {
+    auto* self = AsPhysicsMaterial3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRestitution();
+}
+
+float spark_physics_material3_d_get_static_friction(const SparkGameComponent* component) {
+    auto* self = AsPhysicsMaterial3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetStaticFriction();
+}
+
+void spark_physics_material3_d_set_dynamic_friction(SparkGameComponent* component, float v) {
+    auto self = AsPhysicsMaterial3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetDynamicFriction(v);
+}
+
+void spark_physics_material3_d_set_restitution(SparkGameComponent* component, float v) {
+    auto self = AsPhysicsMaterial3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRestitution(v);
+}
+
+void spark_physics_material3_d_set_static_friction(SparkGameComponent* component, float v) {
+    auto self = AsPhysicsMaterial3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetStaticFriction(v);
+}
+
+int spark_pickup_get_auto_collect_on_trigger_enter(const SparkGameComponent* component) {
+    auto* self = AsPickupComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetAutoCollectOnTriggerEnter() ? 1 : 0;
+}
+
+int spark_pickup_get_destroy_owner_on_collect(const SparkGameComponent* component) {
+    auto* self = AsPickupComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetDestroyOwnerOnCollect() ? 1 : 0;
+}
+
+int spark_pickup_get_quantity(const SparkGameComponent* component) {
+    auto* self = AsPickupComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetQuantity();
+}
+
+int spark_pickup_is_collected(const SparkGameComponent* component) {
+    auto* self = AsPickupComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsCollected() ? 1 : 0;
+}
+
+void spark_pickup_set_auto_collect_on_trigger_enter(SparkGameComponent* component, int value) {
+    auto self = AsPickupComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetAutoCollectOnTriggerEnter(value);
+}
+
+void spark_pickup_set_destroy_owner_on_collect(SparkGameComponent* component, int value) {
+    auto self = AsPickupComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetDestroyOwnerOnCollect(value);
+}
+
+void spark_pickup_set_item_id(SparkGameComponent* component, const char* id) {
+    auto self = AsPickupComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetItemId(id);
+}
+
+void spark_pickup_set_quantity(SparkGameComponent* component, int value) {
+    auto self = AsPickupComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetQuantity(value);
+}
+
+float spark_player_input_get_action_axis1_d(const SparkGameComponent* component, const char* actionName) {
+    auto* self = AsPlayerInputComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetActionAxis1D(actionName);
+}
+
+float spark_player_input_get_action_axis1d(const SparkGameComponent* component, const char* actionName) {
+    auto* self = AsPlayerInputComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetActionAxis1D(actionName);
+}
+
+int spark_player_input_is_action_pressed(const SparkGameComponent* component, const char* actionName) {
+    auto* self = AsPlayerInputComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsActionPressed(actionName) ? 1 : 0;
+}
+
+int spark_player_input_is_was_action_pressed_this_frame(const SparkGameComponent* component, const char* actionName) {
+    auto* self = AsPlayerInputComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->WasActionPressedThisFrame(actionName) ? 1 : 0;
+}
+
+int spark_player_input_is_was_action_released_this_frame(const SparkGameComponent* component, const char* actionName) {
+    auto* self = AsPlayerInputComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->WasActionReleasedThisFrame(actionName) ? 1 : 0;
+}
+
+void spark_player_input_set_action_map(SparkGameComponent* component, SparkGameComponent* mapIn) {
+    auto self = AsPlayerInputComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetActionMap(ResolveInputActionMap(mapIn));
+}
+
+int spark_player_input_was_action_pressed_this_frame(const SparkGameComponent* component, const char* actionName) {
+    auto* self = AsPlayerInputComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->WasActionPressedThisFrame(actionName) ? 1 : 0;
+}
+
+void spark_point_light2_d_get_color(const SparkGameComponent* component, SparkVector3* outColor) {
+    auto* self = AsPointLight2DComponent(component);
+    if (self == nullptr || outColor == nullptr) {
+        return;
+    }
+    *outColor = Spark::Scripting::FromVector3(self->GetColor());
+}
+
+float spark_point_light2_d_get_effective_intensity(const SparkGameComponent* component) {
+    auto* self = AsPointLight2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetEffectiveIntensity();
+}
+
+float spark_point_light2_d_get_flicker_amount(const SparkGameComponent* component) {
+    auto* self = AsPointLight2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetFlickerAmount();
+}
+
+int spark_point_light2_d_get_flicker_enabled(const SparkGameComponent* component) {
+    auto* self = AsPointLight2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetFlickerEnabled() ? 1 : 0;
+}
+
+float spark_point_light2_d_get_flicker_hz(const SparkGameComponent* component) {
+    auto* self = AsPointLight2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetFlickerHz();
+}
+
+float spark_point_light2_d_get_intensity(const SparkGameComponent* component) {
+    auto* self = AsPointLight2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetIntensity();
+}
+
+void spark_point_light2_d_get_local_offset(const SparkGameComponent* component, SparkVector2* outLocalOffset) {
+    auto* self = AsPointLight2DComponent(component);
+    if (self == nullptr || outLocalOffset == nullptr) {
+        return;
+    }
+    *outLocalOffset = Spark::Scripting::FromVector2(self->GetLocalOffset());
+}
+
+float spark_point_light2_d_get_range(const SparkGameComponent* component) {
+    auto* self = AsPointLight2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRange();
+}
+
+float spark_point_light2_d_get_world_z(const SparkGameComponent* component) {
+    auto* self = AsPointLight2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetWorldZ();
+}
+
+int spark_point_light2_d_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsPointLight2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+void spark_point_light2_d_set_color(SparkGameComponent* component, const SparkVector3* c) {
+    auto self = AsPointLight2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetColor(Spark::Scripting::ToVector3(*c));
+}
+
+void spark_point_light2_d_set_enabled(SparkGameComponent* component, int e) {
+    auto self = AsPointLight2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(e);
+}
+
+void spark_point_light2_d_set_flicker(SparkGameComponent* component, int on, float amount, float frequencyHz) {
+    auto self = AsPointLight2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetFlicker(on, amount, frequencyHz);
+}
+
+void spark_point_light2_d_set_intensity(SparkGameComponent* component, float v) {
+    auto self = AsPointLight2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetIntensity(v);
+}
+
+void spark_point_light2_d_set_local_offset(SparkGameComponent* component, const SparkVector2* offset) {
+    auto self = AsPointLight2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetLocalOffset(Spark::Scripting::ToVector2(*offset));
+}
+
+void spark_point_light2_d_set_range(SparkGameComponent* component, float r) {
+    auto self = AsPointLight2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRange(r);
+}
+
+void spark_point_light2_d_set_world_z(SparkGameComponent* component, float z) {
+    auto self = AsPointLight2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetWorldZ(z);
+}
+
+void spark_point_light_get_color(const SparkGameComponent* component, SparkVector3* outColor) {
+    auto* self = AsPointLightComponent(component);
+    if (self == nullptr || outColor == nullptr) {
+        return;
+    }
+    *outColor = Spark::Scripting::FromVector3(self->GetColor());
+}
+
+float spark_point_light_get_intensity(const SparkGameComponent* component) {
+    auto* self = AsPointLightComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetIntensity();
+}
+
+float spark_point_light_get_range(const SparkGameComponent* component) {
+    auto* self = AsPointLightComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRange();
+}
+
+int spark_point_light_is_casts_shadow(const SparkGameComponent* component) {
+    auto* self = AsPointLightComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->CastsShadow() ? 1 : 0;
+}
+
+int spark_point_light_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsPointLightComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+void spark_point_light_set_casts_shadow(SparkGameComponent* component, int c) {
+    auto self = AsPointLightComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetCastsShadow(c != 0);
+}
+
+void spark_polygon_collider2_d_clear_vertices(SparkGameComponent* component) {
+    auto self = AsPolygonCollider2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ClearVertices();
+}
+
+int spark_polygon_collider2_d_get_is_trigger(const SparkGameComponent* component) {
+    auto* self = AsPolygonCollider2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetIsTrigger() ? 1 : 0;
+}
+
+void spark_polygon_collider2_d_set_category_bits(SparkGameComponent* component, int bits) {
+    auto self = AsPolygonCollider2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetCategoryBits(bits);
+}
+
+void spark_polygon_collider2_d_set_is_trigger(SparkGameComponent* component, int value) {
+    auto self = AsPolygonCollider2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetIsTrigger(value != 0);
+}
+
+void spark_polygon_collider2_d_set_mask_bits(SparkGameComponent* component, int bits) {
+    auto self = AsPolygonCollider2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMaskBits(bits);
+}
+
+float spark_post_process_volume_get_ambient_scale(const SparkGameComponent* component) {
+    auto* self = AsPostProcessVolumeComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetAmbientScale();
+}
+
+float spark_post_process_volume_get_exposure(const SparkGameComponent* component) {
+    auto* self = AsPostProcessVolumeComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetExposure();
+}
+
+void spark_post_process_volume_get_half_extents(const SparkGameComponent* component, SparkVector3* outHalfExtents) {
+    auto* self = AsPostProcessVolumeComponent(component);
+    if (self == nullptr || outHalfExtents == nullptr) {
+        return;
+    }
+    *outHalfExtents = Spark::Scripting::FromVector3(self->GetHalfExtents());
+}
+
+int32_t spark_post_process_volume_get_priority(const SparkGameComponent* component) {
+    auto* self = AsPostProcessVolumeComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetPriority();
+}
+
+int spark_post_process_volume_get_shape(const SparkGameComponent* component) {
+    auto* self = AsPostProcessVolumeComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetShape()));
+}
+
+int spark_post_process_volume_get_ssao_enabled(const SparkGameComponent* component) {
+    auto* self = AsPostProcessVolumeComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetSsaoEnabled() ? 1 : 0;
+}
+
+int spark_post_process_volume_has_s_ambient_scale_override(const SparkGameComponent* component) {
+    auto* self = AsPostProcessVolumeComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->HasAmbientScaleOverride() ? 1 : 0;
+}
+
+int spark_post_process_volume_has_s_exposure_override(const SparkGameComponent* component) {
+    auto* self = AsPostProcessVolumeComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->HasExposureOverride() ? 1 : 0;
+}
+
+int spark_post_process_volume_has_s_ssao_override(const SparkGameComponent* component) {
+    auto* self = AsPostProcessVolumeComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->HasSsaoOverride() ? 1 : 0;
+}
+
 int spark_post_process_volume_is_enabled(const SparkGameComponent* component) {
     auto* self = AsPostProcessVolumeComponent(component);
     if (self == nullptr) {
@@ -8655,32 +7336,6 @@ void spark_post_process_volume_set_enabled(SparkGameComponent* component, int e)
     self->SetEnabled(e);
 }
 
-int spark_post_process_volume_get_shape(const SparkGameComponent* component) {
-    auto* self = AsPostProcessVolumeComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetShape()));
-}
-
-void spark_post_process_volume_set_shape(SparkGameComponent* component, int s) {
-    auto self = AsPostProcessVolumeComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetShape(static_cast<Spark::VolumeShape>(static_cast<std::uint8_t>(s)));
-}
-
-void spark_post_process_volume_get_half_extents(const SparkGameComponent* component, SparkVector3* outHalfExtents) {
-    auto* self = AsPostProcessVolumeComponent(component);
-    if (self == nullptr || outHalfExtents == nullptr) {
-        return;
-    }
-    *outHalfExtents = Spark::Scripting::FromVector3(self->GetHalfExtents());
-}
-
 void spark_post_process_volume_set_half_extents(SparkGameComponent* component, const SparkVector3* e) {
     auto self = AsPostProcessVolumeComponent(component);
     if (self == nullptr) {
@@ -8688,15 +7343,6 @@ void spark_post_process_volume_set_half_extents(SparkGameComponent* component, c
 
     }
     self->SetHalfExtents(Spark::Scripting::ToVector3(*e));
-}
-
-int32_t spark_post_process_volume_get_priority(const SparkGameComponent* component) {
-    auto* self = AsPostProcessVolumeComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetPriority();
 }
 
 void spark_post_process_volume_set_priority(SparkGameComponent* component, int32_t p) {
@@ -8708,58 +7354,210 @@ void spark_post_process_volume_set_priority(SparkGameComponent* component, int32
     self->SetPriority(p);
 }
 
-int spark_post_process_volume_has_s_ssao_override(const SparkGameComponent* component) {
-    auto* self = AsPostProcessVolumeComponent(component);
+void spark_post_process_volume_set_shape(SparkGameComponent* component, int s) {
+    auto self = AsPostProcessVolumeComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetShape(static_cast<Spark::VolumeShape>(static_cast<std::uint8_t>(s)));
+}
+
+void spark_projectile2_d_deactivate(SparkGameComponent* component) {
+    auto self = AsProjectile2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->Deactivate();
+}
+
+int spark_projectile2_d_get_block_on_solid_hit(const SparkGameComponent* component) {
+    auto* self = AsProjectile2DComponent(component);
     if (self == nullptr) {
         return 0;
 
     }
-    return self->HasSsaoOverride() ? 1 : 0;
+    return self->GetBlockOnSolidHit() ? 1 : 0;
 }
 
-int spark_post_process_volume_get_ssao_enabled(const SparkGameComponent* component) {
-    auto* self = AsPostProcessVolumeComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetSsaoEnabled() ? 1 : 0;
-}
-
-int spark_post_process_volume_has_s_exposure_override(const SparkGameComponent* component) {
-    auto* self = AsPostProcessVolumeComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->HasExposureOverride() ? 1 : 0;
-}
-
-float spark_post_process_volume_get_exposure(const SparkGameComponent* component) {
-    auto* self = AsPostProcessVolumeComponent(component);
+float spark_projectile2_d_get_damage(const SparkGameComponent* component) {
+    auto* self = AsProjectile2DComponent(component);
     if (self == nullptr) {
         return 0.0F;
 
     }
-    return self->GetExposure();
+    return self->GetDamage();
 }
 
-int spark_post_process_volume_has_s_ambient_scale_override(const SparkGameComponent* component) {
-    auto* self = AsPostProcessVolumeComponent(component);
+int spark_projectile2_d_get_deactivate_on_first_hit(const SparkGameComponent* component) {
+    auto* self = AsProjectile2DComponent(component);
     if (self == nullptr) {
         return 0;
 
     }
-    return self->HasAmbientScaleOverride() ? 1 : 0;
+    return self->GetDeactivateOnFirstHit() ? 1 : 0;
 }
 
-float spark_post_process_volume_get_ambient_scale(const SparkGameComponent* component) {
-    auto* self = AsPostProcessVolumeComponent(component);
+int spark_projectile2_d_get_destroy_owner_on_deactivate(const SparkGameComponent* component) {
+    auto* self = AsProjectile2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetDestroyOwnerOnDeactivate() ? 1 : 0;
+}
+
+SparkGameObject* spark_projectile2_d_get_instigator(const SparkGameComponent* component) {
+    auto* self = AsProjectile2DComponent(component);
+    if (self == nullptr) {
+        return nullptr;
+
+    }
+    return reinterpret_cast<SparkGameObject*>(self->GetInstigator());
+}
+
+float spark_projectile2_d_get_lifetime_seconds(const SparkGameComponent* component) {
+    auto* self = AsProjectile2DComponent(component);
     if (self == nullptr) {
         return 0.0F;
 
     }
-    return self->GetAmbientScale();
+    return self->GetLifetimeSeconds();
+}
+
+int spark_projectile2_d_get_shape(const SparkGameComponent* component) {
+    auto* self = AsProjectile2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetShape()));
+}
+
+void spark_projectile2_d_get_velocity(const SparkGameComponent* component, SparkVector2* outVelocity) {
+    auto* self = AsProjectile2DComponent(component);
+    if (self == nullptr || outVelocity == nullptr) {
+        return;
+    }
+    *outVelocity = Spark::Scripting::FromVector2(self->GetVelocity());
+}
+
+int spark_projectile2_d_is_active(const SparkGameComponent* component) {
+    auto* self = AsProjectile2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsActive() ? 1 : 0;
+}
+
+void spark_projectile2_d_set_active(SparkGameComponent* component, int value) {
+    auto self = AsProjectile2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetActive(value);
+}
+
+void spark_projectile2_d_set_block_on_solid_hit(SparkGameComponent* component, int value) {
+    auto self = AsProjectile2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetBlockOnSolidHit(value);
+}
+
+void spark_projectile2_d_set_damage(SparkGameComponent* component, float value) {
+    auto self = AsProjectile2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetDamage(value);
+}
+
+void spark_projectile2_d_set_deactivate_on_first_hit(SparkGameComponent* component, int value) {
+    auto self = AsProjectile2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetDeactivateOnFirstHit(value);
+}
+
+void spark_projectile2_d_set_destroy_owner_on_deactivate(SparkGameComponent* component, int value) {
+    auto self = AsProjectile2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetDestroyOwnerOnDeactivate(value);
+}
+
+void spark_projectile2_d_set_half_extents(SparkGameComponent* component, const SparkVector2* value) {
+    auto self = AsProjectile2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetHalfExtents(Spark::Scripting::ToVector2(*value));
+}
+
+void spark_projectile2_d_set_instigator(SparkGameComponent* component, SparkGameObject* object) {
+    auto self = AsProjectile2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetInstigator(reinterpret_cast<Spark::GameObject*>(object));
+}
+
+void spark_projectile2_d_set_lifetime_seconds(SparkGameComponent* component, float seconds) {
+    auto self = AsProjectile2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetLifetimeSeconds(seconds);
+}
+
+void spark_projectile2_d_set_radius(SparkGameComponent* component, float value) {
+    auto self = AsProjectile2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRadius(value);
+}
+
+void spark_projectile2_d_set_shape(SparkGameComponent* component, int value) {
+    auto self = AsProjectile2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetShape(static_cast<Spark::Projectile2DShape>(static_cast<std::uint8_t>(value)));
+}
+
+void spark_projectile2_d_set_velocity(SparkGameComponent* component, const SparkVector2* value) {
+    auto self = AsProjectile2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetVelocity(Spark::Scripting::ToVector2(*value));
+}
+
+void spark_render_layer_clear_explicit_order_in_layer(SparkGameComponent* component) {
+    auto self = AsRenderLayerComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ClearExplicitOrderInLayer();
 }
 
 int32_t spark_render_layer_get_order_in_layer(const SparkGameComponent* component) {
@@ -8789,22 +7587,317 @@ void spark_render_layer_set_layer_id(SparkGameComponent* component, int id) {
     self->SetLayerId(id);
 }
 
-void spark_render_layer_clear_explicit_order_in_layer(SparkGameComponent* component) {
-    auto self = AsRenderLayerComponent(component);
+int spark_rigidbody_2d_get_body_type(const SparkGameComponent* component) {
+    auto* self = AsRigidbody2DComponent(component);
     if (self == nullptr) {
-        return;
+        return 0;
 
     }
-    self->ClearExplicitOrderInLayer();
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetBodyType()));
 }
 
-void spark_scene2_d_composite_view_set_feature(SparkGameComponent* component, int value) {
-    auto self = AsScene2DCompositeViewComponent(component);
+float spark_rigidbody_2d_get_gravity_scale(const SparkGameComponent* component) {
+    auto* self = AsRigidbody2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetGravityScale();
+}
+
+void spark_rigidbody_2d_set_body_type(SparkGameComponent* component, int t) {
+    auto self = AsRigidbody2DComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetFeature(static_cast<Spark::Scene2DCompositeFeature>(static_cast<std::uint8_t>(value)));
+    self->SetBodyType(static_cast<Spark::RigidbodyBodyType2D>(static_cast<std::uint8_t>(t)));
+}
+
+void spark_rigidbody_2d_set_gravity_scale(SparkGameComponent* component, float g) {
+    auto self = AsRigidbody2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetGravityScale(g);
+}
+
+void spark_rigidbody_2d_set_grounded(SparkGameComponent* component, int g) {
+    auto self = AsRigidbody2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetGrounded(g != 0);
+}
+
+void spark_rigidbody_2d_set_velocity_x(SparkGameComponent* component, float x) {
+    auto self = AsRigidbody2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetVelocityX(x);
+}
+
+void spark_rigidbody_2d_set_velocity_y(SparkGameComponent* component, float y) {
+    auto self = AsRigidbody2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetVelocityY(y);
+}
+
+float spark_rigidbody_3d_get_angular_damping(const SparkGameComponent* component) {
+    auto* self = AsRigidbody3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetAngularDamping();
+}
+
+int spark_rigidbody_3d_get_body_type(const SparkGameComponent* component) {
+    auto* self = AsRigidbody3DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetBodyType()));
+}
+
+float spark_rigidbody_3d_get_gravity_scale(const SparkGameComponent* component) {
+    auto* self = AsRigidbody3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetGravityScale();
+}
+
+float spark_rigidbody_3d_get_inverse_inertia_tensor_scale(const SparkGameComponent* component) {
+    auto* self = AsRigidbody3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetInverseInertiaTensorScale();
+}
+
+float spark_rigidbody_3d_get_inverse_mass(const SparkGameComponent* component) {
+    auto* self = AsRigidbody3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetInverseMass();
+}
+
+float spark_rigidbody_3d_get_linear_damping(const SparkGameComponent* component) {
+    auto* self = AsRigidbody3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetLinearDamping();
+}
+
+float spark_rigidbody_3d_get_restitution(const SparkGameComponent* component) {
+    auto* self = AsRigidbody3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRestitution();
+}
+
+void spark_rigidbody_3d_set_body_type(SparkGameComponent* component, int t) {
+    auto self = AsRigidbody3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetBodyType(static_cast<Spark::RigidbodyBodyType3D>(static_cast<std::uint8_t>(t)));
+}
+
+void spark_rigidbody_3d_set_gravity_scale(SparkGameComponent* component, float g) {
+    auto self = AsRigidbody3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetGravityScale(g);
+}
+
+void spark_rigidbody_3d_set_inverse_inertia_tensor_scale(SparkGameComponent* component, float invI) {
+    auto self = AsRigidbody3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetInverseInertiaTensorScale(invI);
+}
+
+SparkGameObject* spark_root_motion_get_animator_object(const SparkGameComponent* component) {
+    auto* self = AsRootMotionComponent(component);
+    if (self == nullptr) {
+        return nullptr;
+
+    }
+    return reinterpret_cast<SparkGameObject*>(self->GetAnimatorObject());
+}
+
+SparkGameObject* spark_root_motion_get_apply_target(const SparkGameComponent* component) {
+    auto* self = AsRootMotionComponent(component);
+    if (self == nullptr) {
+        return nullptr;
+
+    }
+    return reinterpret_cast<SparkGameObject*>(self->GetApplyTarget());
+}
+
+SparkGameObject* spark_root_motion_get_facing_object(const SparkGameComponent* component) {
+    auto* self = AsRootMotionComponent(component);
+    if (self == nullptr) {
+        return nullptr;
+
+    }
+    return reinterpret_cast<SparkGameObject*>(self->GetFacingObject());
+}
+
+void spark_root_motion_get_last_delta_skeleton_space(const SparkGameComponent* component, SparkVector3* outLastDeltaSkeletonSpace) {
+    auto* self = AsRootMotionComponent(component);
+    if (self == nullptr || outLastDeltaSkeletonSpace == nullptr) {
+        return;
+    }
+    *outLastDeltaSkeletonSpace = Spark::Scripting::FromVector3(self->GetLastDeltaSkeletonSpace());
+}
+
+void spark_root_motion_get_last_delta_world_space(const SparkGameComponent* component, SparkVector3* outLastDeltaWorldSpace) {
+    auto* self = AsRootMotionComponent(component);
+    if (self == nullptr || outLastDeltaWorldSpace == nullptr) {
+        return;
+    }
+    *outLastDeltaWorldSpace = Spark::Scripting::FromVector3(self->GetLastDeltaWorldSpace());
+}
+
+float spark_root_motion_get_skeleton_space_scale(const SparkGameComponent* component) {
+    auto* self = AsRootMotionComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetSkeletonSpaceScale();
+}
+
+int spark_root_motion_get_translation_mask(const SparkGameComponent* component) {
+    auto* self = AsRootMotionComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetTranslationMask()));
+}
+
+int spark_root_motion_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsRootMotionComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+int spark_root_motion_is_in_place(const SparkGameComponent* component) {
+    auto* self = AsRootMotionComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsInPlace() ? 1 : 0;
+}
+
+void spark_root_motion_set_animator_object(SparkGameComponent* component, SparkGameObject* object) {
+    auto self = AsRootMotionComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetAnimatorObject(reinterpret_cast<Spark::GameObject*>(object));
+}
+
+void spark_root_motion_set_apply_target(SparkGameComponent* component, SparkGameObject* object) {
+    auto self = AsRootMotionComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetApplyTarget(reinterpret_cast<Spark::GameObject*>(object));
+}
+
+void spark_root_motion_set_enabled(SparkGameComponent* component, int enabled) {
+    auto self = AsRootMotionComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(enabled);
+}
+
+void spark_root_motion_set_facing_object(SparkGameComponent* component, SparkGameObject* object) {
+    auto self = AsRootMotionComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetFacingObject(reinterpret_cast<Spark::GameObject*>(object));
+}
+
+void spark_root_motion_set_in_place(SparkGameComponent* component, int enabled) {
+    auto self = AsRootMotionComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetInPlace(enabled);
+}
+
+void spark_root_motion_set_motion_joint_index(SparkGameComponent* component, uint32_t jointIndex) {
+    auto self = AsRootMotionComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMotionJointIndex(jointIndex);
+}
+
+void spark_root_motion_set_skeleton_space_scale(SparkGameComponent* component, float scale) {
+    auto self = AsRootMotionComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSkeletonSpaceScale(scale);
+}
+
+void spark_root_motion_set_translation_mask(SparkGameComponent* component, int mask) {
+    auto self = AsRootMotionComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetTranslationMask(static_cast<Spark::RootMotionTranslationMask>(static_cast<std::uint8_t>(mask)));
+}
+
+void spark_root_motion_use_pattern_motion_joint_resolver(SparkGameComponent* component) {
+    auto self = AsRootMotionComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->UsePatternMotionJointResolver();
 }
 
 int spark_scene2_d_composite_view_get_feature(const SparkGameComponent* component) {
@@ -8816,6 +7909,15 @@ int spark_scene2_d_composite_view_get_feature(const SparkGameComponent* componen
     return static_cast<int>(static_cast<std::uint8_t>(self->GetFeature()));
 }
 
+int spark_scene2_d_composite_view_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsScene2DCompositeViewComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
 void spark_scene2_d_composite_view_set_enabled(SparkGameComponent* component, int value) {
     auto self = AsScene2DCompositeViewComponent(component);
     if (self == nullptr) {
@@ -8825,13 +7927,253 @@ void spark_scene2_d_composite_view_set_enabled(SparkGameComponent* component, in
     self->SetEnabled(value);
 }
 
-int spark_scene2_d_composite_view_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsScene2DCompositeViewComponent(component);
+void spark_scene2_d_composite_view_set_feature(SparkGameComponent* component, int value) {
+    auto self = AsScene2DCompositeViewComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetFeature(static_cast<Spark::Scene2DCompositeFeature>(static_cast<std::uint8_t>(value)));
+}
+
+int spark_scene_spatial_policy_get_partition_kind(const SparkGameComponent* component) {
+    auto* self = AsSceneSpatialPolicyComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetPartitionKind()));
+}
+
+void spark_scene_spatial_policy_set_partition_kind(SparkGameComponent* component, int k) {
+    auto self = AsSceneSpatialPolicyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetPartitionKind(static_cast<Spark::ScenePartitionKind>(static_cast<std::uint8_t>(k)));
+}
+
+void spark_screen_shake_add_impulse(SparkGameComponent* component, const SparkVector2* amplitude, float durationSeconds, float frequencyHz) {
+    auto self = AsScreenShakeComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->AddImpulse(Spark::Scripting::ToVector2(*amplitude), durationSeconds, frequencyHz);
+}
+
+void spark_screen_shake_add_trauma(SparkGameComponent* component, float amount) {
+    auto self = AsScreenShakeComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->AddTrauma(amount);
+}
+
+void spark_screen_shake_clear(SparkGameComponent* component) {
+    auto self = AsScreenShakeComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->Clear();
+}
+
+void spark_screen_shake_get_offset(const SparkGameComponent* component, SparkVector2* outOffset) {
+    auto* self = AsScreenShakeComponent(component);
+    if (self == nullptr || outOffset == nullptr) {
+        return;
+    }
+    *outOffset = Spark::Scripting::FromVector2(self->GetOffset());
+}
+
+float spark_screen_shake_get_trauma(const SparkGameComponent* component) {
+    auto* self = AsScreenShakeComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetTrauma();
+}
+
+void spark_screen_shake_tick(SparkGameComponent* component, float deltaSeconds, SparkVector2* outTick) {
+    auto self = AsScreenShakeComponent(component);
+    if (self == nullptr || outTick == nullptr) {
+        return;
+    }
+    *outTick = Spark::Scripting::FromVector2(self->Tick(deltaSeconds));
+}
+
+float spark_skeleton_debug_draw_get_bone_thickness(const SparkGameComponent* component) {
+    auto* self = AsSkeletonDebugDrawComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetBoneThickness();
+}
+
+float spark_skeleton_debug_draw_get_joint_marker_scale(const SparkGameComponent* component) {
+    auto* self = AsSkeletonDebugDrawComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetJointMarkerScale();
+}
+
+void spark_skeleton_debug_draw_get_line_color(const SparkGameComponent* component, SparkVector3* outLineColor) {
+    auto* self = AsSkeletonDebugDrawComponent(component);
+    if (self == nullptr || outLineColor == nullptr) {
+        return;
+    }
+    *outLineColor = Spark::Scripting::FromVector3(self->GetLineColor());
+}
+
+SparkGameObject* spark_skeleton_debug_draw_get_source_object(const SparkGameComponent* component) {
+    auto* self = AsSkeletonDebugDrawComponent(component);
+    if (self == nullptr) {
+        return nullptr;
+
+    }
+    return reinterpret_cast<SparkGameObject*>(self->GetSourceObject());
+}
+
+int spark_skeleton_debug_draw_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsSkeletonDebugDrawComponent(component);
     if (self == nullptr) {
         return 0;
 
     }
     return self->IsEnabled() ? 1 : 0;
+}
+
+void spark_skeleton_debug_draw_set_bone_thickness(SparkGameComponent* component, float thickness) {
+    auto self = AsSkeletonDebugDrawComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetBoneThickness(thickness);
+}
+
+void spark_skeleton_debug_draw_set_enabled(SparkGameComponent* component, int value) {
+    auto self = AsSkeletonDebugDrawComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(value != 0);
+}
+
+void spark_skeleton_debug_draw_set_joint_marker_scale(SparkGameComponent* component, float scale) {
+    auto self = AsSkeletonDebugDrawComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetJointMarkerScale(scale);
+}
+
+void spark_skeleton_debug_draw_set_line_color(SparkGameComponent* component, const SparkVector3* rgb) {
+    auto self = AsSkeletonDebugDrawComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetLineColor(Spark::Scripting::ToVector3(*rgb));
+}
+
+void spark_skeleton_debug_draw_set_source_object(SparkGameComponent* component, SparkGameObject* object) {
+    auto self = AsSkeletonDebugDrawComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSourceObject(reinterpret_cast<Spark::GameObject*>(object));
+}
+
+void spark_skeleton_debug_draw_toggle_enabled(SparkGameComponent* component) {
+    auto self = AsSkeletonDebugDrawComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ToggleEnabled();
+}
+
+int32_t spark_skinned_animation_budget_get_max_palette_updates_per_frame(const SparkGameComponent* component) {
+    auto* self = AsSkinnedAnimationBudgetComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetMaxPaletteUpdatesPerFrame();
+}
+
+int32_t spark_skinned_animation_budget_get_max_skinned_draws_per_frame(const SparkGameComponent* component) {
+    auto* self = AsSkinnedAnimationBudgetComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetMaxSkinnedDrawsPerFrame();
+}
+
+float spark_skinned_animation_budget_get_palette_quantization_hz(const SparkGameComponent* component) {
+    auto* self = AsSkinnedAnimationBudgetComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetPaletteQuantizationHz();
+}
+
+int spark_skinned_animation_budget_is_palette_cache_enabled(const SparkGameComponent* component) {
+    auto* self = AsSkinnedAnimationBudgetComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsPaletteCacheEnabled() ? 1 : 0;
+}
+
+void spark_skinned_animation_budget_set_max_palette_updates_per_frame(SparkGameComponent* component, uint32_t limit) {
+    auto self = AsSkinnedAnimationBudgetComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMaxPaletteUpdatesPerFrame(limit);
+}
+
+void spark_skinned_animation_budget_set_max_skinned_draws_per_frame(SparkGameComponent* component, uint32_t limit) {
+    auto self = AsSkinnedAnimationBudgetComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMaxSkinnedDrawsPerFrame(limit);
+}
+
+void spark_skinned_animation_budget_set_palette_cache_enabled(SparkGameComponent* component, int enabled) {
+    auto self = AsSkinnedAnimationBudgetComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetPaletteCacheEnabled(enabled != 0);
+}
+
+void spark_skinned_animation_budget_set_palette_quantization_hz(SparkGameComponent* component, float hz) {
+    auto self = AsSkinnedAnimationBudgetComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetPaletteQuantizationHz(hz);
 }
 
 int spark_skinned_mesh_is_mesh_loaded(const SparkGameComponent* component) {
@@ -8861,13 +8203,12 @@ int spark_sky_get_sky_mode(const SparkGameComponent* component) {
     return static_cast<int>(static_cast<std::uint8_t>(self->GetSkyMode()));
 }
 
-void spark_sky_set_sky_mode(SparkGameComponent* component, int m) {
-    auto self = AsSkyComponent(component);
-    if (self == nullptr) {
+void spark_sky_get_tint(const SparkGameComponent* component, SparkVector3* outTint) {
+    auto* self = AsSkyComponent(component);
+    if (self == nullptr || outTint == nullptr) {
         return;
-
     }
-    self->SetSkyMode(static_cast<Spark::SceneSkyMode>(static_cast<std::uint8_t>(m)));
+    *outTint = Spark::Scripting::FromVector3(self->GetTint());
 }
 
 int spark_sky_is_sky_enabled(const SparkGameComponent* component) {
@@ -8888,21 +8229,13 @@ void spark_sky_set_sky_enabled(SparkGameComponent* component, int e) {
     self->SetSkyEnabled(e != 0);
 }
 
-void spark_sky_get_tint(const SparkGameComponent* component, SparkVector3* outTint) {
-    auto* self = AsSkyComponent(component);
-    if (self == nullptr || outTint == nullptr) {
-        return;
-    }
-    *outTint = Spark::Scripting::FromVector3(self->GetTint());
-}
-
-int spark_sorting_group_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsSortingGroupComponent(component);
+void spark_sky_set_sky_mode(SparkGameComponent* component, int m) {
+    auto self = AsSkyComponent(component);
     if (self == nullptr) {
-        return 0;
+        return;
 
     }
-    return self->IsEnabled() ? 1 : 0;
+    self->SetSkyMode(static_cast<Spark::SceneSkyMode>(static_cast<std::uint8_t>(m)));
 }
 
 int32_t spark_sorting_group_get_sorting_order(const SparkGameComponent* component) {
@@ -8914,6 +8247,15 @@ int32_t spark_sorting_group_get_sorting_order(const SparkGameComponent* componen
     return self->GetSortingOrder();
 }
 
+int spark_sorting_group_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsSortingGroupComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
 int spark_sorting_group_is_uses_root_world_y(const SparkGameComponent* component) {
     auto* self = AsSortingGroupComponent(component);
     if (self == nullptr) {
@@ -8921,6 +8263,533 @@ int spark_sorting_group_is_uses_root_world_y(const SparkGameComponent* component
 
     }
     return self->UsesRootWorldY() ? 1 : 0;
+}
+
+void spark_sound_cue_queue_bundled_clip(SparkGameComponent* component, const char* bundledAssetPathUtf8, float volume) {
+    auto self = AsSoundCueComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->QueueBundledClip(bundledAssetPathUtf8, volume);
+}
+
+void spark_sound_cue_queue_preset(SparkGameComponent* component, int preset, float volume) {
+    auto self = AsSoundCueComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->QueuePreset(static_cast<Spark::ProceduralSoundPreset>(static_cast<std::uint8_t>(preset)), volume);
+}
+
+float spark_spawn_point2_d_get_facing_radians(const SparkGameComponent* component) {
+    auto* self = AsSpawnPoint2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetFacingRadians();
+}
+
+int spark_spawn_point2_d_get_team_id(const SparkGameComponent* component) {
+    auto* self = AsSpawnPoint2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetTeamId();
+}
+
+int spark_spawn_point2_d_get_use_transform_facing(const SparkGameComponent* component) {
+    auto* self = AsSpawnPoint2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetUseTransformFacing() ? 1 : 0;
+}
+
+void spark_spawn_point2_d_set_facing_radians(SparkGameComponent* component, float radians) {
+    auto self = AsSpawnPoint2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetFacingRadians(radians);
+}
+
+void spark_spawn_point2_d_set_spawn_name(SparkGameComponent* component, const char* name) {
+    auto self = AsSpawnPoint2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSpawnName(name);
+}
+
+void spark_spawn_point2_d_set_team_id(SparkGameComponent* component, int id) {
+    auto self = AsSpawnPoint2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetTeamId(id);
+}
+
+void spark_spawn_point2_d_set_use_transform_facing(SparkGameComponent* component, int value) {
+    auto self = AsSpawnPoint2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetUseTransformFacing(value);
+}
+
+void spark_spawn_point_set_spawn_name(SparkGameComponent* component, const char* name) {
+    auto self = AsSpawnPointComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSpawnName(name);
+}
+
+int spark_sphere_collider3_d_get_is_trigger(const SparkGameComponent* component) {
+    auto* self = AsSphereCollider3DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetIsTrigger() ? 1 : 0;
+}
+
+void spark_sphere_collider3_d_get_offset(const SparkGameComponent* component, SparkVector3* outOffset) {
+    auto* self = AsSphereCollider3DComponent(component);
+    if (self == nullptr || outOffset == nullptr) {
+        return;
+    }
+    *outOffset = Spark::Scripting::FromVector3(self->GetOffset());
+}
+
+float spark_sphere_collider3_d_get_radius(const SparkGameComponent* component) {
+    auto* self = AsSphereCollider3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRadius();
+}
+
+void spark_sphere_collider3_d_set_category_bits(SparkGameComponent* component, int bits) {
+    auto self = AsSphereCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetCategoryBits(bits);
+}
+
+void spark_sphere_collider3_d_set_is_trigger(SparkGameComponent* component, int value) {
+    auto self = AsSphereCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetIsTrigger(value);
+}
+
+void spark_sphere_collider3_d_set_mask_bits(SparkGameComponent* component, int bits) {
+    auto self = AsSphereCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMaskBits(bits);
+}
+
+void spark_sphere_collider3_d_set_offset(SparkGameComponent* component, const SparkVector3* o) {
+    auto self = AsSphereCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetOffset(Spark::Scripting::ToVector3(*o));
+}
+
+void spark_sphere_collider3_d_set_radius(SparkGameComponent* component, float r) {
+    auto self = AsSphereCollider3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRadius(r);
+}
+
+void spark_spot_light_get_color(const SparkGameComponent* component, SparkVector3* outColor) {
+    auto* self = AsSpotLightComponent(component);
+    if (self == nullptr || outColor == nullptr) {
+        return;
+    }
+    *outColor = Spark::Scripting::FromVector3(self->GetColor());
+}
+
+float spark_spot_light_get_inner_cone_degrees(const SparkGameComponent* component) {
+    auto* self = AsSpotLightComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetInnerConeDegrees();
+}
+
+float spark_spot_light_get_intensity(const SparkGameComponent* component) {
+    auto* self = AsSpotLightComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetIntensity();
+}
+
+float spark_spot_light_get_outer_cone_degrees(const SparkGameComponent* component) {
+    auto* self = AsSpotLightComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetOuterConeDegrees();
+}
+
+float spark_spot_light_get_range(const SparkGameComponent* component) {
+    auto* self = AsSpotLightComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRange();
+}
+
+int spark_spot_light_is_casts_shadow(const SparkGameComponent* component) {
+    auto* self = AsSpotLightComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->CastsShadow() ? 1 : 0;
+}
+
+int spark_spot_light_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsSpotLightComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+void spark_spot_light_set_casts_shadow(SparkGameComponent* component, int c) {
+    auto self = AsSpotLightComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetCastsShadow(c != 0);
+}
+
+void spark_spot_light_set_inner_cone_degrees(SparkGameComponent* component, float deg) {
+    auto self = AsSpotLightComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetInnerConeDegrees(deg);
+}
+
+void spark_spot_light_set_outer_cone_degrees(SparkGameComponent* component, float deg) {
+    auto self = AsSpotLightComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetOuterConeDegrees(deg);
+}
+
+float spark_spring_arm3_d_get_arm_length(const SparkGameComponent* component) {
+    auto* self = AsSpringArm3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetArmLength();
+}
+
+float spark_spring_arm3_d_get_min_arm_length(const SparkGameComponent* component) {
+    auto* self = AsSpringArm3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetMinArmLength();
+}
+
+float spark_spring_arm3_d_get_pitch_radians(const SparkGameComponent* component) {
+    auto* self = AsSpringArm3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetPitchRadians();
+}
+
+SparkGameObject* spark_spring_arm3_d_get_pivot_target(const SparkGameComponent* component) {
+    auto* self = AsSpringArm3DComponent(component);
+    if (self == nullptr) {
+        return nullptr;
+
+    }
+    return reinterpret_cast<SparkGameObject*>(self->GetPivotTarget());
+}
+
+float spark_spring_arm3_d_get_probe_radius(const SparkGameComponent* component) {
+    auto* self = AsSpringArm3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetProbeRadius();
+}
+
+void spark_spring_arm3_d_get_socket_offset(const SparkGameComponent* component, SparkVector3* outSocketOffset) {
+    auto* self = AsSpringArm3DComponent(component);
+    if (self == nullptr || outSocketOffset == nullptr) {
+        return;
+    }
+    *outSocketOffset = Spark::Scripting::FromVector3(self->GetSocketOffset());
+}
+
+float spark_spring_arm3_d_get_yaw_radians(const SparkGameComponent* component) {
+    auto* self = AsSpringArm3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetYawRadians();
+}
+
+void spark_spring_arm3_d_set_arm_length(SparkGameComponent* component, float l) {
+    auto self = AsSpringArm3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetArmLength(l);
+}
+
+void spark_spring_arm3_d_set_min_arm_length(SparkGameComponent* component, float l) {
+    auto self = AsSpringArm3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMinArmLength(l);
+}
+
+void spark_spring_arm3_d_set_pitch_radians(SparkGameComponent* component, float p) {
+    auto self = AsSpringArm3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetPitchRadians(p);
+}
+
+void spark_spring_arm3_d_set_pivot_target(SparkGameComponent* component, SparkGameObject* o) {
+    auto self = AsSpringArm3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetPivotTarget(reinterpret_cast<Spark::GameObject*>(o));
+}
+
+void spark_spring_arm3_d_set_probe_radius(SparkGameComponent* component, float r) {
+    auto self = AsSpringArm3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetProbeRadius(r);
+}
+
+void spark_spring_arm3_d_set_socket_offset(SparkGameComponent* component, const SparkVector3* o) {
+    auto self = AsSpringArm3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSocketOffset(Spark::Scripting::ToVector3(*o));
+}
+
+void spark_spring_arm3_d_set_yaw_radians(SparkGameComponent* component, float y) {
+    auto self = AsSpringArm3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetYawRadians(y);
+}
+
+SparkGameObject* spark_spring_joint3_d_get_connected_body(const SparkGameComponent* component) {
+    auto* self = AsSpringJoint3DComponent(component);
+    if (self == nullptr) {
+        return nullptr;
+
+    }
+    return reinterpret_cast<SparkGameObject*>(self->GetConnectedBody());
+}
+
+float spark_spring_joint3_d_get_damping(const SparkGameComponent* component) {
+    auto* self = AsSpringJoint3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetDamping();
+}
+
+float spark_spring_joint3_d_get_rest_length(const SparkGameComponent* component) {
+    auto* self = AsSpringJoint3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRestLength();
+}
+
+float spark_spring_joint3_d_get_spring_stiffness(const SparkGameComponent* component) {
+    auto* self = AsSpringJoint3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetSpringStiffness();
+}
+
+void spark_spring_joint3_d_set_connected_body(SparkGameComponent* component, SparkGameObject* o) {
+    auto self = AsSpringJoint3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetConnectedBody(reinterpret_cast<Spark::GameObject*>(o));
+}
+
+void spark_spring_joint3_d_set_damping(SparkGameComponent* component, float d) {
+    auto self = AsSpringJoint3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetDamping(d);
+}
+
+void spark_spring_joint3_d_set_rest_length(SparkGameComponent* component, float r) {
+    auto self = AsSpringJoint3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRestLength(r);
+}
+
+void spark_spring_joint3_d_set_spring_stiffness(SparkGameComponent* component, float k) {
+    auto self = AsSpringJoint3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSpringStiffness(k);
+}
+
+void spark_sprite_2d_fsm_set_combat_blackboard_int_slot(SparkGameComponent* component, int slotOrMax) {
+    auto self = AsSprite2DCharacterAnimFsmComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetCombatBlackboardIntSlot(slotOrMax);
+}
+
+void spark_sprite_animation_event_receiver_add_marker(SparkGameComponent* component, uint32_t clipIndex, float normalizedTime, const char* eventName) {
+    auto self = AsSpriteAnimationEventReceiverComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->AddMarker(clipIndex, normalizedTime, eventName);
+}
+
+void spark_sprite_animation_event_receiver_clear_markers(SparkGameComponent* component) {
+    auto self = AsSpriteAnimationEventReceiverComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ClearMarkers();
+}
+
+void spark_sprite_animation_event_vfx_add_binding(SparkGameComponent* component, const char* eventName, const char* vfxAssetKey) {
+    auto self = AsSpriteAnimationEventVfxComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->AddBinding(eventName, vfxAssetKey);
+}
+
+void spark_sprite_animation_event_vfx_clear_bindings(SparkGameComponent* component) {
+    auto self = AsSpriteAnimationEventVfxComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ClearBindings();
+}
+
+void spark_sprite_animation_event_vfx_get_world_offset(const SparkGameComponent* component, SparkVector3* outWorldOffset) {
+    auto* self = AsSpriteAnimationEventVfxComponent(component);
+    if (self == nullptr || outWorldOffset == nullptr) {
+        return;
+    }
+    *outWorldOffset = Spark::Scripting::FromVector3(self->GetWorldOffset());
+}
+
+void spark_sprite_animation_event_vfx_set_world_offset(SparkGameComponent* component, const SparkVector3* offset) {
+    auto self = AsSpriteAnimationEventVfxComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetWorldOffset(Spark::Scripting::ToVector3(*offset));
+}
+
+int32_t spark_sprite_animator_get_current_local_frame(const SparkGameComponent* component) {
+    auto* self = AsSpriteAnimatorComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetCurrentLocalFrame();
+}
+
+float spark_sprite_animator_get_time_in_clip_seconds(const SparkGameComponent* component) {
+    auto* self = AsSpriteAnimatorComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetTimeInClipSeconds();
 }
 
 int32_t spark_sprite_get_sort_order(const SparkGameComponent* component) {
@@ -8941,6 +8810,15 @@ int spark_sprite_lighting2_d_get_mode(const SparkGameComponent* component) {
     return static_cast<int>(static_cast<std::uint8_t>(self->GetMode()));
 }
 
+int spark_sprite_lighting2_d_get_sync_normal_uv_with_sprite(const SparkGameComponent* component) {
+    auto* self = AsSpriteLighting2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetSyncNormalUvWithSprite() ? 1 : 0;
+}
+
 void spark_sprite_lighting2_d_set_mode(SparkGameComponent* component, int m) {
     auto self = AsSpriteLighting2DComponent(component);
     if (self == nullptr) {
@@ -8959,31 +8837,40 @@ void spark_sprite_lighting2_d_set_sync_normal_uv_with_sprite(SparkGameComponent*
     self->SetSyncNormalUvWithSprite(sync);
 }
 
-int spark_sprite_lighting2_d_get_sync_normal_uv_with_sprite(const SparkGameComponent* component) {
-    auto* self = AsSpriteLighting2DComponent(component);
+void spark_terrain_apply_height_brush_local(SparkGameComponent* component, SparkGameObject* owner, const SparkVector2* centerXZ, float radiusXZ, float deltaY) {
+    auto self = AsTerrainComponent(component);
     if (self == nullptr) {
-        return 0;
+        return;
 
     }
-    return self->GetSyncNormalUvWithSprite() ? 1 : 0;
+    self->ApplyHeightBrushLocalOn(reinterpret_cast<Spark::GameObject*>(owner), Spark::Scripting::ToVector2(*centerXZ), radiusXZ, deltaY);
 }
 
-int32_t spark_terrain_get_subdiv_x(const SparkGameComponent* component) {
-    auto* self = AsTerrainComponent(component);
+void spark_terrain_apply_height_brush_local_on(SparkGameComponent* component, SparkGameObject* owner, const SparkVector2* centerXZ, float radiusXZ, float deltaY) {
+    auto self = AsTerrainComponent(component);
     if (self == nullptr) {
-        return 0;
+        return;
 
     }
-    return self->GetSubdivX();
+    self->ApplyHeightBrushLocalOn(reinterpret_cast<Spark::GameObject*>(owner), Spark::Scripting::ToVector2(*centerXZ), radiusXZ, deltaY);
 }
 
-int32_t spark_terrain_get_subdiv_z(const SparkGameComponent* component) {
-    auto* self = AsTerrainComponent(component);
+void spark_terrain_apply_height_brush_world(SparkGameComponent* component, SparkGameObject* owner, const SparkVector3* centerWorld, float radiusWorld, float deltaY) {
+    auto self = AsTerrainComponent(component);
     if (self == nullptr) {
-        return 0;
+        return;
 
     }
-    return self->GetSubdivZ();
+    self->ApplyHeightBrushWorldOn(reinterpret_cast<Spark::GameObject*>(owner), Spark::Scripting::ToVector3(*centerWorld), radiusWorld, deltaY);
+}
+
+void spark_terrain_apply_height_brush_world_on(SparkGameComponent* component, SparkGameObject* owner, const SparkVector3* centerWorld, float radiusWorld, float deltaY) {
+    auto self = AsTerrainComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ApplyHeightBrushWorldOn(reinterpret_cast<Spark::GameObject*>(owner), Spark::Scripting::ToVector3(*centerWorld), radiusWorld, deltaY);
 }
 
 float spark_terrain_get_half_extent_x(const SparkGameComponent* component) {
@@ -9013,6 +8900,31 @@ float spark_terrain_get_height_scale(const SparkGameComponent* component) {
     return self->GetHeightScale();
 }
 
+float spark_terrain_get_lacunarity(const SparkGameComponent* component) {
+    auto* self = AsTerrainComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetLacunarity();
+}
+
+void spark_terrain_get_mesh_albedo(const SparkGameComponent* component, SparkVector3* outMeshAlbedo) {
+    auto* self = AsTerrainComponent(component);
+    if (self == nullptr || outMeshAlbedo == nullptr) {
+        return;
+    }
+    *outMeshAlbedo = Spark::Scripting::FromVector3(self->GetMeshAlbedoRgb());
+}
+
+void spark_terrain_get_mesh_albedo_rgb(const SparkGameComponent* component, SparkVector3* outMeshAlbedoRgb) {
+    auto* self = AsTerrainComponent(component);
+    if (self == nullptr || outMeshAlbedoRgb == nullptr) {
+        return;
+    }
+    *outMeshAlbedoRgb = Spark::Scripting::FromVector3(self->GetMeshAlbedoRgb());
+}
+
 float spark_terrain_get_noise_scale(const SparkGameComponent* component) {
     auto* self = AsTerrainComponent(component);
     if (self == nullptr) {
@@ -9040,15 +8952,6 @@ float spark_terrain_get_persistence(const SparkGameComponent* component) {
     return self->GetPersistence();
 }
 
-float spark_terrain_get_lacunarity(const SparkGameComponent* component) {
-    auto* self = AsTerrainComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetLacunarity();
-}
-
 int32_t spark_terrain_get_seed(const SparkGameComponent* component) {
     auto* self = AsTerrainComponent(component);
     if (self == nullptr) {
@@ -9058,13 +8961,49 @@ int32_t spark_terrain_get_seed(const SparkGameComponent* component) {
     return self->GetSeed();
 }
 
-float spark_terrain_get_world_units_per_texture_repeat(const SparkGameComponent* component) {
+int32_t spark_terrain_get_subdiv_x(const SparkGameComponent* component) {
     auto* self = AsTerrainComponent(component);
     if (self == nullptr) {
-        return 0.0F;
+        return 0;
 
     }
-    return self->GetWorldUnitsPerTextureRepeat();
+    return self->GetSubdivX();
+}
+
+int32_t spark_terrain_get_subdiv_z(const SparkGameComponent* component) {
+    auto* self = AsTerrainComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetSubdivZ();
+}
+
+void spark_terrain_regenerate_mesh(SparkGameComponent* component, SparkGameObject* owner) {
+    auto self = AsTerrainComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->RegenerateMeshOn(reinterpret_cast<Spark::GameObject*>(owner));
+}
+
+void spark_terrain_regenerate_mesh_on(SparkGameComponent* component, SparkGameObject* owner) {
+    auto self = AsTerrainComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->RegenerateMeshOn(reinterpret_cast<Spark::GameObject*>(owner));
+}
+
+void spark_terrain_reset_heights_to_procedural_on(SparkGameComponent* component, SparkGameObject* owner) {
+    auto self = AsTerrainComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ResetHeightsToProceduralOn(reinterpret_cast<Spark::GameObject*>(owner));
 }
 
 void spark_terrain_set_height_scale(SparkGameComponent* component, float v) {
@@ -9094,13 +9033,30 @@ void spark_terrain_set_seed(SparkGameComponent* component, uint32_t v) {
     self->SetSeed(v);
 }
 
-void spark_terrain_apply_height_brush_world(SparkGameComponent* component, SparkGameObject* owner, const SparkVector3* centerWorld, float radiusWorld, float deltaY) {
-    auto self = AsTerrainComponent(component);
+float spark_text_overlay_get_alpha(const SparkGameComponent* component) {
+    auto* self = AsTextOverlayComponent(component);
     if (self == nullptr) {
-        return;
+        return 0.0F;
 
     }
-    self->ApplyHeightBrushWorldOn(reinterpret_cast<Spark::GameObject*>(owner), Spark::Scripting::ToVector3(*centerWorld), radiusWorld, deltaY);
+    return self->GetAlpha();
+}
+
+void spark_text_overlay_get_color(const SparkGameComponent* component, SparkVector3* outColor) {
+    auto* self = AsTextOverlayComponent(component);
+    if (self == nullptr || outColor == nullptr) {
+        return;
+    }
+    *outColor = Spark::Scripting::FromVector3(self->GetColor());
+}
+
+float spark_text_overlay_get_font_size_pixels(const SparkGameComponent* component) {
+    auto* self = AsTextOverlayComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetFontSizePixels();
 }
 
 float spark_text_overlay_get_screen_x(const SparkGameComponent* component) {
@@ -9121,32 +9077,6 @@ float spark_text_overlay_get_screen_y(const SparkGameComponent* component) {
     return self->GetScreenY();
 }
 
-float spark_text_overlay_get_font_size_pixels(const SparkGameComponent* component) {
-    auto* self = AsTextOverlayComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetFontSizePixels();
-}
-
-void spark_text_overlay_get_color(const SparkGameComponent* component, SparkVector3* outColor) {
-    auto* self = AsTextOverlayComponent(component);
-    if (self == nullptr || outColor == nullptr) {
-        return;
-    }
-    *outColor = Spark::Scripting::FromVector3(self->GetColor());
-}
-
-float spark_text_overlay_get_alpha(const SparkGameComponent* component) {
-    auto* self = AsTextOverlayComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetAlpha();
-}
-
 int spark_text_overlay_is_visible(const SparkGameComponent* component) {
     auto* self = AsTextOverlayComponent(component);
     if (self == nullptr) {
@@ -9156,184 +9086,13 @@ int spark_text_overlay_is_visible(const SparkGameComponent* component) {
     return self->IsVisible() ? 1 : 0;
 }
 
-int32_t spark_tilemap_get_map_width(const SparkGameComponent* component) {
-    auto* self = AsTilemapComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetMapWidth();
-}
-
-int32_t spark_tilemap_get_map_height(const SparkGameComponent* component) {
-    auto* self = AsTilemapComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetMapHeight();
-}
-
-int32_t spark_tilemap_get_atlas_tiles_u(const SparkGameComponent* component) {
-    auto* self = AsTilemapComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetAtlasTilesU();
-}
-
-int32_t spark_tilemap_get_atlas_tiles_v(const SparkGameComponent* component) {
-    auto* self = AsTilemapComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetAtlasTilesV();
-}
-
-float spark_tilemap_get_tile_world_size(const SparkGameComponent* component) {
-    auto* self = AsTilemapComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetTileWorldSize();
-}
-
-void spark_tilemap_set_tile_world_size(SparkGameComponent* component, float size) {
-    auto self = AsTilemapComponent(component);
+void spark_tilemap_autotile_clear_rebuild_request(SparkGameComponent* component) {
+    auto self = AsTilemapAutotileComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetTileWorldSize(size);
-}
-
-int32_t spark_tilemap_get_sort_order_base(const SparkGameComponent* component) {
-    auto* self = AsTilemapComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetSortOrderBase();
-}
-
-void spark_tilemap_set_sort_order_base(SparkGameComponent* component, int32_t order) {
-    auto self = AsTilemapComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSortOrderBase(order);
-}
-
-void spark_tilemap_resize(SparkGameComponent* component, uint32_t mapW, uint32_t mapH) {
-    auto self = AsTilemapComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->Resize(mapW, mapH);
-}
-
-int32_t spark_tilemap_get_add_layer(SparkGameComponent* component, const char* name) {
-    auto self = AsTilemapComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->AddLayer(name);
-}
-
-void spark_tilemap_remove_layer(SparkGameComponent* component, uint32_t layerIndex) {
-    auto self = AsTilemapComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->RemoveLayer(layerIndex);
-}
-
-void spark_tilemap_set_paint_tile(SparkGameComponent* component, uint32_t x, uint32_t y, int paintTileId) {
-    auto self = AsTilemapComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetPaintTile(x, y, paintTileId);
-}
-
-void spark_vfx_player_set_vfx_asset_key(SparkGameComponent* component, const char* key) {
-    auto self = AsVfxPlayerComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetVfxAssetKey(key);
-}
-
-void spark_vfx_player_set_play_on_start(SparkGameComponent* component, int enabled) {
-    auto self = AsVfxPlayerComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetPlayOnStart(enabled != 0);
-}
-
-int spark_vfx_player_get_play_on_start(const SparkGameComponent* component) {
-    auto* self = AsVfxPlayerComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetPlayOnStart() ? 1 : 0;
-}
-
-void spark_vfx_player_set_play_on_start_once(SparkGameComponent* component, int enabled) {
-    auto self = AsVfxPlayerComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetPlayOnStartOnce(enabled != 0);
-}
-
-int spark_vfx_player_get_play_on_start_once(const SparkGameComponent* component) {
-    auto* self = AsVfxPlayerComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetPlayOnStartOnce() ? 1 : 0;
-}
-
-void spark_vfx_player_set_pooled_playback(SparkGameComponent* component, int pooled) {
-    auto self = AsVfxPlayerComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetPooledPlayback(pooled != 0);
-}
-
-int spark_vfx_player_is_pooled_playback(const SparkGameComponent* component) {
-    auto* self = AsVfxPlayerComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsPooledPlayback() ? 1 : 0;
-}
-
-int spark_vfx_player_get_playback_state(const SparkGameComponent* component) {
-    auto* self = AsVfxPlayerComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetPlaybackState()));
+    self->ClearRebuildRequest();
 }
 
 int32_t spark_tilemap_autotile_get_layer_index(const SparkGameComponent* component) {
@@ -9354,15 +9113,6 @@ int spark_tilemap_autotile_get_rebuild_on_update(const SparkGameComponent* compo
     return self->GetRebuildOnUpdate() ? 1 : 0;
 }
 
-void spark_tilemap_autotile_set_rebuild_on_update(SparkGameComponent* component, int enabled) {
-    auto self = AsTilemapAutotileComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetRebuildOnUpdate(enabled);
-}
-
 void spark_tilemap_autotile_request_rebuild(SparkGameComponent* component) {
     auto self = AsTilemapAutotileComponent(component);
     if (self == nullptr) {
@@ -9372,13 +9122,157 @@ void spark_tilemap_autotile_request_rebuild(SparkGameComponent* component) {
     self->RequestRebuild();
 }
 
-void spark_tilemap_autotile_clear_rebuild_request(SparkGameComponent* component) {
+void spark_tilemap_autotile_set_rebuild_on_update(SparkGameComponent* component, int enabled) {
     auto self = AsTilemapAutotileComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->ClearRebuildRequest();
+    self->SetRebuildOnUpdate(enabled);
+}
+
+int spark_tilemap_collider2_d_get_is_trigger(const SparkGameComponent* component) {
+    auto* self = AsTilemapCollider2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetIsTrigger() ? 1 : 0;
+}
+
+void spark_tilemap_collider2_d_set_category_bits(SparkGameComponent* component, int bits) {
+    auto self = AsTilemapCollider2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetCategoryBits(bits);
+}
+
+void spark_tilemap_collider2_d_set_is_trigger(SparkGameComponent* component, int value) {
+    auto self = AsTilemapCollider2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetIsTrigger(value);
+}
+
+void spark_tilemap_collider2_d_set_mask_bits(SparkGameComponent* component, int bits) {
+    auto self = AsTilemapCollider2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMaskBits(bits);
+}
+
+int32_t spark_tilemap_get_add_layer(SparkGameComponent* component, const char* name) {
+    auto self = AsTilemapComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->AddLayer(name);
+}
+
+int32_t spark_tilemap_get_atlas_tiles_u(const SparkGameComponent* component) {
+    auto* self = AsTilemapComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetAtlasTilesU();
+}
+
+int32_t spark_tilemap_get_atlas_tiles_v(const SparkGameComponent* component) {
+    auto* self = AsTilemapComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetAtlasTilesV();
+}
+
+int32_t spark_tilemap_get_map_height(const SparkGameComponent* component) {
+    auto* self = AsTilemapComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetMapHeight();
+}
+
+int32_t spark_tilemap_get_map_width(const SparkGameComponent* component) {
+    auto* self = AsTilemapComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetMapWidth();
+}
+
+int32_t spark_tilemap_get_sort_order_base(const SparkGameComponent* component) {
+    auto* self = AsTilemapComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetSortOrderBase();
+}
+
+float spark_tilemap_get_tile_world_size(const SparkGameComponent* component) {
+    auto* self = AsTilemapComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetTileWorldSize();
+}
+
+void spark_tilemap_remove_layer(SparkGameComponent* component, uint32_t layerIndex) {
+    auto self = AsTilemapComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->RemoveLayer(layerIndex);
+}
+
+void spark_tilemap_resize(SparkGameComponent* component, uint32_t mapW, uint32_t mapH) {
+    auto self = AsTilemapComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->Resize(mapW, mapH);
+}
+
+void spark_tilemap_set_paint_tile(SparkGameComponent* component, uint32_t x, uint32_t y, int paintTileId) {
+    auto self = AsTilemapComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetPaintTile(x, y, paintTileId);
+}
+
+void spark_tilemap_set_sort_order_base(SparkGameComponent* component, int32_t order) {
+    auto self = AsTilemapComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSortOrderBase(order);
+}
+
+void spark_tilemap_set_tile_world_size(SparkGameComponent* component, float size) {
+    auto self = AsTilemapComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetTileWorldSize(size);
 }
 
 int spark_tilemap_gameplay_grid_get_auto_rebake(const SparkGameComponent* component) {
@@ -9390,13 +9284,13 @@ int spark_tilemap_gameplay_grid_get_auto_rebake(const SparkGameComponent* compon
     return self->GetAutoRebake() ? 1 : 0;
 }
 
-void spark_tilemap_gameplay_grid_set_auto_rebake(SparkGameComponent* component, int enabled) {
+void spark_tilemap_gameplay_grid_rebake_if_needed(SparkGameComponent* component, SparkGameObject* owner) {
     auto self = AsTilemapGameplayGridComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->SetAutoRebake(enabled);
+    self->RebakeIfNeeded(*reinterpret_cast<Spark::GameObject*>(owner));
 }
 
 void spark_tilemap_gameplay_grid_request_rebake(SparkGameComponent* component) {
@@ -9408,67 +9302,13 @@ void spark_tilemap_gameplay_grid_request_rebake(SparkGameComponent* component) {
     self->RequestRebake();
 }
 
-void spark_tilemap_gameplay_grid_rebake_if_needed(SparkGameComponent* component, SparkGameObject* owner) {
+void spark_tilemap_gameplay_grid_set_auto_rebake(SparkGameComponent* component, int enabled) {
     auto self = AsTilemapGameplayGridComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->RebakeIfNeeded(*reinterpret_cast<Spark::GameObject*>(owner));
-}
-
-void spark_tilemap_map_source_set_tmx_path(SparkGameComponent* component, const char* path) {
-    auto self = AsTilemapMapSourceComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetTmxPath(path);
-}
-
-void spark_tilemap_map_source_set_spark_map_path(SparkGameComponent* component, const char* path) {
-    auto self = AsTilemapMapSourceComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSparkMapPath(path);
-}
-
-float spark_tilemap_map_source_get_pixels_per_world_unit(const SparkGameComponent* component) {
-    auto* self = AsTilemapMapSourceComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetPixelsPerWorldUnit();
-}
-
-void spark_tilemap_map_source_set_pixels_per_world_unit(SparkGameComponent* component, float value) {
-    auto self = AsTilemapMapSourceComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetPixelsPerWorldUnit(value);
-}
-
-int spark_tilemap_map_source_get_import_on_attach(const SparkGameComponent* component) {
-    auto* self = AsTilemapMapSourceComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetImportOnAttach() ? 1 : 0;
-}
-
-void spark_tilemap_map_source_set_import_on_attach(SparkGameComponent* component, int enabled) {
-    auto self = AsTilemapMapSourceComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetImportOnAttach(enabled);
+    self->SetAutoRebake(enabled);
 }
 
 int spark_tilemap_map_source_get_hot_reload(const SparkGameComponent* component) {
@@ -9480,6 +9320,24 @@ int spark_tilemap_map_source_get_hot_reload(const SparkGameComponent* component)
     return self->GetHotReload() ? 1 : 0;
 }
 
+int spark_tilemap_map_source_get_import_on_attach(const SparkGameComponent* component) {
+    auto* self = AsTilemapMapSourceComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetImportOnAttach() ? 1 : 0;
+}
+
+float spark_tilemap_map_source_get_pixels_per_world_unit(const SparkGameComponent* component) {
+    auto* self = AsTilemapMapSourceComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetPixelsPerWorldUnit();
+}
+
 void spark_tilemap_map_source_set_hot_reload(SparkGameComponent* component, int enabled) {
     auto self = AsTilemapMapSourceComponent(component);
     if (self == nullptr) {
@@ -9487,6 +9345,42 @@ void spark_tilemap_map_source_set_hot_reload(SparkGameComponent* component, int 
 
     }
     self->SetHotReload(enabled);
+}
+
+void spark_tilemap_map_source_set_import_on_attach(SparkGameComponent* component, int enabled) {
+    auto self = AsTilemapMapSourceComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetImportOnAttach(enabled);
+}
+
+void spark_tilemap_map_source_set_pixels_per_world_unit(SparkGameComponent* component, float value) {
+    auto self = AsTilemapMapSourceComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetPixelsPerWorldUnit(value);
+}
+
+void spark_tilemap_map_source_set_spark_map_path(SparkGameComponent* component, const char* path) {
+    auto self = AsTilemapMapSourceComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSparkMapPath(path);
+}
+
+void spark_tilemap_map_source_set_tmx_path(SparkGameComponent* component, const char* path) {
+    auto self = AsTilemapMapSourceComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetTmxPath(path);
 }
 
 int spark_tilemap_object_gizmo_get_draw_gizmos(const SparkGameComponent* component) {
@@ -9507,22 +9401,13 @@ int spark_tilemap_object_gizmo_get_draw_runtime_markers(const SparkGameComponent
     return self->GetDrawRuntimeMarkers() ? 1 : 0;
 }
 
-int32_t spark_tilemap_object_layer_get_add_object_layer(SparkGameComponent* component, const char* name) {
-    auto self = AsTilemapObjectLayerComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->AddObjectLayer(name);
-}
-
-void spark_tilemap_object_layer_remove_object_layer(SparkGameComponent* component, uint32_t layerIndex) {
+void spark_tilemap_object_layer_clear_markers(SparkGameComponent* component, uint32_t layerIndex) {
     auto self = AsTilemapObjectLayerComponent(component);
     if (self == nullptr) {
         return;
 
     }
-    self->RemoveObjectLayer(layerIndex);
+    self->ClearMarkers(layerIndex);
 }
 
 int32_t spark_tilemap_object_layer_get_add_marker(SparkGameComponent* component, uint32_t layerIndex, int marker) {
@@ -9534,13 +9419,13 @@ int32_t spark_tilemap_object_layer_get_add_marker(SparkGameComponent* component,
     return self->AddMarker(layerIndex, static_cast<Spark::TilemapObjectMarker>(static_cast<std::uint8_t>(marker)));
 }
 
-void spark_tilemap_object_layer_clear_markers(SparkGameComponent* component, uint32_t layerIndex) {
+int32_t spark_tilemap_object_layer_get_add_object_layer(SparkGameComponent* component, const char* name) {
     auto self = AsTilemapObjectLayerComponent(component);
     if (self == nullptr) {
-        return;
+        return 0;
 
     }
-    self->ClearMarkers(layerIndex);
+    return self->AddObjectLayer(name);
 }
 
 int spark_tilemap_object_layer_is_remove_marker(SparkGameComponent* component, uint32_t layerIndex, uint32_t markerId) {
@@ -9550,6 +9435,15 @@ int spark_tilemap_object_layer_is_remove_marker(SparkGameComponent* component, u
 
     }
     return self->RemoveMarker(layerIndex, markerId) ? 1 : 0;
+}
+
+void spark_tilemap_object_layer_remove_object_layer(SparkGameComponent* component, uint32_t layerIndex) {
+    auto self = AsTilemapObjectLayerComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->RemoveObjectLayer(layerIndex);
 }
 
 int spark_tilemap_object_spawn_get_spawn_on_attach(const SparkGameComponent* component) {
@@ -9579,13 +9473,13 @@ float spark_tilemap_tile_animator_get_animation_time_seconds(const SparkGameComp
     return self->GetAnimationTimeSeconds();
 }
 
-void spark_tilemap_tile_animator_set_animation_time_seconds(SparkGameComponent* component, float seconds) {
-    auto self = AsTilemapTileAnimatorComponent(component);
+int spark_tilemap_tile_animator_is_playing(const SparkGameComponent* component) {
+    auto* self = AsTilemapTileAnimatorComponent(component);
     if (self == nullptr) {
-        return;
+        return 0;
 
     }
-    self->SetAnimationTimeSeconds(seconds);
+    return self->IsPlaying() ? 1 : 0;
 }
 
 void spark_tilemap_tile_animator_reset_animation_time(SparkGameComponent* component) {
@@ -9597,13 +9491,13 @@ void spark_tilemap_tile_animator_reset_animation_time(SparkGameComponent* compon
     self->ResetAnimationTime();
 }
 
-int spark_tilemap_tile_animator_is_playing(const SparkGameComponent* component) {
-    auto* self = AsTilemapTileAnimatorComponent(component);
+void spark_tilemap_tile_animator_set_animation_time_seconds(SparkGameComponent* component, float seconds) {
+    auto self = AsTilemapTileAnimatorComponent(component);
     if (self == nullptr) {
-        return 0;
+        return;
 
     }
-    return self->IsPlaying() ? 1 : 0;
+    self->SetAnimationTimeSeconds(seconds);
 }
 
 void spark_tilemap_tile_animator_set_playing(SparkGameComponent* component, int play) {
@@ -9615,489 +9509,6 @@ void spark_tilemap_tile_animator_set_playing(SparkGameComponent* component, int 
     self->SetPlaying(play);
 }
 
-int spark_ui_canvas_get_sort_order(const SparkGameComponent* component) {
-    auto* self = AsUiCanvasComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetSortOrder();
-}
-
-void spark_ui_canvas_set_canvas_enabled(SparkGameComponent* component, int enabled) {
-    auto self = AsUiCanvasComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetCanvasEnabled(enabled != 0);
-}
-
-int spark_ui_canvas_is_canvas_enabled(const SparkGameComponent* component) {
-    auto* self = AsUiCanvasComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsCanvasEnabled() ? 1 : 0;
-}
-
-void spark_ui_canvas_clear_transient_pointer_state(SparkGameComponent* component) {
-    auto self = AsUiCanvasComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ClearTransientPointerState();
-}
-
-void spark_ui_canvas_clear_keyboard_focus(SparkGameComponent* component) {
-    auto self = AsUiCanvasComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ClearKeyboardFocus();
-}
-
-void spark_ui_canvas_set_modal_input_capture(SparkGameComponent* component, int capture) {
-    auto self = AsUiCanvasComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetModalInputCapture(capture != 0);
-}
-
-int spark_ui_canvas_get_modal_input_capture(const SparkGameComponent* component) {
-    auto* self = AsUiCanvasComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetModalInputCapture() ? 1 : 0;
-}
-
-int spark_water_body_get_mode(const SparkGameComponent* component) {
-    auto* self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetMode()));
-}
-
-float spark_water_body_get_water_level_y(const SparkGameComponent* component) {
-    auto* self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetWaterLevelY();
-}
-
-int spark_water_body_get_wave_preset_id(const SparkGameComponent* component) {
-    auto* self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetWavePresetId()));
-}
-
-float spark_water_body_get_wave_time_seconds(const SparkGameComponent* component) {
-    auto* self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetWaveTimeSeconds();
-}
-
-float spark_water_body_get_wave_time_scale(const SparkGameComponent* component) {
-    auto* self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetWaveTimeScale();
-}
-
-void spark_water_body_get_surface_tile_anchor_x_z(const SparkGameComponent* component, SparkVector2* outSurfaceTileAnchorXZ) {
-    auto* self = AsWaterBodyComponent(component);
-    if (self == nullptr || outSurfaceTileAnchorXZ == nullptr) {
-        return;
-    }
-    *outSurfaceTileAnchorXZ = Spark::Scripting::FromVector2(self->GetSurfaceTileAnchorXZ());
-}
-
-void spark_water_body_get_mesh_albedo(const SparkGameComponent* component, SparkVector3* outMeshAlbedo) {
-    auto* self = AsWaterBodyComponent(component);
-    if (self == nullptr || outMeshAlbedo == nullptr) {
-        return;
-    }
-    *outMeshAlbedo = Spark::Scripting::FromVector3(self->GetMeshAlbedo());
-}
-
-void spark_water_body_get_deep_color(const SparkGameComponent* component, SparkVector3* outDeepColor) {
-    auto* self = AsWaterBodyComponent(component);
-    if (self == nullptr || outDeepColor == nullptr) {
-        return;
-    }
-    *outDeepColor = Spark::Scripting::FromVector3(self->GetDeepColor());
-}
-
-float spark_water_body_get_absorption(const SparkGameComponent* component) {
-    auto* self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetAbsorption();
-}
-
-float spark_water_body_get_foam_strength(const SparkGameComponent* component) {
-    auto* self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetFoamStrength();
-}
-
-float spark_water_body_get_detail_normal_strength(const SparkGameComponent* component) {
-    auto* self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetDetailNormalStrength();
-}
-
-float spark_water_body_get_shoreline_foam_strength(const SparkGameComponent* component) {
-    auto* self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetShorelineFoamStrength();
-}
-
-float spark_water_body_get_shoreline_foam_max_depth(const SparkGameComponent* component) {
-    auto* self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetShorelineFoamMaxDepth();
-}
-
-void spark_water_body_set_mode(SparkGameComponent* component, int value) {
-    auto self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMode(static_cast<Spark::WaterBodyMode>(static_cast<std::uint8_t>(value)));
-}
-
-void spark_water_body_set_water_level_y(SparkGameComponent* component, float value) {
-    auto self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetWaterLevelY(value);
-}
-
-void spark_water_body_set_wave_preset_id(SparkGameComponent* component, int value) {
-    auto self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetWavePresetId(static_cast<Spark::WaterWavePresetId>(static_cast<std::uint8_t>(value)));
-}
-
-void spark_water_body_set_mesh_albedo(SparkGameComponent* component, const SparkVector3* value) {
-    auto self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetMeshAlbedo(Spark::Scripting::ToVector3(*value));
-}
-
-void spark_water_body_set_deep_color(SparkGameComponent* component, const SparkVector3* value) {
-    auto self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetDeepColor(Spark::Scripting::ToVector3(*value));
-}
-
-void spark_water_body_set_absorption(SparkGameComponent* component, float value) {
-    auto self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetAbsorption(value);
-}
-
-void spark_water_body_set_foam_strength(SparkGameComponent* component, float value) {
-    auto self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetFoamStrength(value);
-}
-
-void spark_water_body_set_detail_normal_strength(SparkGameComponent* component, float value) {
-    auto self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetDetailNormalStrength(value);
-}
-
-void spark_water_body_set_shoreline_foam_strength(SparkGameComponent* component, float value) {
-    auto self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetShorelineFoamStrength(value);
-}
-
-void spark_water_body_set_shoreline_foam_max_depth(SparkGameComponent* component, float value) {
-    auto self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetShorelineFoamMaxDepth(value);
-}
-
-void spark_water_body_set_ssr_enabled(SparkGameComponent* component, int enabled) {
-    auto self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSsrEnabled(enabled);
-}
-
-void spark_water_body_set_wave_time_scale(SparkGameComponent* component, float value) {
-    auto self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetWaveTimeScale(value);
-}
-
-void spark_water_body_set_wave_amplitude_scale(SparkGameComponent* component, float value) {
-    auto self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetWaveAmplitudeScale(value);
-}
-
-void spark_water_body_set_wave_speed_scale(SparkGameComponent* component, float value) {
-    auto self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetWaveSpeedScale(value);
-}
-
-float spark_water_body_get_wave_amplitude_scale(const SparkGameComponent* component) {
-    auto* self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetWaveAmplitudeScale();
-}
-
-float spark_water_body_get_wave_speed_scale(const SparkGameComponent* component) {
-    auto* self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetWaveSpeedScale();
-}
-
-void spark_water_body_set_swell_travel_direction_world(SparkGameComponent* component, const SparkVector2* directionWorldXZ) {
-    auto self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSwellTravelDirectionWorld(Spark::Scripting::ToVector2(*directionWorldXZ));
-}
-
-void spark_water_body_clear_swell_travel_direction_override(SparkGameComponent* component) {
-    auto self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ClearSwellTravelDirectionOverride();
-}
-
-void spark_water_body_set_clipmap_camera_world(SparkGameComponent* component, const SparkVector3* worldPosition) {
-    auto self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetClipmapCameraWorld(Spark::Scripting::ToVector3(*worldPosition));
-}
-
-void spark_water_body_clear_clipmap_camera_override(SparkGameComponent* component) {
-    auto self = AsWaterBodyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->ClearClipmapCameraOverride();
-}
-
-int spark_scene_spatial_policy_get_partition_kind(const SparkGameComponent* component) {
-    auto* self = AsSceneSpatialPolicyComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return static_cast<int>(static_cast<std::uint8_t>(self->GetPartitionKind()));
-}
-
-void spark_scene_spatial_policy_set_partition_kind(SparkGameComponent* component, int k) {
-    auto self = AsSceneSpatialPolicyComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetPartitionKind(static_cast<Spark::ScenePartitionKind>(static_cast<std::uint8_t>(k)));
-}
-
-void spark_spawn_point2_d_set_spawn_name(SparkGameComponent* component, const char* name) {
-    auto self = AsSpawnPoint2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSpawnName(name);
-}
-
-float spark_spawn_point2_d_get_facing_radians(const SparkGameComponent* component) {
-    auto* self = AsSpawnPoint2DComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetFacingRadians();
-}
-
-void spark_spawn_point2_d_set_facing_radians(SparkGameComponent* component, float radians) {
-    auto self = AsSpawnPoint2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetFacingRadians(radians);
-}
-
-int spark_spawn_point2_d_get_use_transform_facing(const SparkGameComponent* component) {
-    auto* self = AsSpawnPoint2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetUseTransformFacing() ? 1 : 0;
-}
-
-void spark_spawn_point2_d_set_use_transform_facing(SparkGameComponent* component, int value) {
-    auto self = AsSpawnPoint2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetUseTransformFacing(value);
-}
-
-int spark_spawn_point2_d_get_team_id(const SparkGameComponent* component) {
-    auto* self = AsSpawnPoint2DComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->GetTeamId();
-}
-
-void spark_spawn_point2_d_set_team_id(SparkGameComponent* component, int id) {
-    auto self = AsSpawnPoint2DComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetTeamId(id);
-}
-
-void spark_spawn_point_set_spawn_name(SparkGameComponent* component, const char* name) {
-    auto self = AsSpawnPointComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetSpawnName(name);
-}
-
-int spark_time_of_day_driver_is_enabled(const SparkGameComponent* component) {
-    auto* self = AsTimeOfDayDriverComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsEnabled() ? 1 : 0;
-}
-
-void spark_time_of_day_driver_set_enabled(SparkGameComponent* component, int e) {
-    auto self = AsTimeOfDayDriverComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetEnabled(e);
-}
-
-int spark_time_of_day_driver_is_looping(const SparkGameComponent* component) {
-    auto* self = AsTimeOfDayDriverComponent(component);
-    if (self == nullptr) {
-        return 0;
-
-    }
-    return self->IsLooping() ? 1 : 0;
-}
-
-void spark_time_of_day_driver_set_looping(SparkGameComponent* component, int l) {
-    auto self = AsTimeOfDayDriverComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetLooping(l);
-}
-
 float spark_time_of_day_driver_get_day_length_seconds(const SparkGameComponent* component) {
     auto* self = AsTimeOfDayDriverComponent(component);
     if (self == nullptr) {
@@ -10105,33 +9516,6 @@ float spark_time_of_day_driver_get_day_length_seconds(const SparkGameComponent* 
 
     }
     return self->GetDayLengthSeconds();
-}
-
-void spark_time_of_day_driver_set_day_length_seconds(SparkGameComponent* component, float s) {
-    auto self = AsTimeOfDayDriverComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetDayLengthSeconds(s);
-}
-
-float spark_time_of_day_driver_get_time_of_day(const SparkGameComponent* component) {
-    auto* self = AsTimeOfDayDriverComponent(component);
-    if (self == nullptr) {
-        return 0.0F;
-
-    }
-    return self->GetTimeOfDay();
-}
-
-void spark_time_of_day_driver_set_time_of_day(SparkGameComponent* component, float t) {
-    auto self = AsTimeOfDayDriverComponent(component);
-    if (self == nullptr) {
-        return;
-
-    }
-    self->SetTimeOfDay(t);
 }
 
 int32_t spark_time_of_day_driver_get_priority(const SparkGameComponent* component) {
@@ -10143,6 +9527,60 @@ int32_t spark_time_of_day_driver_get_priority(const SparkGameComponent* componen
     return self->GetPriority();
 }
 
+float spark_time_of_day_driver_get_time_of_day(const SparkGameComponent* component) {
+    auto* self = AsTimeOfDayDriverComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetTimeOfDay();
+}
+
+int spark_time_of_day_driver_is_enabled(const SparkGameComponent* component) {
+    auto* self = AsTimeOfDayDriverComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsEnabled() ? 1 : 0;
+}
+
+int spark_time_of_day_driver_is_looping(const SparkGameComponent* component) {
+    auto* self = AsTimeOfDayDriverComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsLooping() ? 1 : 0;
+}
+
+void spark_time_of_day_driver_set_day_length_seconds(SparkGameComponent* component, float s) {
+    auto self = AsTimeOfDayDriverComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetDayLengthSeconds(s);
+}
+
+void spark_time_of_day_driver_set_enabled(SparkGameComponent* component, int e) {
+    auto self = AsTimeOfDayDriverComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetEnabled(e);
+}
+
+void spark_time_of_day_driver_set_looping(SparkGameComponent* component, int l) {
+    auto self = AsTimeOfDayDriverComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetLooping(l);
+}
+
 void spark_time_of_day_driver_set_priority(SparkGameComponent* component, int32_t p) {
     auto self = AsTimeOfDayDriverComponent(component);
     if (self == nullptr) {
@@ -10150,6 +9588,852 @@ void spark_time_of_day_driver_set_priority(SparkGameComponent* component, int32_
 
     }
     self->SetPriority(p);
+}
+
+void spark_time_of_day_driver_set_time_of_day(SparkGameComponent* component, float t) {
+    auto self = AsTimeOfDayDriverComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetTimeOfDay(t);
+}
+
+void spark_trigger_volume2_d_get_half_extents(const SparkGameComponent* component, SparkVector2* outHalfExtents) {
+    auto* self = AsTriggerVolume2DComponent(component);
+    if (self == nullptr || outHalfExtents == nullptr) {
+        return;
+    }
+    *outHalfExtents = Spark::Scripting::FromVector2(self->GetHalfExtents());
+}
+
+void spark_trigger_volume2_d_get_offset(const SparkGameComponent* component, SparkVector2* outOffset) {
+    auto* self = AsTriggerVolume2DComponent(component);
+    if (self == nullptr || outOffset == nullptr) {
+        return;
+    }
+    *outOffset = Spark::Scripting::FromVector2(self->GetOffset());
+}
+
+float spark_trigger_volume2_d_get_radius(const SparkGameComponent* component) {
+    auto* self = AsTriggerVolume2DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRadius();
+}
+
+int spark_trigger_volume2_d_get_shape(const SparkGameComponent* component) {
+    auto* self = AsTriggerVolume2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetShape()));
+}
+
+int spark_trigger_volume2_d_is_overlapping(const SparkGameComponent* component, SparkGameObject* other) {
+    auto* self = AsTriggerVolume2DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsOverlapping(*reinterpret_cast<Spark::GameObject*>(other)) ? 1 : 0;
+}
+
+void spark_trigger_volume2_d_set_filter_tag(SparkGameComponent* component, const char* tag) {
+    auto self = AsTriggerVolume2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetFilterTag(tag);
+}
+
+void spark_trigger_volume2_d_set_half_extents(SparkGameComponent* component, const SparkVector2* value) {
+    auto self = AsTriggerVolume2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetHalfExtents(Spark::Scripting::ToVector2(*value));
+}
+
+void spark_trigger_volume2_d_set_offset(SparkGameComponent* component, const SparkVector2* value) {
+    auto self = AsTriggerVolume2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetOffset(Spark::Scripting::ToVector2(*value));
+}
+
+void spark_trigger_volume2_d_set_radius(SparkGameComponent* component, float value) {
+    auto self = AsTriggerVolume2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRadius(value);
+}
+
+void spark_trigger_volume2_d_set_shape(SparkGameComponent* component, int value) {
+    auto self = AsTriggerVolume2DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetShape(static_cast<Spark::TriggerVolume2DShape>(static_cast<std::uint8_t>(value)));
+}
+
+int spark_trigger_volume3_d_get_capsule_direction(const SparkGameComponent* component) {
+    auto* self = AsTriggerVolume3DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetCapsuleDirection()));
+}
+
+void spark_trigger_volume3_d_get_half_extents(const SparkGameComponent* component, SparkVector3* outHalfExtents) {
+    auto* self = AsTriggerVolume3DComponent(component);
+    if (self == nullptr || outHalfExtents == nullptr) {
+        return;
+    }
+    *outHalfExtents = Spark::Scripting::FromVector3(self->GetHalfExtents());
+}
+
+float spark_trigger_volume3_d_get_height(const SparkGameComponent* component) {
+    auto* self = AsTriggerVolume3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetHeight();
+}
+
+void spark_trigger_volume3_d_get_offset(const SparkGameComponent* component, SparkVector3* outOffset) {
+    auto* self = AsTriggerVolume3DComponent(component);
+    if (self == nullptr || outOffset == nullptr) {
+        return;
+    }
+    *outOffset = Spark::Scripting::FromVector3(self->GetOffset());
+}
+
+float spark_trigger_volume3_d_get_radius(const SparkGameComponent* component) {
+    auto* self = AsTriggerVolume3DComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetRadius();
+}
+
+int spark_trigger_volume3_d_get_shape(const SparkGameComponent* component) {
+    auto* self = AsTriggerVolume3DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetShape()));
+}
+
+int spark_trigger_volume3_d_is_overlapping(const SparkGameComponent* component, SparkGameObject* other) {
+    auto* self = AsTriggerVolume3DComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsOverlapping(*reinterpret_cast<Spark::GameObject*>(other)) ? 1 : 0;
+}
+
+void spark_trigger_volume3_d_set_capsule_direction(SparkGameComponent* component, int axis) {
+    auto self = AsTriggerVolume3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetCapsuleDirection(static_cast<Spark::CapsuleDirection3D>(static_cast<std::uint8_t>(axis)));
+}
+
+void spark_trigger_volume3_d_set_category_bits(SparkGameComponent* component, int bits) {
+    auto self = AsTriggerVolume3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetCategoryBits(bits);
+}
+
+void spark_trigger_volume3_d_set_filter_tag(SparkGameComponent* component, const char* tag) {
+    auto self = AsTriggerVolume3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetFilterTag(tag);
+}
+
+void spark_trigger_volume3_d_set_half_extents(SparkGameComponent* component, const SparkVector3* value) {
+    auto self = AsTriggerVolume3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetHalfExtents(Spark::Scripting::ToVector3(*value));
+}
+
+void spark_trigger_volume3_d_set_height(SparkGameComponent* component, float value) {
+    auto self = AsTriggerVolume3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetHeight(value);
+}
+
+void spark_trigger_volume3_d_set_mask_bits(SparkGameComponent* component, int bits) {
+    auto self = AsTriggerVolume3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMaskBits(bits);
+}
+
+void spark_trigger_volume3_d_set_offset(SparkGameComponent* component, const SparkVector3* value) {
+    auto self = AsTriggerVolume3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetOffset(Spark::Scripting::ToVector3(*value));
+}
+
+void spark_trigger_volume3_d_set_radius(SparkGameComponent* component, float value) {
+    auto self = AsTriggerVolume3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetRadius(value);
+}
+
+void spark_trigger_volume3_d_set_shape(SparkGameComponent* component, int value) {
+    auto self = AsTriggerVolume3DComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetShape(static_cast<Spark::TriggerVolume3DShape>(static_cast<std::uint8_t>(value)));
+}
+
+void spark_ui_canvas_clear_keyboard_focus(SparkGameComponent* component) {
+    auto self = AsUiCanvasComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ClearKeyboardFocus();
+}
+
+void spark_ui_canvas_clear_transient_pointer_state(SparkGameComponent* component) {
+    auto self = AsUiCanvasComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ClearTransientPointerState();
+}
+
+int spark_ui_canvas_get_modal_input_capture(const SparkGameComponent* component) {
+    auto* self = AsUiCanvasComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetModalInputCapture() ? 1 : 0;
+}
+
+int spark_ui_canvas_get_sort_order(const SparkGameComponent* component) {
+    auto* self = AsUiCanvasComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetSortOrder();
+}
+
+int spark_ui_canvas_is_canvas_enabled(const SparkGameComponent* component) {
+    auto* self = AsUiCanvasComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsCanvasEnabled() ? 1 : 0;
+}
+
+void spark_ui_canvas_set_canvas_enabled(SparkGameComponent* component, int enabled) {
+    auto self = AsUiCanvasComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetCanvasEnabled(enabled != 0);
+}
+
+void spark_ui_canvas_set_modal_input_capture(SparkGameComponent* component, int capture) {
+    auto self = AsUiCanvasComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetModalInputCapture(capture != 0);
+}
+
+int spark_vfx_player_get_play_on_start(const SparkGameComponent* component) {
+    auto* self = AsVfxPlayerComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetPlayOnStart() ? 1 : 0;
+}
+
+int spark_vfx_player_get_play_on_start_once(const SparkGameComponent* component) {
+    auto* self = AsVfxPlayerComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->GetPlayOnStartOnce() ? 1 : 0;
+}
+
+int spark_vfx_player_get_playback_state(const SparkGameComponent* component) {
+    auto* self = AsVfxPlayerComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetPlaybackState()));
+}
+
+int spark_vfx_player_is_pooled_playback(const SparkGameComponent* component) {
+    auto* self = AsVfxPlayerComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsPooledPlayback() ? 1 : 0;
+}
+
+void spark_vfx_player_set_play_on_start(SparkGameComponent* component, int enabled) {
+    auto self = AsVfxPlayerComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetPlayOnStart(enabled != 0);
+}
+
+void spark_vfx_player_set_play_on_start_once(SparkGameComponent* component, int enabled) {
+    auto self = AsVfxPlayerComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetPlayOnStartOnce(enabled != 0);
+}
+
+void spark_vfx_player_set_pooled_playback(SparkGameComponent* component, int pooled) {
+    auto self = AsVfxPlayerComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetPooledPlayback(pooled != 0);
+}
+
+void spark_vfx_player_set_vfx_asset_key(SparkGameComponent* component, const char* key) {
+    auto self = AsVfxPlayerComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetVfxAssetKey(key);
+}
+
+void spark_water_body_clear_clipmap_camera_override(SparkGameComponent* component) {
+    auto self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ClearClipmapCameraOverride();
+}
+
+void spark_water_body_clear_swell_travel_direction_override(SparkGameComponent* component) {
+    auto self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->ClearSwellTravelDirectionOverride();
+}
+
+float spark_water_body_get_absorption(const SparkGameComponent* component) {
+    auto* self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetAbsorption();
+}
+
+void spark_water_body_get_deep_color(const SparkGameComponent* component, SparkVector3* outDeepColor) {
+    auto* self = AsWaterBodyComponent(component);
+    if (self == nullptr || outDeepColor == nullptr) {
+        return;
+    }
+    *outDeepColor = Spark::Scripting::FromVector3(self->GetDeepColor());
+}
+
+float spark_water_body_get_detail_normal_strength(const SparkGameComponent* component) {
+    auto* self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetDetailNormalStrength();
+}
+
+float spark_water_body_get_foam_strength(const SparkGameComponent* component) {
+    auto* self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetFoamStrength();
+}
+
+void spark_water_body_get_mesh_albedo(const SparkGameComponent* component, SparkVector3* outMeshAlbedo) {
+    auto* self = AsWaterBodyComponent(component);
+    if (self == nullptr || outMeshAlbedo == nullptr) {
+        return;
+    }
+    *outMeshAlbedo = Spark::Scripting::FromVector3(self->GetMeshAlbedo());
+}
+
+int spark_water_body_get_mode(const SparkGameComponent* component) {
+    auto* self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetMode()));
+}
+
+float spark_water_body_get_shoreline_foam_max_depth(const SparkGameComponent* component) {
+    auto* self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetShorelineFoamMaxDepth();
+}
+
+float spark_water_body_get_shoreline_foam_strength(const SparkGameComponent* component) {
+    auto* self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetShorelineFoamStrength();
+}
+
+void spark_water_body_get_surface_tile_anchor_x_z(const SparkGameComponent* component, SparkVector2* outSurfaceTileAnchorXZ) {
+    auto* self = AsWaterBodyComponent(component);
+    if (self == nullptr || outSurfaceTileAnchorXZ == nullptr) {
+        return;
+    }
+    *outSurfaceTileAnchorXZ = Spark::Scripting::FromVector2(self->GetSurfaceTileAnchorXZ());
+}
+
+float spark_water_body_get_water_level_y(const SparkGameComponent* component) {
+    auto* self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetWaterLevelY();
+}
+
+float spark_water_body_get_wave_amplitude_scale(const SparkGameComponent* component) {
+    auto* self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetWaveAmplitudeScale();
+}
+
+int spark_water_body_get_wave_preset_id(const SparkGameComponent* component) {
+    auto* self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return static_cast<int>(static_cast<std::uint8_t>(self->GetWavePresetId()));
+}
+
+float spark_water_body_get_wave_speed_scale(const SparkGameComponent* component) {
+    auto* self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetWaveSpeedScale();
+}
+
+float spark_water_body_get_wave_time_scale(const SparkGameComponent* component) {
+    auto* self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetWaveTimeScale();
+}
+
+float spark_water_body_get_wave_time_seconds(const SparkGameComponent* component) {
+    auto* self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetWaveTimeSeconds();
+}
+
+void spark_water_body_set_absorption(SparkGameComponent* component, float value) {
+    auto self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetAbsorption(value);
+}
+
+void spark_water_body_set_clipmap_camera_world(SparkGameComponent* component, const SparkVector3* worldPosition) {
+    auto self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetClipmapCameraWorld(Spark::Scripting::ToVector3(*worldPosition));
+}
+
+void spark_water_body_set_deep_color(SparkGameComponent* component, const SparkVector3* value) {
+    auto self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetDeepColor(Spark::Scripting::ToVector3(*value));
+}
+
+void spark_water_body_set_detail_normal_strength(SparkGameComponent* component, float value) {
+    auto self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetDetailNormalStrength(value);
+}
+
+void spark_water_body_set_foam_strength(SparkGameComponent* component, float value) {
+    auto self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetFoamStrength(value);
+}
+
+void spark_water_body_set_mesh_albedo(SparkGameComponent* component, const SparkVector3* value) {
+    auto self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMeshAlbedo(Spark::Scripting::ToVector3(*value));
+}
+
+void spark_water_body_set_mode(SparkGameComponent* component, int value) {
+    auto self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetMode(static_cast<Spark::WaterBodyMode>(static_cast<std::uint8_t>(value)));
+}
+
+void spark_water_body_set_shoreline_foam_max_depth(SparkGameComponent* component, float value) {
+    auto self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetShorelineFoamMaxDepth(value);
+}
+
+void spark_water_body_set_shoreline_foam_strength(SparkGameComponent* component, float value) {
+    auto self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetShorelineFoamStrength(value);
+}
+
+void spark_water_body_set_ssr_enabled(SparkGameComponent* component, int enabled) {
+    auto self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSsrEnabled(enabled);
+}
+
+void spark_water_body_set_swell_travel_direction_world(SparkGameComponent* component, const SparkVector2* directionWorldXZ) {
+    auto self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetSwellTravelDirectionWorld(Spark::Scripting::ToVector2(*directionWorldXZ));
+}
+
+void spark_water_body_set_water_level_y(SparkGameComponent* component, float value) {
+    auto self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetWaterLevelY(value);
+}
+
+void spark_water_body_set_wave_amplitude_scale(SparkGameComponent* component, float value) {
+    auto self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetWaveAmplitudeScale(value);
+}
+
+void spark_water_body_set_wave_preset_id(SparkGameComponent* component, int value) {
+    auto self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetWavePresetId(static_cast<Spark::WaterWavePresetId>(static_cast<std::uint8_t>(value)));
+}
+
+void spark_water_body_set_wave_speed_scale(SparkGameComponent* component, float value) {
+    auto self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetWaveSpeedScale(value);
+}
+
+void spark_water_body_set_wave_time_scale(SparkGameComponent* component, float value) {
+    auto self = AsWaterBodyComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetWaveTimeScale(value);
+}
+
+float spark_wind_environment_get_base_speed(const SparkGameComponent* component) {
+    auto* self = AsWindEnvironmentComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetBaseSpeedMetersPerSecond();
+}
+
+float spark_wind_environment_get_base_speed_meters_per_second(const SparkGameComponent* component) {
+    auto* self = AsWindEnvironmentComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetBaseSpeedMetersPerSecond();
+}
+
+void spark_wind_environment_get_direction(const SparkGameComponent* component, SparkVector3* outDirectionWorld) {
+    auto* self = AsWindEnvironmentComponent(component);
+    if (self == nullptr || outDirectionWorld == nullptr) {
+        return;
+    }
+    *outDirectionWorld = Spark::Scripting::FromVector3(self->GetDirectionWorld());
+}
+
+void spark_wind_environment_get_direction_world(const SparkGameComponent* component, SparkVector3* outDirectionWorld) {
+    auto* self = AsWindEnvironmentComponent(component);
+    if (self == nullptr || outDirectionWorld == nullptr) {
+        return;
+    }
+    *outDirectionWorld = Spark::Scripting::FromVector3(self->GetDirectionWorld());
+}
+
+int spark_wind_environment_get_enabled(const SparkGameComponent* component) {
+    auto* self = AsWindEnvironmentComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsWindEnabled() ? 1 : 0;
+}
+
+float spark_wind_environment_get_gust_amplitude(const SparkGameComponent* component) {
+    auto* self = AsWindEnvironmentComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetGustAmplitude();
+}
+
+float spark_wind_environment_get_gust_frequency(const SparkGameComponent* component) {
+    auto* self = AsWindEnvironmentComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetGustFrequencyHertz();
+}
+
+float spark_wind_environment_get_gust_frequency_hertz(const SparkGameComponent* component) {
+    auto* self = AsWindEnvironmentComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetGustFrequencyHertz();
+}
+
+float spark_wind_environment_get_turbulence(const SparkGameComponent* component) {
+    auto* self = AsWindEnvironmentComponent(component);
+    if (self == nullptr) {
+        return 0.0F;
+
+    }
+    return self->GetTurbulence();
+}
+
+int spark_wind_environment_is_wind_enabled(const SparkGameComponent* component) {
+    auto* self = AsWindEnvironmentComponent(component);
+    if (self == nullptr) {
+        return 0;
+
+    }
+    return self->IsWindEnabled() ? 1 : 0;
+}
+
+void spark_wind_environment_set_base_speed(SparkGameComponent* component, float metersPerSecond) {
+    auto self = AsWindEnvironmentComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetBaseSpeedMetersPerSecond(metersPerSecond);
+}
+
+void spark_wind_environment_set_base_speed_meters_per_second(SparkGameComponent* component, float metersPerSecond) {
+    auto self = AsWindEnvironmentComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetBaseSpeedMetersPerSecond(metersPerSecond);
+}
+
+void spark_wind_environment_set_direction(SparkGameComponent* component, const SparkVector3* directionWorld) {
+    auto self = AsWindEnvironmentComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetDirectionWorld(Spark::Scripting::ToVector3(*directionWorld));
+}
+
+void spark_wind_environment_set_direction_world(SparkGameComponent* component, const SparkVector3* directionWorld) {
+    auto self = AsWindEnvironmentComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetDirectionWorld(Spark::Scripting::ToVector3(*directionWorld));
+}
+
+void spark_wind_environment_set_enabled(SparkGameComponent* component, int value) {
+    auto self = AsWindEnvironmentComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetWindEnabled(value != 0);
+}
+
+void spark_wind_environment_set_gust_amplitude(SparkGameComponent* component, float value) {
+    auto self = AsWindEnvironmentComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetGustAmplitude(value);
+}
+
+void spark_wind_environment_set_gust_frequency(SparkGameComponent* component, float hertz) {
+    auto self = AsWindEnvironmentComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetGustFrequencyHertz(hertz);
+}
+
+void spark_wind_environment_set_gust_frequency_hertz(SparkGameComponent* component, float hertz) {
+    auto self = AsWindEnvironmentComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetGustFrequencyHertz(hertz);
+}
+
+void spark_wind_environment_set_turbulence(SparkGameComponent* component, float value) {
+    auto self = AsWindEnvironmentComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetTurbulence(value);
+}
+
+void spark_wind_environment_set_wind_enabled(SparkGameComponent* component, int value) {
+    auto self = AsWindEnvironmentComponent(component);
+    if (self == nullptr) {
+        return;
+
+    }
+    self->SetWindEnabled(value != 0);
 }
 
 }  // extern "C"

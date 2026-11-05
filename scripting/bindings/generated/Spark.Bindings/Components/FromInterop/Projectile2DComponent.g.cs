@@ -9,20 +9,20 @@ public sealed partial class Projectile2DComponent : GameComponentHandle
     internal Projectile2DComponent(nint handle)
         : base(handle) { }
 
-    public int Shape
+    public int BlockOnSolidHit
     {
         get
         {
             unsafe
             {
-return Native.spark_projectile2_d_get_shape(InteropPtr.Component(Handle));
+return Native.spark_projectile2_d_get_block_on_solid_hit(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_projectile2_d_set_shape(InteropPtr.Component(Handle), value);
+                Native.spark_projectile2_d_set_block_on_solid_hit(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -45,38 +45,20 @@ return Native.spark_projectile2_d_get_damage(InteropPtr.Component(Handle));
         }
     }
 
-    public float LifetimeSeconds
+    public int DeactivateOnFirstHit
     {
         get
         {
             unsafe
             {
-return Native.spark_projectile2_d_get_lifetime_seconds(InteropPtr.Component(Handle));
+return Native.spark_projectile2_d_get_deactivate_on_first_hit(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_projectile2_d_set_lifetime_seconds(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
-    public int BlockOnSolidHit
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_projectile2_d_get_block_on_solid_hit(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_projectile2_d_set_block_on_solid_hit(InteropPtr.Component(Handle), value);
+                Native.spark_projectile2_d_set_deactivate_on_first_hit(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -99,20 +81,38 @@ return Native.spark_projectile2_d_get_destroy_owner_on_deactivate(InteropPtr.Com
         }
     }
 
-    public int DeactivateOnFirstHit
+    public float LifetimeSeconds
     {
         get
         {
             unsafe
             {
-return Native.spark_projectile2_d_get_deactivate_on_first_hit(InteropPtr.Component(Handle));
+return Native.spark_projectile2_d_get_lifetime_seconds(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_projectile2_d_set_deactivate_on_first_hit(InteropPtr.Component(Handle), value);
+                Native.spark_projectile2_d_set_lifetime_seconds(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public int Shape
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_projectile2_d_get_shape(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_projectile2_d_set_shape(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -138,11 +138,20 @@ return Native.spark_projectile2_d_get_deactivate_on_first_hit(InteropPtr.Compone
         }
     }
 
-    public void SetActive(int value)
+    public void Deactivate()
     {
         unsafe
         {
-                Native.spark_projectile2_d_set_active(InteropPtr.Component(Handle), value);
+                Native.spark_projectile2_d_deactivate(InteropPtr.Component(Handle));
+        }
+    }
+
+    public GameObject GetInstigator()
+    {
+        unsafe
+        {
+                var raw = Native.spark_projectile2_d_get_instigator(InteropPtr.Component(Handle));
+                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
         }
     }
 
@@ -154,19 +163,11 @@ return Native.spark_projectile2_d_get_deactivate_on_first_hit(InteropPtr.Compone
         }
     }
 
-    public void Deactivate()
+    public void SetActive(int value)
     {
         unsafe
         {
-                Native.spark_projectile2_d_deactivate(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void SetRadius(float value)
-    {
-        unsafe
-        {
-                Native.spark_projectile2_d_set_radius(InteropPtr.Component(Handle), value);
+                Native.spark_projectile2_d_set_active(InteropPtr.Component(Handle), value);
         }
     }
 
@@ -187,12 +188,11 @@ return Native.spark_projectile2_d_get_deactivate_on_first_hit(InteropPtr.Compone
         }
     }
 
-    public GameObject GetInstigator()
+    public void SetRadius(float value)
     {
         unsafe
         {
-                var raw = Native.spark_projectile2_d_get_instigator(InteropPtr.Component(Handle));
-                return raw == null ? null! : new GameObject(InteropPtr.From(raw));
+                Native.spark_projectile2_d_set_radius(InteropPtr.Component(Handle), value);
         }
     }
 }

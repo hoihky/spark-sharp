@@ -9,27 +9,6 @@ public sealed partial class SpringArm3DComponent : GameComponentHandle
     internal SpringArm3DComponent(nint handle)
         : base(handle) { }
 
-    public Vector3 SocketOffset
-    {
-        get
-        {
-            unsafe
-            {
-                SparkVector3 v;
-                Native.spark_spring_arm3_d_get_socket_offset(InteropPtr.Component(Handle), &v);
-                return Vector3.FromNative(v);
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                var v = value.ToNative();
-                Native.spark_spring_arm3_d_set_socket_offset(InteropPtr.Component(Handle), &v);
-            }
-        }
-    }
-
     public float ArmLength
     {
         get
@@ -48,20 +27,20 @@ return Native.spark_spring_arm3_d_get_arm_length(InteropPtr.Component(Handle));
         }
     }
 
-    public float YawRadians
+    public float MinArmLength
     {
         get
         {
             unsafe
             {
-return Native.spark_spring_arm3_d_get_yaw_radians(InteropPtr.Component(Handle));
+return Native.spark_spring_arm3_d_get_min_arm_length(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_spring_arm3_d_set_yaw_radians(InteropPtr.Component(Handle), value);
+                Native.spark_spring_arm3_d_set_min_arm_length(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -102,20 +81,41 @@ return Native.spark_spring_arm3_d_get_probe_radius(InteropPtr.Component(Handle))
         }
     }
 
-    public float MinArmLength
+    public Vector3 SocketOffset
     {
         get
         {
             unsafe
             {
-return Native.spark_spring_arm3_d_get_min_arm_length(InteropPtr.Component(Handle));
+                SparkVector3 v;
+                Native.spark_spring_arm3_d_get_socket_offset(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_spring_arm3_d_set_min_arm_length(InteropPtr.Component(Handle), value);
+                var v = value.ToNative();
+                Native.spark_spring_arm3_d_set_socket_offset(InteropPtr.Component(Handle), &v);
+            }
+        }
+    }
+
+    public float YawRadians
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_spring_arm3_d_get_yaw_radians(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_spring_arm3_d_set_yaw_radians(InteropPtr.Component(Handle), value);
             }
         }
     }

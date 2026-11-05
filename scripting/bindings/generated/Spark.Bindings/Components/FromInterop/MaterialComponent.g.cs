@@ -66,6 +66,45 @@ return Native.spark_material_get_roughness(InteropPtr.Component(Handle));
         }
     }
 
+    public float AlphaCutoff
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_material_get_alpha_cutoff(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_material_set_alpha_cutoff(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public Vector3 EmissiveFactor
+    {
+        get
+        {
+            unsafe
+            {
+                SparkVector3 v;
+                Native.spark_material_get_emissive_factor(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                var v = value.ToNative();
+                Native.spark_material_set_emissive_factor(InteropPtr.Component(Handle), &v);
+            }
+        }
+    }
+
     public float MetallicFactor
     {
         get
@@ -84,20 +123,20 @@ return Native.spark_material_get_metallic_factor(InteropPtr.Component(Handle));
         }
     }
 
-    public float RoughnessFactor
+    public float NormalScale
     {
         get
         {
             unsafe
             {
-return Native.spark_material_get_roughness_factor(InteropPtr.Component(Handle));
+return Native.spark_material_get_normal_scale(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_material_set_roughness_factor(InteropPtr.Component(Handle), value);
+                Native.spark_material_set_normal_scale(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -120,23 +159,38 @@ return Native.spark_material_get_occlusion_strength(InteropPtr.Component(Handle)
         }
     }
 
-    public Vector3 EmissiveFactor
+    public float Opacity
     {
         get
         {
             unsafe
             {
-                SparkVector3 v;
-                Native.spark_material_get_emissive_factor(InteropPtr.Component(Handle), &v);
-                return Vector3.FromNative(v);
+return Native.spark_material_get_opacity(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                var v = value.ToNative();
-                Native.spark_material_set_emissive_factor(InteropPtr.Component(Handle), &v);
+                Native.spark_material_set_opacity(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float RoughnessFactor
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_material_get_roughness_factor(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_material_set_roughness_factor(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -177,60 +231,6 @@ return Native.spark_material_get_toon_rim_power(InteropPtr.Component(Handle));
         }
     }
 
-    public float Opacity
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_material_get_opacity(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_material_set_opacity(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
-    public float AlphaCutoff
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_material_get_alpha_cutoff(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_material_set_alpha_cutoff(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
-    public float NormalScale
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_material_get_normal_scale(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_material_set_normal_scale(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
     public void SetEmissive(in Vector3 rgb, float intensity)
     {
         unsafe
@@ -250,6 +250,22 @@ return Native.spark_material_get_normal_scale(InteropPtr.Component(Handle));
                 result = Native.spark_material_set_base_color_texture(InteropPtr.Component(Handle), InteropPtr.World(world.Handle), (sbyte*)ptr);
             });
             return result != 0;
+        }
+    }
+
+    public void ClearShadowCastOverride()
+    {
+        unsafe
+        {
+                Native.spark_material_clear_shadow_cast_override(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void ClearShadowReceiveOverride()
+    {
+        unsafe
+        {
+                Native.spark_material_clear_shadow_receive_override(InteropPtr.Component(Handle));
         }
     }
 
@@ -274,59 +290,11 @@ return Native.spark_material_get_normal_scale(InteropPtr.Component(Handle));
         }
     }
 
-    public void SetShadingModel(int s)
-    {
-        unsafe
-        {
-                Native.spark_material_set_shading_model(InteropPtr.Component(Handle), s);
-        }
-    }
-
     public int GetToonDiffuseBands()
     {
         unsafe
         {
                 return Native.spark_material_get_toon_diffuse_bands(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void SetToonDiffuseBands(int bands)
-    {
-        unsafe
-        {
-                Native.spark_material_set_toon_diffuse_bands(InteropPtr.Component(Handle), bands);
-        }
-    }
-
-    public int IsDoubleSided()
-    {
-        unsafe
-        {
-                return Native.spark_material_is_double_sided(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void SetDoubleSided(int v)
-    {
-        unsafe
-        {
-                Native.spark_material_set_double_sided(InteropPtr.Component(Handle), v);
-        }
-    }
-
-    public int IsAlphaBlend()
-    {
-        unsafe
-        {
-                return Native.spark_material_is_alpha_blend(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void SetAlphaBlend(int blend)
-    {
-        unsafe
-        {
-                Native.spark_material_set_alpha_blend(InteropPtr.Component(Handle), blend);
         }
     }
 
@@ -338,19 +306,51 @@ return Native.spark_material_get_normal_scale(InteropPtr.Component(Handle));
         }
     }
 
+    public int IsAlphaBlend()
+    {
+        unsafe
+        {
+                return Native.spark_material_is_alpha_blend(InteropPtr.Component(Handle));
+        }
+    }
+
+    public int IsDoubleSided()
+    {
+        unsafe
+        {
+                return Native.spark_material_is_double_sided(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetAlphaBlend(int blend)
+    {
+        unsafe
+        {
+                Native.spark_material_set_alpha_blend(InteropPtr.Component(Handle), blend);
+        }
+    }
+
+    public void SetDoubleSided(int v)
+    {
+        unsafe
+        {
+                Native.spark_material_set_double_sided(InteropPtr.Component(Handle), v);
+        }
+    }
+
+    public void SetShadingModel(int s)
+    {
+        unsafe
+        {
+                Native.spark_material_set_shading_model(InteropPtr.Component(Handle), s);
+        }
+    }
+
     public void SetShadowCastOverride(int casts)
     {
         unsafe
         {
                 Native.spark_material_set_shadow_cast_override(InteropPtr.Component(Handle), casts);
-        }
-    }
-
-    public void ClearShadowCastOverride()
-    {
-        unsafe
-        {
-                Native.spark_material_clear_shadow_cast_override(InteropPtr.Component(Handle));
         }
     }
 
@@ -362,11 +362,11 @@ return Native.spark_material_get_normal_scale(InteropPtr.Component(Handle));
         }
     }
 
-    public void ClearShadowReceiveOverride()
+    public void SetToonDiffuseBands(int bands)
     {
         unsafe
         {
-                Native.spark_material_clear_shadow_receive_override(InteropPtr.Component(Handle));
+                Native.spark_material_set_toon_diffuse_bands(InteropPtr.Component(Handle), bands);
         }
     }
 }

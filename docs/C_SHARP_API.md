@@ -101,7 +101,7 @@ python3 tools/generate_native_pinvoke_companion.py
 
 ## Coverage gaps (demos / subsystems — not yet script-bound)
 
-These C++ areas still need `SPARK_SCRIPT_BIND` / interop before C# can mirror them cleanly:
+These C++ areas still need catalog + interop entries before C# can mirror them cleanly:
 
 | Area | C++ examples | Status |
 |------|----------------|--------|
@@ -126,9 +126,10 @@ Component mirrors are the strongest layer (~120 types, ~1260 `spark_*` symbols).
 3. Map C++ `GameWorld::` calls to the matching facet (table above).
 4. Map components via `gameObject.GetOrAdd*` / generated properties.
 5. For shared camera/math, use `Spark.Scripting.Gameplay` instead of copying into the game project.
-6. Run `binding-coverage.json` + `scan-cpp-component-api.py` when adding new `SPARK_SCRIPT_BIND` on engine headers.
+6. Run `binding-coverage.json` + `scan-cpp-component-api.py` when adding catalog entries for new component methods.
 
 ## See also
 
-- [Bindings pipeline](BINDINGS_COVERAGE.md) (component coverage)
+- [Component script catalog](../scripting/bindings/COMPONENT_SCRIPT_CATALOG.md)
+- [Spark engine: bindings coverage](https://github.com/hoihky/spark/blob/main/docs/BINDINGS_COVERAGE.md) (audit gaps)
 - [SparkSharp docs site](index.html)

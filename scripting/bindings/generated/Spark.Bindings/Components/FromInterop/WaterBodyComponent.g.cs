@@ -9,95 +9,20 @@ public sealed partial class WaterBodyComponent : GameComponentHandle
     internal WaterBodyComponent(nint handle)
         : base(handle) { }
 
-    public int Mode
+    public float Absorption
     {
         get
         {
             unsafe
             {
-return Native.spark_water_body_get_mode(InteropPtr.Component(Handle));
+return Native.spark_water_body_get_absorption(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_water_body_set_mode(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
-    public float WaterLevelY
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_water_body_get_water_level_y(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_water_body_set_water_level_y(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
-    public int WavePresetId
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_water_body_get_wave_preset_id(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_water_body_set_wave_preset_id(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
-    public float WaveTimeScale
-    {
-        get
-        {
-            unsafe
-            {
-return Native.spark_water_body_get_wave_time_scale(InteropPtr.Component(Handle));
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                Native.spark_water_body_set_wave_time_scale(InteropPtr.Component(Handle), value);
-            }
-        }
-    }
-
-    public Vector3 MeshAlbedo
-    {
-        get
-        {
-            unsafe
-            {
-                SparkVector3 v;
-                Native.spark_water_body_get_mesh_albedo(InteropPtr.Component(Handle), &v);
-                return Vector3.FromNative(v);
-            }
-        }
-        set
-        {
-            unsafe
-            {
-                var v = value.ToNative();
-                Native.spark_water_body_set_mesh_albedo(InteropPtr.Component(Handle), &v);
+                Native.spark_water_body_set_absorption(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -123,20 +48,20 @@ return Native.spark_water_body_get_wave_time_scale(InteropPtr.Component(Handle))
         }
     }
 
-    public float Absorption
+    public float DetailNormalStrength
     {
         get
         {
             unsafe
             {
-return Native.spark_water_body_get_absorption(InteropPtr.Component(Handle));
+return Native.spark_water_body_get_detail_normal_strength(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_water_body_set_absorption(InteropPtr.Component(Handle), value);
+                Native.spark_water_body_set_detail_normal_strength(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -159,38 +84,41 @@ return Native.spark_water_body_get_foam_strength(InteropPtr.Component(Handle));
         }
     }
 
-    public float DetailNormalStrength
+    public Vector3 MeshAlbedo
     {
         get
         {
             unsafe
             {
-return Native.spark_water_body_get_detail_normal_strength(InteropPtr.Component(Handle));
+                SparkVector3 v;
+                Native.spark_water_body_get_mesh_albedo(InteropPtr.Component(Handle), &v);
+                return Vector3.FromNative(v);
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_water_body_set_detail_normal_strength(InteropPtr.Component(Handle), value);
+                var v = value.ToNative();
+                Native.spark_water_body_set_mesh_albedo(InteropPtr.Component(Handle), &v);
             }
         }
     }
 
-    public float ShorelineFoamStrength
+    public int Mode
     {
         get
         {
             unsafe
             {
-return Native.spark_water_body_get_shoreline_foam_strength(InteropPtr.Component(Handle));
+return Native.spark_water_body_get_mode(InteropPtr.Component(Handle));
             }
         }
         set
         {
             unsafe
             {
-                Native.spark_water_body_set_shoreline_foam_strength(InteropPtr.Component(Handle), value);
+                Native.spark_water_body_set_mode(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -213,6 +141,42 @@ return Native.spark_water_body_get_shoreline_foam_max_depth(InteropPtr.Component
         }
     }
 
+    public float ShorelineFoamStrength
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_water_body_get_shoreline_foam_strength(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_water_body_set_shoreline_foam_strength(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public float WaterLevelY
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_water_body_get_water_level_y(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_water_body_set_water_level_y(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
     public float WaveAmplitudeScale
     {
         get
@@ -227,6 +191,24 @@ return Native.spark_water_body_get_wave_amplitude_scale(InteropPtr.Component(Han
             unsafe
             {
                 Native.spark_water_body_set_wave_amplitude_scale(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public int WavePresetId
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_water_body_get_wave_preset_id(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_water_body_set_wave_preset_id(InteropPtr.Component(Handle), value);
             }
         }
     }
@@ -249,11 +231,37 @@ return Native.spark_water_body_get_wave_speed_scale(InteropPtr.Component(Handle)
         }
     }
 
-    public float GetWaveTimeSeconds()
+    public float WaveTimeScale
+    {
+        get
+        {
+            unsafe
+            {
+return Native.spark_water_body_get_wave_time_scale(InteropPtr.Component(Handle));
+            }
+        }
+        set
+        {
+            unsafe
+            {
+                Native.spark_water_body_set_wave_time_scale(InteropPtr.Component(Handle), value);
+            }
+        }
+    }
+
+    public void ClearClipmapCameraOverride()
     {
         unsafe
         {
-                return Native.spark_water_body_get_wave_time_seconds(InteropPtr.Component(Handle));
+                Native.spark_water_body_clear_clipmap_camera_override(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void ClearSwellTravelDirectionOverride()
+    {
+        unsafe
+        {
+                Native.spark_water_body_clear_swell_travel_direction_override(InteropPtr.Component(Handle));
         }
     }
 
@@ -267,6 +275,23 @@ return Native.spark_water_body_get_wave_speed_scale(InteropPtr.Component(Handle)
                 Native.spark_water_body_get_surface_tile_anchor_x_z(InteropPtr.Component(Handle), &v);
                 return Vector2.FromNative(v);
             }
+        }
+    }
+
+    public float GetWaveTimeSeconds()
+    {
+        unsafe
+        {
+                return Native.spark_water_body_get_wave_time_seconds(InteropPtr.Component(Handle));
+        }
+    }
+
+    public void SetClipmapCameraWorld(in Vector3 worldPosition)
+    {
+        unsafe
+        {
+            var worldPositionNative = worldPosition.ToNative();
+                Native.spark_water_body_set_clipmap_camera_world(InteropPtr.Component(Handle), &worldPositionNative);
         }
     }
 
@@ -284,31 +309,6 @@ return Native.spark_water_body_get_wave_speed_scale(InteropPtr.Component(Handle)
         {
             var directionWorldXZNative = directionWorldXZ.ToNative();
                 Native.spark_water_body_set_swell_travel_direction_world(InteropPtr.Component(Handle), &directionWorldXZNative);
-        }
-    }
-
-    public void ClearSwellTravelDirectionOverride()
-    {
-        unsafe
-        {
-                Native.spark_water_body_clear_swell_travel_direction_override(InteropPtr.Component(Handle));
-        }
-    }
-
-    public void SetClipmapCameraWorld(in Vector3 worldPosition)
-    {
-        unsafe
-        {
-            var worldPositionNative = worldPosition.ToNative();
-                Native.spark_water_body_set_clipmap_camera_world(InteropPtr.Component(Handle), &worldPositionNative);
-        }
-    }
-
-    public void ClearClipmapCameraOverride()
-    {
-        unsafe
-        {
-                Native.spark_water_body_clear_clipmap_camera_override(InteropPtr.Component(Handle));
         }
     }
 }

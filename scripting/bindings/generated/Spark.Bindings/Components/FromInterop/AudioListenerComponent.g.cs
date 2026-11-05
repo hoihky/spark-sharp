@@ -25,19 +25,19 @@ public sealed partial class AudioListenerComponent : GameComponentHandle
         }
     }
 
-    public void SetPriority(int p)
-    {
-        unsafe
-        {
-                Native.spark_audio_listener_set_priority(InteropPtr.Component(Handle), p);
-        }
-    }
-
     public void SetEnabled(int e)
     {
         unsafe
         {
                 Native.spark_audio_listener_set_enabled(InteropPtr.Component(Handle), e);
+        }
+    }
+
+    public void SetPriority(int p)
+    {
+        unsafe
+        {
+                Native.spark_audio_listener_set_priority(InteropPtr.Component(Handle), p);
         }
     }
 }
