@@ -75,73 +75,21 @@ public static class RenderLayer
 
 public sealed partial class GameWorld
 {
-    public bool LoadGltf(string path)
-    {
-        unsafe
-        {
-            int ok = 0;
-            InteropUtf8.WithUtf8(path, ptr => ok = Native.spark_world_load_gltf(InteropPtr.World(Handle), (sbyte*)ptr));
-            return ok != 0;
-        }
-    }
+    [Obsolete("Use Assets.LoadGltf instead.")]
+    public bool LoadGltf(string path) => Assets.LoadGltf(path);
 
-    public bool LoadSkinnedGltf(string path)
-    {
-        unsafe
-        {
-            int ok = 0;
-            InteropUtf8.WithUtf8(path, ptr =>
-                ok = Native.spark_world_load_skinned_gltf(InteropPtr.World(Handle), (sbyte*)ptr));
-            return ok != 0;
-        }
-    }
+    [Obsolete("Use Assets.LoadSkinnedGltf instead.")]
+    public bool LoadSkinnedGltf(string path) => Assets.LoadSkinnedGltf(path);
 
-    public bool LoadTexture(string path)
-    {
-        unsafe
-        {
-            int ok = 0;
-            InteropUtf8.WithUtf8(path, ptr => ok = Native.spark_world_load_texture(InteropPtr.World(Handle), (sbyte*)ptr));
-            return ok != 0;
-        }
-    }
+    [Obsolete("Use Assets.LoadTexture instead.")]
+    public bool LoadTexture(string path) => Assets.LoadTexture(path);
 
+    [Obsolete("Use Assets.RegisterSkySphereMesh instead.")]
     public bool RegisterSkySphereMesh(string cacheKey, float radius = 1f, int latitudeSegments = 18, int longitudeSegments = 36)
-    {
-        unsafe
-        {
-            int ok = 0;
-            InteropUtf8.WithUtf8(cacheKey, ptr =>
-            {
-                ok = Native.spark_world_register_sky_sphere_mesh(
-                    InteropPtr.World(Handle),
-                    (sbyte*)ptr,
-                    radius,
-                    latitudeSegments,
-                    longitudeSegments);
-            });
-            return ok != 0;
-        }
-    }
+        => Assets.RegisterSkySphereMesh(cacheKey, radius, latitudeSegments, longitudeSegments);
 
-    public bool RegisterTextureFromFile(string filePath, string cacheKey)
-    {
-        unsafe
-        {
-            int ok = 0;
-            InteropUtf8.WithUtf8(filePath, pathPtr =>
-            {
-                InteropUtf8.WithUtf8(cacheKey, keyPtr =>
-                {
-                    ok = Native.spark_world_register_texture_from_file(
-                        InteropPtr.World(Handle),
-                        (sbyte*)pathPtr,
-                        (sbyte*)keyPtr);
-                });
-            });
-            return ok != 0;
-        }
-    }
+    [Obsolete("Use Assets.RegisterTextureFromFile instead.")]
+    public bool RegisterTextureFromFile(string filePath, string cacheKey) => Assets.RegisterTextureFromFile(filePath, cacheKey);
 
     public void PhysicsSimulate3D(FrameTiming timing)
     {
@@ -181,47 +129,9 @@ public sealed partial class GameWorld
         }
     }
 
-    public bool TryMeasureSkinnedGltfAvatar(
-        string gltfPath,
-        float targetHeightMeters,
-        out SkinnedGltfAvatarLayout layout)
-    {
-        layout = default;
-        unsafe
-        {
-            float scale = 0;
-            float yaw = 0;
-            float fitted = 0;
-            SparkQuaternion bind = default;
-            byte[] pathBytes = Encoding.UTF8.GetBytes(gltfPath + "\0");
-            int ok;
-            fixed (byte* ptr = pathBytes)
-            {
-                ok = Native.spark_skinned_gltf_measure_avatar_layout(
-                    InteropPtr.World(Handle),
-                    (sbyte*)ptr,
-                    targetHeightMeters,
-                    &scale,
-                    &bind,
-                    &yaw,
-                    &fitted);
-            }
-
-            if (ok == 0)
-            {
-                return false;
-            }
-
-            layout = new SkinnedGltfAvatarLayout
-            {
-                UniformScale = scale,
-                BindFix = Quaternion.FromNative(bind),
-                FacingYawOffset = yaw,
-                FittedHeightMeters = fitted,
-            };
-            return true;
-        }
-    }
+    [Obsolete("Use Assets.TryMeasureSkinnedAvatar instead.")]
+    public bool TryMeasureSkinnedGltfAvatar(string gltfPath, float targetHeightMeters, out SkinnedGltfAvatarLayout layout)
+        => Assets.TryMeasureSkinnedAvatar(gltfPath, targetHeightMeters, out layout);
 
     public bool RegisterThreeDDemoTextures(out string brickTextureKey)
     {

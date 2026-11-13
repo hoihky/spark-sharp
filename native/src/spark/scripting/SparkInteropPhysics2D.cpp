@@ -1,8 +1,8 @@
 #include "spark/scripting/SparkInterop.h"
 #include "spark/scripting/SparkInteropInternal.hpp"
 
-#include "spark/physics/CollisionFilter2D.hpp"
-#include "spark/physics/PhysicsQueries2D.hpp"
+#include "spark/physics/2d/CollisionFilter2D.hpp"
+#include "spark/physics/2d/PhysicsQueries2D.hpp"
 #include "spark/scene/core/GameWorld.hpp"
 
 #include <algorithm>

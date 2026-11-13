@@ -14,7 +14,7 @@ GLOB=(
   '*.py' '*.sh' '*.json' '*.yml' '*.yaml' '*.cmake' '*.cmake.in'
   'CMakeLists.txt' 'CMakePresets.json'
   '*.md' '*.html' '*.xml' '*.properties'
-  '.vscode/*' '.idea/runConfigurations/*'
+  '.vscode/*' '.run/*' '.idea/runConfigurations/*'
 )
 
 PATH_PATTERN='(/Users/|/home/[^/]+/|\\\\Users\\\\|C:\\\\Users\\\\)'

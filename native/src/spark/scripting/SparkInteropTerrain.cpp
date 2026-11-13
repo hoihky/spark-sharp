@@ -43,7 +43,7 @@ int spark_world_register_terrain_demo_ground(SparkGameWorld* world) {
     if (!Spark::DemoAssets::TryLoadTerrainDemoSoilTexture(*groundTex)) {
         *groundTex = Spark::Texture2D::CreateVariedSoilGroundPattern(1024, 1024);
     }
-    w.RegisterTexture(groundTex, "spark/terrain/ground");
+    w.Assets().RegisterTexture(groundTex, "spark/terrain/ground");
     return 1;
 }
 

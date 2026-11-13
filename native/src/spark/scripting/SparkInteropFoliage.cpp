@@ -47,7 +47,7 @@ int SetMeshKey(
     if (meshKeyOrPath == nullptr) {
         return 0;
     }
-    Spark::SharedPtr<Spark::Mesh> mesh = world.TryGetMeshByKeyOrPath(meshKeyOrPath);
+    Spark::SharedPtr<Spark::Mesh> mesh = world.Assets().TryGetMeshByKeyOrPath(meshKeyOrPath);
     if (!mesh) {
         return 0;
     }
@@ -62,7 +62,7 @@ int SetTextureKey(
     if (textureKeyOrPath == nullptr) {
         return 0;
     }
-    Spark::SharedPtr<Spark::Texture2D> tex = world.TryGetTextureByKeyOrPath(textureKeyOrPath);
+    Spark::SharedPtr<Spark::Texture2D> tex = world.Assets().TryGetTextureByKeyOrPath(textureKeyOrPath);
     if (!tex) {
         return 0;
     }
@@ -211,7 +211,7 @@ int spark_grass_field_set_blade_mesh_key(
     if (meshKeyOrPath == nullptr) {
         return 0;
     }
-    Spark::SharedPtr<Spark::Mesh> mesh = ToWorld(world)->TryGetMeshByKeyOrPath(meshKeyOrPath);
+    Spark::SharedPtr<Spark::Mesh> mesh = ToWorld(world)->Assets().TryGetMeshByKeyOrPath(meshKeyOrPath);
     if (!mesh) {
         return 0;
     }
@@ -233,7 +233,7 @@ int spark_grass_field_set_albedo_texture_key(
     if (textureKeyOrPath == nullptr) {
         return 0;
     }
-    Spark::SharedPtr<Spark::Texture2D> tex = ToWorld(world)->TryGetTextureByKeyOrPath(textureKeyOrPath);
+    Spark::SharedPtr<Spark::Texture2D> tex = ToWorld(world)->Assets().TryGetTextureByKeyOrPath(textureKeyOrPath);
     if (!tex) {
         return 0;
     }

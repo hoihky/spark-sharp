@@ -233,7 +233,7 @@ SparkGameComponent* spark_object_add_material_lit(
     }
     Spark::SharedPtr<Spark::Texture2D> tex{};
     if (textureKeyOrPath != nullptr) {
-        tex = ToObject(object)->GetWorld().TryGetTextureByKeyOrPath(textureKeyOrPath);
+        tex = ToObject(object)->GetWorld().Assets().TryGetTextureByKeyOrPath(textureKeyOrPath);
     }
     return reinterpret_cast<SparkGameComponent*>(
             ToObject(object)->AddComponent<Spark::MaterialComponent>(tex, ToVector3(*tint)));
@@ -262,7 +262,7 @@ SparkGameComponent* spark_object_add_sprite(
     }
     Spark::SharedPtr<Spark::Texture2D> tex{};
     if (textureKeyOrPath != nullptr) {
-        tex = ToObject(object)->GetWorld().TryGetTextureByKeyOrPath(textureKeyOrPath);
+        tex = ToObject(object)->GetWorld().Assets().TryGetTextureByKeyOrPath(textureKeyOrPath);
     }
     return reinterpret_cast<SparkGameComponent*>(ToObject(object)->AddComponent<Spark::SpriteComponent>(
             tex, ToVector4(*tint), ToVector4(*uvRect), sortOrder));
@@ -306,7 +306,7 @@ SparkGameComponent* spark_object_add_tilemap(
     }
     Spark::SharedPtr<Spark::Texture2D> atlas{};
     if (atlasKeyOrPath != nullptr) {
-        atlas = ToObject(object)->GetWorld().TryGetTextureByKeyOrPath(atlasKeyOrPath);
+        atlas = ToObject(object)->GetWorld().Assets().TryGetTextureByKeyOrPath(atlasKeyOrPath);
     }
     return reinterpret_cast<SparkGameComponent*>(ToObject(object)->AddComponent<Spark::TilemapComponent>(
             atlas, mapWidth, mapHeight, atlasTilesU, atlasTilesV, tileWorldSize, sortOrderBase));
@@ -464,7 +464,7 @@ int spark_object_add_skinned_character_from_gltf(
     if (object == nullptr || world == nullptr || gltfPath == nullptr) {
         return 0;
     }
-    const Spark::SkinnedGltfAsset asset = ToWorld(world)->LoadSkinnedGltf(gltfPath);
+    const Spark::SkinnedGltfAsset asset = ToWorld(world)->Assets().LoadSkinnedGltf(gltfPath);
     if (!asset.mesh) {
         return 0;
     }
@@ -474,7 +474,7 @@ int spark_object_add_skinned_character_from_gltf(
     auto* anim = o->AddComponent<Spark::AnimatorComponent>(asset.skeleton, asset.walkClipIndex, 1.0F);
     fsm->ConfigureLocomotionFromSkeleton(*asset.skeleton, asset.walkClipIndex);
     auto* mat = o->AddComponent<Spark::MaterialComponent>();
-    Spark::ApplyGltfMaterialDesc(*mat, asset.material);
+    Spark::ApplyGltfMaterialDesc(*mat, asset.PrimaryMaterial());
     if (Spark::TransformComponent* tr = o->GetComponent<Spark::TransformComponent>()) {
         tr->SetRotation(asset.bindUpAlignment);
     }
@@ -501,17 +501,17 @@ int spark_object_apply_gltf_prop_material(
     Spark::GameObject* go = ToObject(object);
     Spark::GameWorld* cppWorld = ToWorld(world);
     Spark::GltfAsset asset{};
-    if (!cppWorld->AwaitGltf(gltfPath, asset)) {
+    if (!cppWorld->Assets().AwaitGltf(gltfPath, asset)) {
         return 0;
     }
     Spark::MaterialComponent* mat = go->GetComponent<Spark::MaterialComponent>();
     if (mat == nullptr) {
         mat = go->AddComponent<Spark::MaterialComponent>();
     }
-    Spark::ApplyGltfMaterialDesc(*mat, asset.material);
+    Spark::ApplyGltfMaterialDesc(*mat, asset.PrimaryMaterial());
     if (overrideBaseColorTextureKeyOrPath != nullptr && overrideBaseColorTextureKeyOrPath[0] != '\0') {
         Spark::SharedPtr<Spark::Texture2D> tex =
-                cppWorld->TryGetTextureByKeyOrPath(overrideBaseColorTextureKeyOrPath);
+                cppWorld->Assets().TryGetTextureByKeyOrPath(overrideBaseColorTextureKeyOrPath);
         if (tex) {
             mat->SetBaseColorTexture(tex);
         }
@@ -533,7 +533,7 @@ int spark_skinned_gltf_measure_avatar_layout(
         outFacingYawOffset == nullptr || outFittedHeightMeters == nullptr) {
         return 0;
     }
-    const Spark::SkinnedGltfAsset asset = ToWorld(world)->LoadSkinnedGltf(gltfPath);
+    const Spark::SkinnedGltfAsset asset = ToWorld(world)->Assets().LoadSkinnedGltf(gltfPath);
     if (!asset.mesh) {
         return 0;
     }
@@ -648,7 +648,7 @@ int spark_mesh_set_mesh_by_key(SparkGameComponent* mesh, SparkGameWorld* world, 
     if (mc == nullptr || world == nullptr || meshKeyOrPath == nullptr) {
         return 0;
     }
-    Spark::SharedPtr<Spark::Mesh> resolved = ToWorld(world)->TryGetMeshByKeyOrPath(meshKeyOrPath);
+    Spark::SharedPtr<Spark::Mesh> resolved = ToWorld(world)->Assets().TryGetMeshByKeyOrPath(meshKeyOrPath);
     if (!resolved) {
         return 0;
     }
@@ -694,7 +694,7 @@ int spark_material_set_base_color_texture(
     if (mat == nullptr || world == nullptr || textureKeyOrPath == nullptr) {
         return 0;
     }
-    Spark::SharedPtr<Spark::Texture2D> tex = ToWorld(world)->TryGetTextureByKeyOrPath(textureKeyOrPath);
+    Spark::SharedPtr<Spark::Texture2D> tex = ToWorld(world)->Assets().TryGetTextureByKeyOrPath(textureKeyOrPath);
     if (!tex) {
         return 0;
     }

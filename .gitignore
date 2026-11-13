@@ -1,11 +1,15 @@
 # Build trees (never commit — contain machine-specific absolute paths)
-/build/
-/build-*/
-/build-interop/
-/cmake-build-*/
+build/
+build-*/
+build-interop/
+cmake-build-*/
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+Testing/
+Makefile
 _deps/
 compile_commands.json
 

@@ -15,7 +15,7 @@
 #include "spark/scene/mesh/Mesh.hpp"
 #include "spark/memory/SharedPtr.hpp"
 #include "spark/core/Utf8String.hpp"
-#include "spark/physics/CharacterController3D.hpp"
+#include "spark/physics/3d/CharacterController3D.hpp"
 
 using namespace Spark::Scripting;
 
@@ -103,7 +103,7 @@ int spark_world_load_gltf(SparkGameWorld* world, const char* path) {
     }
     auto* cppWorld = reinterpret_cast<Spark::GameWorld*>(world);
     Spark::GltfAsset asset{};
-    return cppWorld->AwaitGltf(path, asset) ? 1 : 0;
+    return cppWorld->Assets().AwaitGltf(path, asset) ? 1 : 0;
 }
 
 int spark_world_load_skinned_gltf(SparkGameWorld* world, const char* path) {
@@ -112,35 +112,35 @@ int spark_world_load_skinned_gltf(SparkGameWorld* world, const char* path) {
     }
     auto* cppWorld = reinterpret_cast<Spark::GameWorld*>(world);
     Spark::SkinnedGltfAsset asset{};
-    return cppWorld->AwaitSkinnedGltf(path, asset) ? 1 : 0;
+    return cppWorld->Assets().AwaitSkinnedGltf(path, asset) ? 1 : 0;
 }
 
 int spark_world_load_texture(SparkGameWorld* world, const char* path) {
     if (world == nullptr || path == nullptr) {
         return 0;
     }
-    return reinterpret_cast<Spark::GameWorld*>(world)->LoadTexture(path) ? 1 : 0;
+    return reinterpret_cast<Spark::GameWorld*>(world)->Assets().LoadTexture(path) ? 1 : 0;
 }
 
 void spark_world_pump_assets(SparkGameWorld* world) {
     if (world == nullptr) {
         return;
     }
-    reinterpret_cast<Spark::GameWorld*>(world)->PumpAssets();
+    reinterpret_cast<Spark::GameWorld*>(world)->Assets().Pump();
 }
 
 int spark_world_is_gltf_ready(SparkGameWorld* world, const char* path) {
     if (world == nullptr || path == nullptr) {
         return 0;
     }
-    return reinterpret_cast<Spark::GameWorld*>(world)->IsGltfReady(path) ? 1 : 0;
+    return reinterpret_cast<Spark::GameWorld*>(world)->Assets().IsGltfReady(path) ? 1 : 0;
 }
 
 int spark_world_is_skinned_gltf_ready(SparkGameWorld* world, const char* path) {
     if (world == nullptr || path == nullptr) {
         return 0;
     }
-    return reinterpret_cast<Spark::GameWorld*>(world)->IsSkinnedGltfReady(path) ? 1 : 0;
+    return reinterpret_cast<Spark::GameWorld*>(world)->Assets().IsSkinnedGltfReady(path) ? 1 : 0;
 }
 
 std::uint32_t spark_world_get_pending_asset_load_count(SparkGameWorld* world) {
@@ -148,7 +148,7 @@ std::uint32_t spark_world_get_pending_asset_load_count(SparkGameWorld* world) {
         return 0;
     }
     return static_cast<std::uint32_t>(
-            reinterpret_cast<Spark::GameWorld*>(world)->GetPendingAssetLoadCount());
+            reinterpret_cast<Spark::GameWorld*>(world)->Assets().PendingLoadCount());
 }
 
 int spark_world_register_sky_sphere_mesh(
@@ -167,7 +167,7 @@ int spark_world_register_sky_sphere_mesh(
     Spark::SharedPtr<Spark::Mesh> skyMesh =
             Spark::MakeShared<Spark::Mesh>(Spark::Utf8String("ScriptSkySphere"));
     *skyMesh = Spark::Mesh::CreateSkySphere(radius, latitudeSegments, longitudeSegments);
-    cppWorld->RegisterMesh(skyMesh, cacheKey);
+    cppWorld->Assets().RegisterMesh(skyMesh, cacheKey);
     return 1;
 }
 
@@ -184,8 +184,8 @@ int spark_world_register_texture_from_file(
         return 0;
     }
     auto shared = Spark::MakeShared<Spark::Texture2D>(Spark::MoveTemp(decoded));
-    reinterpret_cast<Spark::GameWorld*>(world)->RegisterTexture(shared, cacheKey);
-    reinterpret_cast<Spark::GameWorld*>(world)->RegisterTexture(shared, filePath);
+    reinterpret_cast<Spark::GameWorld*>(world)->Assets().RegisterTexture(shared, cacheKey);
+    reinterpret_cast<Spark::GameWorld*>(world)->Assets().RegisterTexture(shared, filePath);
     return 1;
 }
 
@@ -205,7 +205,7 @@ int spark_world_register_checkerboard_texture(
             ToVector3(*colorA),
             ToVector3(*colorB));
     auto shared = Spark::MakeShared<Spark::Texture2D>(std::move(tex));
-  reinterpret_cast<Spark::GameWorld*>(world)->RegisterTexture(shared, cacheKey);
+  reinterpret_cast<Spark::GameWorld*>(world)->Assets().RegisterTexture(shared, cacheKey);
     return 1;
 }
 

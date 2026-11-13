@@ -6,7 +6,7 @@ namespace Spark.Bindings;
 public sealed partial class GameWorld
 {
     private WorldEntities? _entities;
-    private WorldAssetCache? _assetCache;
+    private WorldAssets? _assets;
     private WorldPhysics? _physics;
     private WorldRendering? _rendering;
     private WorldSimulation? _simulation;
@@ -18,7 +18,11 @@ public sealed partial class GameWorld
     public WorldEntities Entities => _entities ??= new WorldEntities(this);
 
     /// <summary>Asset cache, async pump, GLTF/texture registration.</summary>
-    public WorldAssetCache AssetCache => _assetCache ??= new WorldAssetCache(this);
+    public WorldAssets Assets => _assets ??= new WorldAssets(this);
+
+    /// <summary>Use <see cref="Assets"/> instead.</summary>
+    [Obsolete("Use Assets instead.")]
+    public WorldAssets AssetCache => Assets;
 
     /// <summary>Physics simulation and 2D queries.</summary>
     public WorldPhysics Physics => _physics ??= new WorldPhysics(this);

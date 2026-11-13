@@ -57,7 +57,7 @@ bool TryLoadSkyHdrTexture(
     Spark::Texture2D decoded;
     if (Spark::Texture2D::TryLoadFromFile(SPARK_SKY_TEXTURE_PATH, decoded)) {
         outTex = Spark::MakeShared<Spark::Texture2D>(Spark::MoveTemp(decoded));
-        w.RegisterTexture(outTex, "spark/demo/sky_equirect");
+        w.Assets().RegisterTexture(outTex, "spark/demo/sky_equirect");
         outLabel = Spark::Utf8String("HDR (build default)");
         return true;
     }
@@ -80,7 +80,7 @@ bool TryLoadSkyHdrTexture(
             path.AppendUtf8(kRelativeHdrPaths[pi]);
             if (Spark::Texture2D::TryLoadFromFile(path.CStr(), decoded)) {
                 outTex = Spark::MakeShared<Spark::Texture2D>(Spark::MoveTemp(decoded));
-                w.RegisterTexture(outTex, "spark/demo/sky_equirect");
+                w.Assets().RegisterTexture(outTex, "spark/demo/sky_equirect");
                 outLabel = Spark::Utf8String(kLabels[pi]);
                 return true;
             }
@@ -111,15 +111,15 @@ int spark_world_register_three_d_demo_textures(
                 Spark::Vector3{0.25F, 0.35F, 0.55F});
         checkerTex->GetName() = Spark::Utf8String("DemoCheckerFallback");
     }
-    w.RegisterTexture(checkerTex, "spark/demo/checker");
+    w.Assets().RegisterTexture(checkerTex, "spark/demo/checker");
 
     auto brickTex = Spark::MakeShared<Spark::Texture2D>(Spark::Utf8String("BrickPattern"));
     const char* brickKey = "spark/demo/brick_fallback";
     if (!Spark::DemoAssets::TryLoadBrickTexture(*brickTex)) {
         *brickTex = Spark::Texture2D::CreateBrickPattern(256, 256);
-        w.RegisterTexture(brickTex, "spark/demo/brick_fallback");
+        w.Assets().RegisterTexture(brickTex, "spark/demo/brick_fallback");
     } else {
-        w.RegisterTexture(brickTex, "spark/demo/bricks");
+        w.Assets().RegisterTexture(brickTex, "spark/demo/bricks");
         brickKey = "spark/demo/bricks";
     }
 
@@ -140,14 +140,14 @@ int spark_world_register_sky_demo_ground(
     auto groundDiffTex = Spark::MakeShared<Spark::Texture2D>(Spark::Utf8String("SkyDemoGroundDiffuse"));
     const char* textureKey = "spark/demo/ground_baked";
     if (Spark::DemoAssets::TryLoadTerrainDemoSoilTexture(*groundDiffTex)) {
-        w.RegisterTexture(groundDiffTex, "spark/demo/ground_soil");
+        w.Assets().RegisterTexture(groundDiffTex, "spark/demo/ground_soil");
         textureKey = "spark/demo/ground_soil";
         *outRoughness = 0.93F;
     } else {
         const Spark::DemoAssets::RandomSoilGroundResult baked =
                 Spark::DemoAssets::BuildJitteredSoilWithGrassPatchesTexture(768U, 0x5F3759DFU);
         *groundDiffTex = Spark::MoveTemp(baked.texture);
-        w.RegisterTexture(groundDiffTex, "spark/demo/ground_baked");
+        w.Assets().RegisterTexture(groundDiffTex, "spark/demo/ground_baked");
         *outRoughness = 0.91F;
     }
 
@@ -155,7 +155,7 @@ int spark_world_register_sky_demo_ground(
             Spark::DemoAssets::ProceduralTextureSpanWorldUnits(Spark::kSceneGroundHalfExtent);
     auto groundAsset = Spark::MakeShared<Spark::Mesh>(Spark::Utf8String("SkyDemoGround"));
     *groundAsset = Spark::Mesh::CreateGroundPlane(Spark::kSceneGroundHalfExtent, groundWorldSpan);
-    w.RegisterMesh(groundAsset, "spark/demo/ground");
+    w.Assets().RegisterMesh(groundAsset, "spark/demo/ground");
 
     static_cast<void>(CopyUtf8Key(textureKey, outTextureKey, textureKeyCap));
     return 1;
@@ -186,7 +186,7 @@ int spark_gltf_try_measure_rigid_layout(
         return 0;
     }
     Spark::GltfAsset asset{};
-    if (!ToWorld(world)->AwaitGltf(gltfPath, asset) || !asset.mesh) {
+    if (!ToWorld(world)->Assets().AwaitGltf(gltfPath, asset) || !asset.mesh) {
         return 0;
     }
 
@@ -217,7 +217,7 @@ int spark_object_bind_rigid_gltf_mesh(
         return 0;
     }
     Spark::GltfAsset asset{};
-    if (!ToWorld(world)->AwaitGltf(gltfPath, asset) || !asset.mesh) {
+    if (!ToWorld(world)->Assets().AwaitGltf(gltfPath, asset) || !asset.mesh) {
         return 0;
     }
     Spark::GltfAssetBinder::BindRigidMesh(
@@ -236,7 +236,7 @@ int spark_object_bind_skinned_gltf_mesh(
     if (object == nullptr || world == nullptr || gltfPath == nullptr) {
         return 0;
     }
-    const Spark::SkinnedGltfAsset asset = ToWorld(world)->LoadSkinnedGltf(gltfPath);
+    const Spark::SkinnedGltfAsset asset = ToWorld(world)->Assets().LoadSkinnedGltf(gltfPath);
     if (!asset.mesh) {
         return 0;
     }

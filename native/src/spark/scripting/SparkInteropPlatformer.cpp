@@ -102,7 +102,7 @@ int spark_world_register_platformer2d_demo_textures(
                 Spark::Vector3{0.18F, 0.52F, 0.34F});
         platformTilesTex->GetName() = Spark::Utf8String("PlatCheckerFallback");
     }
-    w.RegisterTexture(platformTilesTex, "spark/plat/kenney_simplified_tilesheet");
+    w.Assets().RegisterTexture(platformTilesTex, "spark/plat/kenney_simplified_tilesheet");
 
     auto playerAtlasTex = Spark::MakeShared<Spark::Texture2D>(Spark::Utf8String("PlatPlayerAtlas"));
     std::uint32_t playerAtlasColumns = 5U;
@@ -111,7 +111,7 @@ int spark_world_register_platformer2d_demo_textures(
         *playerAtlasTex = MakePlayerRunAtlasFallback();
         playerAtlasColumns = 5U;
     }
-    w.RegisterTexture(playerAtlasTex, "spark/plat/player_atlas");
+    w.Assets().RegisterTexture(playerAtlasTex, "spark/plat/player_atlas");
 
     auto gemTex = Spark::MakeShared<Spark::Texture2D>(Spark::Utf8String("PlatGem"));
     const bool gemUsingKenney = TryLoadKenneyGemCollectible(*gemTex);
@@ -119,7 +119,7 @@ int spark_world_register_platformer2d_demo_textures(
         *gemTex = MakeGemTextureFallback();
         gemTex->GetName() = Spark::Utf8String("PlatGemFallback");
     }
-    w.RegisterTexture(gemTex, "spark/plat/gem_collectible");
+    w.Assets().RegisterTexture(gemTex, "spark/plat/gem_collectible");
 
     FillAssetsInfo(outInfo, platformUsingKenney, playerUsingKenney, gemUsingKenney, playerAtlasColumns);
     return 1;

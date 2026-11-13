@@ -212,6 +212,8 @@ typedef enum SparkSignalId {
     SparkSignalId_UserBase = 0x10000,
 } SparkSignalId;
 
+#include "spark/scripting/SparkInteropComponentKinds.h"
+
 /** Mirrors <c>Spark::GameObjectQueryFilter</c> (subset for batched world queries). */
 typedef struct SparkGameObjectQueryFilter {
     int includeInactive;

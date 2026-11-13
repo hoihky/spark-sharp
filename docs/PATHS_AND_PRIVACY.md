@@ -4,7 +4,7 @@
 
 | Artifact | Why |
 |----------|-----|
-| `build/`, `cmake-build-debug/`, `_deps/` | CMake outputs embed **absolute paths** to this machine |
+| `build/`, `native/build/`, `cmake-build-debug/`, `_deps/` | CMake outputs embed **absolute paths** to this machine |
 | `**/bin/`, `**/obj/` | MSBuild / NuGet files contain **home directory** paths (`~/.nuget`) |
 | `.env`, keys, `credentials.json` | Secrets |
 

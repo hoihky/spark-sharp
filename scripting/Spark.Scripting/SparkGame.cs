@@ -1,5 +1,6 @@
 #nullable enable
 
+using System;
 using Spark.Bindings;
 using Spark.Bindings.Components;
 
@@ -13,7 +14,10 @@ public abstract class SparkGame : Game
     protected GameWorld? World { get; private set; }
 
     protected WorldEntities Entities => World!.Entities;
-    protected WorldAssetCache AssetCache => World!.AssetCache;
+    protected WorldAssets Assets => World!.Assets;
+
+    [Obsolete("Use Assets instead.")]
+    protected WorldAssets AssetCache => Assets;
     protected WorldPhysics Physics => World!.Physics;
     protected WorldRendering Rendering => World!.Rendering;
     protected WorldSimulation Simulation => World!.Simulation;

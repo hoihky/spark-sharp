@@ -26,8 +26,8 @@ GameWorld world = context.TryGetScene()!.GetWorld();
 world.Entities.Create("Player");
 world.Entities.SetParent(child, parent);
 world.Entities.FindWithTag("Enemy", includeInactive: false);
-world.AssetCache.LoadGltf(path);
-world.AssetCache.Pump();
+world.Assets.LoadGltf(path);
+world.Assets.Pump();
 world.Physics.Simulate3D(timing);
 world.Physics.Layers.DefaultQueryFilter();
 world.Simulation.RunDefaultSlice(timing, context); // or UpdateGameObjects + ProcessVfx + ProcessAudio
@@ -51,7 +51,7 @@ listener.SetCallback((owner, id, payload) =>
 | Facet | Mirrors C++ |
 |-------|-------------|
 | `Entities` | Create/destroy/find/reparent, immediate destroy |
-| `AssetCache` | Load/register GLTF & textures, pump, readiness |
+| `Assets` | Load/register GLTF & textures, pump, readiness (`WorldAssets` / C++ `world.Assets()`) |
 | `Physics` | 2D/3D step, character controllers, overlap queries, layer masks |
 | `Simulation` | `UpdateGameObjects`, VFX, sound, AI |
 | `Rendering` | Standard-lit submit / param fill |
@@ -59,7 +59,7 @@ listener.SetCallback((owner, id, payload) =>
 | `Query` | `WorldQuery`: `CollectWithTag`, `CollectWithComponent`, `Collect(filter, span)`, `Query(filter)`, `FindWithTag` / `FindByName` |
 | `Scenes` | `SceneManager` load/unload, spawn points, prefabs |
 
-`SparkGame` exposes the same facets as `protected` members (`Entities`, `AssetCache`, …).
+`SparkGame` exposes the same facets as `protected` members (`Entities`, `Assets`, …).
 
 ### Signals
 
@@ -76,6 +76,7 @@ These remain for compatibility but are marked `[Obsolete]`:
 - `SparkMath.Mul` → `Matrix4.Multiply` / `operator *`
 - `CollisionFilter2D.*` → `world.Physics.Layers.*`
 - `RenderLayer.*` → `world.RenderLayers.*`
+- `GameWorld.LoadGltf` / `LoadTexture` / `AssetCache` → `world.Assets.*`
 - `SceneSubmit.StandardLit` → `world.Rendering.SubmitStandardLit` or `StandardLitSceneSubmit`
 
 ## Reusable gameplay library (`Spark.Scripting.Gameplay`)
@@ -95,7 +96,7 @@ Recent `SparkInterop` exports aligned with `GameWorld.hpp`:
 - `FindGameObjectByName`
 - `SetParent` (world-level)
 - `DestroyGameObjectImmediate`
-- `PumpAssets`, `IsGltfReady`, `IsSkinnedGltfReady`, pending load count
+- `Assets.Pump`, `Assets.IsGltfReady`, `Assets.IsSkinnedGltfReady`, `Assets.PendingLoadCount` (C ABI: `spark_world_pump_assets`, …)
 - `QueryCollectByTag`
 
 Regenerate P/Invoke companions after editing `SparkInterop.h`:
