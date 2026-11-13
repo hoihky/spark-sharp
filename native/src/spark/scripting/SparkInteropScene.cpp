@@ -1,7 +1,7 @@
 #include "spark/scripting/SparkInterop.h"
 #include "spark/scripting/SparkInteropInternal.hpp"
 
-#include "spark/ai/GameAiSubsystem.hpp"
+#include "spark/ai/AiSubsystem.hpp"
 #include "spark/engine/IEngineContext.hpp"
 #include "spark/engine/IInput.hpp"
 #include "spark/engine/SceneRenderParams.hpp"
@@ -44,7 +44,7 @@ void spark_world_simulate_game_ai(
     if (world == nullptr || timing == nullptr || context == nullptr) {
         return;
     }
-    Spark::SimulateGameAi(
+    Spark::AiSubsystem::RunFrame(
             *reinterpret_cast<Spark::GameWorld*>(world),
             ToCppTiming(*timing),
             *reinterpret_cast<Spark::IEngineContext*>(context));

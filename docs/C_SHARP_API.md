@@ -9,7 +9,10 @@ This document maps the **Spark C++ engine API** to **Spark.Bindings** / **Spark.
 | `Spark::Game` | `Spark.Bindings.Game` / `Spark.Scripting.SparkGame` | Override lifecycle hooks |
 | `Spark::IEngineContext` | `IEngineContext` | Input, scene, window |
 | `Spark::Scene` | `Scene` | `GetWorld()` |
-| `Spark::GameWorld` | `GameWorld` | Use **facets** below (preferred) |
+| `Spark::GameWorld` | `GameWorld` | Use **facets** below (preferred; mirrors C++ `Entities()` / `Simulation()` / …) |
+| `Spark::LitScene` | `LitScene` | Shorter lit submit helpers |
+| `Spark::AiSubsystem` | `WorldSimulation.RunAi` | Full frame via `AiSubsystem::RunFrame` in native |
+| `Spark::SoundSubsystem` | `WorldSimulation.ProcessAudio` | `SoundSubsystem::ProcessFrame` in native |
 | `Spark::GameObject` | `GameObject` | Hierarchy + `Add*` / `Get*` components |
 | Components | `Spark.Bindings.Components.*` | ~120 generated mirrors |
 
@@ -27,10 +30,12 @@ world.AssetCache.LoadGltf(path);
 world.AssetCache.Pump();
 world.Physics.Simulate3D(timing);
 world.Physics.Layers.DefaultQueryFilter();
-world.Simulation.UpdateGameObjects(timing, context);
+world.Simulation.RunDefaultSlice(timing, context); // or UpdateGameObjects + ProcessVfx + ProcessAudio
 world.Rendering.SubmitStandardLit(context, viewProj, ...);
 world.RenderLayers.Register("Foreground", 100);
 world.Query.CollectWithTag("Pickup", buffer);
+world.Entities.Query.CollectFresh(pickups, GameObjectQueryFilter.WithTag("Pickup"));
+var all = world.Query.Query(GameObjectQueryFilter.WithComponent(SparkComponentKind.Mesh));
 world.Scenes.BeginLoadAsync("levels/hub.sparkscene");
 world.Scenes.Pump();
 player.EmitSignal(SignalId.UserSignal(0));
@@ -51,7 +56,7 @@ listener.SetCallback((owner, id, payload) =>
 | `Simulation` | `UpdateGameObjects`, VFX, sound, AI |
 | `Rendering` | Standard-lit submit / param fill |
 | `RenderLayers` | `RenderLayerRegistry` |
-| `Query` | `QueryGameObjects` (by tag, batched) |
+| `Query` | `WorldQuery`: `CollectWithTag`, `CollectWithComponent`, `Collect(filter, span)`, `Query(filter)`, `FindWithTag` / `FindByName` |
 | `Scenes` | `SceneManager` load/unload, spawn points, prefabs |
 
 `SparkGame` exposes the same facets as `protected` members (`Entities`, `AssetCache`, …).

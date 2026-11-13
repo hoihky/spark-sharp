@@ -11,6 +11,7 @@
 #include "spark/engine/SceneRenderParams.hpp"
 #include "spark/ecs/GameObjectQuery.hpp"
 #include "spark/scene/core/GameWorld.hpp"
+#include "spark/scene/core/world/WorldQuery.hpp"
 #include "spark/scene/core/Scene.hpp"
 #include "spark/render/platform/Window.hpp"
 
@@ -29,6 +30,34 @@ Spark::FrameTiming ToCpp(const SparkFrameTiming& t) {
 
 Spark::ComponentKind ToCpp(SparkComponentKind k) {
     return static_cast<Spark::ComponentKind>(static_cast<std::uint32_t>(k));
+}
+
+Spark::GameObjectQueryFilter ToCppQueryFilter(const SparkGameObjectQueryFilter* filter) {
+    Spark::GameObjectQueryFilter out{};
+    if (filter == nullptr) {
+        return out;
+    }
+    out.includeInactive = filter->includeInactive != 0;
+    out.rootsOnly = filter->rootsOnly != 0;
+    out.sceneInstanceId = filter->sceneInstanceId;
+    out.tagEquals = filter->tagEquals;
+    out.requiredComponent = ToCpp(filter->requiredComponent);
+    return out;
+}
+
+std::uint32_t CopyQueryResultToBuffer(
+        const Spark::GameObjectQueryResult& result,
+        SparkGameObject** outObjects,
+        const std::uint32_t capacity) {
+    const std::uint32_t total = static_cast<std::uint32_t>(result.GetSize());
+    if (outObjects == nullptr || capacity == 0) {
+        return total;
+    }
+    const std::uint32_t copy = total < capacity ? total : capacity;
+    for (std::uint32_t i = 0; i < copy; ++i) {
+        outObjects[i] = reinterpret_cast<SparkGameObject*>(result[i]);
+    }
+    return total;
 }
 
 }  // namespace
@@ -195,7 +224,7 @@ void spark_world_process_sound_cues(SparkGameWorld* world, SparkEngineContext* c
     if (world == nullptr || context == nullptr) {
         return;
     }
-    Spark::ProcessSoundCues(
+    Spark::SoundSubsystem::ProcessFrame(
             *reinterpret_cast<Spark::GameWorld*>(world),
             *reinterpret_cast<Spark::IEngineContext*>(context));
 }
@@ -328,20 +357,25 @@ std::uint32_t spark_world_query_collect_by_tag(
     if (world == nullptr || tag == nullptr) {
         return 0;
     }
-    Spark::GameObjectQueryFilter filter{};
-    filter.includeInactive = includeInactive != 0;
+    SparkGameObjectQueryFilter filter{};
+    filter.includeInactive = includeInactive;
     filter.tagEquals = tag;
-    const Spark::GameObjectQueryResult result =
-            reinterpret_cast<Spark::GameWorld*>(world)->QueryGameObjects(filter);
-    const std::uint32_t total = static_cast<std::uint32_t>(result.GetSize());
-    if (outObjects == nullptr || capacity == 0) {
-        return total;
+    return spark_world_query_collect_filtered(world, &filter, outObjects, capacity);
+}
+
+std::uint32_t spark_world_query_collect_filtered(
+        SparkGameWorld* world,
+        const SparkGameObjectQueryFilter* filter,
+        SparkGameObject** outObjects,
+        const std::uint32_t capacity) {
+    if (world == nullptr) {
+        return 0;
     }
-    const std::uint32_t copy = total < capacity ? total : capacity;
-    for (std::uint32_t i = 0; i < copy; ++i) {
-        outObjects[i] = reinterpret_cast<SparkGameObject*>(result[i]);
-    }
-    return total;
+    auto& cppWorld = *reinterpret_cast<Spark::GameWorld*>(world);
+    const Spark::WorldQuery query(cppWorld);
+    Spark::GameObjectQueryResult result;
+    query.CollectIntoFresh(result, ToCppQueryFilter(filter));
+    return CopyQueryResultToBuffer(result, outObjects, capacity);
 }
 
 std::uint64_t spark_object_get_id(const SparkGameObject* object) {

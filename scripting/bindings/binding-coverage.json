@@ -1,6 +1,6 @@
 {
   "componentsWithPublicMethods": 67,
-  "interopFunctionCount": 1349,
+  "interopFunctionCount": 1351,
   "kindsWithoutInteropPrefix": [
     {
       "kind": "AnimationEventReceiver",
@@ -80,5 +80,5 @@
       ]
     }
   ],
-  "notes": "Per-method coverage requires SPARK_SCRIPT_BIND + bindgen; kinds listed lack any spark_<prefix>_ symbol."
+  "notes": "Per-method coverage requires component-script-catalog.json + bindgen; kinds listed lack any spark_<prefix>_ symbol."
 }

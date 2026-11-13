@@ -212,6 +212,15 @@ typedef enum SparkSignalId {
     SparkSignalId_UserBase = 0x10000,
 } SparkSignalId;
 
+/** Mirrors <c>Spark::GameObjectQueryFilter</c> (subset for batched world queries). */
+typedef struct SparkGameObjectQueryFilter {
+    int includeInactive;
+    int rootsOnly;
+    uint64_t sceneInstanceId;
+    const char* tagEquals;
+    SparkComponentKind requiredComponent;
+} SparkGameObjectQueryFilter;
+
 /** Mirrors Spark::SceneLoadOptions (subset for scripting). */
 typedef struct SparkSceneLoadOptions {
     const char* assetsRoot;

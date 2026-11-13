@@ -14,10 +14,24 @@ public sealed class WorldSimulation : WorldFacet
 
     public void ProcessVfx() => World.ProcessVfx();
 
-    public void ProcessSoundCues(IEngineContext context) => World.ProcessSoundCues(context);
+    public void ProcessAudio(IEngineContext context) => World.ProcessSoundCues(context);
 
-    public void SimulateGameAi(FrameTiming timing, IEngineContext context)
+    [Obsolete("Use ProcessAudio")]
+    public void ProcessSoundCues(IEngineContext context) => ProcessAudio(context);
+
+    public void RunAi(FrameTiming timing, IEngineContext context)
         => World.SimulateGameAi(timing, context);
+
+    [Obsolete("Use RunAi")]
+    public void SimulateGameAi(FrameTiming timing, IEngineContext context) => RunAi(timing, context);
+
+    /// <summary>Default slice: components, VFX, audio (mirrors C++ <c>WorldSimulationFacet::RunDefaultSlice</c>).</summary>
+    public void RunDefaultSlice(FrameTiming timing, IEngineContext context)
+    {
+        UpdateGameObjects(timing, context);
+        ProcessVfx();
+        ProcessAudio(context);
+    }
 
     public void PlayVfx(string assetKeyOrBuiltin, float worldX, float worldY, float worldZ)
         => World.VfxPlay(assetKeyOrBuiltin, worldX, worldY, worldZ);

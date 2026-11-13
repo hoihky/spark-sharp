@@ -45,9 +45,7 @@ public abstract class Game : IGame
     public override void OnUpdate(FrameTiming timing, IEngineContext context)
     {
         var scene = context.TryGetScene();
-        scene?.GetWorld().UpdateGameObjects(timing, context);
-        scene?.GetWorld().ProcessVfx();
-        scene?.GetWorld().ProcessSoundCues(context);
+        scene?.GetWorld().Simulation.RunDefaultSlice(timing, context);
     }
 
     public override void OnRender(IRenderFrame frame, IEngineContext context) { }

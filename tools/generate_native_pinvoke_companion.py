@@ -46,6 +46,7 @@ def map_type(c: str) -> str:
         "SparkSceneMeshSlot": "SparkSceneMeshSlot",
         "SparkRigidbodyBodyType2D": "SparkRigidbodyBodyType2D",
         "SparkFrameTiming*": "SparkFrameTiming*",
+        "SparkGameObjectQueryFilter*": "SparkGameObjectQueryFilter*",
         "SparkEngineContext*": "SparkEngineContext*",
         "SparkScene*": "SparkScene*",
         "SparkInput*": "SparkInput*",

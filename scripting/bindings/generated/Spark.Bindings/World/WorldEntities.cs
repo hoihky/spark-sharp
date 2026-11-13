@@ -72,4 +72,7 @@ public sealed class WorldEntities : WorldFacet
             return found == null ? null : new GameObject(InteropPtr.From(found));
         }
     }
+
+    /// <summary>Batched queries (mirrors C++ <c>WorldEntities::Query</c> / <c>WorldQuery</c>).</summary>
+    public GameObjectQuery Query => World.Query;
 }

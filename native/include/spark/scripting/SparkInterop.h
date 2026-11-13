@@ -395,6 +395,12 @@ SPARK_SCRIPT_API uint32_t spark_world_query_collect_by_tag(
         int includeInactive,
         SparkGameObject** outObjects,
         uint32_t capacity);
+/** Batched collect via <c>Spark::WorldQuery</c> (null @p outObjects counts only). */
+SPARK_SCRIPT_API uint32_t spark_world_query_collect_filtered(
+        SparkGameWorld* world,
+        const SparkGameObjectQueryFilter* filter,
+        SparkGameObject** outObjects,
+        uint32_t capacity);
 
 /* --- SceneManager (mirrors Spark::SceneManager on a GameWorld) --- */
 SPARK_SCRIPT_API SparkSceneManager* spark_scene_manager_create(SparkGameWorld* world);
