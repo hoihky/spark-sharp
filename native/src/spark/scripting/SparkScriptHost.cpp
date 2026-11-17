@@ -1,5 +1,5 @@
 #include "spark/engine/Engine.hpp"
-#include "spark/memory/UniquePtr.hpp"
+#include "spark/core/UniquePtr.hpp"
 #include "spark/scripting/CoreClrHost.hpp"
 #include "spark/scripting/ManagedGameBridge.hpp"
 #include "spark/scripting/SparkInterop.h"

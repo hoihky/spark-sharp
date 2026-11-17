@@ -10,10 +10,11 @@
 #include "spark/physics/PhysicsSubsystem.hpp"
 #include "spark/scene/core/GameWorld.hpp"
 #include "spark/scene/core/Scene.hpp"
+#include "spark/scene/submit/LitSceneSubmitOptions.hpp"
 #include "spark/scene/submit/SceneSubmit.hpp"
 #include "spark/scene/texture/Texture2D.hpp"
 #include "spark/scene/mesh/Mesh.hpp"
-#include "spark/memory/SharedPtr.hpp"
+#include "spark/core/SharedPtr.hpp"
 #include "spark/core/Utf8String.hpp"
 #include "spark/physics/3d/CharacterController3D.hpp"
 
@@ -31,6 +32,45 @@ Spark::FrameTiming ToCppTiming(const SparkFrameTiming& t) {
 
 Spark::SceneSpriteSortMode ToCppSortMode(const SparkSpriteSortMode mode) {
     return static_cast<Spark::SceneSpriteSortMode>(static_cast<std::uint8_t>(mode));
+}
+
+Spark::LitSceneSubmitOptions ToCppLitOptions(
+        const SparkLitSceneSubmitOptions& in,
+        Spark::IEngineContext* context) {
+    Spark::LitSceneSubmitOptions out{};
+    out.lightDirectionWorld = ToVector3(in.lightDirectionWorld);
+    out.lightColor = ToVector3(in.lightColor);
+    out.lightIntensity = in.lightIntensity;
+    out.ambientColor = ToVector3(in.ambientColor);
+    out.enableParticles = in.enableParticles != 0;
+    out.particleCameraRight = ToVector3(in.particleCameraRight);
+    out.particleCameraUp = ToVector3(in.particleCameraUp);
+    out.sceneTimeSeconds = in.sceneTimeSeconds;
+    out.spriteSortMode = ToCppSortMode(in.spriteSortMode);
+    if (in.useSceneFrustumCulling != 0 && context != nullptr) {
+        out.sceneForCulling = context->TryGetScene();
+    }
+    return out;
+}
+
+void FromLitCameraParams(
+        const Spark::SceneRenderParams& params,
+        SparkMatrix4* outViewProjection,
+        SparkVector3* outCameraPositionWorld,
+        SparkVector3* outParticleCameraRight,
+        SparkVector3* outParticleCameraUp) {
+    if (outViewProjection != nullptr) {
+        *outViewProjection = FromMatrix4(params.viewProjection);
+    }
+    if (outCameraPositionWorld != nullptr) {
+        *outCameraPositionWorld = FromVector3(params.cameraPositionWorld);
+    }
+    if (outParticleCameraRight != nullptr) {
+        *outParticleCameraRight = FromVector3(params.particleCameraRight);
+    }
+    if (outParticleCameraUp != nullptr) {
+        *outParticleCameraUp = FromVector3(params.particleCameraUp);
+    }
 }
 
 }  // namespace
@@ -290,6 +330,126 @@ void spark_scene_submit_standard_lit_from_world(
     params.ssaoEnabled = ssaoEnabled != 0;
     params.Sanitize();
     reinterpret_cast<Spark::IEngineContext*>(context)->SetSceneRenderParams(params);
+}
+
+void spark_scene_fill_standard_lit_from_world_options(
+        SparkGameWorld* world,
+        SparkEngineContext* context,
+        const SparkMatrix4* viewProjection,
+        const SparkVector3* cameraPositionWorld,
+        const SparkLitSceneSubmitOptions* options,
+        void* outParams,
+        const std::uint32_t outParamsByteSize) {
+    if (world == nullptr || context == nullptr || viewProjection == nullptr || cameraPositionWorld == nullptr ||
+        options == nullptr || outParams == nullptr) {
+        return;
+    }
+    if (outParamsByteSize != sizeof(Spark::SceneRenderParams)) {
+        return;
+    }
+    auto& params = *static_cast<Spark::SceneRenderParams*>(outParams);
+    auto* ctx = reinterpret_cast<Spark::IEngineContext*>(context);
+    Spark::LitSceneSubmitOptions cppOpts = ToCppLitOptions(*options, ctx);
+    Spark::FillStandardLitSceneFromWorld(
+            *reinterpret_cast<Spark::GameWorld*>(world),
+            *ctx,
+            ToMatrix4(*viewProjection),
+            ToVector3(*cameraPositionWorld),
+            cppOpts,
+            params);
+}
+
+void spark_scene_submit_standard_lit_from_world_options(
+        SparkGameWorld* world,
+        SparkEngineContext* context,
+        const SparkMatrix4* viewProjection,
+        const SparkVector3* cameraPositionWorld,
+        const SparkLitSceneSubmitOptions* options,
+        const int ssaoEnabled) {
+    if (world == nullptr || context == nullptr || viewProjection == nullptr || cameraPositionWorld == nullptr ||
+        options == nullptr) {
+        return;
+    }
+    auto* ctx = reinterpret_cast<Spark::IEngineContext*>(context);
+    Spark::LitSceneSubmitOptions cppOpts = ToCppLitOptions(*options, ctx);
+    Spark::SceneRenderParams params{};
+    Spark::FillStandardLitSceneFromWorld(
+            *reinterpret_cast<Spark::GameWorld*>(world),
+            *ctx,
+            ToMatrix4(*viewProjection),
+            ToVector3(*cameraPositionWorld),
+            cppOpts,
+            params);
+    params.ssaoEnabled = ssaoEnabled != 0;
+    params.Sanitize();
+    ctx->SetSceneRenderParams(params);
+}
+
+int spark_scene_try_resolve_lit_camera(
+        const SparkGameWorld* world,
+        const int framebufferWidth,
+        const int framebufferHeight,
+        SparkMatrix4* outViewProjection,
+        SparkVector3* outCameraPositionWorld,
+        SparkVector3* outParticleCameraRight,
+        SparkVector3* outParticleCameraUp) {
+    if (world == nullptr || outViewProjection == nullptr || outCameraPositionWorld == nullptr) {
+        return 0;
+    }
+    Spark::SceneRenderParams scratch{};
+    if (!Spark::TryFillSceneCameraFromWorld(
+                *reinterpret_cast<const Spark::GameWorld*>(world),
+                static_cast<float>(framebufferWidth),
+                static_cast<float>(framebufferHeight),
+                scratch)) {
+        return 0;
+    }
+    FromLitCameraParams(scratch, outViewProjection, outCameraPositionWorld, outParticleCameraRight, outParticleCameraUp);
+    return 1;
+}
+
+int spark_scene_submit_standard_lit_with_camera(
+        SparkGameWorld* world,
+        SparkEngineContext* context,
+        const SparkLitSceneSubmitOptions* options,
+        const int ssaoEnabled) {
+    if (world == nullptr || context == nullptr || options == nullptr) {
+        return 0;
+    }
+    auto* ctx = reinterpret_cast<Spark::IEngineContext*>(context);
+    int fbW = 0;
+    int fbH = 0;
+    ctx->GetFramebufferSize(fbW, fbH);
+    if (fbW <= 0) {
+        fbW = 1;
+    }
+    if (fbH <= 0) {
+        fbH = 1;
+    }
+    Spark::SceneRenderParams params{};
+    if (!Spark::TryFillSceneCameraFromWorld(
+                *reinterpret_cast<Spark::GameWorld*>(world),
+                static_cast<float>(fbW),
+                static_cast<float>(fbH),
+                params)) {
+        return 0;
+    }
+    Spark::LitSceneSubmitOptions cppOpts = ToCppLitOptions(*options, ctx);
+    if (cppOpts.enableParticles) {
+        cppOpts.particleCameraRight = params.particleCameraRight;
+        cppOpts.particleCameraUp = params.particleCameraUp;
+    }
+    Spark::FillStandardLitSceneFromWorld(
+            *reinterpret_cast<Spark::GameWorld*>(world),
+            *ctx,
+            params.viewProjection,
+            params.cameraPositionWorld,
+            cppOpts,
+            params);
+    params.ssaoEnabled = ssaoEnabled != 0;
+    params.Sanitize();
+    ctx->SetSceneRenderParams(params);
+    return 1;
 }
 
 void spark_ui_process_canvases_input(

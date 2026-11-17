@@ -276,6 +276,48 @@ SPARK_SCRIPT_API void spark_scene_submit_standard_lit_from_world(
         SparkSpriteSortMode spriteSortMode,
         int ssaoEnabled);
 
+/** Fill via <c>FillStandardLitSceneFromWorld</c> + <c>LitSceneSubmitOptions</c> (LitSceneSubmitter pipeline). */
+SPARK_SCRIPT_API void spark_scene_fill_standard_lit_from_world_options(
+        SparkGameWorld* world,
+        SparkEngineContext* context,
+        const SparkMatrix4* viewProjection,
+        const SparkVector3* cameraPositionWorld,
+        const SparkLitSceneSubmitOptions* options,
+        void* outParams,
+        uint32_t outParamsByteSize);
+
+/** Submit with options bundle; <c>ssaoEnabled</c> applied after fill. */
+SPARK_SCRIPT_API void spark_scene_submit_standard_lit_from_world_options(
+        SparkGameWorld* world,
+        SparkEngineContext* context,
+        const SparkMatrix4* viewProjection,
+        const SparkVector3* cameraPositionWorld,
+        const SparkLitSceneSubmitOptions* options,
+        int ssaoEnabled);
+
+/**
+ * Resolves main ECS camera into view/projection (mirrors <c>TryFillSceneCameraFromWorld</c>).
+ * Returns 1 when an enabled camera exists.
+ */
+SPARK_SCRIPT_API int spark_scene_try_resolve_lit_camera(
+        const SparkGameWorld* world,
+        int framebufferWidth,
+        int framebufferHeight,
+        SparkMatrix4* outViewProjection,
+        SparkVector3* outCameraPositionWorld,
+        SparkVector3* outParticleCameraRight,
+        SparkVector3* outParticleCameraUp);
+
+/**
+ * Resolves camera from world, fills via <c>LitSceneSubmitOptions</c>, and submits.
+ * Returns 1 on success (see <c>SubmitStandardLitSceneFromWorldWithCamera</c>).
+ */
+SPARK_SCRIPT_API int spark_scene_submit_standard_lit_with_camera(
+        SparkGameWorld* world,
+        SparkEngineContext* context,
+        const SparkLitSceneSubmitOptions* options,
+        int ssaoEnabled);
+
 /* --- UI (mirrors UiScene.hpp) --- */
 SPARK_SCRIPT_API void spark_ui_process_canvases_input(
         SparkGameWorld* world,

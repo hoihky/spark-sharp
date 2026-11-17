@@ -61,6 +61,31 @@ typedef enum SparkSpriteSortMode {
     SparkSpriteSortMode_SortOrderThenWorldY = 1,
 } SparkSpriteSortMode;
 
+/** Mirrors Spark::ScenePartitionKind (Octree → native OctTree). */
+typedef enum SparkScenePartitionKind {
+    SparkScenePartitionKind_None = 0,
+    SparkScenePartitionKind_BruteForce = 1,
+    SparkScenePartitionKind_AxisAlignedBinarySpacePartition = 2,
+    SparkScenePartitionKind_Octree = 3,
+    SparkScenePartitionKind_QuadTree = 4,
+    SparkScenePartitionKind_BoundingVolumeHierarchy = 5,
+} SparkScenePartitionKind;
+
+/** Mirrors Spark::LitSceneSubmitOptions (C++ <c>spark/scene/submit/LitSceneSubmitOptions.hpp</c>). */
+typedef struct SparkLitSceneSubmitOptions {
+    SparkVector3 lightDirectionWorld;
+    SparkVector3 lightColor;
+    float lightIntensity;
+    SparkVector3 ambientColor;
+    int enableParticles;
+    SparkVector3 particleCameraRight;
+    SparkVector3 particleCameraUp;
+    float sceneTimeSeconds;
+    SparkSpriteSortMode spriteSortMode;
+    /** When non-zero, uses <c>IEngineContext::TryGetScene()</c> for frustum cull (LitSceneSubmitter path). */
+    int useSceneFrustumCulling;
+} SparkLitSceneSubmitOptions;
+
 /** Mirrors Spark::GameFlowState. */
 typedef enum SparkGameFlowState {
     SparkGameFlowState_Intro = 0,

@@ -7,7 +7,7 @@
 #include "spark/ecs/components/animation/SpriteAnimatorComponent.hpp"
 #include "spark/scene/core/GameWorld.hpp"
 #include "spark/scene/texture/Texture2D.hpp"
-#include "spark/text/Font.hpp"
+#include "spark/ui/text/Font.hpp"
 
 #include <algorithm>
 #include <cstring>

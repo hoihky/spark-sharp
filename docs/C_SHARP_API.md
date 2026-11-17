@@ -10,7 +10,9 @@ This document maps the **Spark C++ engine API** to **Spark.Bindings** / **Spark.
 | `Spark::IEngineContext` | `IEngineContext` | Input, scene, window |
 | `Spark::Scene` | `Scene` | `GetWorld()` |
 | `Spark::GameWorld` | `GameWorld` | Use **facets** below (preferred; mirrors C++ `Entities()` / `Simulation()` / …) |
-| `Spark::LitScene` | `LitScene` | Shorter lit submit helpers |
+| `Spark::LitScene` | `LitScene` + `LitScene.Builder` | Options-based submit; matches `LitSceneSubmitter` pipeline |
+| `Spark::LitSceneSubmitOptions` | `LitSceneSubmitOptions` | Fluent `With*` helpers; `UseSceneFrustumCulling` for spatial cull |
+| `Spark::ScenePartitionKind` | `ScenePartitionKind` | On `SceneSpatialPolicyComponent.Partition` |
 | `Spark::AiSubsystem` | `WorldSimulation.RunAi` | Full frame via `AiSubsystem::RunFrame` in native |
 | `Spark::SoundSubsystem` | `WorldSimulation.ProcessAudio` | `SoundSubsystem::ProcessFrame` in native |
 | `Spark::GameObject` | `GameObject` | Hierarchy + `Add*` / `Get*` components |
@@ -118,12 +120,38 @@ These C++ areas still need catalog + interop entries before C# can mirror them c
 | **Async asset callbacks** | `OnGltfReady`, `RequestGltf` | Partial (pump + `Is*Ready` only) |
 | **Editor / ImGui** | `EditorApplication`, `IImGuiLayer` | Not exposed |
 | **Tilemap edit** | `TilemapEditSession`, TMX tools | Components only |
+| **Scene submit internals** | `LitSceneSubmitter`, `SceneDrawListSorter`, `spark/scene/spatial/*` | Run inside native fill; not script API |
 | **Physics 3D queries** | raycast/overlap (non-character) | Limited |
 | **GameplayInventoryCollector**, **PhysicsContactListener3D** | components | No interop prefix |
 | **Hierarchy signals / tags batch** | full `QueryGameObjects` filters | Tag query only |
 | **Subsystems as objects** | `PhysicsSubsystem`, `NavigationSubsystem` | World methods only |
 
 Component mirrors are the strongest layer (~120 types, ~1260 `spark_*` symbols). Subsystems and editor tooling are the main gap for full **SparkDemo** parity.
+
+## Lit scene submit (C++ refactor parity)
+
+```csharp
+var opts = LitSceneSubmitOptions.Default3D
+    .WithDirectionalLight(
+        new Vector3 { X = 0.35f, Y = 0.92f, Z = 0.18f },
+        new Vector3 { X = 1f, Y = 0.97f, Z = 0.9f },
+        0.92f)
+    .WithSceneFrustumCulling(true)
+    .WithSpriteSortMode(SparkSpriteSortMode.SparkSpriteSortMode_SortOrderThenWorldY);
+
+// Spatial policy on a GameObject (Octree → native OctTree):
+worldObject.GetOrAddSceneSpatialPolicy()!.Partition = ScenePartitionKind.Octree;
+
+new LitScene.Builder(world, context)
+    .WithCameraFromWorld()
+    .WithOptions(opts)
+    .Submit();
+
+// Or facet + auto camera:
+LitScene.SubmitWithCamera(world, context, opts);
+```
+
+Positional overloads (`world.Rendering.SubmitStandardLit` with many vectors) still call the same native `LitSceneSubmitter` path.
 
 ## Porting checklist (C++ demo → C#)
 

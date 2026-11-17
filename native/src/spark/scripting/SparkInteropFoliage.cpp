@@ -5,7 +5,7 @@
 #include "spark/ecs/components/foliage/FoliageInstancedMeshComponent.hpp"
 #include "spark/ecs/components/foliage/GrassFieldComponent.hpp"
 #include "spark/ecs/components/foliage/WindEnvironmentComponent.hpp"
-#include "spark/memory/SharedPtr.hpp"
+#include "spark/core/SharedPtr.hpp"
 #include "spark/scene/core/GameWorld.hpp"
 #include "spark/scene/mesh/Mesh.hpp"
 #include "spark/scene/texture/Texture2D.hpp"

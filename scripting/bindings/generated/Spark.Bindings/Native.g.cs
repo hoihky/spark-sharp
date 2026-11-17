@@ -63,6 +63,15 @@ namespace Spark.Bindings
         SparkSpriteSortMode_SortOrderOnly = 0,
         SparkSpriteSortMode_SortOrderThenWorldY = 1,
     }
+    public enum SparkScenePartitionKind : uint
+    {
+        SparkScenePartitionKind_None = 0,
+        SparkScenePartitionKind_BruteForce = 1,
+        SparkScenePartitionKind_AxisAlignedBinarySpacePartition = 2,
+        SparkScenePartitionKind_Octree = 3,
+        SparkScenePartitionKind_QuadTree = 4,
+        SparkScenePartitionKind_BoundingVolumeHierarchy = 5,
+    }
     public enum SparkGameFlowState : uint
     {
         SparkGameFlowState_Intro = 0,
@@ -470,6 +479,18 @@ namespace Spark.Bindings
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void spark_scene_submit_standard_lit_from_world(SparkGameWorld* world, SparkEngineContext* context, SparkMatrix4* viewProjection, SparkVector3* cameraPositionWorld, SparkVector3* lightDirectionWorld, SparkVector3* lightColor, float lightIntensity, SparkVector3* ambientColor, int enableParticles, SparkVector3* particleCameraRight, SparkVector3* particleCameraUp, float sceneTimeSeconds, SparkSpriteSortMode spriteSortMode, int ssaoEnabled);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void spark_scene_fill_standard_lit_from_world_options(SparkGameWorld* world, SparkEngineContext* context, SparkMatrix4* viewProjection, SparkVector3* cameraPositionWorld, SparkLitSceneSubmitOptions* options, void* outParams, uint outParamsByteSize);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern void spark_scene_submit_standard_lit_from_world_options(SparkGameWorld* world, SparkEngineContext* context, SparkMatrix4* viewProjection, SparkVector3* cameraPositionWorld, SparkLitSceneSubmitOptions* options, int ssaoEnabled);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_scene_try_resolve_lit_camera(SparkGameWorld* world, int framebufferWidth, int framebufferHeight, SparkMatrix4* outViewProjection, SparkVector3* outCameraPositionWorld, SparkVector3* outParticleCameraRight, SparkVector3* outParticleCameraUp);
+
+        [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern int spark_scene_submit_standard_lit_with_camera(SparkGameWorld* world, SparkEngineContext* context, SparkLitSceneSubmitOptions* options, int ssaoEnabled);
 
         [DllImport("SparkInterop", CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void spark_ui_process_canvases_input(SparkGameWorld* world, SparkInput* input, int framebufferWidth, int framebufferHeight);
