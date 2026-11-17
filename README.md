@@ -2,7 +2,7 @@
 
 # SparkSharp
 
-C# scripting and interop for the [Spark](https://github.com/your-org/spark) C++ engine.
+C# scripting and interop for the [Spark](https://github.com/hoihky/spark) C++ engine.
 
 This repository owns:
 

@@ -153,6 +153,10 @@ LitScene.SubmitWithCamera(world, context, opts);
 
 Positional overloads (`world.Rendering.SubmitStandardLit` with many vectors) still call the same native `LitSceneSubmitter` path.
 
+**`Vector3`:** generated bindings expose `X` / `Y` / `Z` properties only — use object initializers in options and lighting helpers, not a three-float constructor.
+
+**Paths / privacy:** set `SPARK_ENGINE_ROOT` to your engine checkout; run `./tools/check-paths-privacy.sh` before push ([PATHS_AND_PRIVACY.md](PATHS_AND_PRIVACY.md)). Engine factoring log: [SCENE_SUBMIT_AND_SPATIAL_REFACTOR](https://github.com/hoihky/spark/blob/main/docs/SCENE_SUBMIT_AND_SPATIAL_REFACTOR.md).
+
 ## Porting checklist (C++ demo → C#)
 
 1. Rebuild **spark-sharp** `SparkInterop` + `Spark.Bindings` after pulling binding changes.

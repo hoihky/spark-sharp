@@ -10,6 +10,10 @@
 
 All of the above are listed in **`.gitignore`**.
 
+## Engine sibling checkout
+
+Use a **sibling** directory layout (`../spark` next to this repo) or export **`SPARK_ENGINE_ROOT=/path/to/spark`** — never hardcode a developer home path in commits. Scene-submit refactor + C# sync: spark repo `docs/CSHARP_SCENE_SUBMIT_SYNC.md`.
+
 ## Source and scripts (OK)
 
 - **CMake / presets** use `${sourceDir}`, `SPARK_ENGINE_ROOT`, `CMAKE_BINARY_DIR` — no hardcoded user paths.
