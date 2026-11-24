@@ -96,7 +96,7 @@ public static class LitScene
                 return false;
             }
 
-            _world.Rendering.SubmitStandardLit(_context, _viewProjection, _cameraPositionWorld, _options, _ssaoEnabled);
+            _world.Rendering.SubmitLit(_context, _viewProjection, _cameraPositionWorld, _options, _ssaoEnabled);
             return true;
         }
     }
@@ -108,7 +108,7 @@ public static class LitScene
         in Vector3 cameraPositionWorld,
         in LitSceneSubmitOptions options,
         bool ssaoEnabled = false)
-        => world.Rendering.SubmitStandardLit(context, viewProjection, cameraPositionWorld, options, ssaoEnabled);
+        => world.Rendering.SubmitLit(context, viewProjection, cameraPositionWorld, options, ssaoEnabled);
 
     public static void Submit(
         GameWorld world,
@@ -131,11 +131,7 @@ public static class LitScene
             .WithParticles(enableParticles, particleCameraRight, particleCameraUp)
             .WithSceneTime(sceneTimeSeconds)
             .WithSpriteSortMode(spriteSortMode);
-        world.Rendering.SubmitStandardLit(
-            context,
-            viewProjection,
-            cameraPositionWorld,
-            options);
+        world.Rendering.SubmitLit(context, viewProjection, cameraPositionWorld, options);
     }
 
     public static bool TryResolveCamera(
@@ -183,5 +179,5 @@ public static class LitScene
         IEngineContext context,
         in LitSceneSubmitOptions options,
         bool ssaoEnabled = false)
-        => world.Rendering.SubmitStandardLitWithCamera(context, options, ssaoEnabled);
+        => world.Rendering.SubmitLitWithCamera(context, options, ssaoEnabled);
 }

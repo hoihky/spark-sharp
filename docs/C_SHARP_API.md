@@ -10,7 +10,7 @@ This document maps the **Spark C++ engine API** to **Spark.Bindings** / **Spark.
 | `Spark::IEngineContext` | `IEngineContext` | Input, scene, window |
 | `Spark::Scene` | `Scene` | `GetWorld()` |
 | `Spark::GameWorld` | `GameWorld` | Use **facets** below (preferred; mirrors C++ `Entities()` / `Simulation()` / …) |
-| `Spark::LitScene` | `LitScene` + `LitScene.Builder` | Options-based submit; matches `LitSceneSubmitter` pipeline |
+| `Spark::WorldRendering` | `world.Rendering` | **Blessed** `SubmitLit` / `SubmitLitWithCamera` / `FillLit` |
 | `Spark::LitSceneSubmitOptions` | `LitSceneSubmitOptions` | Fluent `With*` helpers; `UseSceneFrustumCulling` for spatial cull |
 | `Spark::ScenePartitionKind` | `ScenePartitionKind` | On `SceneSpatialPolicyComponent.Partition` |
 | `Spark::AiSubsystem` | `WorldSimulation.RunAi` | Full frame via `AiSubsystem::RunFrame` in native |
@@ -33,7 +33,7 @@ world.Assets.Pump();
 world.Physics.Simulate3D(timing);
 world.Physics.Layers.DefaultQueryFilter();
 world.Simulation.RunDefaultSlice(timing, context); // or UpdateGameObjects + ProcessVfx + ProcessAudio
-world.Rendering.SubmitStandardLit(context, viewProj, ...);
+world.Rendering.SubmitLit(context, viewProj, ...);
 world.RenderLayers.Register("Foreground", 100);
 world.Query.CollectWithTag("Pickup", buffer);
 world.Entities.Query.CollectFresh(pickups, GameObjectQueryFilter.WithTag("Pickup"));
@@ -79,7 +79,7 @@ These remain for compatibility but are marked `[Obsolete]`:
 - `CollisionFilter2D.*` → `world.Physics.Layers.*`
 - `RenderLayer.*` → `world.RenderLayers.*`
 - `GameWorld.LoadGltf` / `LoadTexture` / `AssetCache` → `world.Assets.*`
-- `SceneSubmit.StandardLit` → `world.Rendering.SubmitStandardLit` or `StandardLitSceneSubmit`
+- `SceneSubmit.StandardLit` → `world.Rendering.SubmitLit` or `StandardLitSceneSubmit`
 
 ## Reusable gameplay library (`Spark.Scripting.Gameplay`)
 
@@ -142,16 +142,13 @@ var opts = LitSceneSubmitOptions.Default3D
 // Spatial policy on a GameObject (Octree → native OctTree):
 worldObject.GetOrAddSceneSpatialPolicy()!.Partition = ScenePartitionKind.Octree;
 
-new LitScene.Builder(world, context)
-    .WithCameraFromWorld()
-    .WithOptions(opts)
-    .Submit();
+world.Rendering.SubmitLitWithCamera(context, opts);
 
-// Or facet + auto camera:
-LitScene.SubmitWithCamera(world, context, opts);
+// Or explicit matrices:
+world.Rendering.SubmitLit(context, viewProjection, cameraPos, opts);
 ```
 
-Positional overloads (`world.Rendering.SubmitStandardLit` with many vectors) still call the same native `LitSceneSubmitter` path.
+Engine doc: [LIT_RENDER_API](https://github.com/hoihky/spark/blob/main/docs/LIT_RENDER_API.md). `LitScene.Builder` and `SubmitStandardLit*` names remain for compatibility.
 
 **`Vector3`:** generated bindings expose `X` / `Y` / `Z` properties only — use object initializers in options and lighting helpers, not a three-float constructor.
 

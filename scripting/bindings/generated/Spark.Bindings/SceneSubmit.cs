@@ -33,7 +33,7 @@ public sealed class StandardLitSceneSubmit
     }
 }
 
-[Obsolete("Use world.Rendering.SubmitStandardLit or new StandardLitSceneSubmit(world).Submit(...)")]
+[Obsolete("Use world.Rendering.SubmitLit or new StandardLitSceneSubmit(world).Submit(...)")]
 public static class SceneSubmit
 {
     public static void StandardLit(

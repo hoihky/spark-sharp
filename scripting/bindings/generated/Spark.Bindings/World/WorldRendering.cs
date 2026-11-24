@@ -9,6 +9,15 @@ public sealed class WorldRendering : WorldFacet
     public WorldRendering(GameWorld world)
         : base(world) { }
 
+    /// <summary>Canonical lit submit (fill + set scene params). Prefer over <c>SubmitStandardLit</c>.</summary>
+    public void SubmitLit(
+        IEngineContext context,
+        in Matrix4 viewProjection,
+        in Vector3 cameraPositionWorld,
+        in LitSceneSubmitOptions options,
+        bool ssaoEnabled = false)
+        => SubmitStandardLit(context, viewProjection, cameraPositionWorld, options, ssaoEnabled);
+
     public void SubmitStandardLit(
         IEngineContext context,
         in Matrix4 viewProjection,
@@ -170,7 +179,14 @@ public sealed class WorldRendering : WorldFacet
         SubmitStandardLit(context, camera, options);
     }
 
-    /// <summary>Resolves main ECS camera and submits (C++ <c>SubmitStandardLitSceneFromWorldWithCamera</c>).</summary>
+    /// <summary>Canonical ECS-camera lit submit. Prefer over <c>SubmitStandardLitWithCamera</c>.</summary>
+    public bool SubmitLitWithCamera(
+        IEngineContext context,
+        in LitSceneSubmitOptions options,
+        bool ssaoEnabled = false)
+        => SubmitStandardLitWithCamera(context, options, ssaoEnabled);
+
+    /// <summary>Resolves main ECS camera and submits (legacy name).</summary>
     public bool SubmitStandardLitWithCamera(
         IEngineContext context,
         in LitSceneSubmitOptions options,
